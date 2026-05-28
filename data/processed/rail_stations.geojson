@@ -1,0 +1,108 @@
+{
+  "type": "FeatureCollection",
+  "name": "rail_stations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST01",
+        "name": "Timisoara Nord",
+        "city": "Timisoara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.2299, 45.7598]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST02",
+        "name": "Sibiu",
+        "city": "Sibiu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.1518, 45.7906]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST03",
+        "name": "Brasov",
+        "city": "Brasov"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.6012, 45.6579]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST04",
+        "name": "Sighisoara",
+        "city": "Sighisoara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.7936, 46.2197]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST05",
+        "name": "Bucuresti Nord",
+        "city": "Bucuresti"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [26.1025, 44.4268]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST06",
+        "name": "Constanta",
+        "city": "Constanta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.6383, 44.1733]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST07",
+        "name": "Tulcea Oras",
+        "city": "Tulcea"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.8013, 45.1794]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST08",
+        "name": "Cluj-Napoca",
+        "city": "Cluj-Napoca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.588, 46.7712]
+      }
+    }
+  ]
+}

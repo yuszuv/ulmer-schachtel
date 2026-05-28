@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "name": "rail_route_options",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "R1",
+        "route_name": "West-Ost-Hauptachse",
+        "from_city": "Timisoara",
+        "to_city": "Bucuresti",
+        "tags": "city,dracula"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [21.2299, 45.7598],
+          [24.1518, 45.7906],
+          [25.6012, 45.6579],
+          [26.1025, 44.4268]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "R2",
+        "route_name": "Bukarest zum Delta-Zubringer",
+        "from_city": "Bucuresti",
+        "to_city": "Tulcea",
+        "tags": "delta,coast"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [26.1025, 44.4268],
+          [28.6383, 44.1733],
+          [28.8013, 45.1794]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "R3",
+        "route_name": "Transsilvanien-Bogen",
+        "from_city": "Cluj-Napoca",
+        "to_city": "Brasov",
+        "tags": "dracula,mountains"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [23.588, 46.7712],
+          [24.7936, 46.2197],
+          [25.6012, 45.6579]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "R4",
+        "route_name": "Nord-Sued Verbindung",
+        "from_city": "Cluj-Napoca",
+        "to_city": "Bucuresti",
+        "tags": "city,longhaul"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [23.588, 46.7712],
+          [24.1518, 45.7906],
+          [26.1025, 44.4268]
+        ]
+      }
+    }
+  ]
+}

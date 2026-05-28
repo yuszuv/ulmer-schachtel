@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "name": "poi_destinations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI01",
+        "name": "Brasov",
+        "category": "dracula_city",
+        "priority": "high",
+        "notes": "Historische Altstadt, Karpaten-Naehe."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.6012, 45.6579]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI02",
+        "name": "Sighisoara",
+        "category": "dracula_city",
+        "priority": "high",
+        "notes": "Mittelalterliche Festungsstadt."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.7936, 46.2197]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI03",
+        "name": "Timisoara (Temeschburg)",
+        "category": "city",
+        "priority": "high",
+        "notes": "Westlicher Start- oder Umstiegsknoten."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.2087, 45.7489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI04",
+        "name": "Bucuresti (Bukarest)",
+        "category": "city",
+        "priority": "high",
+        "notes": "Grosser Bahn-Hub und moeglicher Endpunkt."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [26.1025, 44.4268]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI05",
+        "name": "Sulina",
+        "category": "danube_delta",
+        "priority": "medium",
+        "notes": "Tor zum Donaudelta, maritimer Charakter."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [29.657, 45.155]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI06",
+        "name": "Sfantu Gheorghe (Delta)",
+        "category": "danube_delta",
+        "priority": "medium",
+        "notes": "Ruhiger Delta-Ort mit Strandzugang."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [29.595, 44.893]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI07",
+        "name": "Letea Forest",
+        "category": "danube_delta",
+        "priority": "medium",
+        "notes": "Wald- und Duenenlandschaft im Delta."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [29.584, 45.295]
+      }
+    }
+  ]
+}
