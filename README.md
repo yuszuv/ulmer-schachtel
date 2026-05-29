@@ -116,10 +116,14 @@ Exakte Fahrplanzeiten stellt CFR nicht als offenen Feed bereit; die Spalten
 `arrival_local`/`departure_local` in `sample_connections.csv` bleiben daher leer
 (Quelle für Zeiten: <https://mersultrenurilor.infofer.ro>).
 
+Wie die Overpass-Abfrage funktioniert und wie du sie anpasst, erklärt
+[docs/05_overpass_101.md](docs/05_overpass_101.md).
+
 ## Weiterführung
 
 - QGIS-Setup: [docs/01_qgis_setup.md](docs/01_qgis_setup.md)
 - QField-Export: [docs/02_qfield_export.md](docs/02_qfield_export.md)
 - CLI-Einschätzung: [docs/03_cli_option.md](docs/03_cli_option.md)
 - Online-Karte / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
+- Overpass 101 (Bahndaten aus OSM): [docs/05_overpass_101.md](docs/05_overpass_101.md)
 - Fancy-Stil-TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)
