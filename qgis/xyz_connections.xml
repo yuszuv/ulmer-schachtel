@@ -23,8 +23,9 @@
   <!-- Reine Label-Overlays (transparent) – moderne Orts- & Straßennamen zum Drüberlegen,
        v. a. über die labelfreien Karten (historische Militäraufnahmen, Satellit). Zoom-abhängig:
        weit draußen Ortsnamen, beim Reinzoomen Straßennamen. Ganz nach oben in den Stapel legen. -->
-  <xyztiles name="Labels: Orte &amp; Straßen (CARTO Voyager)" url="https://a.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
-  <xyztiles name="Labels: dezent hell (CARTO Positron)" url="https://a.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <!-- tilePixelRatio=2 + @2x = Retina/HiDPI: auf Handys (QField) deutlich größere, scharfe Labels. -->
+  <xyztiles name="Labels: Orte &amp; Straßen (CARTO Voyager)" url="https://a.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}@2x.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="2"/>
+  <xyztiles name="Labels: dezent hell (CARTO Positron)" url="https://a.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}@2x.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="2"/>
 
   <!-- Gelände/Relief – wegen der Karpaten (Brașov, Sighișoara) -->
   <xyztiles name="OpenTopoMap (Höhenlinien + Relief)" url="https://tile.opentopomap.org/{z}/{x}/{y}.png" zmin="0" zmax="17" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
