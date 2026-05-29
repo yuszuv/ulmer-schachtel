@@ -19,8 +19,9 @@ Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanu
 - `data/raw`: Rohdaten (zukünftig z. B. GTFS, OSM-Exporte)
 - `data/processed`: Verwendete Vektor- und Tabellendaten
 - `data/reference/historical`: Referenzmaterial für historischen Kartenstil (Fancy-Stufe)
-- `qgis/projects`: QGIS-Projektdateien (`.qgz`, selbst angelegt)
-- `qgis/styles`: QGIS-Stildateien (`.qml`)
+- `qgis/reiseplan.qgz`: vorgefertigtes QGIS-Projekt (Layer + Stile)
+- `qgis/projects`: Platz für eigene QGIS-Projektdateien (`.qgz`)
+- `qgis/styles`: QGIS-Stildateien (`.qml`, inkl. eingebetteter SVG-Marker)
 - `docs`: Arbeits- und Exportdokumentation
 - `tools`: kleine Hilfsskripte/CLI
 
@@ -62,7 +63,7 @@ Details: siehe [docs/01_qgis_setup.md](docs/01_qgis_setup.md).
 ```bash
 uv run reiseplan-cli list-routes
 uv run reiseplan-cli overview
-uv run reiseplan-cli show-route R1
+uv run reiseplan-cli show-route M300
 uv run reiseplan-cli list-destinations --category dracula_city
 ```
 
@@ -71,6 +72,25 @@ Alternativ ohne Installation:
 ```bash
 uv run python tools/reiseplan_cli.py overview
 ```
+
+## Datenquellen & Lizenz
+
+Die Bahndaten (Bahnhöfe und Strecken) beruhen auf den **CFR-Magistralen 200–900**
+(„Căile Ferate Române main lines") und werden aus **OpenStreetMap** via Overpass
+API bezogen:
+
+```bash
+uv run python tools/fetch_cfr_data.py            # OSM abfragen, cachen, GeoJSON bauen
+uv run python tools/fetch_cfr_data.py --offline  # nur aus data/raw-Cache neu bauen
+```
+
+> Kartendaten © **OpenStreetMap-Mitwirkende**, lizenziert unter der
+> [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
+> Bei Weitergabe der abgeleiteten Daten ist diese Namensnennung beizulegen.
+
+Exakte Fahrplanzeiten stellt CFR nicht als offenen Feed bereit; die Spalten
+`arrival_local`/`departure_local` in `sample_connections.csv` bleiben daher leer
+(Quelle für Zeiten: <https://mersultrenurilor.infofer.ro>).
 
 ## Weiterführung
 
