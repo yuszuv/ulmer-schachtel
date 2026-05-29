@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 .venv/
 
+# Editor (nvim, vscode)
+.*.sw[a-p]
+.vscode/
+
 # QField-Exportpakete
 qfield/
 
@@ -19,12 +23,9 @@ tmp/
 # Generierte Webseite (aus GeoJSON via 'tools/build_site.py'; in CI nach Pages)
 site/
 
-# QField-Arbeitsexporte (lokal, nicht versioniert) – generische Muster,
-# damit künftige Export-Versionen nicht versehentlich committet werden.
-qgis/*_qfield.qgs
-qgis/main_qfield.qgs
-qgis/*_attachments.zip
-qgis/v*.zip
+# QField-Exporte gehören nach qfield/ (oben komplett ignoriert), nie nach qgis/.
+# So bleibt qgis/ ein reiner Quell-Ordner (reiseplan.qgz, styles/, …) und ein
+# versehentlich dort gelandeter Export fällt im 'git status' sofort auf.
 
 # OSM-Roh-Cache (regenerierbar via tools/fetch_cfr_data.py)
 data/raw/osm_ro_stations.json
