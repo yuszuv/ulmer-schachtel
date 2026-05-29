@@ -1,14 +1,14 @@
 route_id,sequence,station,arrival_local,departure_local,trip_hint
-R1,1,Timisoara Nord,08:10,08:25,Start im Westen
-R1,2,Sibiu,12:05,12:22,Umstieg moeglich
-R1,3,Brasov,15:10,15:35,Dracula-Spot
-R1,4,Bucuresti Nord,18:30,,Ziel / Umstieg
-R2,1,Bucuresti Nord,07:40,07:55,Start Hauptstadt
-R2,2,Constanta,10:30,10:50,Kuestenstopp
-R2,3,Tulcea Oras,13:20,,Delta-Zubringer Ende
+R1,1,Timișoara Nord,08:10,08:25,Start im Westen
+R1,2,Sibiu,12:05,12:22,Umstieg möglich
+R1,3,Brașov,15:10,15:35,Dracula-Spot
+R1,4,București Nord,18:30,,Ziel / Umstieg
+R2,1,București Nord,07:40,07:55,Start Hauptstadt
+R2,2,Constanța,10:30,10:50,Küstenstopp
+R2,3,Tulcea Oraș,13:20,,Delta-Zubringer Ende (weiter per Schiff)
 R3,1,Cluj-Napoca,09:00,09:15,Start Transsilvanien
-R3,2,Sighisoara,11:20,11:40,Dracula-Spot
-R3,3,Brasov,13:35,,Route Ende
+R3,2,Sighișoara,11:20,11:40,Dracula-Spot
+R3,3,Brașov,13:35,,Route Ende
 R4,1,Cluj-Napoca,06:50,07:05,Start Nordwest
 R4,2,Sibiu,09:15,09:35,Zwischenhalt
-R4,3,Bucuresti Nord,14:10,,Route Ende
+R4,3,București Nord,14:10,,Route Ende

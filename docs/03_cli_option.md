@@ -2,30 +2,42 @@
 
 ## Kurzfazit
 
-Ja, eine CLI ist sinnvoll, aber als Nebenwerkzeug:
+Ja, eine CLI ist sinnvoll, aber als **Nebenwerkzeug**:
 
 - schneller Datencheck ohne QGIS-UI
 - einfache Filter (`Kategorie`, `Route`)
-- guter Einstieg fuer spaetere Automatisierung (Import/Validierung)
+- kompakte Routenübersicht inkl. An-/Abfahrten (`overview`)
+- guter Einstieg für spätere Automatisierung (Import/Validierung)
 
-Fuer das Karten-Editing selbst bleibt QGIS das Hauptwerkzeug.
+Für das Karten-Editing selbst bleibt QGIS das Hauptwerkzeug.
 
 ## Enthaltenes Tool
 
 - Script: `tools/reiseplan_cli.py`
-- Kein externes Python-Paket noetig
+- Keine externen Python-Pakete nötig (nur Standardbibliothek)
+- Ausführung über **uv** (`pyproject.toml` definiert den Entrypoint `reiseplan-cli`)
 
 ## Beispiele
 
 ```bash
-python3 tools/reiseplan_cli.py list-categories
-python3 tools/reiseplan_cli.py list-destinations --category dracula_city
-python3 tools/reiseplan_cli.py list-routes
-python3 tools/reiseplan_cli.py show-route R2
+uv run reiseplan-cli list-categories
+uv run reiseplan-cli list-destinations --category dracula_city
+uv run reiseplan-cli list-routes
+uv run reiseplan-cli overview
+uv run reiseplan-cli show-route R2
 ```
 
-## Sinnvolle Erweiterungen (spaeter)
+Ohne Installation des Entrypoints geht es auch direkt:
 
-- Import echter GTFS-Fahrplaene in `data/raw`
+```bash
+uv run python tools/reiseplan_cli.py overview
+```
+
+> Die CLI sucht `data/processed` ausgehend vom aktuellen Verzeichnis aufwärts –
+> am einfachsten also aus dem Repo-Wurzelverzeichnis aufrufen.
+
+## Sinnvolle Erweiterungen (später)
+
+- Import echter GTFS-Fahrpläne in `data/raw`
 - Validierung, ob alle POIs einen naheliegenden Bahnhof haben
-- Export einer "Tagesvorschlag"-Liste fuer QField-Formulare
+- Export einer "Tagesvorschlag"-Liste für QField-Formulare

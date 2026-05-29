@@ -12,10 +12,10 @@
       "type": "Feature",
       "properties": {
         "id": "POI01",
-        "name": "Brasov",
+        "name": "Brașov",
         "category": "dracula_city",
         "priority": "high",
-        "notes": "Historische Altstadt, Karpaten-Naehe."
+        "notes": "Historische Altstadt, Karpaten-Nähe; Bran (Dracula-Schloss) in der Umgebung."
       },
       "geometry": {
         "type": "Point",
@@ -26,10 +26,10 @@
       "type": "Feature",
       "properties": {
         "id": "POI02",
-        "name": "Sighisoara",
+        "name": "Sighișoara",
         "category": "dracula_city",
         "priority": "high",
-        "notes": "Mittelalterliche Festungsstadt."
+        "notes": "Mittelalterliche Festungsstadt, Geburtsort von Vlad Țepeș."
       },
       "geometry": {
         "type": "Point",
@@ -40,7 +40,7 @@
       "type": "Feature",
       "properties": {
         "id": "POI03",
-        "name": "Timisoara (Temeschburg)",
+        "name": "Timișoara (Temeschburg)",
         "category": "city",
         "priority": "high",
         "notes": "Westlicher Start- oder Umstiegsknoten."
@@ -54,10 +54,10 @@
       "type": "Feature",
       "properties": {
         "id": "POI04",
-        "name": "Bucuresti (Bukarest)",
+        "name": "București (Bukarest)",
         "category": "city",
         "priority": "high",
-        "notes": "Grosser Bahn-Hub und moeglicher Endpunkt."
+        "notes": "Großer Bahn-Hub und möglicher Endpunkt."
       },
       "geometry": {
         "type": "Point",
@@ -71,7 +71,7 @@
         "name": "Sulina",
         "category": "danube_delta",
         "priority": "medium",
-        "notes": "Tor zum Donaudelta, maritimer Charakter."
+        "notes": "Tor zum Donaudelta, maritimer Charakter. Nur per Schiff ab Tulcea."
       },
       "geometry": {
         "type": "Point",
@@ -82,10 +82,10 @@
       "type": "Feature",
       "properties": {
         "id": "POI06",
-        "name": "Sfantu Gheorghe (Delta)",
+        "name": "Sfântu Gheorghe (Delta)",
         "category": "danube_delta",
         "priority": "medium",
-        "notes": "Ruhiger Delta-Ort mit Strandzugang."
+        "notes": "Ruhiger Delta-Ort mit Strandzugang. Nur per Schiff ab Tulcea."
       },
       "geometry": {
         "type": "Point",
@@ -99,7 +99,7 @@
         "name": "Letea Forest",
         "category": "danube_delta",
         "priority": "medium",
-        "notes": "Wald- und Duenenlandschaft im Delta."
+        "notes": "Wald- und Dünenlandschaft im Delta. Nur per Boot/Tour ab Tulcea."
       },
       "geometry": {
         "type": "Point",

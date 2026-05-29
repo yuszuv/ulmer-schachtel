@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# QField-Exportpakete
+qfield/
+
+# QGIS
+*.qgz~
+*.qgs~
+
+# Generierte GIS-Bündel (aus GeoJSON via 'reiseplan-cli build-gpkg')
+*.gpkg

@@ -12,8 +12,8 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST01",
-        "name": "Timisoara Nord",
-        "city": "Timisoara"
+        "name": "Timișoara Nord",
+        "city": "Timișoara"
       },
       "geometry": {
         "type": "Point",
@@ -36,8 +36,8 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST03",
-        "name": "Brasov",
-        "city": "Brasov"
+        "name": "Brașov",
+        "city": "Brașov"
       },
       "geometry": {
         "type": "Point",
@@ -48,8 +48,8 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST04",
-        "name": "Sighisoara",
-        "city": "Sighisoara"
+        "name": "Sighișoara",
+        "city": "Sighișoara"
       },
       "geometry": {
         "type": "Point",
@@ -60,8 +60,8 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST05",
-        "name": "Bucuresti Nord",
-        "city": "Bucuresti"
+        "name": "București Nord",
+        "city": "București"
       },
       "geometry": {
         "type": "Point",
@@ -72,8 +72,8 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST06",
-        "name": "Constanta",
-        "city": "Constanta"
+        "name": "Constanța",
+        "city": "Constanța"
       },
       "geometry": {
         "type": "Point",
@@ -84,7 +84,7 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST07",
-        "name": "Tulcea Oras",
+        "name": "Tulcea Oraș",
         "city": "Tulcea"
       },
       "geometry": {

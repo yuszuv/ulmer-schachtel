@@ -13,8 +13,8 @@
       "properties": {
         "route_id": "R1",
         "route_name": "West-Ost-Hauptachse",
-        "from_city": "Timisoara",
-        "to_city": "Bucuresti",
+        "from_city": "Timișoara",
+        "to_city": "București",
         "tags": "city,dracula"
       },
       "geometry": {
@@ -32,7 +32,7 @@
       "properties": {
         "route_id": "R2",
         "route_name": "Bukarest zum Delta-Zubringer",
-        "from_city": "Bucuresti",
+        "from_city": "București",
         "to_city": "Tulcea",
         "tags": "delta,coast"
       },
@@ -51,7 +51,7 @@
         "route_id": "R3",
         "route_name": "Transsilvanien-Bogen",
         "from_city": "Cluj-Napoca",
-        "to_city": "Brasov",
+        "to_city": "Brașov",
         "tags": "dracula,mountains"
       },
       "geometry": {
@@ -67,9 +67,9 @@
       "type": "Feature",
       "properties": {
         "route_id": "R4",
-        "route_name": "Nord-Sued Verbindung",
+        "route_name": "Nord-Süd Verbindung",
         "from_city": "Cluj-Napoca",
-        "to_city": "Bucuresti",
+        "to_city": "București",
         "tags": "city,longhaul"
       },
       "geometry": {
