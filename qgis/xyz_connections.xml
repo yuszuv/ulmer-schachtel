@@ -20,6 +20,12 @@
   <!-- Bahn-spezifischer Overlay – Strecken, Elektrifizierung, Bahnhöfe. Halbtransparent über die eigene Route legen -->
   <xyztiles name="OpenRailwayMap (Bahn-Overlay)" url="https://a.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png" zmin="2" zmax="19" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
+  <!-- Reine Label-Overlays (transparent) – moderne Orts- & Straßennamen zum Drüberlegen,
+       v. a. über die labelfreien Karten (historische Militäraufnahmen, Satellit). Zoom-abhängig:
+       weit draußen Ortsnamen, beim Reinzoomen Straßennamen. Ganz nach oben in den Stapel legen. -->
+  <xyztiles name="Labels: Orte &amp; Straßen (CARTO Voyager)" url="https://a.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <xyztiles name="Labels: dezent hell (CARTO Positron)" url="https://a.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+
   <!-- Gelände/Relief – wegen der Karpaten (Brașov, Sighișoara) -->
   <xyztiles name="OpenTopoMap (Höhenlinien + Relief)" url="https://tile.opentopomap.org/{z}/{x}/{y}.png" zmin="0" zmax="17" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="ESRI World Hillshade (reines Relief)" url="https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}" zmin="0" zmax="16" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>

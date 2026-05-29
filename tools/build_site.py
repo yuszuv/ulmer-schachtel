@@ -288,10 +288,23 @@ TEMPLATE = """<!DOCTYPE html>
   var DATA = JSON.parse(document.getElementById('reiseplan-data').textContent);
 
   var map = L.map('map');
-  L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap-Mitwirkende'
+
+  // Basiskarten (umschaltbar): OSM bringt eigene Labels mit, CARTO-"nolabels" ist bewusst beschriftungsfrei.
+  var osm = L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+    maxZoom: 19, attribution: '&copy; OpenStreetMap-Mitwirkende'
   }}).addTo(map);
+  var clean = L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_nolabels/{{z}}/{{x}}/{{y}}.png', {{
+    maxZoom: 20, attribution: '&copy; OpenStreetMap-Mitwirkende, &copy; CARTO'
+  }});
+
+  // Optionales Label-Overlay (moderne Orts-/Straßennamen, im Tileset zoom-abhängig:
+  // Orte weit draußen, Straßen beim Reinzoomen). Eigene Pane über der Basis, unter den Daten.
+  map.createPane('labelPane');
+  map.getPane('labelPane').style.zIndex = 350;
+  map.getPane('labelPane').style.pointerEvents = 'none';
+  var labels = L.tileLayer('https://{{s}}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{{z}}/{{x}}/{{y}}.png', {{
+    pane: 'labelPane', maxZoom: 20, attribution: '&copy; CARTO'
+  }});
 
   function esc(s) {{
     return String(s == null ? '' : s)
@@ -367,12 +380,15 @@ TEMPLATE = """<!DOCTYPE html>
     }}
   }}).addTo(map);
 
-  L.control.layers(null, {{
-    'Routen': routes,
-    'Bahnstationen': stations,
-    'Reiseziele': pois,
-    'Info': info
-  }}, {{ collapsed: false }}).addTo(map);
+  L.control.layers(
+    {{ 'OpenStreetMap': osm, 'Hell, ohne Labels (CARTO)': clean }},
+    {{
+      'Orts-/Straßennamen': labels,
+      'Routen': routes,
+      'Bahnstationen': stations,
+      'Reiseziele': pois,
+      'Info': info
+    }}, {{ collapsed: false }}).addTo(map);
 
   // Ausschnitt über alle Features.
   var group = L.featureGroup([routes, stations, pois, info]);
