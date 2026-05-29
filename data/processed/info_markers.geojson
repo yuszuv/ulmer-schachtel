@@ -19,6 +19,18 @@
         "type": "Point",
         "coordinates": [25.0, 45.9]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "INFO02",
+        "title": "Historische Karten dieser Region",
+        "body": "Als Hintergrund lassen sich die <b>Habsburger Militäraufnahmen</b> (Arcanum) zuschalten – historische Generalstabskarten:<br>• 1. Aufnahme (josephinisch, ~1763–1787)<br>• 2. Aufnahme (franziszeisch, 1806–1869)<br>• 3. Aufnahme (~1869–1887)<br><br><b>Wert für die Reise:</b> Sie zeigen Siebenbürgen und das Banat <i>vor</i> der Moderne – die alten Sachsenstädte (Sighișoara/Schäßburg, Brașov/Kronstadt), deutsch-ungarische Ortsnamen und die ersten, im Bau befindlichen Bahnlinien. Ideal, um die heutige Route gegen den historischen Stand zu legen.<br><br><b>Einschalten:</b> Hintergrundkarten-Auswahl → „Arcanum …\"."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.7957408, 46.2265282]
+      }
     }
   ]
 }

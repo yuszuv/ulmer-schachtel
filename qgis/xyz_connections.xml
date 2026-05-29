@@ -27,6 +27,9 @@
   <!-- Satellit – gezielt fürs Donaudelta (Wasserkanäle bei Sulina, Sf. Gheorghe, Letea) -->
   <xyztiles name="ESRI World Imagery (Satellit)" url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" zmin="0" zmax="19" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
-  <!-- Historische Grundkarte (Fancy-Stufe) – braucht Referer-Header. 2. Militäraufnahme 1806–1869 -->
+  <!-- Historische Grundkarten (Fancy-Stufe) – Habsburger Militäraufnahmen via Arcanum.
+       Brauchen einen Referer-Header. Chronologisch: 1. → 2. → 3. Landesaufnahme. -->
+  <xyztiles name="Arcanum 1. Militäraufnahme (1763–1787)" url="https://tiles.arcanum.com/mercator/europe-18century-firstsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="Arcanum 2. Militäraufnahme (1806–1869)" url="https://tiles.arcanum.com/mercator/europe-19century-secondsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <xyztiles name="Arcanum 3. Militäraufnahme (1869–1887)" url="https://tiles.arcanum.com/mercator/europe-19century-thirdsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
 </qgsXYZTilesConnections>
