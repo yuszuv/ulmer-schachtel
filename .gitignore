@@ -16,7 +16,12 @@ qfield/
 # Lokale Arbeits-/Scratch-Dateien
 tmp/
 
-# QField-Arbeitsexporte (lokal, nicht versioniert)
+# QField-Arbeitsexporte (lokal, nicht versioniert) – generische Muster,
+# damit künftige Export-Versionen nicht versehentlich committet werden.
+qgis/*_qfield.qgs
 qgis/main_qfield.qgs
-qgis/main_qfield_attachments.zip
-qgis/v9.zip
+qgis/*_attachments.zip
+qgis/v*.zip
+
+# OSM-Roh-Cache (regenerierbar via tools/fetch_cfr_data.py)
+data/raw/osm_ro_stations.json
