@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Donaudelta: fliegender Vogel über Schilf/Wasser auf petrolfarbenem Badge -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="30" fill="#2f7d6b" stroke="#13392f" stroke-width="2"/>
+  <!-- Vogel (Möwe) -->
+  <path d="M16 28 Q26 18 32 27 Q38 18 48 28"
+        fill="none" stroke="#f2f7f4" stroke-width="3.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wasserlinien -->
+  <g stroke="#f2f7f4" stroke-width="2.4" stroke-linecap="round" opacity="0.95">
+    <path d="M16 44 q4 -3 8 0 q4 3 8 0 q4 -3 8 0 q4 3 8 0" fill="none"/>
+  </g>
+  <!-- Schilf -->
+  <g fill="#f2f7f4">
+    <rect x="24" y="36" width="1.8" height="9" rx="0.9"/>
+    <path d="M24.9 34 q3 1 1 4 q-2 -1 -1 -4z"/>
+    <rect x="38" y="35" width="1.8" height="10" rx="0.9"/>
+    <path d="M38.9 33 q3 1 1 4 q-2 -1 -1 -4z"/>
+  </g>
+</svg>

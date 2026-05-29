@@ -1,12 +1,32 @@
-<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.34.0" styleCategories="Symbology|Labeling">
-  <renderer-v2 type="singleSymbol" symbollevels="0">
-    <symbols>
-      <symbol name="0" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">
-        <layer class="SvgMarker" enabled="1" pass="0" locked="0">
+#!/usr/bin/env python3
+"""Baut die Marker-QML-Styles mit eingebetteten SVG-Icons.
+
+Die SVG-Quellen liegen unter ``qgis/styles/icons/`` und werden base64-codiert
+direkt in die QML eingebettet (``name=base64:…``). Dadurch sind die Styles
+selbst-enthalten und syncen ohne Pfad-/Asset-Probleme nach QField.
+
+Aufruf (nach Änderungen an den SVGs):
+    python qgis/styles/build_marker_styles.py
+"""
+
+from __future__ import annotations
+
+import base64
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+ICONS = HERE / "icons"
+
+
+def b64(svg: str) -> str:
+    return base64.b64encode((ICONS / svg).read_bytes()).decode("ascii")
+
+
+def svg_marker(b64data: str, size: float) -> str:
+    return f"""        <layer class="SvgMarker" enabled="1" pass="0" locked="0">
           <Option type="Map">
-            <Option name="name" type="QString" value="base64:PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBCYWhuaG9mOiBadWdrb3BmIGF1ZiBzY2hpZWZlcmdyYXVlbSBCYWRnZSAtLT4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIzMCIgZmlsbD0iIzM0NDk1ZSIgc3Ryb2tlPSIjMWIyNzMzIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8IS0tIFdhZ2Vua2FzdGVuIC0tPgogIDxwYXRoIGQ9Ik0yMiAxOCBoMjAgYTQgNCAwIDAgMSA0IDQgdjIwIGE0IDQgMCAwIDEgLTQgNCBoLTIwIGE0IDQgMCAwIDEgLTQgLTQgdi0yMCBhNCA0IDAgMCAxIDQgLTQgeiIKICAgICAgICBmaWxsPSIjZjNmNmY5Ii8+CiAgPCEtLSBGcm9udHNjaGVpYmUgLS0+CiAgPHJlY3QgeD0iMjMiIHk9IjIzIiB3aWR0aD0iMTgiIGhlaWdodD0iOSIgcng9IjIiIGZpbGw9IiMzNDQ5NWUiLz4KICA8IS0tIFNjaGVpbndlcmZlciAtLT4KICA8Y2lyY2xlIGN4PSIyNiIgY3k9IjM4IiByPSIyLjIiIGZpbGw9IiNmZmQyM2YiLz4KICA8Y2lyY2xlIGN4PSIzOCIgY3k9IjM4IiByPSIyLjIiIGZpbGw9IiNmZmQyM2YiLz4KICA8IS0tIFLDpGRlci9TY2hpZW5lbiAtLT4KICA8ZyBmaWxsPSIjMWIyNzMzIj4KICAgIDxyZWN0IHg9IjI0IiB5PSI0NiIgd2lkdGg9IjUiIGhlaWdodD0iNCIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjM1IiB5PSI0NiIgd2lkdGg9IjUiIGhlaWdodD0iNCIgcng9IjEiLz4KICA8L2c+CiAgPHJlY3QgeD0iMTgiIHk9IjUwIiB3aWR0aD0iMjgiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiNmM2Y2ZjkiLz4KPC9zdmc+Cg=="/>
-            <Option name="size" type="QString" value="5.5"/>
+            <Option name="name" type="QString" value="base64:{b64data}"/>
+            <Option name="size" type="QString" value="{size}"/>
             <Option name="size_unit" type="QString" value="MM"/>
             <Option name="angle" type="QString" value="0"/>
             <Option name="offset" type="QString" value="0,0"/>
@@ -16,18 +36,20 @@
             <Option name="vertical_anchor_point" type="QString" value="1"/>
             <Option name="horizontal_anchor_point" type="QString" value="1"/>
           </Option>
-        </layer>
-      </symbol>
-    </symbols>
-  </renderer-v2>
-  <labeling type="simple">
+        </layer>"""
+
+
+# Labeling-Block: fett, mit dezentem weißem Puffer für Lesbarkeit auf Karten.
+def labeling(font_size: float, weight: int, color: str, dist: float) -> str:
+    style = "Bold" if weight >= 75 else "Regular"
+    return f"""  <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="name" isExpression="0"
-                  fontFamily="Sans Serif" fontSize="6.5" fontSizeUnit="Point"
-                  fontWeight="50" namedStyle="Regular" fontItalic="0"
+                  fontFamily="Sans Serif" fontSize="{font_size}" fontSizeUnit="Point"
+                  fontWeight="{weight}" namedStyle="{style}" fontItalic="0"
                   fontUnderline="0" fontStrikeout="0" fontKerning="1"
                   fontLetterSpacing="0" fontWordSpacing="0"
-                  textColor="52,73,94,255" textOpacity="1" blendMode="0"
+                  textColor="{color}" textOpacity="1" blendMode="0"
                   multilineHeight="1" multilineHeightUnit="Percentage"
                   textOrientation="horizontal" capitalization="0"
                   allowHtml="0" useSubstitutions="0"
@@ -42,7 +64,7 @@
                    leftDirectionSymbol="&lt;" rightDirectionSymbol=">"
                    reverseDirectionSymbol="0" placeDirectionSymbol="0"
                    formatNumbers="0" decimals="3" plusSign="0"/>
-      <placement placement="0" dist="1.0" distUnits="MM"
+      <placement placement="0" dist="{dist}" distUnits="MM"
                  distMapUnitScale="3x:0,0,0,0,0,0"
                  quadOffset="4" offsetType="0" xOffset="0" yOffset="0"
                  offsetUnits="MM" xOffsetMapUnitScale="3x:0,0,0,0,0,0"
@@ -77,5 +99,65 @@
         </Option>
       </dd_properties>
     </settings>
-  </labeling>
+  </labeling>"""
+
+
+def build_poi() -> str:
+    icons = {
+        "0": ("dracula_city", "Dracula-Stadt", b64("poi_dracula.svg"), 7.5),
+        "1": ("city", "Stadt", b64("poi_city.svg"), 7.0),
+        "2": ("danube_delta", "Donaudelta", b64("poi_delta.svg"), 7.0),
+    }
+    categories = "\n".join(
+        f'      <category value="{val}" label="{label}" symbol="{sid}" render="true"/>'
+        for sid, (val, label, _, _) in icons.items()
+    )
+    symbols = "\n".join(
+        f'      <symbol name="{sid}" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">\n'
+        f"{svg_marker(data, size)}\n      </symbol>"
+        for sid, (_, _, data, size) in icons.items()
+    )
+    return f"""<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis version="3.34.0" styleCategories="Symbology|Labeling">
+  <renderer-v2 attr="category" type="categorizedSymbol" symbollevels="0">
+    <categories>
+{categories}
+    </categories>
+    <symbols>
+{symbols}
+    </symbols>
+    <source-symbol>
+      <symbol name="0" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">
+{svg_marker(icons['0'][2], 7.0)}
+      </symbol>
+    </source-symbol>
+  </renderer-v2>
+{labeling(8, 75, "107,79,42,255", 1.5)}
 </qgis>
+"""
+
+
+def build_stations() -> str:
+    data = b64("rail_station.svg")
+    return f"""<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis version="3.34.0" styleCategories="Symbology|Labeling">
+  <renderer-v2 type="singleSymbol" symbollevels="0">
+    <symbols>
+      <symbol name="0" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">
+{svg_marker(data, 5.5)}
+      </symbol>
+    </symbols>
+  </renderer-v2>
+{labeling(6.5, 50, "52,73,94,255", 1.0)}
+</qgis>
+"""
+
+
+def main() -> None:
+    (HERE / "poi_destinations.qml").write_text(build_poi(), encoding="utf-8")
+    (HERE / "rail_stations.qml").write_text(build_stations(), encoding="utf-8")
+    print("geschrieben: poi_destinations.qml, rail_stations.qml (mit eingebetteten SVGs)")
+
+
+if __name__ == "__main__":
+    main()
