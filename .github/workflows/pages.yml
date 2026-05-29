@@ -1,0 +1,50 @@
+name: Webseite bauen & veröffentlichen
+
+# Baut die statische Reiseplaner-Seite aus den committeten Daten und deployt
+# sie nach GitHub Pages. Einmalig nötig: Repo-Settings → Pages → Source =
+# "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/processed/**
+      - tools/build_site.py
+      - tools/reiseplan_cli.py
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Parallele Deploys vermeiden; laufende Runs nicht abbrechen.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Seite bauen
+        run: python tools/build_site.py --out site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

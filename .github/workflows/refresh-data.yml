@@ -1,0 +1,48 @@
+name: Bahndaten aktualisieren (Overpass)
+
+# Holt die rumänischen Bahndaten frisch von der Overpass-API und schlägt die
+# aktualisierten GeoJSON/CSV als Pull Request vor. Die committeten Daten
+# bleiben damit die reviewte, autoritative Quelle. Wird der PR gemergt, baut
+# der Pages-Workflow die Seite automatisch neu.
+#
+# Manuell per Knopfdruck (Actions → diesen Workflow → "Run workflow").
+
+on:
+  workflow_dispatch:
+  # Optional: regelmäßig ausführen (Overpass kann langsam/instabil sein).
+  # schedule:
+  #   - cron: "0 4 * * 1"  # montags 04:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Daten von Overpass holen und GeoJSON/CSV neu bauen
+        run: python tools/fetch_cfr_data.py
+
+      - name: Pull Request mit Datendiff erstellen
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/overpass-refresh
+          title: "chore: Bahndaten von Overpass aktualisieren"
+          commit-message: "chore: Bahndaten von Overpass aktualisieren"
+          body: |
+            Automatischer Refresh der Bahndaten via `tools/fetch_cfr_data.py`
+            (OpenStreetMap Overpass-API).
+
+            Bitte den Datendiff prüfen. Nach dem Merge baut der Pages-Workflow
+            die Webseite automatisch neu.
+          add-paths: |
+            data/processed/*.geojson
+            data/processed/*.csv
+          delete-branch: true

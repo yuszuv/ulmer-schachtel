@@ -23,7 +23,8 @@ Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanu
 - `qgis/projects`: Platz für eigene QGIS-Projektdateien (`.qgz`)
 - `qgis/styles`: QGIS-Stildateien (`.qml`, inkl. eingebetteter SVG-Marker)
 - `docs`: Arbeits- und Exportdokumentation
-- `tools`: kleine Hilfsskripte/CLI
+- `tools`: kleine Hilfsskripte/CLI (inkl. `build_site.py` für die Online-Karte)
+- `.github/workflows`: GitHub Actions (Pages-Deploy, Daten-Refresh)
 
 ## Schnellstart (QGIS)
 
@@ -73,6 +74,29 @@ Alternativ ohne Installation:
 uv run python tools/reiseplan_cli.py overview
 ```
 
+## Online-Karte (GitHub Pages)
+
+Für Technik-Laien gibt es eine **interaktive Webseite** mit Karte (Routen,
+Bahnstationen, Reiseziele, Info-Marker) und einer lesbaren Routen- und
+Ziel-Übersicht – ganz ohne QGIS. Einfach die Pages-URL öffnen:
+
+> `https://<user>.github.io/<repo>/` (URL erscheint nach dem ersten Deploy
+> in *Actions* bzw. *Settings → Pages*).
+
+Lokal bauen und im Browser anschauen:
+
+```bash
+python tools/build_site.py        # erzeugt site/index.html (self-contained)
+xdg-open site/index.html          # oder die Datei direkt im Browser öffnen
+```
+
+Die Seite wird automatisch via GitHub Actions gebaut und veröffentlicht
+(Workflow `.github/workflows/pages.yml`), sobald sich Daten oder das Build-Skript
+auf `main` ändern. **Einmalig nötig:** *Settings → Pages → Source = „GitHub
+Actions"*. Frische Bahndaten lassen sich per Knopfdruck holen – Workflow
+*„Bahndaten aktualisieren (Overpass)"* unter *Actions* ausführen; er öffnet einen
+PR mit dem Datendiff. Details: [docs/04_web_pages.md](docs/04_web_pages.md).
+
 ## Datenquellen & Lizenz
 
 Die Bahndaten (Bahnhöfe und Strecken) beruhen auf den **CFR-Magistralen 200–900**
@@ -97,4 +121,5 @@ Exakte Fahrplanzeiten stellt CFR nicht als offenen Feed bereit; die Spalten
 - QGIS-Setup: [docs/01_qgis_setup.md](docs/01_qgis_setup.md)
 - QField-Export: [docs/02_qfield_export.md](docs/02_qfield_export.md)
 - CLI-Einschätzung: [docs/03_cli_option.md](docs/03_cli_option.md)
+- Online-Karte / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
 - Fancy-Stil-TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)
