@@ -27,7 +27,7 @@ Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanu
 ## Schnellstart (QGIS)
 
 0. Daten-Bündel bauen: `uv run reiseplan-cli build-gpkg`
-   (erzeugt `data/processed/reiseplan.gpkg` mit allen drei Layern; die GeoJSON
+   (erzeugt `data/processed/reiseplan.gpkg` mit allen vier Layern; die GeoJSON
    bleiben das versionierte Quellformat).
 1. QGIS öffnen (>= 3.28 empfohlen).
 2. Neues Projekt anlegen und **zuerst** das Projekt-CRS setzen:
@@ -35,20 +35,22 @@ Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanu
    Wichtig: Das CRS **vor** dem Laden der Layer setzen. Sonst übernimmt
    QGIS das CRS des ersten Layers (`EPSG:4326`, das WGS84-/GPS-Format, in
    dem GeoJSON laut Standard immer vorliegt) als Projekt-CRS.
-3. Layer aus `data/processed/reiseplan.gpkg` laden (3 Layer aus einer Datei):
+3. Layer aus `data/processed/reiseplan.gpkg` laden (4 Layer aus einer Datei):
    - `poi_destinations`
    - `rail_stations`
    - `rail_route_options`
+   - `info_markers` (ℹ „Über diese Karte" – in-App-Hilfe)
 
    Die Layer liegen in `EPSG:4326` vor und werden von QGIS on-the-fly nach
    `EPSG:3844` projiziert — die Daten bleiben unverändert. Fragt QGIS, ob das
    Projekt-CRS auf das des Layers umgestellt werden soll: **ablehnen**.
-4. Stile anwenden (Layer-Eigenschaften → Symbologie → *Stil laden…*):
+4. Stile anwenden (Layer-Eigenschaften → Symbologie → *Stil laden…*, **alle Kategorien**):
    - `poi_destinations` → `qgis/styles/poi_destinations.qml`
    - `rail_route_options` → `qgis/styles/rail_route_options.qml`
    - `rail_stations` → `qgis/styles/rail_stations.qml`
+   - `info_markers` → `qgis/styles/info_markers.qml`
 5. Hintergrundkarte laden: *Web → QuickMapServices → OSM Standard* (Plugin nötig).
-6. Labels kommen automatisch aus den QML-Dateien.
+6. Labels **und Map-Tips** (HTML-Karte beim Antippen) kommen automatisch aus den QML-Dateien.
 7. **Projekt speichern**: *Projekt → Speichern unter…* → `qgis/projects/v1.qgz`
    (Endung `.qgz` zwingend). Ohne gespeichertes Projekt schlägt der spätere
    QField-Export mit einem `AssertionError` fehl.

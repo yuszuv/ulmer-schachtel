@@ -1,0 +1,32 @@
+<!DOCTYPE connections>
+<!--
+  Ulmer Schachtel – Hintergrundkarten als XYZ-Tile-Verbindungen.
+
+  Import in QGIS: Browser-Panel → Rechtsklick auf "XYZ Tiles"
+                  → "Verbindungen laden…" → diese Datei wählen.
+
+  Danach erscheinen alle Karten unter XYZ Tiles und lassen sich per
+  Doppelklick als Layer laden. Unter die eigenen Vektordaten legen.
+
+  Hinweis: Alle Dienste brauchen eine Internetverbindung. Für Offline-
+  Nutzung in QField müssen die Kacheln als MBTiles/GeoPackage-Raster
+  gecacht werden (siehe STYLE_TODO_FANCY.md).
+-->
+<qgsXYZTilesConnections version="1.0">
+  <!-- Neutrale, helle Alltags-Basemaps – ruhiger als OSM Standard, lassen die Sepia-Marker leuchten -->
+  <xyztiles name="CARTO Positron (hell, dezent)" url="https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <xyztiles name="CARTO Voyager (hell, mehr Detail)" url="https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+
+  <!-- Bahn-spezifischer Overlay – Strecken, Elektrifizierung, Bahnhöfe. Halbtransparent über die eigene Route legen -->
+  <xyztiles name="OpenRailwayMap (Bahn-Overlay)" url="https://a.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png" zmin="2" zmax="19" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+
+  <!-- Gelände/Relief – wegen der Karpaten (Brașov, Sighișoara) -->
+  <xyztiles name="OpenTopoMap (Höhenlinien + Relief)" url="https://tile.opentopomap.org/{z}/{x}/{y}.png" zmin="0" zmax="17" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <xyztiles name="ESRI World Hillshade (reines Relief)" url="https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}" zmin="0" zmax="16" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+
+  <!-- Satellit – gezielt fürs Donaudelta (Wasserkanäle bei Sulina, Sf. Gheorghe, Letea) -->
+  <xyztiles name="ESRI World Imagery (Satellit)" url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" zmin="0" zmax="19" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+
+  <!-- Historische Grundkarte (Fancy-Stufe) – braucht Referer-Header. 2. Militäraufnahme 1806–1869 -->
+  <xyztiles name="Arcanum 2. Militäraufnahme (1806–1869)" url="https://tiles.arcanum.com/mercator/europe-19century-secondsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
+</qgsXYZTilesConnections>

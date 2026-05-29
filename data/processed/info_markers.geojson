@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "name": "info_markers",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "INFO01",
+        "title": "Über diese Karte",
+        "body": "<b>Ulmer Schachtel – Rumänien-Reiseplaner</b><br>Grobe Planung einer Bahnreise (Dracula-Städte, Temeschburg, Bukarest, Donaudelta).<br><br><b>Symbolik:</b><br>• dunkelroter Kreis = Dracula-Stadt<br>• sepia Quadrat = Stadt<br>• petrol Dreieck = Donaudelta<br>• graue Punkte = Bahnstationen<br>• gestrichelte Linien = Routenkorridore<br><br><b>Bedienung:</b> Marker oder Linie antippen, um Details zu sehen.<br><br><b>Wichtig:</b> Das Donaudelta ist <i>nicht</i> per Bahn erreichbar – die Schiene endet in Tulcea, weiter geht es per Schiff/Tour."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.0, 45.9]
+      }
+    }
+  ]
+}

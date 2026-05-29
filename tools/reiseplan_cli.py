@@ -45,6 +45,7 @@ GPKG_LAYERS: list[tuple[str, str]] = [
     ("poi_destinations", "poi_destinations.geojson"),
     ("rail_stations", "rail_stations.geojson"),
     ("rail_route_options", "rail_route_options.geojson"),
+    ("info_markers", "info_markers.geojson"),
 ]
 
 
