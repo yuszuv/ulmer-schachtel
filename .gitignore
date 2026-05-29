@@ -12,3 +12,11 @@ qfield/
 
 # Generierte GIS-Bündel (aus GeoJSON via 'reiseplan-cli build-gpkg')
 *.gpkg
+
+# Lokale Arbeits-/Scratch-Dateien
+tmp/
+
+# QField-Arbeitsexporte (lokal, nicht versioniert)
+qgis/main_qfield.qgs
+qgis/main_qfield_attachments.zip
+qgis/v9.zip
