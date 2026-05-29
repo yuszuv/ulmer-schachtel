@@ -12,96 +12,540 @@
       "type": "Feature",
       "properties": {
         "station_id": "ST01",
-        "name": "Timișoara Nord",
-        "city": "Timișoara"
+        "name": "Brașov",
+        "city": "Brașov"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [21.2299, 45.7598]
+        "coordinates": [
+          25.6135846,
+          45.6612146
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST02",
-        "name": "Sibiu",
-        "city": "Sibiu"
+        "name": "Făgăraș",
+        "city": "Făgăraș"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [24.1518, 45.7906]
+        "coordinates": [
+          24.976099,
+          45.8300991
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST03",
-        "name": "Brașov",
-        "city": "Brașov"
+        "name": "Sibiu",
+        "city": "Sibiu"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [25.6012, 45.6579]
+        "coordinates": [
+          24.1617237,
+          45.8001554
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST04",
-        "name": "Sighișoara",
-        "city": "Sighișoara"
+        "name": "Simeria",
+        "city": "Simeria"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [24.7936, 46.2197]
+        "coordinates": [
+          23.0141114,
+          45.8464675
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST05",
-        "name": "București Nord",
-        "city": "București"
+        "name": "Deva",
+        "city": "Deva"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [26.1025, 44.4268]
+        "coordinates": [
+          22.9105592,
+          45.8844049
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST06",
-        "name": "Constanța",
-        "city": "Constanța"
+        "name": "Arad",
+        "city": "Arad"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [28.6383, 44.1733]
+        "coordinates": [
+          21.3250795,
+          46.1895163
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST07",
-        "name": "Tulcea Oraș",
-        "city": "Tulcea"
+        "name": "Curtici",
+        "city": "Curtici"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [28.8013, 45.1794]
+        "coordinates": [
+          21.2979353,
+          46.3408936
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "station_id": "ST08",
+        "name": "București Nord",
+        "city": "București"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0738428,
+          44.4467388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST09",
+        "name": "Ploiești Vest",
+        "city": "Ploiești"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.994584,
+          44.9245308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST10",
+        "name": "Sighișoara",
+        "city": "Sighișoara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7957408,
+          46.2265282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST11",
+        "name": "Mediaș",
+        "city": "Mediaș"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.3495516,
+          46.1599902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST12",
+        "name": "Teiuș",
+        "city": "Teiuș"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6908667,
+          46.2038602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST13",
         "name": "Cluj-Napoca",
         "city": "Cluj-Napoca"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [23.588, 46.7712]
+        "coordinates": [
+          23.5861692,
+          46.7846249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST14",
+        "name": "Oradea",
+        "city": "Oradea"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9361822,
+          47.0700561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST15",
+        "name": "Dej Călători",
+        "city": "Dej"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8943143,
+          47.1415273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST16",
+        "name": "Baia Mare",
+        "city": "Baia Mare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5521231,
+          47.6470613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST17",
+        "name": "Satu Mare",
+        "city": "Satu Mare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8931279,
+          47.7952233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST18",
+        "name": "Buzău",
+        "city": "Buzău"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8259311,
+          45.1426922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST19",
+        "name": "Focșani",
+        "city": "Focșani"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.1692659,
+          45.7012397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST20",
+        "name": "Bacău",
+        "city": "Bacău"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8945568,
+          46.5655599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST21",
+        "name": "Pașcani",
+        "city": "Pașcani"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.7245378,
+          47.2569078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST22",
+        "name": "Suceava",
+        "city": "Suceava"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2660705,
+          47.6703615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST23",
+        "name": "Făurei",
+        "city": "Făurei"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.2748099,
+          45.0827017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST24",
+        "name": "Bârlad",
+        "city": "Bârlad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.6732486,
+          46.2150343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST25",
+        "name": "Vaslui",
+        "city": "Vaslui"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7270781,
+          46.6265431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST26",
+        "name": "Iași",
+        "city": "Iași"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5697322,
+          47.1654321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST27",
+        "name": "Brăila",
+        "city": "Brăila"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.9556459,
+          45.281414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST28",
+        "name": "Galați",
+        "city": "Galați"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.0610374,
+          45.4448687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST29",
+        "name": "Fetești",
+        "city": "Fetești"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8217763,
+          44.417109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST30",
+        "name": "Medgidia",
+        "city": "Medgidia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.2717776,
+          44.2518807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST31",
+        "name": "Constanța",
+        "city": "Constanța"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.6315707,
+          44.1687351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST32",
+        "name": "Mangalia",
+        "city": "Mangalia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.5816815,
+          43.8221377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST33",
+        "name": "Craiova",
+        "city": "Craiova"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8166865,
+          44.3288256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST34",
+        "name": "Drobeta-Turnu Severin",
+        "city": "Drobeta-Turnu Severin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.6441714,
+          44.622101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST35",
+        "name": "Caransebeș",
+        "city": "Caransebeș"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.195224,
+          45.4200172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "ST36",
+        "name": "Timișoara Nord",
+        "city": "Timișoara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.2071743,
+          45.7510766
+        ]
       }
     }
   ]
