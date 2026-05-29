@@ -24,20 +24,22 @@ from reiseplan_cli import (  # gleicher Ordner -> direkter Import
     DATA_DIR,
     POI_PATH,
     ROUTES_PATH,
-    connections_for,
     load_geojson,
+    load_timetable,
+    stops_for,
 )
 
 STATIONS_PATH = DATA_DIR / "rail_stations.geojson"
 INFO_PATH = DATA_DIR / "info_markers.geojson"
 
-# Quell-GeoJSON, die zusätzlich als Roh-Download nach site/data/ kopiert werden.
+# Quelldaten, die zusätzlich als Roh-Download nach site/data/ kopiert werden.
 GEOJSON_SOURCES = [
     "poi_destinations.geojson",
     "rail_stations.geojson",
-    "rail_route_options.geojson",
+    "rail_lines.geojson",
     "info_markers.geojson",
-    "sample_connections.csv",
+    "route_stops.csv",
+    "timetable.csv",
 ]
 
 # POI-Kategorien -> (deutsches Label, Farbe, Form) – analog AGENTS.md/QGIS-Styles.
@@ -72,14 +74,16 @@ def collect_data() -> dict:
     stations = load_geojson(STATIONS_PATH)
     info = load_geojson(INFO_PATH)
 
-    # Halte je Route für die Übersicht vorbereiten (CSV via reiseplan_cli).
+    # Halte + Verbindungsdaten je Route für die Übersicht vorbereiten.
+    timetable = load_timetable()
     overview = []
     for feature in routes["features"]:
         props = feature["properties"]
         overview.append(
             {
                 "props": props,
-                "stops": connections_for(props["route_id"]),
+                "stops": stops_for(props["route_id"]),
+                "timetable": timetable.get(props["route_id"], {}),
             }
         )
 
@@ -97,6 +101,26 @@ def embed_json(obj: dict) -> str:
     text = json.dumps(obj, ensure_ascii=False)
     # </script> bzw. allgemein </ neutralisieren, ohne die Daten zu verändern.
     return text.replace("</", "<\\/")
+
+
+def render_connection(tt: dict) -> str:
+    """Kompakte Verbindungszeile aus einer timetable.csv-Zeile (oder '')."""
+    dep, arr, days = tt.get("dep_time", ""), tt.get("arr_time", ""), tt.get("days", "")
+    if not (dep or arr or days):
+        return ""  # keine Zeiten eingetragen -> nichts anzeigen
+    bits: list[str] = []
+    if days:
+        bits.append(html.escape(days))
+    if dep:
+        bits.append(f'ab {html.escape(dep)}')
+    if arr:
+        bits.append(f'an {html.escape(arr)}')
+    if tt.get("duration"):
+        bits.append(f'({html.escape(tt["duration"])})')
+    line = " · ".join(bits)
+    train = f' <span class="hint">{html.escape(tt["train"])}</span>' if tt.get("train") else ""
+    notes = f'<br><span class="hint">{html.escape(tt["notes"])}</span>' if tt.get("notes") else ""
+    return f'<p class="conn">🚆 {line}{train}{notes}</p>'
 
 
 def render_overview(overview: list[dict], pois: dict) -> str:
@@ -120,6 +144,10 @@ def render_overview(overview: list[dict], pois: dict) -> str:
         if tags:
             parts.append(f'<p class="tags">{tags}</p>')
 
+        conn = render_connection(entry.get("timetable", {}))
+        if conn:
+            parts.append(conn)
+
         if entry["stops"]:
             parts.append("<ol class=\"stops\">")
             for row in entry["stops"]:
@@ -133,8 +161,9 @@ def render_overview(overview: list[dict], pois: dict) -> str:
         parts.append("</section>")
 
     parts.append(
-        f'<p class="note">Fahrzeiten sind illustrativ und nicht hinterlegt – '
-        f'aktuelle Zeiten unter <a href="{INFOFER}">{INFOFER}</a>.</p>'
+        f'<p class="note">Fahrzeiten – soweit eingetragen – sind Richtwerte für '
+        f'die einfachste Direktverbindung; verbindliche und aktuelle Zeiten unter '
+        f'<a href="{INFOFER}">{INFOFER}</a>.</p>'
     )
 
     # Ziele nach Kategorie gruppiert.
@@ -287,6 +316,7 @@ TEMPLATE = """<!DOCTYPE html>
   }}
   .route h3 {{ margin: 0 0 .25rem; }}
   .meta {{ margin: 0; color: #5b4a30; }}
+  .conn {{ margin: .4rem 0 0; color: #5b4a30; font-weight: 600; }}
   .tags {{ margin: .4rem 0 0; }}
   .tag {{
     display: inline-block; background: #ece0bd; color: #5b4a30;

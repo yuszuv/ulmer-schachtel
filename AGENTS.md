@@ -30,6 +30,15 @@ QField (qzg + gpkg aufs Gerät kopieren)
 - **GeoJSON sind die Quelle**, die GPKG ist ein reproduzierbares Build-Artefakt.
   Inhaltliche Änderungen immer an den GeoJSON vornehmen, dann `build-gpkg`.
 - `*.gpkg` ist in `.gitignore` – **nicht committen**.
+- **Achtung:** Das Desktop-Projekt `qgis/reiseplan.qgz` lädt die GeoJSON **direkt**
+  (relative Pfade `../data/processed/*.geojson`), **nicht** die GPKG. Wer eine
+  GeoJSON umbenennt, muss den Pfad in der `.qgz` mitziehen (ZIP mit `reiseplan.qgs`).
+  Die GPKG ist nur das Bündel für den QField-Export.
+- **Verbindungen/Zeiten:** `data/processed/timetable.csv` ist eine **handgepflegte**
+  Quelle (eine Zeile je Magistrale, echte Abfahrt/Ankunft/Tage/via). `fetch_cfr_data.py`
+  legt sie nur als Vorlage an (falls fehlt) und merged ihre Felder beim Bauen als
+  Attribute in `rail_lines.geojson` (Schlüssel: `route_id`). Eingetragene Zeiten
+  werden nie überschrieben.
 
 ## Konventionen
 
@@ -57,14 +66,15 @@ QField (qzg + gpkg aufs Gerät kopieren)
 - Datenverzeichnis wird via `find_data_dir()` vom CWD aufwärts gesucht → aus dem
   Repo-Wurzelverzeichnis aufrufen.
 - Kommandos: `list-routes`, `list-categories`, `list-destinations [--category]`,
-  `show-route <id>`, `overview`, `build-gpkg`.
+  `show-route <id>`, `overview`, `timetable`, `build-gpkg`.
 - `build-gpkg` braucht **GDAL/ogr2ogr** im PATH (Arch: `pacman -S gdal`).
 
 ## Verifikation
 
 ```bash
-uv run reiseplan-cli overview          # Routen + An-/Abfahrten
-uv run reiseplan-cli list-routes       # R1–R4
+uv run reiseplan-cli overview          # Magistralen + Haltefolge
+uv run reiseplan-cli timetable         # Verbindungen (ab/an/via) je Magistrale
+uv run reiseplan-cli list-routes       # M200–M900
 uv run python -c "import json,glob; [json.load(open(f,encoding='utf-8')) for f in glob.glob('data/processed/*.geojson')]"
 ```
 
@@ -73,7 +83,8 @@ QGIS/QField-Schritte sind manuell – nicht automatisierbar. Vorgehen steht in
 
 ## Verzeichnisse
 
-- `data/processed/` – GeoJSON (Quelle) + `sample_connections.csv` (illustrative Zeiten).
+- `data/processed/` – GeoJSON (Quelle) + `route_stops.csv` (generierte Haltefolge je
+  Magistrale) + `timetable.csv` (handgepflegte Verbindungen mit echten Zeiten).
   `info_markers.geojson` ist die in-App-Doku (ℹ „Über diese Karte", Bedien-/Legenden-Hilfe).
 - `data/raw/` – Platzhalter für GTFS/OSM-Rohdaten
 - `data/reference/historical/` – historisches Kartenmaterial (Fancy-Stufe)
@@ -81,7 +92,8 @@ QGIS/QField-Schritte sind manuell – nicht automatisierbar. Vorgehen steht in
 - `qgis/projects/` – `.qgz` (selbst in QGIS angelegt)
 - `qgis/xyz_connections.xml` – vorbereitete XYZ-Basemaps (OSM, CARTO, OpenRailwayMap,
   Relief, Satellit, Arcanum historisch)
-- `docs/` – `01_qgis_setup`, `02_qfield_export`, `03_cli_option`, `STYLE_TODO_FANCY`
+- `docs/` – `01_qgis_setup`, `02_qfield_export`, `03_cli_option`, `04_web_pages`,
+  `05_overpass_101`, `06_cfr_daten_fetch`, `STYLE_TODO_FANCY`
 
 ## Git
 
@@ -96,4 +108,6 @@ QGIS/QField-Schritte sind manuell – nicht automatisierbar. Vorgehen steht in
   fixen Strecke.
 - **Donaudelta ist nicht per Bahn erreichbar:** Schiene endet in Tulcea, weiter per
   Schiff. Diese Notiz in Daten/Doku nicht „wegoptimieren".
-- `sample_connections.csv` enthält **illustrative** Zeiten, keine echten Fahrpläne.
+- `timetable.csv` enthält **echte**, handgepflegte Verbindungen (eine je Magistrale);
+  noch nicht eingetragene Zeiten bleiben leer. Verbindliche/aktuelle Zeiten:
+  <https://mersultrenurilor.infofer.ro>. `route_stops.csv` trägt **keine** Zeiten.

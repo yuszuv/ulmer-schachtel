@@ -1,0 +1,376 @@
+{
+  "type": "FeatureCollection",
+  "name": "rail_lines",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M200",
+        "route_name": "M200 · Brașov – Sibiu – Arad (Karpatenrand)",
+        "from_city": "Brașov",
+        "to_city": "Curtici",
+        "tags": "hauptstrecke,siebenbürgen,karpaten",
+        "line_ref": "M200",
+        "length_km": 500,
+        "days": "täglich",
+        "dep_time": "07:54",
+        "arr_time": "16:30",
+        "duration": "8:36",
+        "via": "Sibiu, Simeria, Arad",
+        "train": "IR 1623"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            25.6135846,
+            45.6612146
+          ],
+          [
+            24.976099,
+            45.8300991
+          ],
+          [
+            24.1617237,
+            45.8001554
+          ],
+          [
+            23.0141114,
+            45.8464675
+          ],
+          [
+            22.9105592,
+            45.8844049
+          ],
+          [
+            21.3250795,
+            46.1895163
+          ],
+          [
+            21.2979353,
+            46.3408936
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M300",
+        "route_name": "M300 · București – Brașov – Cluj-Napoca – Oradea (Transsilvanien-Magistrale)",
+        "from_city": "București",
+        "to_city": "Oradea",
+        "tags": "hauptstrecke,siebenbürgen,dracula,city",
+        "line_ref": "M300",
+        "length_km": 647,
+        "days": "täglich",
+        "dep_time": "06:11",
+        "arr_time": "18:15",
+        "duration": "12:04",
+        "via": "Ploiești, Brașov, Sighișoara, Cluj-Napoca",
+        "train": "IR 1735"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.0738428,
+            44.4467388
+          ],
+          [
+            25.994584,
+            44.9245308
+          ],
+          [
+            25.6135846,
+            45.6612146
+          ],
+          [
+            24.7957408,
+            46.2265282
+          ],
+          [
+            24.3495516,
+            46.1599902
+          ],
+          [
+            23.6908667,
+            46.2038602
+          ],
+          [
+            23.5861692,
+            46.7846249
+          ],
+          [
+            21.9361822,
+            47.0700561
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M400",
+        "route_name": "M400 · Brașov – Dej – Satu Mare (Nordsiebenbürgen)",
+        "from_city": "Brașov",
+        "to_city": "Satu Mare",
+        "tags": "hauptstrecke,maramuresch,nord",
+        "line_ref": "M400",
+        "length_km": 560,
+        "days": "täglich",
+        "dep_time": "23:30",
+        "arr_time": "10:39",
+        "duration": "11:09",
+        "via": "Dej, Baia Mare",
+        "train": "IRN 1641"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            25.6135846,
+            45.6612146
+          ],
+          [
+            23.8943143,
+            47.1415273
+          ],
+          [
+            23.5521231,
+            47.6470613
+          ],
+          [
+            22.8931279,
+            47.7952233
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M500",
+        "route_name": "M500 · București – Bacău – Suceava (Moldau-Magistrale)",
+        "from_city": "București",
+        "to_city": "Suceava",
+        "tags": "hauptstrecke,moldau,city",
+        "line_ref": "M500",
+        "length_km": 488,
+        "days": "täglich",
+        "dep_time": "06:18",
+        "arr_time": "14:44",
+        "duration": "8:26",
+        "via": "Ploiești, Bacău, Pașcani",
+        "train": "IR 1655"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.0738428,
+            44.4467388
+          ],
+          [
+            25.994584,
+            44.9245308
+          ],
+          [
+            26.8259311,
+            45.1426922
+          ],
+          [
+            27.1692659,
+            45.7012397
+          ],
+          [
+            26.8945568,
+            46.5655599
+          ],
+          [
+            26.7245378,
+            47.2569078
+          ],
+          [
+            26.2660705,
+            47.6703615
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M600",
+        "route_name": "M600 · Făurei – Bârlad – Iași (Ost-Moldau)",
+        "from_city": "Făurei",
+        "to_city": "Iași",
+        "tags": "hauptstrecke,moldau,ost",
+        "line_ref": "M600",
+        "length_km": 395,
+        "days": "täglich",
+        "dep_time": "07:00",
+        "arr_time": "12:30",
+        "duration": "5:30",
+        "via": "Bârlad, Vaslui",
+        "train": "R 6401"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            27.2748099,
+            45.0827017
+          ],
+          [
+            27.6732486,
+            46.2150343
+          ],
+          [
+            27.7270781,
+            46.6265431
+          ],
+          [
+            27.5697322,
+            47.1654321
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M700",
+        "route_name": "M700 · București – Brăila – Galați (Donau-Anschluss)",
+        "from_city": "București",
+        "to_city": "Galați",
+        "tags": "hauptstrecke,donau,galați",
+        "line_ref": "M700",
+        "length_km": 229,
+        "days": "täglich",
+        "dep_time": "05:30",
+        "arr_time": "09:19",
+        "duration": "3:49",
+        "via": "Buzău, Brăila",
+        "train": "IR 1571"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.0738428,
+            44.4467388
+          ],
+          [
+            26.8259311,
+            45.1426922
+          ],
+          [
+            27.2748099,
+            45.0827017
+          ],
+          [
+            27.9556459,
+            45.281414
+          ],
+          [
+            28.0610374,
+            45.4448687
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M800",
+        "route_name": "M800 · București – Constanța – Mangalia (Schwarzmeer-Küste)",
+        "from_city": "București",
+        "to_city": "Mangalia",
+        "tags": "hauptstrecke,küste,schwarzmeer,delta",
+        "line_ref": "M800",
+        "length_km": 225,
+        "days": "Sommer tägl.",
+        "dep_time": "06:17",
+        "arr_time": "11:00",
+        "duration": "4:43",
+        "via": "Fetești, Constanța",
+        "train": "IC/IR + R"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.0738428,
+            44.4467388
+          ],
+          [
+            27.8217763,
+            44.417109
+          ],
+          [
+            28.2717776,
+            44.2518807
+          ],
+          [
+            28.6315707,
+            44.1687351
+          ],
+          [
+            28.5816815,
+            43.8221377
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M900",
+        "route_name": "M900 · București – Craiova – Timișoara (Banat-Magistrale)",
+        "from_city": "București",
+        "to_city": "Timișoara",
+        "tags": "hauptstrecke,banat,donau,city",
+        "line_ref": "M900",
+        "length_km": 533,
+        "days": "täglich",
+        "dep_time": "11:20",
+        "arr_time": "23:12",
+        "duration": "11:52",
+        "via": "Craiova, Caransebeș",
+        "train": "IR 16021"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.0738428,
+            44.4467388
+          ],
+          [
+            23.8166865,
+            44.3288256
+          ],
+          [
+            22.6441714,
+            44.622101
+          ],
+          [
+            22.195224,
+            45.4200172
+          ],
+          [
+            21.2071743,
+            45.7510766
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+route_id,from_city,to_city,days,dep_time,arr_time,duration,via,train,notes
+M200,Brașov,Curtici,täglich,07:54,16:30,8:36,"Sibiu, Simeria, Arad",IR 1623,ca.-Zeiten; Curtici = Grenzbahnhof (HU); Stand: Mai 2026
+M300,București,Oradea,täglich,06:11,18:15,12:04,"Ploiești, Brașov, Sighișoara, Cluj-Napoca",IR 1735,Arr. Oradea ca. (+2 h ab Cluj); Stand: Mai 2026
+M400,Brașov,Satu Mare,täglich,23:30,10:39,11:09,"Dej, Baia Mare",IRN 1641,Nachtzug; dep Brașov ca. 23:30 (dep Buc. 21:20); Stand: Mai 2026
+M500,București,Suceava,täglich,06:18,14:44,8:26,"Ploiești, Bacău, Pașcani",IR 1655,5 Direktzüge/Tag; Stand: Mai 2026
+M600,Făurei,Iași,täglich,07:00,12:30,5:30,"Bârlad, Vaslui",R 6401,Regio (kein IR); ca.-Zeiten; Stand: Mai 2026
+M700,București,Galați,täglich,05:30,09:19,3:49,"Buzău, Brăila",IR 1571,Stand: Mai 2026
+M800,București,Mangalia,Sommer tägl.,06:17,11:00,4:43,"Fetești, Constanța",IC/IR + R,Sommer: Direktzug mögl.; Winter: Umstieg Constanța; Stand: Mai 2026
+M900,București,Timișoara,täglich,11:20,23:12,11:52,"Craiova, Caransebeș",IR 16021,Neuer Zug ab März 2026; auch IC Traianus 05:29→16:27; Stand: Mai 2026

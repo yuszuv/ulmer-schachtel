@@ -40,7 +40,7 @@ Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanu
 3. Layer aus `data/processed/reiseplan.gpkg` laden (4 Layer aus einer Datei):
    - `poi_destinations`
    - `rail_stations`
-   - `rail_route_options`
+   - `rail_lines` (Magistralen; tragen die Verbindungsdaten aus `timetable.csv` als Attribute)
    - `info_markers` (ℹ „Über diese Karte" – in-App-Hilfe)
 
    Die Layer liegen in `EPSG:4326` vor und werden von QGIS on-the-fly nach
@@ -48,7 +48,7 @@ Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanu
    Projekt-CRS auf das des Layers umgestellt werden soll: **ablehnen**.
 4. Stile anwenden (Layer-Eigenschaften → Symbologie → *Stil laden…*, **alle Kategorien**):
    - `poi_destinations` → `qgis/styles/poi_destinations.qml`
-   - `rail_route_options` → `qgis/styles/rail_route_options.qml`
+   - `rail_lines` → `qgis/styles/rail_lines.qml`
    - `rail_stations` → `qgis/styles/rail_stations.qml`
    - `info_markers` → `qgis/styles/info_markers.qml`
 5. Hintergrundkarte laden: *Web → QuickMapServices → OSM Standard* (Plugin nötig).
@@ -112,9 +112,14 @@ uv run python tools/fetch_cfr_data.py --offline  # nur aus data/raw-Cache neu ba
 > [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
 > Bei Weitergabe der abgeleiteten Daten ist diese Namensnennung beizulegen.
 
-Exakte Fahrplanzeiten stellt CFR nicht als offenen Feed bereit; die Spalten
-`arrival_local`/`departure_local` in `sample_connections.csv` bleiben daher leer
-(Quelle für Zeiten: <https://mersultrenurilor.infofer.ro>).
+Exakte Fahrplanzeiten stellt CFR nicht als offenen Feed bereit. `route_stops.csv`
+enthält daher nur die **Haltefolge** je Magistrale (Reihenfolge + Rolle), keine
+Zeiten. Echte Verbindungen (Abfahrt/Ankunft/Tage/via) werden **von Hand** in
+`data/processed/timetable.csv` gepflegt — eine Zeile je Magistrale; das Fetch-Skript
+legt diese Vorlage nur an, wenn sie fehlt, und überschreibt eingetragene Zeiten nie.
+Beim nächsten `fetch …` wandern die Zeiten als Attribute in `rail_lines.geojson`
+(Quelle für Zeiten: <https://mersultrenurilor.infofer.ro>). Übersicht per
+`uv run reiseplan-cli timetable`.
 
 Wie die Overpass-Abfrage funktioniert und wie du sie anpasst, erklärt
 [docs/05_overpass_101.md](docs/05_overpass_101.md).
@@ -126,4 +131,5 @@ Wie die Overpass-Abfrage funktioniert und wie du sie anpasst, erklärt
 - CLI-Einschätzung: [docs/03_cli_option.md](docs/03_cli_option.md)
 - Online-Karte / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
 - Overpass 101 (Bahndaten aus OSM): [docs/05_overpass_101.md](docs/05_overpass_101.md)
+- CFR-Fetch-Prozess und Datenfluss: [docs/06_cfr_daten_fetch.md](docs/06_cfr_daten_fetch.md)
 - Fancy-Stil-TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)

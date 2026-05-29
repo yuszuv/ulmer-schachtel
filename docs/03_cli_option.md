@@ -6,7 +6,8 @@ Ja, eine CLI ist sinnvoll, aber als **Nebenwerkzeug**:
 
 - schneller Datencheck ohne QGIS-UI
 - einfache Filter (`Kategorie`, `Route`)
-- kompakte Routenübersicht inkl. An-/Abfahrten (`overview`)
+- kompakte Haltefolge je Magistrale (`overview`)
+- Verbindungsübersicht mit Abfahrt/Ankunft/via (`timetable`)
 - guter Einstieg für spätere Automatisierung (Import/Validierung)
 
 Für das Karten-Editing selbst bleibt QGIS das Hauptwerkzeug.
@@ -23,8 +24,9 @@ Für das Karten-Editing selbst bleibt QGIS das Hauptwerkzeug.
 uv run reiseplan-cli list-categories
 uv run reiseplan-cli list-destinations --category dracula_city
 uv run reiseplan-cli list-routes
-uv run reiseplan-cli overview
-uv run reiseplan-cli show-route R2
+uv run reiseplan-cli overview               # Haltefolge je Magistrale
+uv run reiseplan-cli timetable              # Verbindungen (ab/an/via) je Magistrale
+uv run reiseplan-cli show-route M300        # Haltefolge einer einzelnen Magistrale
 ```
 
 Ohne Installation des Entrypoints geht es auch direkt:

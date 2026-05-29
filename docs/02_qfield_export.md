@@ -89,7 +89,7 @@ Installieren.*
 3. Layer-Verhalten festlegen:
    - `poi_destinations`: `Offline editing` nur falls unterwegs Bearbeitung geplant,
      sonst `Copy`
-   - `rail_stations` / `rail_route_options` / `info_markers`: `Copy`
+   - `rail_stations` / `rail_lines` / `info_markers`: `Copy`
      (read-only ausreichend)
    - XYZ-/Online-Hintergrundkarte: `Keep existing` (bleibt online) – oder per
      Offline-Basemap ersetzen (Schritt 3).

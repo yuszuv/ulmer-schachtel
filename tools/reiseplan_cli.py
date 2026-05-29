@@ -12,6 +12,11 @@ import subprocess
 from pathlib import Path
 from typing import Iterable
 
+from rich import box
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+
 from _paths import PROCESSED
 
 
@@ -114,24 +119,71 @@ def overview() -> None:
 
 
 def timetable() -> None:
-    """Verbindungsübersicht aus timetable.csv (eine Zeile je Magistrale)."""
-    table = load_timetable()
-    if not table:
+    """Verbindungsübersicht aus timetable.csv als Rich-Tabelle."""
+    data = load_timetable()
+    if not data:
         print(f"Keine timetable.csv unter {TIMETABLE_PATH} gefunden.")
         return
+
+    console = Console(width=120)
+    t = Table(
+        title="🚂  CFR-Verbindungsübersicht  (M200 – M900)",
+        box=box.ROUNDED,
+        header_style="bold #b8860b",
+        title_style="bold",
+        show_lines=False,
+        padding=(0, 1),
+        expand=True,
+    )
+    t.add_column("Linie", style="bold", no_wrap=True)
+    t.add_column("Strecke", no_wrap=True)
+    t.add_column("Tage", justify="center", no_wrap=True)
+    t.add_column("Abf.", justify="right", style="#5f8700", no_wrap=True)
+    t.add_column("Ank.", justify="right", style="#5f8700", no_wrap=True)
+    t.add_column("Dauer", justify="right", no_wrap=True)
+    t.add_column("Zug", style="#005f87", no_wrap=True)
+    t.add_column("Zwischenstopps", min_width=25, overflow="fold")
+
     dash = "–"
-    for route_id in sorted(table):
-        r = table[route_id]
-        dep, arr = r.get("dep_time") or dash, r.get("arr_time") or dash
-        dur = f' ({r["duration"]})' if r.get("duration") else ""
-        train = f' [{r["train"]}]' if r.get("train") else ""
-        via = f' via {r["via"]}' if r.get("via") else ""
-        print(
-            f'{route_id}  {r.get("from_city", "?")} → {r.get("to_city", "?")}'
-            f'  | {r.get("days") or dash} ab {dep} an {arr}{dur}{via}{train}'
-        )
-        if r.get("notes"):
-            print(f'        ↳ {r["notes"]}')
+    approx_lines: list[str] = []
+
+    for route_id in sorted(data):
+        r = data[route_id]
+        notes = r.get("notes") or ""
+        is_approx = "ca." in notes or "Nachtzug" in notes
+
+        route_cell = Text(route_id)
+        if is_approx:
+            route_cell.stylize("dim")
+
+        strecke = f'{r.get("from_city", "?")} → {r.get("to_city", "?")}'
+        dep = r.get("dep_time") or dash
+        arr = r.get("arr_time") or dash
+        dur = r.get("duration") or dash
+        train = r.get("train") or dash
+        via = r.get("via") or dash
+        days = r.get("days") or dash
+
+        if is_approx:
+            dep = f"~{dep}" if dep != dash else dash
+            arr = f"~{arr}" if arr != dash else dash
+
+        t.add_row(route_cell, strecke, days, dep, arr, dur, train, via)
+
+        if notes:
+            approx_lines.append(f"  [dim]{route_id}[/dim]  {notes}")
+
+    console.print()
+    console.print(t)
+    if approx_lines:
+        console.print()
+        console.print("[dim]Hinweise:[/dim]")
+        for line in approx_lines:
+            console.print(line)
+    console.print(
+        "\n[dim]Zeiten nach infofer.ro (Stand: Mai 2026) · ~ = Richtwert · "
+        "Verbindlich: [link=https://mersultrenurilor.infofer.ro]mersultrenurilor.infofer.ro[/link][/dim]"
+    )
 
 
 def list_categories() -> None:

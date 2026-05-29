@@ -17,7 +17,7 @@ Ein einfaches QGIS-Projekt mit:
    dann die vier Layer aus `data/processed/reiseplan.gpkg`:
    - `poi_destinations`
    - `rail_stations`
-   - `rail_route_options`
+   - `rail_lines`
    - `info_markers` (ℹ „Über diese Karte" – Bedien-/Legenden-Hilfe)
    (Die GeoJSON bleiben das versionierte Quellformat; die GPKG ist das
    generierte Ein-Datei-Bündel für QGIS/QField.)
@@ -25,16 +25,24 @@ Ein einfaches QGIS-Projekt mit:
    - `info_markers`
    - `poi_destinations`
    - `rail_stations`
-   - `rail_route_options`
+   - `rail_lines`
 5. Stile laden (Layer-Eigenschaften → Symbologie → *Stil laden…*):
    - `poi_destinations` → `qgis/styles/poi_destinations.qml`
-   - `rail_route_options` → `qgis/styles/rail_route_options.qml`
+   - `rail_lines` → `qgis/styles/rail_lines.qml`
    - `rail_stations` → `qgis/styles/rail_stations.qml`
    - `info_markers` → `qgis/styles/info_markers.qml`
    > Beim *Stil laden…* **alle Kategorien** aktiviert lassen: Die `.qml` tragen
    > jetzt auch **Map-Tips** (Kategorie *Map-Tips*, HTML-Karte beim Antippen).
    > Lädst du nur „Symbologie", fehlen die Map-Tips. Für `info_markers` zusätzlich
    > das Anzeige-Feld auf `title` setzen (Layer-Eigenschaften → *Anzeige*).
+   >
+   > **Verbindungsdaten auf `rail_lines`:** Die Linien tragen die Felder aus
+   > `data/processed/timetable.csv` (`from_city`, `to_city`, `days`, `dep_time`,
+   > `arr_time`, `duration`, `via`, `train`) als Attribute – sichtbar in der
+   > Attributtabelle und beim *Objekt abfragen* (Identify). Sie tauchen auf, sobald
+   > Zeiten eingetragen und die Daten neu gebaut wurden (`fetch_cfr_data.py --offline`,
+   > dann `build-gpkg`). Optional als Map-Tip/Label nutzbar, z. B.
+   > `[% "from_city" %] → [% "to_city" %]<br>ab [% "dep_time" %] an [% "arr_time" %]`.
 6. Hintergrundkarte via **QuickMapServices**-Plugin:
    - Plugin installieren: *Erweiterungen → Erweiterungen verwalten → „QuickMapServices"*
    - Karte laden: *Web → QuickMapServices → OSM → OSM Standard* (oder Stamen Toner für historischeren Look)
