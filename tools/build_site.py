@@ -53,6 +53,17 @@ BG_COLOR = "#f3ecd5"
 
 INFOFER = "https://mersultrenurilor.infofer.ro"
 
+# Habsburger Militäraufnahmen (Arcanum) – (key, Label, XYZ-URL).
+# Quelle der URLs: qgis/xyz_connections.xml. © Arcanum Maps (mapire.eu).
+ARCANUM_SURVEYS = [
+    ("first", "1. Militäraufnahme (1763–1787)",
+     "https://tiles.arcanum.com/mercator/europe-18century-firstsurvey/{z}/{x}/{y}"),
+    ("second", "2. Militäraufnahme (1806–1869)",
+     "https://tiles.arcanum.com/mercator/europe-19century-secondsurvey/{z}/{x}/{y}"),
+    ("third", "3. Militäraufnahme (1869–1887)",
+     "https://tiles.arcanum.com/mercator/europe-19century-thirdsurvey/{z}/{x}/{y}"),
+]
+
 
 def collect_data() -> dict:
     """Liest alle GeoJSON/CSV und baut das Datenobjekt für Karte + Übersicht."""
@@ -168,6 +179,31 @@ def render_legend() -> str:
     )
 
 
+def render_history() -> str:
+    """SSR-Abschnitt zu den historischen Karten (auch ohne JavaScript lesbar)."""
+    rows = "".join(
+        f'<li><b>{html.escape(name)}</b> '
+        f'<span class="hint">{html.escape(period)}'
+        + (f' · {html.escape(extra)}' if extra else "")
+        + "</span></li>"
+        for name, period, extra in [
+            ("1. Militäraufnahme", "1763–1787", "josephinisch"),
+            ("2. Militäraufnahme", "1806–1869", "franziszeisch"),
+            ("3. Militäraufnahme", "1869–1887", ""),
+        ]
+    )
+    return (
+        "<h2>Historische Karten</h2>"
+        '<p>Über das Bedienfeld <em>„Historische Karte"</em> (oben rechts auf der '
+        "Karte) lassen sich die <b>Habsburger Militäraufnahmen</b> stufenlos über die "
+        "moderne Karte einblenden – die heutigen Orts- und Straßennamen bleiben "
+        "darüber lesbar. So sieht man Siebenbürgen und das Banat vor der Moderne: "
+        "alte Sachsenstädte, deutsch-ungarische Ortsnamen und die ersten Bahnlinien.</p>"
+        f'<ul class="dests">{rows}</ul>'
+        '<p class="note">Kartenwerk © Arcanum Maps (mapire.eu).</p>'
+    )
+
+
 def render_html(data: dict) -> str:
     payload = {
         "routes": data["routes"],
@@ -181,7 +217,12 @@ def render_html(data: dict) -> str:
     }
     overview_html = render_overview(data["overview"], data["pois"])
     legend_html = render_legend()
+    history_html = render_history()
     data_js = embed_json(payload)
+    hist_surveys = json.dumps(
+        [{"key": k, "label": l, "url": u} for k, l, u in ARCANUM_SURVEYS],
+        ensure_ascii=False,
+    )
 
     return TEMPLATE.format(
         bg=BG_COLOR,
@@ -189,6 +230,8 @@ def render_html(data: dict) -> str:
         station_color=STATION_COLOR,
         legend=legend_html,
         overview=overview_html,
+        hist_blurb=history_html,
+        hist_surveys=hist_surveys,
         data_js=data_js,
     )
 
@@ -203,6 +246,10 @@ TEMPLATE = """<!DOCTYPE html>
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
   :root {{ --bg: {bg}; --route: {route_color}; --station: {station_color}; }}
   * {{ box-sizing: border-box; }}
@@ -263,6 +310,62 @@ TEMPLATE = """<!DOCTYPE html>
   .poi-marker.triangle {{ width: 0; height: 0; border-left: 8px solid transparent;
     border-right: 8px solid transparent; filter: drop-shadow(0 0 1px #000); }}
   a {{ color: #6b4f2a; }}
+
+  /* ---------- Vintage / Eye-Candy ---------- */
+  body {{
+    background-image:
+      radial-gradient(circle at 18% 8%, rgba(255,255,255,.55), transparent 42%),
+      radial-gradient(circle at 82% 0%, rgba(176,140,80,.16), transparent 48%),
+      repeating-linear-gradient(0deg, rgba(120,90,40,.028) 0 2px, transparent 2px 5px);
+  }}
+  h1, h2, h3, .ulm-panel-title {{
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+    font-weight: 600; letter-spacing: .01em;
+  }}
+  header {{ text-align: center; background: linear-gradient(#fffdf5, #f6efd8); }}
+  header h1 {{ font-size: 1.95rem; letter-spacing: .04em; }}
+  header h1::after {{
+    content: "\\2726  \\2767  \\2726"; display: block; color: var(--route);
+    font-size: .8rem; letter-spacing: .4em; margin-top: .3rem; opacity: .65;
+  }}
+  header p {{ font-style: italic; }}
+  #map {{
+    border: 6px solid #efe6c8; outline: 2px solid var(--route);
+    outline-offset: -8px; box-shadow: inset 0 0 40px rgba(80,55,20,.25);
+  }}
+  /* Sepia-Look nur auf den modernen Basiskacheln */
+  .leaflet-container.sepia .leaflet-tile-pane {{
+    filter: sepia(.7) saturate(.85) contrast(.95) brightness(1.03);
+  }}
+  /* animierte Routenkorridore ("marching ants") */
+  .route-ants {{ animation: ants 1.4s linear infinite; }}
+  @keyframes ants {{ to {{ stroke-dashoffset: -22; }} }}
+  /* Popups im Pergament-Stil */
+  .leaflet-popup-content-wrapper {{
+    background: #fffdf5; color: #2b2113; border: 1px solid #d8caa0;
+    border-radius: 5px; box-shadow: 0 2px 10px rgba(60,40,10,.35);
+    font-family: "EB Garamond", Georgia, serif; font-size: 1.02rem;
+  }}
+  .leaflet-popup-tip {{ background: #fffdf5; }}
+  /* POI-Marker: sanfter Hover */
+  .poi-marker {{ transition: transform .12s ease; }}
+  .leaflet-marker-icon:hover .poi-marker {{ transform: scale(1.25); }}
+  /* Eigene Bedienfelder (Historische Karte + Sepia) */
+  .ulm-panel {{
+    background: #fffdf5; border: 1px solid #d8caa0; border-radius: 5px;
+    padding: .5rem .6rem; font-size: .85rem; max-width: 220px;
+    box-shadow: 0 1px 6px rgba(60,40,10,.25);
+  }}
+  .ulm-panel-title {{ font-weight: 700; margin-bottom: .35rem; color: var(--route); }}
+  .ulm-sel {{ width: 100%; margin-bottom: .45rem; }}
+  .ulm-op {{ display: block; font-size: .8rem; color: #5b4a30; }}
+  .ulm-range {{ width: 100%; margin-top: .2rem; }}
+  .ulm-btn {{
+    font: inherit; background: #fffdf5; color: var(--route); cursor: pointer;
+    border: 1px solid #d8caa0; border-radius: 5px; padding: .25rem .55rem;
+    box-shadow: 0 1px 6px rgba(60,40,10,.25);
+  }}
+  .ulm-btn:hover {{ background: #f3ead0; }}
 </style>
 </head>
 <body>
@@ -274,6 +377,7 @@ TEMPLATE = """<!DOCTYPE html>
 <div class="legend">{legend}</div>
 <main>
 {overview}
+{hist_blurb}
 </main>
 
 <script
@@ -313,7 +417,7 @@ TEMPLATE = """<!DOCTYPE html>
 
   // Routenkorridore (LineStrings)
   var routes = L.geoJSON(DATA.routes, {{
-    style: {{ color: DATA.routeColor, weight: 3, dashArray: '6 5', opacity: .9 }},
+    style: {{ color: DATA.routeColor, weight: 3, dashArray: '6 5', opacity: .9, className: 'route-ants' }},
     onEachFeature: function (f, layer) {{
       var p = f.properties;
       layer.bindPopup(
@@ -389,6 +493,64 @@ TEMPLATE = """<!DOCTYPE html>
       'Reiseziele': pois,
       'Info': info
     }}, {{ collapsed: false }}).addTo(map);
+
+  // --- Historische Karten (Arcanum): Overlay in eigener Pane + Transparenz-Regler ---
+  var HIST = {hist_surveys};
+  map.createPane('histPane');
+  map.getPane('histPane').style.zIndex = 300;   // über Basis (200), unter Labels (350)
+  var histLayer = null;
+  function setHist(key, opacity) {{
+    if (histLayer) {{ map.removeLayer(histLayer); histLayer = null; }}
+    var s = HIST.filter(function (x) {{ return x.key === key; }})[0];
+    if (s) {{
+      histLayer = L.tileLayer(s.url, {{
+        pane: 'histPane', maxNativeZoom: 14, maxZoom: 20,
+        opacity: opacity, attribution: '&copy; Arcanum Maps (mapire.eu)'
+      }}).addTo(map);
+    }}
+  }}
+  var HistControl = L.Control.extend({{
+    options: {{ position: 'topright' }},
+    onAdd: function () {{
+      var d = L.DomUtil.create('div', 'ulm-panel');
+      var opts = '<option value="">— keine —</option>';
+      HIST.forEach(function (s) {{
+        opts += '<option value="' + s.key + '">' + s.label + '</option>';
+      }});
+      d.innerHTML =
+        '<div class="ulm-panel-title">Historische Karte</div>' +
+        '<select class="ulm-sel">' + opts + '</select>' +
+        '<label class="ulm-op">Transparenz' +
+        '<input class="ulm-range" type="range" min="0" max="100" value="70"></label>';
+      L.DomEvent.disableClickPropagation(d);
+      L.DomEvent.disableScrollPropagation(d);
+      var sel = d.querySelector('.ulm-sel'), rng = d.querySelector('.ulm-range');
+      sel.addEventListener('change', function () {{ setHist(sel.value, rng.value / 100); }});
+      rng.addEventListener('input', function () {{
+        if (histLayer) histLayer.setOpacity(rng.value / 100);
+      }});
+      return d;
+    }}
+  }});
+  map.addControl(new HistControl());
+
+  // --- Sepia-Umschalter (nur moderne Basiskacheln) ---
+  var SepiaControl = L.Control.extend({{
+    options: {{ position: 'topright' }},
+    onAdd: function () {{
+      var b = L.DomUtil.create('button', 'ulm-btn');
+      b.type = 'button'; b.textContent = 'Sepia: aus';
+      L.DomEvent.disableClickPropagation(b);
+      b.addEventListener('click', function () {{
+        var on = map.getContainer().classList.toggle('sepia');
+        b.textContent = 'Sepia: ' + (on ? 'an' : 'aus');
+      }});
+      return b;
+    }}
+  }});
+  map.addControl(new SepiaControl());
+
+  L.control.scale({{ metric: true, imperial: false }}).addTo(map);
 
   // Ausschnitt über alle Features.
   var group = L.featureGroup([routes, stations, pois, info]);
