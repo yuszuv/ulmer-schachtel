@@ -16,20 +16,28 @@ nur die regelmäßig bedienten Knoten-/Stadtbahnhöfe hinterlegt.
 
 Erzeugte Dateien (alle EPSG:4326, Schema kompatibel zum bestehenden Projekt)
 ----------------------------------------------------------------------------
-* ``data/processed/rail_stations.geojson``       – Bahnhöfe (Point)
-* ``data/processed/rail_route_options.geojson``  – Magistralen (LineString)
-* ``data/processed/sample_connections.csv``      – Haltefolgen je Magistrale
-* ``data/raw/osm_ro_stations.json``              – Roh-Cache der Overpass-Antwort
+* ``data/processed/rail_stations.geojson``  – Bahnhöfe (Point)
+* ``data/processed/rail_lines.geojson``     – Magistralen (LineString), angereichert
+                                              mit den Verbindungsdaten aus ``timetable.csv``
+* ``data/processed/route_stops.csv``        – Haltefolgen je Magistrale (Reihenfolge + Rolle)
+* ``data/raw/osm_ro_stations.json``         – Roh-Cache der Overpass-Antwort
 
-Fahrplanzeiten: CFR stellt keinen offenen GTFS-Feed bereit. Die Spalten
-``arrival_local`` / ``departure_local`` bleiben daher leer; exakte Zeiten sind
-unter https://mersultrenurilor.infofer.ro abrufbar. ``trip_hint`` beschreibt
-die Rolle des Halts (Start/Ziel/Umstieg) qualitativ.
+Daneben wird ``data/processed/timetable.csv`` als Vorlage angelegt (eine Zeile je
+Magistrale), **falls sie noch nicht existiert** – sie ist die *handgepflegte* Quelle
+für echte Verbindungen (Abfahrt/Ankunft/Tage/via) und wird hier nie überschrieben.
+
+Fahrplanzeiten: CFR stellt keinen offenen GTFS-Feed bereit. Die Zeiten in
+``timetable.csv`` werden manuell gepflegt (Live-Auskunft unter
+https://mersultrenurilor.infofer.ro). ``trip_hint`` in ``route_stops.csv``
+beschreibt die Rolle des Halts (Start/Ziel/Umstieg) qualitativ.
 
 Aufruf
 ------
     uv run python tools/fetch_cfr_data.py            # Overpass abfragen + cachen + bauen
     uv run python tools/fetch_cfr_data.py --offline  # nur aus Roh-Cache neu bauen
+
+Nach dem Eintragen echter Zeiten in ``timetable.csv`` einfach erneut ``--offline``
+laufen lassen – die Zeiten wandern dann in ``rail_lines.geojson``.
 """
 
 from __future__ import annotations
@@ -42,6 +50,8 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
+
+from _paths import PROCESSED, ROOT
 
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 USER_AGENT = "reisefuehrer-dataintegration/0.1 (jan@sternprodukt.de)"
@@ -213,21 +223,14 @@ MAIN_LINES: tuple[Line, ...] = (
 # --------------------------------------------------------------------------- #
 # Pfade                                                                       #
 # --------------------------------------------------------------------------- #
-def find_repo_root() -> Path:
-    """Repo-Wurzel = erstes Verzeichnis mit ``data/processed`` (vgl. CLI)."""
-    for base in (Path.cwd(), *Path.cwd().parents,
-                 Path(__file__).resolve().parent, *Path(__file__).resolve().parents):
-        if (base / "data" / "processed").is_dir():
-            return base
-    raise SystemExit("data/processed nicht gefunden – bitte aus dem Repo ausführen.")
-
-
-ROOT = find_repo_root()
 RAW_PATH = ROOT / "data" / "raw" / "osm_ro_stations.json"
-PROCESSED = ROOT / "data" / "processed"
 STATIONS_OUT = PROCESSED / "rail_stations.geojson"
-ROUTES_OUT = PROCESSED / "rail_route_options.geojson"
-CONNECTIONS_OUT = PROCESSED / "sample_connections.csv"
+LINES_OUT = PROCESSED / "rail_lines.geojson"
+ROUTE_STOPS_OUT = PROCESSED / "route_stops.csv"
+TIMETABLE_PATH = PROCESSED / "timetable.csv"
+
+# Felder, die aus timetable.csv in jedes rail_lines-Feature gemergt werden.
+TIMETABLE_FIELDS = ("days", "dep_time", "arr_time", "duration", "via", "train")
 
 
 # --------------------------------------------------------------------------- #
@@ -328,11 +331,62 @@ def write_json(path: Path, obj: dict) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+# --------------------------------------------------------------------------- #
+# Timetable (handgepflegt)                                                    #
+# --------------------------------------------------------------------------- #
+# Spalten der timetable.csv. ``route_id`` ist der Schlüssel zu den Magistralen;
+# from_city/to_city/via werden beim Scaffold vorbefüllt, die übrigen vom Menschen.
+TIMETABLE_COLUMNS = (
+    "route_id", "from_city", "to_city", "days",
+    "dep_time", "arr_time", "duration", "via", "train", "notes",
+)
+
+
+def load_timetable() -> dict[str, dict]:
+    """``route_id`` → Timetable-Zeile. Leeres Dict, wenn die Datei fehlt."""
+    if not TIMETABLE_PATH.is_file():
+        return {}
+    with TIMETABLE_PATH.open("r", encoding="utf-8") as f:
+        return {row["route_id"]: row for row in csv.DictReader(f)}
+
+
+def scaffold_timetable() -> None:
+    """Legt ``timetable.csv`` als Vorlage an – aber nur, wenn sie noch fehlt.
+
+    Eine Zeile je Magistrale, vorbefüllt mit ``route_id``/``from_city``/``to_city``
+    und der ``via``-Kette (Zwischenstädte). Zeiten/Tage/Zug bleiben leer und werden
+    von Hand gepflegt. Bestehende Dateien werden **nie** überschrieben.
+    """
+    if TIMETABLE_PATH.is_file():
+        return
+    rows = []
+    for line in MAIN_LINES:
+        cities = [stop.city for stop in line.stops]
+        rows.append({
+            "route_id": line.ref,
+            "from_city": cities[0],
+            "to_city": cities[-1],
+            "days": "",
+            "dep_time": "",
+            "arr_time": "",
+            "duration": "",
+            "via": ", ".join(cities[1:-1]),
+            "train": "",
+            "notes": "",
+        })
+    with TIMETABLE_PATH.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=list(TIMETABLE_COLUMNS))
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"  → {TIMETABLE_PATH.relative_to(ROOT)} (Vorlage, {len(rows)} Zeilen – Zeiten bitte ergänzen)")
+
+
 def build_outputs(index: dict[str, tuple[float, float]]) -> None:
+    timetable = load_timetable()
     station_ids: dict[str, str] = {}          # kanonischer Name -> ST-ID
     station_features: list[dict] = []
     route_features: list[dict] = []
-    connection_rows: list[dict] = []
+    stop_rows: list[dict] = []
     missing: list[str] = []
 
     def station_id_for(stop: Stop, coords: tuple[float, float]) -> str:
@@ -367,26 +421,32 @@ def build_outputs(index: dict[str, tuple[float, float]]) -> None:
                 hint = f"Ziel ({stop.city})"
             else:
                 hint = f"Halt / Umstieg ({stop.city})"
-            connection_rows.append({
+            stop_rows.append({
                 "route_id": line.ref,
                 "sequence": seq,
                 "station": stop.name,
-                "arrival_local": "",
-                "departure_local": "",
+                "city": stop.city,
                 "trip_hint": hint,
             })
 
+        # Verbindungsdaten aus der handgepflegten timetable.csv anreichern
+        # (1:1 je Magistrale via route_id; fehlt die Zeile, bleiben die Felder leer).
+        tt = timetable.get(line.ref, {})
+        properties = {
+            "route_id": line.ref,
+            "route_name": line.route_name,
+            "from_city": resolved[0][0].city,
+            "to_city": resolved[-1][0].city,
+            "tags": line.tags,
+            "line_ref": line.ref,
+            "length_km": line.length_km,
+        }
+        for field_name in TIMETABLE_FIELDS:
+            properties[field_name] = tt.get(field_name, "")
+
         route_features.append({
             "type": "Feature",
-            "properties": {
-                "route_id": line.ref,
-                "route_name": line.route_name,
-                "from_city": resolved[0][0].city,
-                "to_city": resolved[-1][0].city,
-                "tags": line.tags,
-                "line_ref": line.ref,
-                "length_km": line.length_km,
-            },
+            "properties": properties,
             "geometry": {
                 "type": "LineString",
                 "coordinates": [[lon, lat] for _, (lon, lat) in resolved],
@@ -394,20 +454,19 @@ def build_outputs(index: dict[str, tuple[float, float]]) -> None:
         })
 
     write_json(STATIONS_OUT, feature_collection("rail_stations", station_features))
-    write_json(ROUTES_OUT, feature_collection("rail_route_options", route_features))
+    write_json(LINES_OUT, feature_collection("rail_lines", route_features))
 
-    with CONNECTIONS_OUT.open("w", encoding="utf-8", newline="") as f:
+    with ROUTE_STOPS_OUT.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(
             f,
-            fieldnames=["route_id", "sequence", "station",
-                        "arrival_local", "departure_local", "trip_hint"],
+            fieldnames=["route_id", "sequence", "station", "city", "trip_hint"],
         )
         writer.writeheader()
-        writer.writerows(connection_rows)
+        writer.writerows(stop_rows)
 
     print(f"  → {STATIONS_OUT.relative_to(ROOT)} ({len(station_features)} Bahnhöfe)")
-    print(f"  → {ROUTES_OUT.relative_to(ROOT)} ({len(route_features)} Magistralen)")
-    print(f"  → {CONNECTIONS_OUT.relative_to(ROOT)} ({len(connection_rows)} Halte)")
+    print(f"  → {LINES_OUT.relative_to(ROOT)} ({len(route_features)} Magistralen)")
+    print(f"  → {ROUTE_STOPS_OUT.relative_to(ROOT)} ({len(stop_rows)} Halte)")
     if missing:
         print("  ! nicht aufgelöst (in Geometrie ausgelassen):")
         for item in missing:
@@ -424,8 +483,9 @@ def main() -> None:
     data = load_or_fetch(args.offline)
     index = build_index(data)
     print(f"[index]   {len(index)} eindeutige Halte-Namen indiziert.")
+    scaffold_timetable()   # Vorlage anlegen (nur falls fehlt), bevor wir sie einlesen
     build_outputs(index)
-    print("[fertig]  GeoJSON erneuern? → uv run reiseplan-cli build-gpkg")
+    print("[fertig]  GPKG erneuern? → uv run reiseplan-cli build-gpkg")
 
 
 if __name__ == "__main__":
