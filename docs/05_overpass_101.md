@@ -1,25 +1,25 @@
 # Overpass 101
 
-Kurze, praxisnahe Einführung in **Overpass** – die Abfragesprache, mit der dieses
-Projekt seine Bahndaten aus OpenStreetMap holt (`tools/fetch_cfr_data.py`). Ziel:
-Du verstehst den vorhandenen Query und kannst ihn selbst anpassen.
+A short, practical introduction to **Overpass** — the query language used by
+this project to fetch rail data from OpenStreetMap (`tools/fetch_cfr_data.py`).
+Goal: understand the existing query and be able to adapt it yourself.
 
-## Worum geht's?
+## Background
 
-- **OpenStreetMap (OSM)** ist eine freie Weltkarte aus drei Bausteinen:
-  **nodes** (Punkte, z. B. ein Bahnhof), **ways** (Linien/Flächen, z. B. ein
-  Gleis), **relations** (Gruppen, z. B. eine Zuglinie). Jedes Objekt trägt
-  **Tags** – Schlüssel-Wert-Paare wie `railway=station` oder `name=Cluj Napoca`.
-- **Overpass API** ist ein Lesezugriff auf diese Daten: Du schickst eine Abfrage,
-  bekommst genau die Objekte zurück, die deinen Filtern entsprechen (statt den
-  ganzen Planeten herunterzuladen).
-- **overpass-turbo** (<https://overpass-turbo.eu>) ist die Spielwiese dazu:
-  Abfrage links eintippen, *Ausführen*, Treffer rechts auf der Karte sehen.
-  **Zum Entwickeln immer hier testen**, nicht im Skript.
+- **OpenStreetMap (OSM)** is a free world map built from three primitives:
+  **nodes** (points, e.g. a station), **ways** (lines/areas, e.g. a track),
+  **relations** (groups, e.g. a train route). Every object carries **tags** —
+  key-value pairs like `railway=station` or `name=Cluj Napoca`.
+- **Overpass API** is a read interface for this data: send a query, get back
+  exactly the objects matching your filters (instead of downloading the whole
+  planet).
+- **overpass-turbo** (<https://overpass-turbo.eu>) is the interactive playground:
+  type a query on the left, click *Run*, see results on the map on the right.
+  **Always test here first**, not in the script.
 
-## Der Query dieses Projekts, Zeile für Zeile
+## The project query, line by line
 
-So sieht die Abfrage in `tools/fetch_cfr_data.py` aus:
+This is the query in `tools/fetch_cfr_data.py`:
 
 ```overpassql
 [out:json][timeout:120];
@@ -28,43 +28,42 @@ node["railway"~"^(station|halt|stop)$"]["name"](area.ro);
 out tags center;
 ```
 
-1. **`[out:json][timeout:120];`** – *Einstellungen* für die ganze Abfrage:
-   Ergebnis als JSON, Abbruch nach 120 s. (Jede Anweisung endet mit `;`.)
-2. **`area["ISO3166-1"="RO"][admin_level=2]->.ro;`** – sucht die Staatsfläche
-   Rumäniens (ISO-Code `RO`, Verwaltungsebene 2 = Land) und legt sie unter dem
-   Namen **`.ro`** ab. So eine benannte Ablage heißt *Set* und lässt sich später
-   als Filter wiederverwenden.
-3. **`node["railway"~"^(station|halt|stop)$"]["name"](area.ro);`** – die
-   eigentliche Auswahl:
-   - `node` → nur Punkte.
-   - `["railway"~"^(station|halt|stop)$"]` → Tag `railway` muss (per **Regex**,
-     erkennbar am `~`) genau `station`, `halt` **oder** `stop` sein. `^…$`
-     verankert den ganzen Wert, damit z. B. `crossing` nicht durchrutscht.
-   - `["name"]` → nur Objekte, die **überhaupt** ein `name`-Tag haben
-     (ohne Wertangabe = „Schlüssel existiert").
-   - `(area.ro)` → räumlich auf das vorhin abgelegte Set `.ro` einschränken.
-4. **`out tags center;`** – *Ausgabe*: gib die **Tags** aus und für jedes Objekt
-   einen repräsentativen Mittelpunkt (`center`) als Koordinate.
+1. **`[out:json][timeout:120];`** — global settings: return JSON, abort after
+   120 s. (Every statement ends with `;`.)
+2. **`area["ISO3166-1"="RO"][admin_level=2]->.ro;`** — finds Romania's country
+   polygon (ISO code `RO`, admin level 2 = country) and stores it under the name
+   **`.ro`**. This named store is called a *set* and can be reused as a filter.
+3. **`node["railway"~"^(station|halt|stop)$"]["name"](area.ro);`** — the actual
+   selection:
+   - `node` → points only.
+   - `["railway"~"^(station|halt|stop)$"]` → the `railway` tag must match (via
+     **regex**, indicated by `~`) exactly `station`, `halt`, **or** `stop`. `^…$`
+     anchors the whole value so that e.g. `crossing` cannot slip through.
+   - `["name"]` → only objects that **have** a `name` tag at all (no value
+     specified = "key exists").
+   - `(area.ro)` → spatially restrict to the previously stored set `.ro`.
+4. **`out tags center;`** — output: return the **tags** and for each object a
+   representative centroid (`center`) as coordinates.
 
-Ergebnis: alle benannten Bahn-Haltepunkte Rumäniens – die Rohbasis, aus der das
-Skript anschließend die CFR-Magistralen und ihre Stationen zusammensetzt.
+Result: all named rail stops in Romania — the raw basis from which the script
+assembles the CFR magistrale and their stations.
 
-## Filter-Bausteine, die du brauchst
+## Filter building blocks you need
 
-| Schreibweise | Bedeutung |
+| Syntax | Meaning |
 |---|---|
-| `["railway"="station"]` | Tag exakt gleich `station` |
-| `["name"]` | Tag `name` existiert (beliebiger Wert) |
-| `["railway"~"halt\|stop"]` | Regex: enthält `halt` oder `stop` |
-| `["name"~"cluj",i]` | Regex, `i` = Groß/Kleinschreibung egal |
-| `["railway"!~"."]` | Tag `railway` fehlt (Negation) |
-| `node`, `way`, `relation`, `nwr` | Objekttyp (`nwr` = alle drei) |
-| `(46.6,23.4,46.9,23.7)` | Bounding-Box (Süd, West, Nord, Ost) |
-| `(area.ro)` | innerhalb eines benannten Sets |
+| `["railway"="station"]` | tag exactly equals `station` |
+| `["name"]` | tag `name` exists (any value) |
+| `["railway"~"halt\|stop"]` | regex: contains `halt` or `stop` |
+| `["name"~"cluj",i]` | regex, `i` = case-insensitive |
+| `["railway"!~"."]` | tag `railway` is absent (negation) |
+| `node`, `way`, `relation`, `nwr` | object type (`nwr` = all three) |
+| `(46.6,23.4,46.9,23.7)` | bounding box (south, west, north, east) |
+| `(area.ro)` | within a named set |
 
-## Nützliche Varianten zum Ausprobieren
+## Useful variants to try
 
-Nur **zählen**, wie viele Stationen es gibt (schnell, ohne Geometrie):
+Count only (fast, no geometry):
 
 ```overpassql
 [out:json][timeout:60];
@@ -73,7 +72,7 @@ node["railway"="station"]["name"](area.ro);
 out count;
 ```
 
-Ein einzelner Bahnhof per **Bounding-Box** (z. B. Cluj):
+A single station by **bounding box** (e.g. Cluj):
 
 ```overpassql
 [out:json];
@@ -81,7 +80,7 @@ node["railway"="station"]["name"="Cluj Napoca"](46.6,23.4,46.9,23.7);
 out center;
 ```
 
-Strecken statt Stationen – **Zuglinien-Relationen** im Land:
+Train line **relations** instead of stations:
 
 ```overpassql
 [out:json][timeout:120];
@@ -90,23 +89,23 @@ relation["route"="train"](area.ro);
 out tags;
 ```
 
-## Etikette & Stolpersteine
+## Etiquette & pitfalls
 
-- **Last-Limit:** Die öffentliche Instanz ist geteilt. Großzügige `timeout`-Werte
-  setzen, nicht in Schleife hämmern, Ergebnisse cachen. Das Skript tut genau das
-  (`data/raw/osm_ro_stations.json`, danach `--offline`).
-- **User-Agent:** Bei direktem Abruf (nicht über overpass-turbo) einen
-  aussagekräftigen `User-Agent` mitschicken – sonst kommt teils `HTTP 429/403`.
-  Das Skript setzt einen.
-- **Namen & Diakritika:** OSM-Schreibweisen variieren (`Cluj Napoca` vs.
-  `Cluj-Napoca`, Bahnhof als `station` *oder* `halt`/`stop`). Genau deshalb
-  zieht das Skript einen breiten Rohdatensatz und matcht lokal.
-- **Lizenz:** OSM-Daten stehen unter **ODbL** – bei Weitergabe Namensnennung
-  („© OpenStreetMap-Mitwirkende") beilegen. Siehe README, Abschnitt
-  *Datenquellen & Lizenz*.
+- **Rate limit:** The public instance is shared. Set generous `timeout` values,
+  don't hammer in a loop, cache results. The script does exactly this
+  (`data/raw/osm_ro_stations.json`, then `--offline`).
+- **User-Agent:** When fetching directly (not via overpass-turbo), send a
+  meaningful `User-Agent` header — otherwise you may get `HTTP 429/403`. The
+  script sets one.
+- **Names & diacritics:** OSM spellings vary (`Cluj Napoca` vs. `Cluj-Napoca`,
+  station as `station` *or* `halt`/`stop`). That is exactly why the script
+  fetches a broad raw dataset and matches locally.
+- **Licence:** OSM data is under **ODbL** — include attribution
+  ("© OpenStreetMap contributors") when redistributing. See README,
+  section *Data sources & licence*.
 
-## Weiterlesen
+## Further reading
 
-- overpass-turbo (interaktiv): <https://overpass-turbo.eu>
-- Overpass-QL-Referenz: <https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL>
-- OSM-Tag `railway`: <https://wiki.openstreetmap.org/wiki/Key:railway>
+- overpass-turbo (interactive): <https://overpass-turbo.eu>
+- Overpass QL reference: <https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL>
+- OSM tag `railway`: <https://wiki.openstreetmap.org/wiki/Key:railway>

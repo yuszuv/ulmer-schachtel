@@ -1,38 +1,38 @@
-# Ulmer Schachtel – TODO: Fancy Stil (historisch)
+# Ulmer Schachtel – TODO: Fancy Style (historical)
 
-## Ziel für spätere Ausbaustufe
+## Goal for a later stage
 
-Ein visuell deutlich aufgewerteter Reiseplaner mit historischem Kartencharakter,
-orientiert an spät-18.-Jahrhundert-Kartenästhetik.
+A visually enhanced travel planner with a historical map character, inspired by
+late-18th-century cartographic aesthetics.
 
-## Stil-Referenz (festgehalten)
+## Style reference (recorded)
 
-Referenzseite:
+Reference page:
 `https://www.vintage-maps.com/de/antike-landkarten/europa/rumaenien-moldawien/von-reilly-rumaenien-moldawien-temescher-banat-temeswar-timisoara::12254`
 
-Wichtige Merkmale laut Seiteninhalt:
+Key features from the page:
 
-- Karte: „Das Temeschvarer Bannat."
-- Kartograph: Franz Johann Joseph von Reilly
-- Jahr: 1791 (Wien)
-- Kontext: aus „Schauplatz der fünf Theile der Welt" (1789–1806)
-- Anmutung: altkoloriert, warme Papierfarbigkeit, feine Beschriftung
+- Map title: "Das Temeschvarer Bannat."
+- Cartographer: Franz Johann Joseph von Reilly
+- Year: 1791 (Vienna)
+- Context: from "Schauplatz der fünf Theile der Welt" (1789–1806)
+- Aesthetic: hand-coloured, warm paper tone, fine lettering
 
-## Historische Grundkarte: Arcanum Maps (XYZ Tiles)
+## Historical base map: Arcanum Maps (XYZ tiles)
 
-**Arcanum Maps** (maps.arcanum.com) stellt die Habsburger Militäraufnahmen als
-XYZ-Tile-Service bereit. Die `-transylvania`-spezifischen Layer liefern für
-Rumänien leere Tiles — nur die `europe-*`-Layer haben tatsächliche Abdeckung.
+**Arcanum Maps** (maps.arcanum.com) provides the Habsburg military surveys as
+an XYZ tile service. The `-transylvania`-specific layers return empty tiles for
+Romania — only the `europe-*` layers have actual coverage.
 
-Funktionierende Layer für Rumänien (getestet):
+Working layers for Romania (tested):
 
-| Aufnahme | Zeitraum | Layer-Name |
+| Survey | Period | Layer name |
 |---|---|---|
-| 1. Mil. Aufnahme | 1763–1790 | `europe-18century-firstsurvey` |
-| 2. Mil. Aufnahme | 1806–1869 | `europe-19century-secondsurvey` |
-| 3. Mil. Aufnahme | 1869–1887 | `europe-19century-thirdsurvey` |
+| 1st Military Survey | 1763–1790 | `europe-18century-firstsurvey` |
+| 2nd Military Survey | 1806–1869 | `europe-19century-secondsurvey` |
+| 3rd Military Survey | 1869–1887 | `europe-19century-thirdsurvey` |
 
-Einbindung in QGIS (*Layer → Layer hinzufügen → XYZ-Tile-Layer*):
+Add in QGIS (*Layer → Add Layer → XYZ Tile Layer*):
 
 ```
 URL:     https://tiles.arcanum.com/mercator/europe-19century-secondsurvey/{z}/{x}/{y}
@@ -40,30 +40,31 @@ Referer: https://maps.arcanum.com
 Min/Max Zoom: 5 / 14
 ```
 
-Layer-Name anpassen für andere Epochen. Unter die eigenen Vektordaten legen.
+Adjust the layer name for other periods. Place below your own vector layers.
 
-> Zeitlich und geografisch perfekt zur Stil-Referenz (von Reilly 1791):
-> die 1. Militäraufnahme entstand parallel im selben Jahrzehnt.
+> Chronologically and geographically a perfect match for the style reference
+> (von Reilly 1791): the 1st Military Survey was produced in parallel during the
+> same decade.
 
-## Gestalterische TODOs
+## Visual TODOs
 
-- Historische Grundkarte vorbereiten:
-  - Arcanum WMS einbinden (siehe oben) statt lokaler Rasterdatei
-  - Optional: Kacheln in `data/reference/historical` cachen für Offline-QField
-- Farbwelt:
-  - Pergament-Hintergrund, Sepia-Linien, gedeckte Akzentfarben
-- Typografie:
-  - Serifenschrift für Titel/Orte, dezente Sans für Metadaten
-- Symbolik:
-  - differenzierte Marker für `dracula_city`, `city`, `danube_delta`
-- Routenvisualisierung:
-  - wie historische Reiseachsen (punktiert/gestrichelt, nicht modern-neon)
-- Kartenelemente:
-  - Maßstab, Nordpfeil, dezente Kartusche mit Reiseroute
+- Prepare the historical base map:
+  - Embed Arcanum WMS (see above) instead of a local raster file
+  - Optional: cache tiles in `data/reference/historical` for offline QField use
+- Colour palette:
+  - Parchment background, sepia lines, muted accent colours
+- Typography:
+  - Serif font for titles/place names, subtle sans-serif for metadata
+- Symbology:
+  - Differentiated markers for `dracula_city`, `city`, `danube_delta`
+- Route visualisation:
+  - Historical travel-axis style (dotted/dashed, not modern-neon)
+- Map furniture:
+  - Scale bar, north arrow, subtle cartouche with travel route
 
-## Funktionale TODOs für "Fancy"
+## Functional TODOs for "Fancy"
 
-- Interaktive Etappenplanung (Tag 1..N)
-- Gewichtung „Natur / Stadt / Historie"
-- Export „Tagesplan" für QField-Formulare
-- Optionaler Web-Viewer als zweite Oberfläche neben QGIS/QField
+- Interactive day-by-day itinerary planning
+- Weighting slider: Nature / City / History
+- Export "daily plan" for QField forms
+- Optional web viewer as a second interface alongside QGIS/QField

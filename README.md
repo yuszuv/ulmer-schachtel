@@ -17,143 +17,143 @@
 ~~~~~~~~~~~~~~ Donau ~~~~~~~~~~~~~~~~~~~
 ```
 
-# Ulmer Schachtel – Reiseplaner Rumänien (QGIS → QField)
+# Ulmer Schachtel – Romania Rail Travel Planner (QGIS → QField)
 
-> *Benannt nach der **»Ulmer Schachtel«** – dem einfachen hölzernen
-> Donau-Flachboot, mit dem im 18./19. Jahrhundert Auswanderer von Ulm
-> flussabwärts bis ins Banat (Rumänien) fuhren. Einbahn-Fahrt: am Ziel wurde
-> das Boot zerlegt – das Holz diente den Siedlern zum Hausbau.*
+> *Named after the **»Ulmer Schachtel«** — the simple flat-bottomed wooden boat
+> with which emigrants travelled from Ulm downstream along the Danube to the
+> Banat (Romania) in the 18th/19th century. One-way trip: at the destination the
+> boat was dismantled and its timber used by the settlers to build houses.*
 
-Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanung mit Bahnstationen in Rumänien.
+A lightly historical-flavoured map application for planning a rail holiday in Romania.
 
-## Zielbild (Basic v1)
+## Goals (Basic v1)
 
-- Planung von Bahnstationen mit mehreren Routenoptionen.
-- Marker für priorisierte Ziele:
-  - Dracula-Städte: Brașov, Sighișoara
-  - Städte: Timișoara (Temeschburg), București (Bukarest)
-  - Donaudelta-Highlights: Sulina, Sfântu Gheorghe, Letea Forest
-- Vorbereitung für späteren Export nach QField.
+- Plan rail journeys with multiple route options.
+- Markers for prioritised destinations:
+  - Dracula towns: Brașov, Sighișoara
+  - Cities: Timișoara, București
+  - Danube Delta highlights: Sulina, Sfântu Gheorghe, Letea Forest
+- Prepared for export to QField.
 
-> Hinweis: Die Donaudelta-Highlights sind **nicht per Bahn** erreichbar. Die Schiene
-> endet in Tulcea; ab dort geht es per Schiff/Tour ins Delta.
+> Note: The Danube Delta highlights are **not reachable by rail**. The line ends
+> at Tulcea; onward travel into the Delta is by boat.
 
-## Ordnerstruktur
+## Directory layout
 
-- `data/raw`: Rohdaten (zukünftig z. B. GTFS, OSM-Exporte)
-- `data/processed`: Verwendete Vektor- und Tabellendaten
-- `data/reference/historical`: Referenzmaterial für historischen Kartenstil (Fancy-Stufe)
-- `qgis/reiseplan.qgz`: vorgefertigtes QGIS-Projekt (Layer + Stile)
-- `qgis/projects`: Platz für eigene QGIS-Projektdateien (`.qgz`)
-- `qgis/styles`: QGIS-Stildateien (`.qml`, inkl. eingebetteter SVG-Marker)
-- `docs`: Arbeits- und Exportdokumentation
-- `tools`: kleine Hilfsskripte/CLI (inkl. `build_site.py` für die Online-Karte)
-- `.github/workflows`: GitHub Actions (Pages-Deploy, Daten-Refresh)
+- `data/raw` – raw data (future: GTFS, OSM exports)
+- `data/processed` – vector and table data used by the project
+- `data/reference/historical` – reference material for the historical map style (Fancy stage)
+- `qgis/reiseplan.qgz` – ready-made QGIS project (layers + styles)
+- `qgis/projects` – space for your own QGIS project files (`.qgz`)
+- `qgis/styles` – QGIS style files (`.qml`, incl. embedded SVG markers)
+- `docs` – setup and export documentation
+- `tools` – helper scripts / CLI (incl. `build_site.py` for the online map)
+- `.github/workflows` – GitHub Actions (Pages deploy, data refresh)
 
-## Schnellstart (QGIS)
+## Quick start (QGIS)
 
-0. Daten-Bündel bauen: `uv run reiseplan-cli build-gpkg`
-   (erzeugt `data/processed/reiseplan.gpkg` mit allen vier Layern; die GeoJSON
-   bleiben das versionierte Quellformat).
-1. QGIS öffnen (>= 3.28 empfohlen).
-2. Neues Projekt anlegen und **zuerst** das Projekt-CRS setzen:
-   *Projekt → Eigenschaften → KBS → `EPSG:3844 (Stereo70)`*.
-   Wichtig: Das CRS **vor** dem Laden der Layer setzen. Sonst übernimmt
-   QGIS das CRS des ersten Layers (`EPSG:4326`, das WGS84-/GPS-Format, in
-   dem GeoJSON laut Standard immer vorliegt) als Projekt-CRS.
-3. Layer aus `data/processed/reiseplan.gpkg` laden (4 Layer aus einer Datei):
+0. Build the data bundle: `uv run reiseplan-cli build-gpkg`
+   (creates `data/processed/reiseplan.gpkg` with all four layers; GeoJSON files
+   remain the versioned source format).
+1. Open QGIS (>= 3.28 recommended).
+2. Create a new project and **first** set the project CRS:
+   *Project → Properties → CRS → `EPSG:3844 (Stereo70)`*.
+   Important: set the CRS **before** loading any layers. Otherwise QGIS adopts
+   the CRS of the first layer (`EPSG:4326`, the WGS84/GPS format required by the
+   GeoJSON spec) as the project CRS.
+3. Load layers from `data/processed/reiseplan.gpkg` (4 layers, one file):
    - `poi_destinations`
    - `rail_stations`
-   - `rail_lines` (Magistralen; tragen die Verbindungsdaten aus `timetable.csv` als Attribute)
-   - `info_markers` (ℹ „Über diese Karte" – in-App-Hilfe)
+   - `rail_lines` (magistrale; carry connection data from `timetable.csv` as attributes)
+   - `info_markers` (ℹ "About this map" – in-app help)
 
-   Die Layer liegen in `EPSG:4326` vor und werden von QGIS on-the-fly nach
-   `EPSG:3844` projiziert — die Daten bleiben unverändert. Fragt QGIS, ob das
-   Projekt-CRS auf das des Layers umgestellt werden soll: **ablehnen**.
-4. Stile anwenden (Layer-Eigenschaften → Symbologie → *Stil laden…*, **alle Kategorien**):
+   Layers are in `EPSG:4326` and are reprojected on-the-fly to `EPSG:3844` — the
+   data itself is unchanged. If QGIS asks whether to switch the project CRS to match
+   the layer: **decline**.
+4. Apply styles (*Layer Properties → Symbology → Load Style…*, **all categories**):
    - `poi_destinations` → `qgis/styles/poi_destinations.qml`
    - `rail_lines` → `qgis/styles/rail_lines.qml`
    - `rail_stations` → `qgis/styles/rail_stations.qml`
    - `info_markers` → `qgis/styles/info_markers.qml`
-5. Hintergrundkarte laden: *Web → QuickMapServices → OSM Standard* (Plugin nötig).
-6. Labels **und Map-Tips** (HTML-Karte beim Antippen) kommen automatisch aus den QML-Dateien.
-7. **Projekt speichern**: *Projekt → Speichern unter…* → `qgis/projects/v1.qgz`
-   (Endung `.qgz` zwingend). Ohne gespeichertes Projekt schlägt der spätere
-   QField-Export mit einem `AssertionError` fehl.
+5. Load a base map: *Web → QuickMapServices → OSM Standard* (plugin required).
+6. Labels **and Map Tips** (HTML card on tap) come automatically from the QML files.
+7. **Save the project**: *Project → Save As…* → `qgis/projects/v1.qgz`
+   (`.qgz` extension required). Without a saved project, the later QField export
+   will fail with an `AssertionError`.
 
-Details: siehe [docs/01_qgis_setup.md](docs/01_qgis_setup.md).
+Details: see [docs/01_qgis_setup.md](docs/01_qgis_setup.md).
 
-## Schnellstart (CLI, via uv)
+## Quick start (CLI, via uv)
 
 ```bash
 uv run reiseplan-cli list-routes
 uv run reiseplan-cli overview
 uv run reiseplan-cli show-route M300
 uv run reiseplan-cli list-destinations --category dracula_city
+uv run reiseplan-cli timetable --json | jq .   # machine-readable
 ```
 
-Alternativ ohne Installation:
+Or without installing the entrypoint:
 
 ```bash
 uv run python tools/reiseplan_cli.py overview
 ```
 
-## Online-Karte (GitHub Pages)
+## Online map (GitHub Pages)
 
-Für Technik-Laien gibt es eine **interaktive Webseite** mit Karte (Routen,
-Bahnstationen, Reiseziele, Info-Marker) und einer lesbaren Routen- und
-Ziel-Übersicht – ganz ohne QGIS. Einfach die Pages-URL öffnen:
+An **interactive website** (map + readable route/destination overview) is available
+for non-QGIS users — no installation required. Open the Pages URL:
 
-> `https://<user>.github.io/<repo>/` (URL erscheint nach dem ersten Deploy
-> in *Actions* bzw. *Settings → Pages*).
+> `https://<user>.github.io/<repo>/` (appears after the first deploy under
+> *Actions* or *Settings → Pages*).
 
-Lokal bauen und im Browser anschauen:
-
-```bash
-python tools/build_site.py        # erzeugt site/index.html (self-contained)
-xdg-open site/index.html          # oder die Datei direkt im Browser öffnen
-```
-
-Die Seite wird automatisch via GitHub Actions gebaut und veröffentlicht
-(Workflow `.github/workflows/pages.yml`), sobald sich Daten oder das Build-Skript
-auf `main` ändern. **Einmalig nötig:** *Settings → Pages → Source = „GitHub
-Actions"*. Frische Bahndaten lassen sich per Knopfdruck holen – Workflow
-*„Bahndaten aktualisieren (Overpass)"* unter *Actions* ausführen; er öffnet einen
-PR mit dem Datendiff. Details: [docs/04_web_pages.md](docs/04_web_pages.md).
-
-## Datenquellen & Lizenz
-
-Die Bahndaten (Bahnhöfe und Strecken) beruhen auf den **CFR-Magistralen 200–900**
-(„Căile Ferate Române main lines") und werden aus **OpenStreetMap** via Overpass
-API bezogen:
+Build and open locally:
 
 ```bash
-uv run python tools/fetch_cfr_data.py            # OSM abfragen, cachen, GeoJSON bauen
-uv run python tools/fetch_cfr_data.py --offline  # nur aus data/raw-Cache neu bauen
+python tools/build_site.py        # generates site/index.html (self-contained)
+xdg-open site/index.html          # or open the file directly in a browser
 ```
 
-> Kartendaten © **OpenStreetMap-Mitwirkende**, lizenziert unter der
+The site is built and published automatically by GitHub Actions
+(workflow `.github/workflows/pages.yml`) on every push to `main` that touches
+data or the build script. **One-time setup:** *Settings → Pages → Source = "GitHub
+Actions"*. Fresh rail data can be fetched on demand — run the
+*"Bahndaten aktualisieren (Overpass)"* workflow under *Actions*; it opens a PR
+with the data diff. Details: [docs/04_web_pages.md](docs/04_web_pages.md).
+
+## Data sources & licence
+
+Rail data (stations and routes) is based on the **CFR magistrale 200–900**
+("Căile Ferate Române main lines") and fetched from **OpenStreetMap** via the
+Overpass API:
+
+```bash
+uv run python tools/fetch_cfr_data.py            # query OSM, cache, build GeoJSON
+uv run python tools/fetch_cfr_data.py --offline  # rebuild from data/raw cache only
+```
+
+> Map data © **OpenStreetMap contributors**, licensed under the
 > [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
-> Bei Weitergabe der abgeleiteten Daten ist diese Namensnennung beizulegen.
+> This attribution must be included when redistributing derived data.
 
-Exakte Fahrplanzeiten stellt CFR nicht als offenen Feed bereit. `route_stops.csv`
-enthält daher nur die **Haltefolge** je Magistrale (Reihenfolge + Rolle), keine
-Zeiten. Echte Verbindungen (Abfahrt/Ankunft/Tage/via) werden **von Hand** in
-`data/processed/timetable.csv` gepflegt — eine Zeile je Magistrale; das Fetch-Skript
-legt diese Vorlage nur an, wenn sie fehlt, und überschreibt eingetragene Zeiten nie.
-Beim nächsten `fetch …` wandern die Zeiten als Attribute in `rail_lines.geojson`
-(Quelle für Zeiten: <https://mersultrenurilor.infofer.ro>). Übersicht per
-`uv run reiseplan-cli timetable`.
+CFR does not publish an open timetable feed. `route_stops.csv` therefore contains
+only the **stop sequence** per magistrală (order + role), no times. Real connections
+(dep/arr/days/via) are **hand-maintained** in `data/processed/timetable.csv` —
+one row per magistrală; the fetch script only creates this file as a scaffold
+template when it is missing and never overwrites entered times. On the next
+`fetch …` run, times are merged as attributes into `rail_lines.geojson`.
+Authoritative times: <https://mersultrenurilor.infofer.ro>.
+CLI overview: `uv run reiseplan-cli timetable`.
 
-Wie die Overpass-Abfrage funktioniert und wie du sie anpasst, erklärt
+How the Overpass query works and how to customise it:
 [docs/05_overpass_101.md](docs/05_overpass_101.md).
 
-## Weiterführung
+## Further reading
 
-- QGIS-Setup: [docs/01_qgis_setup.md](docs/01_qgis_setup.md)
-- QField-Export: [docs/02_qfield_export.md](docs/02_qfield_export.md)
-- CLI-Einschätzung: [docs/03_cli_option.md](docs/03_cli_option.md)
-- Online-Karte / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
-- Overpass 101 (Bahndaten aus OSM): [docs/05_overpass_101.md](docs/05_overpass_101.md)
-- CFR-Fetch-Prozess und Datenfluss: [docs/06_cfr_daten_fetch.md](docs/06_cfr_daten_fetch.md)
-- Fancy-Stil-TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)
+- QGIS setup: [docs/01_qgis_setup.md](docs/01_qgis_setup.md)
+- QField export: [docs/02_qfield_export.md](docs/02_qfield_export.md)
+- CLI reference: [docs/03_cli_reference.md](docs/03_cli_reference.md)
+- Online map / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
+- Overpass 101 (rail data from OSM): [docs/05_overpass_101.md](docs/05_overpass_101.md)
+- CFR fetch process and data flow: [docs/06_cfr_data_fetch.md](docs/06_cfr_data_fetch.md)
+- Fancy style TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)

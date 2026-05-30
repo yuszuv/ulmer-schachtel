@@ -1,9 +1,9 @@
-# Rohdaten
+# Raw data
 
-Dieser Ordner ist für externe Quelldaten gedacht, z. B.:
+This directory holds external source data, for example:
 
-- GTFS-Daten von Bahnunternehmen
-- OSM-Exporte (Bahnhöfe, Schienen, administrative Grenzen)
-- manuelle CSV-Listen für Reiseideen
+- GTFS feeds from rail operators
+- OSM exports (stations, tracks, administrative boundaries)
+- Manual CSV lists of travel ideas
 
-Rohdaten nicht direkt im QGIS-Projekt stylen, sondern zuerst nach `data/processed` überführen.
+Do not style raw data directly in QGIS — process it into `data/processed` first.

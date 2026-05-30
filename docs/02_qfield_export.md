@@ -1,134 +1,131 @@
 # QField Export (Basic v1)
 
-Es gibt zwei Wege aufs Gerät:
+Two ways to get the project onto the device:
 
-- **Variante A – GPKG direkt kopieren:** Für die überwiegend **lesende** Nutzung
-  (Marker und Routen ansehen). Kein Plugin nötig, nur zwei Dateien kopieren.
-- **Variante B – alles über QFieldSync:** Das Plugin übernimmt den kompletten
-  Export inkl. selbst gerenderter **Offline-Basemap**. Nötig für Offline-Karten
-  ohne manuelles Kacheln-Besorgen sowie fürs **Bearbeiten + Zurücksynchronisieren**
-  im Feld.
+- **Option A – copy GPKG directly:** For primarily **read-only** use (viewing
+  markers and routes). No plugin needed, just copy two files.
+- **Option B – full QFieldSync workflow:** The plugin handles the complete export
+  including a self-rendered **offline base map**. Required for offline maps without
+  manual tile preparation and for **editing + syncing back** from the field.
 
-Wer nur lesen will und die Hintergrundkarte nicht offline braucht, nimmt
-Variante A.
+If you only need to read the map and don't need an offline base map, use Option A.
 
-## Variante A (empfohlen): GPKG direkt kopieren
+## Option A (recommended): copy GPKG directly
 
-QField öffnet `.qgz`-Projekte nativ – kein Paketier-Schritt, keine
-Verschachtelung, nur zwei Dateien.
+QField opens `.qgz` projects natively — no packaging step, no nesting, just two
+files.
 
-### Voraussetzung
+### Prerequisites
 
-- Daten-Bündel gebaut: `uv run reiseplan-cli build-gpkg`
-  → `data/processed/reiseplan.gpkg` (alle vier Layer in einer Datei).
-- Projekt in QGIS aus dieser GPKG aufgebaut und als `.qgz` gespeichert
-  (siehe [01_qgis_setup.md](01_qgis_setup.md)).
-- Beim Speichern **relative Pfade** verwenden
-  (Projekt → Eigenschaften → *Allgemein* → Pfade „relativ").
-  Stile (Symbologie + Labels) werden dabei automatisch ins `.qgz` eingebettet –
-  separate `.qml` musst du **nicht** mitkopieren.
+- Data bundle built: `uv run reiseplan-cli build-gpkg`
+  → `data/processed/reiseplan.gpkg` (all four layers in one file).
+- Project built in QGIS from this GPKG and saved as `.qgz`
+  (see [01_qgis_setup.md](01_qgis_setup.md)).
+- **Relative paths** used when saving
+  (*Project → Properties → General* → Paths "relative").
+  Styles (symbology + labels) are automatically embedded in the `.qgz` —
+  you **do not** need to copy the separate `.qml` files.
 
-### Ablauf
+### Procedure
 
-1. Diese beiden Dateien aufs Gerät übertragen (gleicher Ordner, damit der
-   relative Pfad stimmt), z. B. via USB/MTP, Syncthing oder Cloud:
+1. Transfer these two files to the device (same folder, so the relative path
+   resolves), e.g. via USB/MTP, Syncthing, or cloud:
    - `qgis/projects/v1.qgz`
    - `data/processed/reiseplan.gpkg`
-2. In QField den Ordner öffnen und das `.qgz` antippen.
-3. Layer sichtbar schalten, Labels prüfen, Marker antippen
+2. Open the folder in QField and tap the `.qgz`.
+3. Toggle layers visible, check labels, tap markers
    (`name`, `category`, `notes`).
-4. Optional: GNSS aktivieren, um die eigene Position zur Route zu sehen.
+4. Optionally enable GNSS to see your own position relative to the routes.
 
-> Basemap: Basic v1 startet ohne Raster-Kacheln (spart Volumen). Optional später
-> MBTiles offline erzeugen und mitkopieren.
+> Base map: Basic v1 starts without raster tiles (saves storage). Optionally
+> generate MBTiles offline later and copy them alongside.
 
-## Doku in QField (Map-Tips & Info-Marker)
+## Documentation in QField (Map Tips & info markers)
 
-Die Doku reist **im Projekt** mit – keine separaten Dateien, kein Internet nötig.
+Documentation travels **inside the project** — no separate files, no internet
+needed.
 
-- **Map-Tips:** Marker oder Routenlinie antippen → QField zeigt beim Identifizieren
-  eine formatierte HTML-Karte (POI: Name, Kategorie, Priorität, Notiz; Station:
-  Name + Stadt; Route: Name, Von → Nach, Tags). Das HTML steckt in den
-  `qgis/styles/*.qml` (Kategorie *Map-Tips*) und wird beim `.qgz`-Speichern
-  eingebettet – Voraussetzung ist, dass die Stile **mit allen Kategorien** geladen
-  wurden (siehe [01_qgis_setup.md](01_qgis_setup.md), Schritt 5).
-- **„Über diese Karte"-Marker:** der ℹ-Punkt (`info_markers`) etwa in der Landesmitte
-  ist die Bedien-/Legenden-Hilfe – antippen zeigt Symbol-Erklärung, Bedienung und
-  den Donaudelta-/Bahn-Hinweis.
+- **Map Tips:** Tap a marker or route line → QField shows a formatted HTML card
+  on identify (POI: name, category, priority, notes; station: name + city; route:
+  name, from → to, tags). The HTML lives in `qgis/styles/*.qml` (category
+  *Map Tips*) and is embedded at `.qgz` save time — requires that styles were
+  loaded **with all categories** (see [01_qgis_setup.md](01_qgis_setup.md), step 5).
+- **"About this map" marker:** the ℹ point (`info_markers`) near the centre of
+  Romania is the usage/legend help — tap it for symbol explanation, navigation
+  hints, and the Danube Delta / rail note.
 
-> Auf dem Gerät einmal je einen POI-, Stations-, Routen- und den ℹ-Marker antippen
-> und prüfen, dass die HTML-Karte erscheint. Falls nicht: Stile in QGIS neu „mit
-> allen Kategorien" laden, `.qgz` neu speichern und erneut übertragen.
+> On the device, tap one POI, one station, one route, and the ℹ marker and
+> verify that the HTML card appears. If not: reload styles in QGIS with *All
+> Categories*, re-save the `.qgz`, and re-transfer.
 
-## Variante B: Alles über das QFieldSync-Plugin
+## Option B: full QFieldSync plugin workflow
 
-Hier übernimmt das QFieldSync-Plugin den **kompletten** Weg aufs Gerät: Es bündelt
-Projekt + Daten, rendert auf Wunsch eine **Offline-Basemap** und schnürt ein
-in sich geschlossenes Paket. Sinnvoll, wenn du
+The QFieldSync plugin handles the **complete** path to the device: it bundles
+the project + data, optionally renders an **offline base map**, and produces a
+self-contained package. Use this when you:
 
-- die Hintergrundkarte **offline** dabei haben willst (Plugin erzeugt MBTiles
-  selbst – kein manuelles Kacheln-Besorgen),
-- unterwegs **editieren und zurücksynchronisieren** willst, oder
-- nur einen Teilausschnitt (Area of Interest) mitnehmen willst.
+- want the base map **offline** (the plugin generates MBTiles itself — no manual
+  tile fetching),
+- want to **edit and sync back** from the field, or
+- only want to take a sub-area of interest.
 
-> ⚠️ **Zielordner außerhalb des Projektordners wählen** (z. B.
-> `~/qfield_export/v1`). QFieldSync kopiert beim Paketieren alles
-> Projektrelevante in den Zielordner – liegt dieser *im* Projektbaum, schluckt
-> jeder Lauf den vorherigen Export (`qfield/qfield/qfield/…`).
+> ⚠️ **Choose a target folder outside the project folder** (e.g.
+> `~/qfield_export/v1`). QFieldSync copies everything project-relevant into the
+> target folder on each run — if the target is *inside* the project tree, each
+> run nests inside the previous one (`qfield/qfield/qfield/…`).
 
-### Schritt 1: Plugin installieren
+### Step 1: install the plugin
 
-*Erweiterungen → Erweiterungen verwalten und installieren → „QFieldSync" →
-Installieren.*
+*Plugins → Manage and Install Plugins → "QFieldSync" → Install.*
 
-### Schritt 2: Projekt konfigurieren
+### Step 2: configure the project
 
-1. Projekt vorher **speichern** (sonst `AssertionError` – QFieldSync braucht einen
-   `.qgz`/`.qgs`-Dateinamen).
-2. `Plugins → QFieldSync → Configure Current Project` (Projekt konfigurieren).
-3. Layer-Verhalten festlegen:
-   - `poi_destinations`: `Offline editing` nur falls unterwegs Bearbeitung geplant,
-     sonst `Copy`
+1. **Save** the project first (otherwise `AssertionError` — QFieldSync needs a
+   `.qgz`/`.qgs` filename).
+2. `Plugins → QFieldSync → Configure Current Project`.
+3. Set layer action:
+   - `poi_destinations`: `Offline editing` if you plan to edit in the field,
+     otherwise `Copy`
    - `rail_stations` / `rail_lines` / `info_markers`: `Copy`
-     (read-only ausreichend)
-   - XYZ-/Online-Hintergrundkarte: `Keep existing` (bleibt online) – oder per
-     Offline-Basemap ersetzen (Schritt 3).
+     (read-only is sufficient)
+   - XYZ / online base map: `Keep existing` (stays online) — or replace with
+     an offline base map (step 3).
 
-### Schritt 3 (optional): Offline-Basemap erzeugen lassen
+### Step 3 (optional): generate an offline base map
 
-So muss die Hintergrundkarte **nicht** von Hand als MBTiles besorgt werden –
-QFieldSync rendert sie beim Paketieren selbst:
+This way you don't need to source MBTiles manually — QFieldSync renders them
+during packaging:
 
-1. Im selben Konfigurationsdialog den Bereich **Base map** (Basiskarte) öffnen.
-2. **Create base map** aktivieren.
-3. Als Quelle das **Kartenthema** oder den Layer der gewünschten Hintergrundkarte
-   wählen (z. B. die XYZ-OSM- oder CARTO-Karte aus
-   [01_qgis_setup.md](01_qgis_setup.md)).
-4. Detailgrad setzen:
-   - **Map units per pixel**: kleiner = schärfer, aber größere Datei.
-   - **Tile size**: Standard (meist 1024 px) genügt.
-5. Ausdehnung auf das Reisegebiet begrenzen, damit das Paket klein bleibt.
+1. In the same configuration dialog open the **Base map** section.
+2. Enable **Create base map**.
+3. Select the **map theme** or layer of the desired base map as the source (e.g.
+   the XYZ OSM or CARTO map from [01_qgis_setup.md](01_qgis_setup.md)).
+4. Set the level of detail:
+   - **Map units per pixel**: smaller = sharper, but larger file.
+   - **Tile size**: the default (usually 1024 px) is sufficient.
+5. Limit the extent to the travel area to keep the package small.
 
-> **Internet beim Export nötig:** QFieldSync lädt die Kacheln beim Paketieren aus
-> der Online-Quelle. Auf dem Gerät selbst ist die Karte danach offline verfügbar.
+> **Internet required at export time:** QFieldSync downloads the tiles from the
+> online source during packaging. On the device the map is then available offline.
 
-### Schritt 4: Paketieren und übertragen
+### Step 4: package and transfer
 
-1. `Plugins → QFieldSync → Package for QField`, Zielordner **außerhalb** des Repos
-   (z. B. `~/qfield_export/v1`).
-2. Paket bauen lassen – es enthält Projekt, alle Layer und ggf. die Offline-Basemap.
-3. Den **gesamten Zielordner** aufs Gerät übertragen (USB/MTP, Syncthing, Cloud)
-   und in QField öffnen.
-4. Bei aktiviertem `Offline editing`: Änderungen später über
-   `Plugins → QFieldSync → Synchronize` zurückspielen.
+1. `Plugins → QFieldSync → Package for QField`, target folder **outside** the
+   repo (e.g. `~/qfield_export/v1`).
+2. Let the package build — it contains the project, all layers, and optionally
+   the offline base map.
+3. Transfer the **entire target folder** to the device (USB/MTP, Syncthing,
+   cloud) and open it in QField.
+4. If `Offline editing` was enabled: sync changes back later via
+   `Plugins → QFieldSync → Synchronize`.
 
-## Typische Stolpersteine
+## Common pitfalls
 
-- Fehlende Symbole:
-  - Stile im Projekt anwenden und `.qgz` neu speichern – sie reisen im Projekt mit.
-- Layer nicht sichtbar:
-  - Maßstabsabhängigkeiten in Layer-Eigenschaften prüfen.
-- Umlaute / Diakritika:
-  - Dateicodierung UTF-8 belassen.
-- `AssertionError` beim QFieldSync-Export:
-  - Projekt war nicht gespeichert → erst als `.qgz` speichern (siehe Variante B, Schritt 2).
+- Missing symbols:
+  - Apply styles in the project and re-save the `.qgz` — they travel with it.
+- Layers not visible:
+  - Check scale-dependent visibility in Layer Properties.
+- Diacritics / special characters:
+  - Keep file encoding UTF-8.
+- `AssertionError` during QFieldSync export:
+  - Project was not saved → save as `.qgz` first (see Option B, step 2).

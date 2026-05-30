@@ -1,54 +1,54 @@
 #!/usr/bin/env python3
-"""Ingestion der CFR-Hauptstrecken (rumänische Eisenbahn) aus OpenStreetMap.
+"""Ingest CFR main lines (Romanian railways) from OpenStreetMap.
 
-Datenquellen
+Data sources
 ------------
-* **Geometrie / Koordinaten:** OpenStreetMap via Overpass API.
-  © OpenStreetMap-Mitwirkende, lizenziert unter ODbL 1.0.
-  Bei Weitergabe der Daten ist diese Attribution beizulegen.
-* **Liniendefinition:** Die CFR-Magistralen 200–900 ("Căile Ferate Române
-  main lines", Wikipedia). Das sind die meistbefahrenen Hauptachsen Rumäniens
-  und tragen die regelmäßigen IC/IR-Verbindungen zwischen den größeren Städten.
+* **Geometry / coordinates:** OpenStreetMap via Overpass API.
+  © OpenStreetMap contributors, licensed under ODbL 1.0.
+  Attribution must be included when redistributing derived data.
+* **Line definitions:** CFR magistrale 200–900 ("Căile Ferate Române main
+  lines", Wikipedia). These are Romania's busiest main axes carrying regular
+  IC/IR services between major cities.
 
-Das Skript ist bewusst auf die *Haupt-Routen* und die *größeren Städte*
-beschränkt – keine Lokalbahnen, nicht jeder Haltepunkt. Pro Magistrale sind
-nur die regelmäßig bedienten Knoten-/Stadtbahnhöfe hinterlegt.
+The script intentionally covers only *main routes* and *major cities* — no
+branch lines, not every stop. Only regularly served junction/city stations are
+included per magistrală.
 
-Koordinatensystem (CRS)
------------------------
-Die GeoJSON-Ausgaben sind **bewusst EPSG:4326 (WGS84 lon/lat)** – nicht das
-rumänische EPSG:3844 (Stereo70). Das ist kein Anzeige-Kompromiss, sondern
-spec-konform: RFC 7946 §4 schreibt für GeoJSON zwingend WGS84 vor. Web-Consumer
-(Leaflet/Mapbox/GitHub-Vorschau) interpretieren die Koordinaten ohnehin als
-lon/lat. Das *projizierte* Arbeits-CRS 3844 lebt erst eine Stufe später: beim
-Bündeln nach ``reiseplan.gpkg`` reprojiziert ``reiseplan-cli build-gpkg`` via
-``ogr2ogr -t_srs EPSG:3844``. Kurz: GeoJSON = Austausch (4326), GPKG = Arbeit
-(3844). Die GeoJSON also nicht „aufräumend" auf 3844 umstellen.
+CRS rationale
+-------------
+GeoJSON output is **deliberately EPSG:4326 (WGS84 lon/lat)** — not the
+Romanian EPSG:3844 (Stereo70). This is not a display compromise but a spec
+requirement: RFC 7946 §4 mandates WGS84 for GeoJSON. Web consumers (Leaflet,
+Mapbox, GitHub preview) interpret coordinates as lon/lat regardless. The
+*projected* working CRS 3844 enters one step later: ``reiseplan-cli build-gpkg``
+reprojects to EPSG:3844 via ``ogr2ogr -t_srs EPSG:3844``. Short: GeoJSON =
+exchange format (4326), GPKG = working bundle (3844). Do not "clean up" the
+GeoJSON by switching to 3844.
 
-Erzeugte Dateien (alle EPSG:4326, Schema kompatibel zum bestehenden Projekt)
-----------------------------------------------------------------------------
-* ``data/processed/rail_stations.geojson``  – Bahnhöfe (Point)
-* ``data/processed/rail_lines.geojson``     – Magistralen (LineString), angereichert
-                                              mit den Verbindungsdaten aus ``timetable.csv``
-* ``data/processed/route_stops.csv``        – Haltefolgen je Magistrale (Reihenfolge + Rolle)
-* ``data/raw/osm_ro_stations.json``         – Roh-Cache der Overpass-Antwort
+Output files (all EPSG:4326, schema compatible with the rest of the project)
+---------------------------------------------------------------------------
+* ``data/processed/rail_stations.geojson``  – stations (Point)
+* ``data/processed/rail_lines.geojson``     – magistrale (LineString), enriched
+                                              with connection data from ``timetable.csv``
+* ``data/processed/route_stops.csv``        – stop sequences per magistrală
+* ``data/raw/osm_ro_stations.json``         – raw Overpass response cache
 
-Daneben wird ``data/processed/timetable.csv`` als Vorlage angelegt (eine Zeile je
-Magistrale), **falls sie noch nicht existiert** – sie ist die *handgepflegte* Quelle
-für echte Verbindungen (Abfahrt/Ankunft/Tage/via) und wird hier nie überschrieben.
+``data/processed/timetable.csv`` is created as a scaffold template (one row per
+magistrală) **only if it does not yet exist** — it is the *hand-maintained*
+source for real connections (dep/arr/days/via) and is never overwritten here.
 
-Fahrplanzeiten: CFR stellt keinen offenen GTFS-Feed bereit. Die Zeiten in
-``timetable.csv`` werden manuell gepflegt (Live-Auskunft unter
+Timetable times: CFR does not publish an open GTFS feed. Times in
+``timetable.csv`` are maintained manually (live lookup at
 https://mersultrenurilor.infofer.ro). ``trip_hint`` in ``route_stops.csv``
-beschreibt die Rolle des Halts (Start/Ziel/Umstieg) qualitativ.
+describes each stop's role qualitatively (start / end / interchange).
 
-Aufruf
-------
-    uv run python tools/fetch_cfr_data.py            # Overpass abfragen + cachen + bauen
-    uv run python tools/fetch_cfr_data.py --offline  # nur aus Roh-Cache neu bauen
+Usage
+-----
+    uv run python tools/fetch_cfr_data.py            # query Overpass, cache, build
+    uv run python tools/fetch_cfr_data.py --offline  # rebuild from cache only
 
-Nach dem Eintragen echter Zeiten in ``timetable.csv`` einfach erneut ``--offline``
-laufen lassen – die Zeiten wandern dann in ``rail_lines.geojson``.
+After entering real times into ``timetable.csv``, re-run with ``--offline`` —
+the times will be merged into ``rail_lines.geojson``.
 """
 
 from __future__ import annotations
@@ -73,8 +73,8 @@ from timetable import (
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 USER_AGENT = "reisefuehrer-dataintegration/0.1 (jan@sternprodukt.de)"
 
-# Alle benannten Bahn-Halte (station/halt/stop) in Rumänien. Wir filtern lokal
-# auf die unten definierten Magistralen-Halte – ein Abruf, danach offline.
+# Fetch all named rail stops (station/halt/stop) in Romania. Filtering down to
+# the defined magistrală stops happens locally — one network request, then offline.
 OVERPASS_QUERY = """
 [out:json][timeout:120];
 area["ISO3166-1"="RO"][admin_level=2]->.ro;
@@ -84,15 +84,15 @@ out tags center;
 
 
 # --------------------------------------------------------------------------- #
-# Liniendefinition                                                            #
+# Line definitions                                                            #
 # --------------------------------------------------------------------------- #
 @dataclass(frozen=True)
 class Stop:
-    """Ein Halt auf einer Magistrale.
+    """A stop on a magistrală.
 
-    ``name`` ist der kanonische (angezeigte) Name, ``city`` die Stadt.
-    ``osm_names`` listet alternative OSM-Schreibweisen für das Matching auf;
-    der kanonische Name wird automatisch mitgesucht.
+    ``name`` is the canonical (display) name, ``city`` the city it belongs to.
+    ``osm_names`` lists alternative OSM spellings used for name matching;
+    the canonical name is always searched first.
     """
 
     name: str
@@ -105,10 +105,10 @@ class Stop:
 
 @dataclass(frozen=True)
 class Line:
-    ref: str          # CFR-Magistrale, z. B. "M300"
-    route_name: str   # Anzeigename (DE)
-    tags: str         # kommaseparierte Themen-Tags
-    length_km: int    # offizielle Streckenlänge (Wikipedia)
+    ref: str          # CFR magistrală, e.g. "M300"
+    route_name: str   # display name (DE)
+    tags: str         # comma-separated topic tags
+    length_km: int    # official route length (Wikipedia)
     stops: tuple[Stop, ...]
 
     @property
@@ -120,10 +120,10 @@ class Line:
         return self.stops[-1].city
 
 
-# OSM-Namensabweichungen, die häufiger auftreten, als Alias gepflegt:
+# Known OSM name deviations, maintained as aliases:
 #   "Gara de Nord"  -> București Nord
 #   "Gara Iași"     -> Iași
-#   "Cluj Napoca"   -> Cluj-Napoca (OSM ohne Bindestrich)
+#   "Cluj Napoca"   -> Cluj-Napoca (OSM omits the hyphen)
 MAIN_LINES: tuple[Line, ...] = (
     Line(
         ref="M200",
@@ -238,7 +238,7 @@ MAIN_LINES: tuple[Line, ...] = (
 
 
 # --------------------------------------------------------------------------- #
-# Pfade                                                                       #
+# Paths                                                                       #
 # --------------------------------------------------------------------------- #
 RAW_PATH = ROOT / "data" / "raw" / "osm_ro_stations.json"
 STATIONS_OUT = PROCESSED / "rail_stations.geojson"
@@ -246,17 +246,17 @@ LINES_OUT = PROCESSED / "rail_lines.geojson"
 ROUTE_STOPS_OUT = PROCESSED / "route_stops.csv"
 
 # TIMETABLE_PATH / TIMETABLE_COLUMNS / TIMETABLE_FIELDS / load_timetable
-# leben jetzt in tools/timetable.py (gemeinsames Schema, s. Import oben).
+# live in tools/timetable.py (shared schema, see import above).
 
 
 # --------------------------------------------------------------------------- #
-# Overpass-Abruf (defensiv)                                                   #
+# Overpass fetch (defensive)                                                  #
 # --------------------------------------------------------------------------- #
 def fetch_overpass() -> dict:
-    """Fragt Overpass ab und liefert das geparste JSON.
+    """Query Overpass and return parsed JSON.
 
-    Wirft ``SystemExit`` mit klarer Meldung bei Netz-/Parse-Fehlern, statt
-    eine kaputte Antwort weiterzureichen.
+    Raises ``SystemExit`` with a clear message on network or parse errors
+    instead of propagating a broken response.
     """
     request = urllib.request.Request(
         OVERPASS_URL,
@@ -300,23 +300,23 @@ def load_or_fetch(offline: bool) -> dict:
 
 
 # --------------------------------------------------------------------------- #
-# Index + Auflösung                                                           #
+# Index + resolution                                                          #
 # --------------------------------------------------------------------------- #
-# Höherwertige railway-Typen gewinnen bei Namensgleichheit.
+# Higher-ranked railway types win on name collision.
 _RAILWAY_RANK = {"station": 0, "halt": 1, "stop": 2}
 
 
 def build_index(data: dict) -> dict[str, tuple[float, float]]:
-    """Name → (lon, lat). Bei Duplikaten gewinnt der höchstrangige Typ."""
+    """Return name → (lon, lat). On duplicate names, highest-ranked type wins."""
     best: dict[str, tuple[int, float, float]] = {}
     for el in data["elements"]:
         tags = el.get("tags", {})
         name = tags.get("name")
         if not name:
             continue
-        # Nodes tragen lat/lon direkt; ways/relations nur ``center``.
-        # Explizit auf None prüfen (nicht ``or``), damit lat/lon == 0.0 nicht
-        # fälschlich auf center ausweicht.
+        # Nodes carry lat/lon directly; ways/relations only have ``center``.
+        # Use explicit ``in`` check (not ``or``) so lat/lon == 0.0 is not
+        # treated as missing and does not incorrectly fall back to center.
         center = el.get("center", {})
         lat = el["lat"] if "lat" in el else center.get("lat")
         lon = el["lon"] if "lon" in el else center.get("lon")
@@ -336,7 +336,7 @@ def resolve(stop: Stop, index: dict[str, tuple[float, float]]) -> tuple[float, f
 
 
 # --------------------------------------------------------------------------- #
-# Ausgabe                                                                     #
+# Output                                                                      #
 # --------------------------------------------------------------------------- #
 def feature_collection(name: str, features: list[dict]) -> dict:
     return {
@@ -352,14 +352,14 @@ def write_json(path: Path, obj: dict) -> None:
 
 
 # --------------------------------------------------------------------------- #
-# Timetable (handgepflegt)                                                    #
+# Timetable (hand-maintained)                                                 #
 # --------------------------------------------------------------------------- #
 def scaffold_timetable() -> None:
-    """Legt ``timetable.csv`` als Vorlage an – aber nur, wenn sie noch fehlt.
+    """Create ``timetable.csv`` as a template — only if it does not yet exist.
 
-    Eine Zeile je Magistrale, vorbefüllt mit ``route_id``/``from_city``/``to_city``
-    und der ``via``-Kette (Zwischenstädte). Zeiten/Tage/Zug bleiben leer und werden
-    von Hand gepflegt. Bestehende Dateien werden **nie** überschrieben.
+    One row per magistrală, pre-filled with ``route_id``/``from_city``/
+    ``to_city`` and the ``via`` city chain. Times/days/train are left empty for
+    hand-entry. Existing files are **never** overwritten.
     """
     if TIMETABLE_PATH.is_file():
         return
@@ -388,7 +388,7 @@ def scaffold_timetable() -> None:
 
 def build_outputs(index: dict[str, tuple[float, float]]) -> None:
     timetable = load_timetable()
-    station_ids: dict[str, str] = {}          # kanonischer Name -> ST-ID
+    station_ids: dict[str, str] = {}          # canonical name -> ST-ID
     station_features: list[dict] = []
     route_features: list[dict] = []
     stop_rows: list[dict] = []
@@ -434,8 +434,8 @@ def build_outputs(index: dict[str, tuple[float, float]]) -> None:
                 "trip_hint": hint,
             })
 
-        # Verbindungsdaten aus der handgepflegten timetable.csv anreichern
-        # (1:1 je Magistrale via route_id; fehlt die Zeile, bleiben die Felder leer).
+        # Merge connection data from the hand-maintained timetable.csv
+        # (1:1 per magistrală via route_id; missing rows leave fields empty).
         tt = timetable.get(line.ref, {})
         properties = {
             "route_id": line.ref,
@@ -488,7 +488,7 @@ def main() -> None:
     data = load_or_fetch(args.offline)
     index = build_index(data)
     print(f"[index]   {len(index)} eindeutige Halte-Namen indiziert.")
-    scaffold_timetable()   # Vorlage anlegen (nur falls fehlt), bevor wir sie einlesen
+    scaffold_timetable()   # create template only if missing, before we read it
     build_outputs(index)
     print("[fertig]  GPKG erneuern? → uv run reiseplan-cli build-gpkg")
 

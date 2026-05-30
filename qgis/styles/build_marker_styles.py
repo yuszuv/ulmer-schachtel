@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Baut die Marker-QML-Styles mit eingebetteten SVG-Icons.
+"""Build marker QML styles with embedded SVG icons.
 
-Die SVG-Quellen liegen unter ``qgis/styles/icons/`` und werden base64-codiert
-direkt in die QML eingebettet (``name=base64:…``). Dadurch sind die Styles
-selbst-enthalten und syncen ohne Pfad-/Asset-Probleme nach QField.
+SVG sources live under ``qgis/styles/icons/`` and are base64-encoded directly
+into the QML (``name=base64:…``). This makes the styles self-contained and
+syncs to QField without path/asset issues.
 
-Aufruf (nach Änderungen an den SVGs):
+Run after modifying any SVGs:
     python qgis/styles/build_marker_styles.py
 """
 

@@ -1,14 +1,14 @@
-# Historisches Referenzmaterial (Fancy-Stufe)
+# Historical reference material (Fancy stage)
 
-Platzhalter für die historische Kartengrundlage des „Fancy"-Reiseplaners.
+Placeholder for the historical map base of the "Fancy" travel planner.
 
-Geplant hier:
+Planned contents:
 
-- georeferenzierte Rastergrundlage (GeoTIFF) der historischen Karte
-- ggf. zugehörige World-/Worldfile-Dateien (`.tfw`, `.wld`)
-- Quellen-/Lizenznotizen zum verwendeten Kartenmaterial
+- Georeferenced raster base (GeoTIFF) of the historical map
+- Associated world files (`.tfw`, `.wld`) if needed
+- Source/licence notes for the map material used
 
-Stil-Referenz und Vorgehen: siehe [../../../docs/STYLE_TODO_FANCY.md](../../../docs/STYLE_TODO_FANCY.md).
+Style reference and procedure: see [../../../docs/STYLE_TODO_FANCY.md](../../../docs/STYLE_TODO_FANCY.md).
 
-> Hinweis: Urheber-/Nutzungsrechte des historischen Kartenmaterials vor dem
-> Einbinden prüfen.
+> Note: verify copyright and usage rights of any historical map material before
+> including it.

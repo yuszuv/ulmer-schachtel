@@ -1,64 +1,61 @@
-# Online-Karte via GitHub Pages
+# Online Map via GitHub Pages
 
-Diese Anleitung beschreibt, wie die laienfreundliche Webseite gebaut und über
-GitHub Pages veröffentlicht wird. Ziel: Wer kein QGIS hat, öffnet einfach eine
-URL und sieht eine interaktive Karte plus eine lesbare Routen-/Ziel-Übersicht.
+This document describes how to build the public-facing website and deploy it to
+GitHub Pages. Goal: anyone without QGIS can open a URL and see an interactive
+map plus a readable route/destination overview.
 
-## Was wird angezeigt?
+## What is shown?
 
-Die Seite (`tools/build_site.py` → `site/index.html`) ist **self-contained**:
-die Daten sind direkt eingebettet, sie funktioniert daher auch lokal per
-Doppelklick (`file://`). Inhalt:
+The page (`tools/build_site.py` → `site/index.html`) is **self-contained**:
+data is inlined directly, so it also works locally via `file://`. Contents:
 
-- **Interaktive Karte** (Leaflet, OpenStreetMap-Hintergrund) mit ein-/
-  ausschaltbaren Layern:
-  - Routenkorridore (gestrichelte braune Linien) – Popup mit Strecke und Länge
-  - Bahnstationen (graue Punkte)
-  - Reiseziele (Form/Farbe je Kategorie: Dracula-Stadt = dunkelroter Kreis,
-    Stadt = sepia Quadrat, Donaudelta = petrol Dreieck) – Popup mit Notizen
-  - Info-Marker „Über diese Karte" – Legende und Hinweise
-- **Routen-Übersicht** je Magistrale mit Halten/Hinweisen
-- **Reiseziele** gruppiert nach Kategorie
+- **Interactive map** (Leaflet, OpenStreetMap base) with togglable layers:
+  - Route corridors (dashed brown lines) — popup with route and length
+  - Rail stations (grey dots)
+  - Destinations (shape/colour per category: Dracula town = dark red circle,
+    city = sepia square, Danube Delta = teal triangle) — popup with notes
+  - Info marker "About this map" — legend and usage notes
+- **Route overview** per magistrală with stops and notes
+- **Destinations** grouped by category
 
-Die Übersichtstexte werden server-seitig gerendert und sind auch ohne
-JavaScript lesbar.
+The overview text is server-side-rendered and readable without JavaScript.
 
-## Lokal bauen
+## Build locally
 
 ```bash
-python tools/build_site.py            # erzeugt ./site/index.html
-python tools/build_site.py --out _out # alternatives Zielverzeichnis
+python tools/build_site.py            # generates ./site/index.html
+python tools/build_site.py --out _out # alternative output directory
 ```
 
-Die Quelle bleibt das versionierte GeoJSON/CSV in `data/processed/`; `site/`
-ist ein generiertes Artefakt und wird nicht eingecheckt (siehe `.gitignore`).
+The source remains the versioned GeoJSON/CSV in `data/processed/`; `site/`
+is a generated artefact and is not checked in (see `.gitignore`).
 
-## Automatischer Deploy (GitHub Actions)
+## Automatic deploy (GitHub Actions)
 
 Workflow: `.github/workflows/pages.yml`
 
-- Läuft bei jedem Push auf `main`, der Daten (`data/processed/**`) oder das
-  Build-Skript ändert – sowie manuell (*Actions → Run workflow*).
-- Baut die Seite und deployt sie nach GitHub Pages.
+- Runs on every push to `main` that changes data (`data/processed/**`) or the
+  build script — and on manual trigger (*Actions → Run workflow*).
+- Builds the page and deploys it to GitHub Pages.
 
-**Einmalige Aktivierung (manuell, nicht automatisierbar):**
+**One-time activation (manual, cannot be automated):**
 
-1. Im GitHub-Repo: *Settings → Pages*.
-2. Unter *Build and deployment → Source* **„GitHub Actions"** wählen.
-3. Beim nächsten Push (oder manuellem Run) erscheint die öffentliche URL
-   `https://<user>.github.io/<repo>/` im Workflow-Log und unter *Settings →
-   Pages*.
+1. In the GitHub repo: *Settings → Pages*.
+2. Under *Build and deployment → Source* choose **"GitHub Actions"**.
+3. On the next push (or manual run) the public URL
+   `https://<user>.github.io/<repo>/` appears in the workflow log and under
+   *Settings → Pages*.
 
-## Bahndaten aktualisieren
+## Refreshing rail data
 
 Workflow: `.github/workflows/refresh-data.yml`
 
-- Manuell auslösen (*Actions → „Bahndaten aktualisieren (Overpass)" → Run
+- Trigger manually (*Actions → "Bahndaten aktualisieren (Overpass)" → Run
   workflow*).
-- Holt frische Daten von der Overpass-API (`tools/fetch_cfr_data.py`) und öffnet
-  einen **Pull Request** mit dem Datendiff (Branch `data/overpass-refresh`).
-- Nach dem Review/Merge baut `pages.yml` die Seite automatisch neu.
+- Fetches fresh data from the Overpass API (`tools/fetch_cfr_data.py`) and opens
+  a **pull request** with the data diff (branch `data/overpass-refresh`).
+- After review/merge, `pages.yml` rebuilds the site automatically.
 
-> Die Overpass-API kann langsam oder zeitweise nicht erreichbar sein. Deshalb
-> läuft der Refresh bewusst nur auf Knopfdruck (ein wöchentlicher `cron` ist im
-> Workflow als Vorlage auskommentiert).
+> The Overpass API can be slow or temporarily unavailable. The refresh therefore
+> runs only on manual trigger (a weekly `cron` is commented out in the workflow
+> and can be enabled if needed).

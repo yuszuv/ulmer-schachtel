@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Ulmer Schachtel – baut eine statische, laienfreundliche Webseite.
+"""Ulmer Schachtel – build a static, user-friendly website.
 
-Erzeugt eine self-contained ``site/index.html`` mit interaktiver Leaflet-Karte
-(Routen, Stationen, Ziele, Info-Marker) plus einer server-seitig gerenderten
-Routen- und Ziel-Übersicht. Die Daten werden inline in die HTML eingebettet,
-damit die Seite ohne Webserver (auch per ``file://``) funktioniert.
+Generates a self-contained ``site/index.html`` with an interactive Leaflet map
+(routes, stations, destinations, info markers) plus a server-side-rendered
+route and destination overview. Data is inlined into the HTML so the page
+works without a web server (even via ``file://``).
 
-Die GeoJSON/CSV bleiben die versionierte Quelle; diese Seite ist ein
-generiertes Artefakt (gitignoriert, in CI nach GitHub Pages deployt).
+GeoJSON/CSV remain the versioned source; this page is a generated artefact
+(gitignored, deployed to GitHub Pages by CI).
 
-Wiederverwendung der Lade-Logik aus ``reiseplan_cli`` (gleicher tools/-Ordner).
+Reuses loading logic from ``reiseplan_cli`` (same tools/ directory).
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ from reiseplan_cli import (  # gleicher Ordner -> direkter Import
 STATIONS_PATH = DATA_DIR / "rail_stations.geojson"
 INFO_PATH = DATA_DIR / "info_markers.geojson"
 
-# Quelldaten, die zusätzlich als Roh-Download nach site/data/ kopiert werden.
+# Source files also copied as raw downloads to site/data/.
 GEOJSON_SOURCES = [
     "poi_destinations.geojson",
     "rail_stations.geojson",
@@ -42,7 +42,7 @@ GEOJSON_SOURCES = [
     "timetable.csv",
 ]
 
-# POI-Kategorien -> (deutsches Label, Farbe, Form) – analog AGENTS.md/QGIS-Styles.
+# POI categories -> (German display label, colour, shape) — matches AGENTS.md/QGIS styles.
 CATEGORY_META: dict[str, tuple[str, str, str]] = {
     "dracula_city": ("Dracula-Städte", "#8b1a1a", "circle"),
     "city": ("Städte", "#9c7a3c", "square"),
@@ -55,8 +55,8 @@ BG_COLOR = "#f3ecd5"
 
 INFOFER = "https://mersultrenurilor.infofer.ro"
 
-# Habsburger Militäraufnahmen (Arcanum) – (key, Label, XYZ-URL).
-# Quelle der URLs: qgis/xyz_connections.xml. © Arcanum Maps (mapire.eu).
+# Habsburg military surveys (Arcanum) — (key, label, XYZ URL).
+# URL source: qgis/xyz_connections.xml. © Arcanum Maps (mapire.eu).
 ARCANUM_SURVEYS = [
     ("first", "1. Militäraufnahme (1763–1787)",
      "https://tiles.arcanum.com/mercator/europe-18century-firstsurvey/{z}/{x}/{y}"),
@@ -68,13 +68,13 @@ ARCANUM_SURVEYS = [
 
 
 def collect_data() -> dict:
-    """Liest alle GeoJSON/CSV und baut das Datenobjekt für Karte + Übersicht."""
+    """Read all GeoJSON/CSV and assemble the data object for the map and overview."""
     routes = load_geojson(ROUTES_PATH)
     pois = load_geojson(POI_PATH)
     stations = load_geojson(STATIONS_PATH)
     info = load_geojson(INFO_PATH)
 
-    # Halte + Verbindungsdaten je Route für die Übersicht vorbereiten.
+    # Prepare stops and connection data per route for the overview.
     timetable = load_timetable()
     overview = []
     for feature in routes["features"]:
@@ -97,17 +97,17 @@ def collect_data() -> dict:
 
 
 def embed_json(obj: dict) -> str:
-    """JSON für sicheres Einbetten in ein <script>-Tag serialisieren."""
+    """Serialize JSON safe for embedding inside a <script> tag."""
     text = json.dumps(obj, ensure_ascii=False)
-    # </script> bzw. allgemein </ neutralisieren, ohne die Daten zu verändern.
+    # Neutralise </ sequences (e.g. </script>) without altering the data.
     return text.replace("</", "<\\/")
 
 
 def render_connection(tt: dict) -> str:
-    """Kompakte Verbindungszeile aus einer timetable.csv-Zeile (oder '')."""
+    """Render a compact connection line from a timetable.csv row (or '' if empty)."""
     dep, arr, days = tt.get("dep_time", ""), tt.get("arr_time", ""), tt.get("days", "")
     if not (dep or arr or days):
-        return ""  # keine Zeiten eingetragen -> nichts anzeigen
+        return ""  # no times entered yet — render nothing
     bits: list[str] = []
     if days:
         bits.append(html.escape(days))
@@ -124,7 +124,7 @@ def render_connection(tt: dict) -> str:
 
 
 def render_overview(overview: list[dict], pois: dict) -> str:
-    """Server-seitige HTML-Übersicht (auch ohne JavaScript lesbar)."""
+    """Server-side HTML overview (readable without JavaScript)."""
     parts: list[str] = ["<h2>Routen im Überblick</h2>"]
 
     for entry in overview:
@@ -209,7 +209,7 @@ def render_legend() -> str:
 
 
 def render_history() -> str:
-    """SSR-Abschnitt zu den historischen Karten (auch ohne JavaScript lesbar)."""
+    """SSR section for the historical map overlays (readable without JavaScript)."""
     rows = "".join(
         f'<li><b>{html.escape(name)}</b> '
         f'<span class="hint">{html.escape(period)}'
@@ -605,7 +605,7 @@ def build(out_dir: Path) -> None:
     index = out_dir / "index.html"
     index.write_text(html_text, encoding="utf-8")
 
-    # Roh-Daten zum Download bereitstellen.
+    # Copy raw data files for download.
     data_out = out_dir / "data"
     data_out.mkdir(exist_ok=True)
     for name in GEOJSON_SOURCES:

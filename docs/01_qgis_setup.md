@@ -1,94 +1,99 @@
 # Ulmer Schachtel – QGIS Setup (Basic v1)
 
-## Ziel
+## Goal
 
-Ein einfaches QGIS-Projekt mit:
+A simple QGIS project containing:
 
-- POIs (wichtige Ziele)
-- Bahnstationen
-- groben Routenkorridoren
-- dezent historisch anmutender Symbolik (Pergament + Sepia)
+- POIs (key destinations)
+- Rail stations
+- Broad route corridors
+- Muted historical-style symbology (parchment + sepia)
 
-## Schritte
+## Steps
 
-1. QGIS starten und neues Projekt erstellen.
-2. Projekt-CRS auf `EPSG:3844 (Stereo70)` setzen – offizielle rumänische Nationalprojektion, eliminiert die Verzerrung bei 4326. Die GeoJSON-Daten bleiben in 4326; QGIS reprojiziiert on-the-fly.
-3. Daten laden – Bündel zuerst bauen (`uv run reiseplan-cli build-gpkg`),
-   dann die vier Layer aus `data/processed/reiseplan.gpkg`:
+1. Start QGIS and create a new project.
+2. Set the project CRS to `EPSG:3844 (Stereo70)` — the official Romanian national
+   projection, eliminates the distortion present in 4326. GeoJSON data stays in
+   4326; QGIS reprojects on-the-fly.
+3. Load data — build the bundle first (`uv run reiseplan-cli build-gpkg`),
+   then load the four layers from `data/processed/reiseplan.gpkg`:
    - `poi_destinations`
    - `rail_stations`
    - `rail_lines`
-   - `info_markers` (ℹ „Über diese Karte" – Bedien-/Legenden-Hilfe)
-   (Die GeoJSON bleiben das versionierte Quellformat; die GPKG ist das
-   generierte Ein-Datei-Bündel für QGIS/QField.)
-4. Layer-Reihenfolge (oben nach unten):
+   - `info_markers` (ℹ "About this map" – usage/legend help)
+   (GeoJSON files remain the versioned source format; the GPKG is the
+   generated single-file bundle for QGIS/QField.)
+4. Layer order (top to bottom):
    - `info_markers`
    - `poi_destinations`
    - `rail_stations`
    - `rail_lines`
-5. Stile laden (Layer-Eigenschaften → Symbologie → *Stil laden…*):
+5. Apply styles (*Layer Properties → Symbology → Load Style…*):
    - `poi_destinations` → `qgis/styles/poi_destinations.qml`
    - `rail_lines` → `qgis/styles/rail_lines.qml`
    - `rail_stations` → `qgis/styles/rail_stations.qml`
    - `info_markers` → `qgis/styles/info_markers.qml`
-   > Beim *Stil laden…* **alle Kategorien** aktiviert lassen: Die `.qml` tragen
-   > jetzt auch **Map-Tips** (Kategorie *Map-Tips*, HTML-Karte beim Antippen).
-   > Lädst du nur „Symbologie", fehlen die Map-Tips. Für `info_markers` zusätzlich
-   > das Anzeige-Feld auf `title` setzen (Layer-Eigenschaften → *Anzeige*).
+   > When loading a style use **All Categories**: the `.qml` files now also carry
+   > **Map Tips** (category *Map Tips*, HTML card on tap). Loading only
+   > "Symbology" drops Map Tips. For `info_markers` additionally set the display
+   > field to `title` (*Layer Properties → Display*).
    >
-   > **Verbindungsdaten auf `rail_lines`:** Die Linien tragen die Felder aus
+   > **Connection data on `rail_lines`:** The lines carry the fields from
    > `data/processed/timetable.csv` (`from_city`, `to_city`, `days`, `dep_time`,
-   > `arr_time`, `duration`, `via`, `train`) als Attribute – sichtbar in der
-   > Attributtabelle und beim *Objekt abfragen* (Identify). Sie tauchen auf, sobald
-   > Zeiten eingetragen und die Daten neu gebaut wurden (`fetch_cfr_data.py --offline`,
-   > dann `build-gpkg`). Optional als Map-Tip/Label nutzbar, z. B.
-   > `[% "from_city" %] → [% "to_city" %]<br>ab [% "dep_time" %] an [% "arr_time" %]`.
-6. Hintergrundkarte via **QuickMapServices**-Plugin:
-   - Plugin installieren: *Erweiterungen → Erweiterungen verwalten → „QuickMapServices"*
-   - Karte laden: *Web → QuickMapServices → OSM → OSM Standard* (oder Stamen Toner für historischeren Look)
-   - QGIS reprojiziiert die Kacheln (EPSG:3857) automatisch auf Stereo70 – keine manuelle Anpassung nötig.
-   - Projekt → Eigenschaften → *Allgemein* → Hintergrundfarbe `#f3ecd5` (greift wenn kein Tile-Layer aktiv).
-   > Labels (POI-Namen 8pt bold sepia, Stationsnamen 6.5pt grau) sind bereits in den QML-Dateien eingebettet – kein manueller Schritt nötig.
-   > Weitere sinnvolle Hintergrundkarten (Bahn-Overlay, Relief, Satellit, historisch)
-   > als Ein-Klick-Import: siehe [Weitere Hintergrundkarten](#weitere-hintergrundkarten).
-7. Projekt speichern unter:
+   > `arr_time`, `duration`, `via`, `train`) as attributes — visible in the
+   > attribute table and via *Identify Features*. They appear once times have been
+   > entered and the data rebuilt (`fetch_cfr_data.py --offline`, then
+   > `build-gpkg`). Optionally usable as a Map Tip/label expression, e.g.
+   > `[% "from_city" %] → [% "to_city" %]<br>dep [% "dep_time" %] arr [% "arr_time" %]`.
+6. Load a base map via the **QuickMapServices** plugin:
+   - Install: *Plugins → Manage and Install Plugins → "QuickMapServices"*
+   - Load: *Web → QuickMapServices → OSM → OSM Standard* (or Stamen Toner for
+     a more historical look)
+   - QGIS reprojects the tiles (EPSG:3857) to Stereo70 automatically.
+   - *Project → Properties → General* → background colour `#f3ecd5` (applies when
+     no tile layer is active).
+   > Labels (POI names 8pt bold sepia, station names 6.5pt grey) are already
+   > embedded in the QML files — no manual step required.
+   > Additional useful base maps (rail overlay, relief, satellite, historical) as
+   > one-click imports: see [Additional base maps](#additional-base-maps).
+7. Save the project:
    - `qgis/projects/ulmer_schachtel_basic.qgz`
-   - Beim Speichern darauf achten, dass **relative Pfade** verwendet werden
-     (Projekt → Eigenschaften → *Allgemein* → Pfade „relativ").
-   - Die Stile werden dabei ins `.qgz` eingebettet – für QField genügt es,
-     `.qgz` + `reiseplan.gpkg` zu kopieren (siehe [02_qfield_export.md](02_qfield_export.md)).
+   - Ensure **relative paths** are used when saving
+     (*Project → Properties → General* → Paths "relative").
+   - Styles are embedded into the `.qgz` at save time — for QField you only
+     need to copy `.qgz` + `reiseplan.gpkg` (see [02_qfield_export.md](02_qfield_export.md)).
 
-## Weitere Hintergrundkarten
+## Additional base maps
 
-Über OSM Standard hinaus sind je nach Zweck andere Basemaps sinnvoll. Alle sind
-in `qgis/xyz_connections.xml` als XYZ-Verbindungen vorbereitet.
+Beyond OSM Standard, other base maps are useful depending on purpose. All are
+prepared as XYZ connections in `qgis/xyz_connections.xml`.
 
-**Ein-Klick-Import:** Browser-Panel → Rechtsklick auf *XYZ Tiles* →
-*Verbindungen laden…* → `qgis/xyz_connections.xml` wählen. Danach liegen alle
-Karten unter *XYZ Tiles* und werden per Doppelklick als Layer geladen (unter die
-eigenen Vektordaten legen).
+**One-click import:** Browser panel → right-click *XYZ Tiles* →
+*Load Connections…* → select `qgis/xyz_connections.xml`. All maps then appear
+under *XYZ Tiles* and can be loaded as layers by double-clicking (place them
+below your own vector layers).
 
-| Karte | Zweck |
+| Map | Purpose |
 |---|---|
-| **CARTO Positron / Voyager** | Helle, dezente Alltags-Basemap – ruhiger als OSM Standard, lässt die Sepia-Marker leuchten. |
-| **OpenRailwayMap** | Bahn-Overlay (Strecken, Elektrifizierung, Bahnhöfe) – halbtransparent über die eigene Route legen, um Korridore gegen reale Strecken zu prüfen. |
-| **OpenTopoMap / ESRI World Hillshade** | Gelände/Relief – erklärt die Trassenführung durch die Karpaten (Brașov, Sighișoara). |
-| **ESRI World Imagery** | Satellit – gezielt fürs Donaudelta, wo die Wasserkanäle (Sulina, Sf. Gheorghe, Letea) das Eigentliche sind. |
-| **Arcanum 2. Militäraufnahme** | Historische Grundkarte für die Fancy-Stufe (1806–1869). Braucht Referer-Header (in der XML hinterlegt). Details: [STYLE_TODO_FANCY.md](STYLE_TODO_FANCY.md). |
+| **CARTO Positron / Voyager** | Light, clean everyday base map — quieter than OSM Standard, lets the sepia markers stand out. |
+| **OpenRailwayMap** | Rail overlay (lines, electrification, stations) — layer semi-transparently over your own routes to check corridors against real infrastructure. |
+| **OpenTopoMap / ESRI World Hillshade** | Terrain/relief — explains the alignment through the Carpathians (Brașov, Sighișoara). |
+| **ESRI World Imagery** | Satellite — useful for the Danube Delta, where the water channels (Sulina, Sf. Gheorghe, Letea) are the main feature. |
+| **Arcanum 2nd Military Survey** | Historical base map for the Fancy stage (1806–1869). Requires a Referer header (configured in the XML). Details: [STYLE_TODO_FANCY.md](STYLE_TODO_FANCY.md). |
 
-> **Offline/QField:** Alle Dienste brauchen eine Internetverbindung. Für die
-> Reise selbst müssen die Kacheln des gewählten Hintergrunds als
-> MBTiles/GeoPackage-Raster gecacht werden – sonst sind sie im Feld leer.
+> **Offline / QField:** All services require an internet connection. For use in
+> the field you will need to cache the chosen base map tiles as MBTiles/GeoPackage
+> raster — otherwise they will be empty offline.
 
-## Farbwelt (dezent-sepia, bereits in den QML)
+## Colour palette (muted sepia, already in the QML files)
 
-- Hintergrund Kartenfenster: warmes Off-White `#f3ecd5`
-- Routenlinien: Sepia-Braun `#6b4f2a`, ~0.9 pt, gestrichelt
-- Bahnhofsmarker: dunkelgrau `#4c4c4c`, kleine Kreise
-- POI-Kategorien:
-  - `dracula_city`: dunkelrot (Kreis)
-  - `city`: sepia-braun (Quadrat)
-  - `danube_delta`: gedecktes Petrolgrün (Dreieck)
+- Map canvas background: warm off-white `#f3ecd5`
+- Route lines: sepia brown `#6b4f2a`, ~0.9 pt, dashed
+- Station markers: dark grey `#4c4c4c`, small circles
+- POI categories:
+  - `dracula_city`: dark red (circle)
+  - `city`: sepia brown (square)
+  - `danube_delta`: muted teal (triangle)
 
-> Die volle historische Anmutung (Rasterkarte, Kartusche, Serifentypografie) folgt
-> in der Fancy-Stufe – siehe [STYLE_TODO_FANCY.md](STYLE_TODO_FANCY.md).
+> The full historical look (raster base map, cartouche, serif typography) follows
+> in the Fancy stage — see [STYLE_TODO_FANCY.md](STYLE_TODO_FANCY.md).

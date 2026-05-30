@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Ulmer Schachtel – CLI für den Reiseplaner (Basic-Dateninspektion).
+"""Ulmer Schachtel – travel planner CLI (data inspection).
 
-Jeder Daten-Befehl unterstützt ``--json`` für maschinenlesbare Ausgabe
-(Pipes/jq); ohne Flag rendert er eine Rich-Tabelle. ``build-gpkg`` ist ein
-Build-Schritt ohne JSON-Variante.
+Every data command supports ``--json`` for machine-readable output (pipes/jq);
+without the flag it renders a Rich table. ``build-gpkg`` is a build step with
+no JSON variant.
 """
 
 from __future__ import annotations
@@ -44,7 +44,7 @@ console = Console()
 
 
 # --------------------------------------------------------------------------- #
-# Laden                                                                       #
+# Loading                                                                     #
 # --------------------------------------------------------------------------- #
 def load_geojson(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as f:
@@ -79,7 +79,7 @@ def _emit_json(payload: object) -> None:
 
 
 # --------------------------------------------------------------------------- #
-# Befehle (je: bei --json strukturiert, sonst Rich-Tabelle)                   #
+# Commands (each: structured output with --json, Rich table otherwise)        #
 # --------------------------------------------------------------------------- #
 def list_destinations(args: argparse.Namespace) -> None:
     rows: list[dict] = []
@@ -155,7 +155,7 @@ def show_route(args: argparse.Namespace) -> None:
 
 
 def overview(args: argparse.Namespace) -> None:
-    """Kompakte Gesamtübersicht: alle Magistralen mit ihrer Haltefolge."""
+    """Compact overview of all magistrale with their stop sequences."""
     routes = _routes()
     if args.json:
         _emit_json([{**p, "stops": stops_for(p.get("route_id", ""))} for p in routes])
@@ -180,7 +180,7 @@ def overview(args: argparse.Namespace) -> None:
 
 
 def timetable(args: argparse.Namespace) -> None:
-    """Verbindungsübersicht aus timetable.csv."""
+    """Connection overview from timetable.csv."""
     data = load_timetable()
     if not data:
         raise SystemExit(f"Keine timetable.csv unter {TIMETABLE_PATH} gefunden.")
@@ -212,7 +212,7 @@ def timetable(args: argparse.Namespace) -> None:
     for route_id in sorted(data):
         r = data[route_id]
         notes = r.get("notes") or ""
-        approx = approx_fields(r)   # Teilmenge von {dep, arr} – pro Feld, nicht pauschal
+        approx = approx_fields(r)   # subset of {dep, arr} — per field, not blanket
 
         route_cell = Text(route_id)
         if approx:
@@ -265,11 +265,11 @@ def list_categories(args: argparse.Namespace) -> None:
 
 
 def build_gpkg(args: argparse.Namespace) -> None:
-    """Baut aus den GeoJSON-Quellen ein konsolidiertes ``reiseplan.gpkg``.
+    """Bundle GeoJSON sources into a consolidated ``reiseplan.gpkg``.
 
-    Die GeoJSON bleiben versionierte Quelle (EPSG:4326, GeoJSON-Spec); die GPKG
-    ist ein generiertes, gitignoriertes Bündel für QGIS/QField (ein File, mehrere
-    Layer) und wird dabei ins Projekt-CRS EPSG:3844 reprojiziert.
+    GeoJSON files remain the versioned source (EPSG:4326, GeoJSON spec); the
+    GPKG is a generated, gitignored bundle for QGIS/QField (one file, multiple
+    layers) reprojected to the project CRS EPSG:3844.
     """
     if shutil.which("ogr2ogr") is None:
         raise SystemExit(
@@ -310,7 +310,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    # Eltern-Parser: --json für alle Daten-Befehle (nicht für den Build-Schritt).
+    # Parent parser: --json for all data commands (not the build step).
     jsonp = argparse.ArgumentParser(add_help=False)
     jsonp.add_argument("--json", action="store_true",
                        help="Maschinenlesbare JSON-Ausgabe (für Pipes/jq)")

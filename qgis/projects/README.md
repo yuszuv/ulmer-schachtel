@@ -1,15 +1,15 @@
-# QGIS Projekte
+# QGIS projects
 
-Dieser Ordner ist für deine lokalen Projektdateien (`.qgz`).
+This directory holds your local QGIS project files (`.qgz`).
 
-Empfohlener Projektname:
+Recommended project name:
 
 - `ulmer_schachtel_basic.qgz`
 
-Hinweis:
+Notes:
 
-- `.qgz` ist binär und wird am besten direkt aus QGIS gepflegt.
-- Beim ersten Speichern in QGIS darauf achten, dass Layerpfade **relativ**
-  gespeichert werden (Projekt → Eigenschaften → *Allgemein* → Pfade „relativ").
+- `.qgz` is a binary format — maintain it directly in QGIS.
+- When first saving in QGIS, make sure **relative paths** are used
+  (*Project → Properties → General* → Paths "relative").
 
-Aufbau Schritt für Schritt: siehe [../../docs/01_qgis_setup.md](../../docs/01_qgis_setup.md).
+Step-by-step setup: see [../../docs/01_qgis_setup.md](../../docs/01_qgis_setup.md).
