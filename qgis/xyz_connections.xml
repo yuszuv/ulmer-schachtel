@@ -48,8 +48,37 @@
   <!-- Satellit – gezielt fürs Donaudelta (Wasserkanäle bei Sulina, Sf. Gheorghe, Letea) -->
   <xyztiles name="ESRI World Imagery (Satellit)" url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" zmin="0" zmax="19" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
-  <!-- Historische Grundkarten (Fancy-Stufe) – Habsburger Militäraufnahmen via Arcanum.
-       Brauchen einen Referer-Header. Chronologisch: 1. → 2. → 3. Landesaufnahme. -->
+  <!--
+    Habsburger Militäraufnahmen – historische Grundkarten via Arcanum Maps (mapire.eu).
+    Brauchen einen Referer-Header (hier hinterlegt). Maßstab original ca. 1:28 800.
+    Frei nutzbar für nicht-kommerzielle Zwecke. © Arcanum Maps / HM Hadtörténeti Intézet.
+
+    Wichtig für dieses Projekt: Nur die europe-*-Layer haben Abdeckung für Rumänien.
+    Die -transylvania-spezifischen Layer liefern für RO leere Tiles — nicht verwenden.
+
+    1. Josephinische Landesaufnahme (1763–1790) — „europe-18century-firstsurvey"
+       Auftraggeber: Kaiserin Maria Theresia, fortgesetzt unter Joseph II.
+       Erster systematischer Geländeaufnahme des gesamten Habsburgerreichs.
+       Siebenbürgen: ca. 1769–1773. Maßstab ca. 1:28 800.
+       Beschriftung: Deutsch und Lateinisch, Orte mit deutschen/ungarischen Namen.
+       → Zeitlich parallel zur Ulmer-Schachtel-Ära: Auswanderer fuhren genau in
+         diesen Jahrzehnten die Donau hinunter ins Banat. Karte zeigt das Banat
+         und die Walachei ohne jede Eisenbahn — nur Feldwege und Flussübergänge.
+         Passt zur Stil-Referenz von Reilly 1791 (selbes Jahrzehnt).
+
+    2. Franziszeische Landesaufnahme (1806–1869) — „europe-19century-secondsurvey"
+       Auftraggeber: Kaiser Franz I. Erstmals auf Triangulation basierend.
+       Siebenbürgen: ca. 1853–1869. Maßstab ca. 1:28 800.
+       Zeigt den Übergang zur Eisenbahnzeit: Erste rumänische Eisenbahn
+       Oravița–Baziaș eröffnete 1854. Frühe Bahnlinien auf späteren Blättern sichtbar.
+       CFR noch nicht gegründet (1888), aber Vorläuferbahnen schon in Betrieb.
+
+    3. Franzisco-Josephinische Landesaufnahme (1869–1887) — „europe-19century-thirdsurvey"
+       Auftraggeber: Kaiser Franz Joseph I. Höhere Triangulationsgenauigkeit,
+       Maßstab 1:25 000. Siebenbürgen: ca. 1873–1876.
+       Zeigt das bereits entwickelte Bahnnetz — direkte Vorgänger der heutigen
+       CFR-Magistralen sind erkennbar. Vergleich mit rail_lines.geojson möglich.
+  -->
   <xyztiles name="Arcanum 1. Militäraufnahme (1763–1790)" url="https://tiles.arcanum.com/mercator/europe-18century-firstsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="Arcanum 2. Militäraufnahme (1806–1869)" url="https://tiles.arcanum.com/mercator/europe-19century-secondsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="Arcanum 3. Militäraufnahme (1869–1887)" url="https://tiles.arcanum.com/mercator/europe-19century-thirdsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
