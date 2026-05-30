@@ -2,30 +2,34 @@
 __pycache__/
 *.py[cod]
 .venv/
+.pytest_cache/
 
 # Editor (nvim, vscode)
 .*.sw[a-p]
 .vscode/
 
-# QField-Exportpakete
+# Claude Code agent memory (local, not repo content)
+.claude/
+
+# QField export packages
 qfield/
 
 # QGIS
 *.qgz~
 *.qgs~
 
-# Generierte GIS-Bündel (aus GeoJSON via 'reiseplan-cli build-gpkg')
+# Generated GIS bundle (from GeoJSON via 'reiseplan-cli build-gpkg')
 *.gpkg
 
-# Lokale Arbeits-/Scratch-Dateien
+# Local scratch files
 tmp/
 
-# Generierte Webseite (aus GeoJSON via 'tools/build_site.py'; in CI nach Pages)
+# Generated website (from GeoJSON via 'tools/build_site.py'; deployed to Pages by CI)
 site/
 
-# QField-Exporte gehören nach qfield/ (oben komplett ignoriert), nie nach qgis/.
-# So bleibt qgis/ ein reiner Quell-Ordner (reiseplan.qgz, styles/, …) und ein
-# versehentlich dort gelandeter Export fällt im 'git status' sofort auf.
+# QField exports belong in qfield/ (fully ignored above), never in qgis/.
+# This keeps qgis/ a pure source folder (reiseplan.qgz, styles/, …) and makes
+# an accidentally placed export immediately visible in 'git status'.
 
-# OSM-Roh-Cache (regenerierbar via tools/fetch_cfr_data.py)
+# OSM raw cache (regenerate via tools/fetch_cfr_data.py)
 data/raw/osm_ro_stations.json
