@@ -2,61 +2,82 @@
 
 Two ways to get the project onto the device:
 
-- **Option A – copy GPKG directly:** For primarily **read-only** use (viewing
-  markers and routes). No plugin needed, just copy two files.
+- **Option A – `build-qfield` (recommended):** Automated script builds a
+  self-contained 2-file package from the desktop project. No plugin, no manual
+  copying. Use for primarily **read-only** use (viewing markers and routes).
 - **Option B – full QFieldSync workflow:** The plugin handles the complete export
   including a self-rendered **offline base map**. Required for offline maps without
   manual tile preparation and for **editing + syncing back** from the field.
 
 If you only need to read the map and don't need an offline base map, use Option A.
 
-## Option A (recommended): copy GPKG directly
+## Option A (recommended): `build-qfield`
 
-QField opens `.qgz` projects natively — no packaging step, no nesting, just two
-files.
+QField opens `.qgz` projects natively. The script builds a clean, reproducible
+2-file package and places it in `qfield/current/` — which Syncthing syncs to the
+device.
 
 ### Prerequisites
 
-- Data bundle built: `uv run reiseplan-cli build-gpkg`
-  → `data/processed/reiseplan.gpkg` (all four layers in one file).
-- Project built in QGIS from this GPKG and saved as `.qgz`
-  (see [01_qgis_setup.md](01_qgis_setup.md)).
-- **Relative paths** used when saving
+- GeoJSON data is current (re-run `fetch_cfr_data.py` if routes changed).
+- Data bundle is built:
+
+  ```bash
+  uv run reiseplan-cli build-gpkg
+  ```
+
+- The desktop project `qgis/reiseplan.qgz` is saved with **relative paths**
   (*Project → Properties → General* → Paths "relative").
-  Styles (symbology + labels) are automatically embedded in the `.qgz` —
-  you **do not** need to copy the separate `.qml` files.
+- Styles are embedded in the project (loaded with *All Categories*, project saved).
 
 ### Procedure
 
-1. Transfer these two files to the device (same folder, so the relative path
-   resolves), e.g. via USB/MTP, Syncthing, or cloud:
-   - `qgis/projects/v1.qgz`
-   - `data/processed/reiseplan.gpkg`
-2. Open the folder in QField and tap the `.qgz`.
-3. Toggle layers visible, check labels, tap markers
-   (`name`, `category`, `notes`).
-4. Optionally enable GNSS to see your own position relative to the routes.
+```bash
+uv run reiseplan-cli build-qfield
+```
+
+This creates two files in `qfield/current/`:
+- `reiseplan.qgz` — project file with datasources rewritten to the GPKG
+- `reiseplan.gpkg` — data bundle (all four layers in EPSG:3844)
+
+Syncthing picks up the changes and syncs them to the device automatically.
+Open `qfield/current/` in QField and tap `reiseplan.qgz`.
+
+> **Custom output folder:** `uv run reiseplan-cli build-qfield --out ~/some/path`
+
+> **How it works (good to know once):** `.qgz` is a ZIP file containing a
+> `.qgs` project XML. The desktop project references GeoJSON via relative paths
+> (`../data/processed/xxx.geojson`). `build-qfield` opens the ZIP, rewrites
+> those paths to `./reiseplan.gpkg|layername=xxx`, and creates a new ZIP. The
+> original `qgis/reiseplan.qgz` is never modified.
+
+### Verify on device
+
+Toggle layers visible, check labels, tap one marker of each type:
+- one POI → HTML card with name / category / priority / notes
+- one station → HTML card with name / city
+- one route line → HTML card with timetable data
+- the ℹ marker → legend / usage hints
+
+If no HTML card appears: reload styles in QGIS with *All Categories*, re-save
+`reiseplan.qgz`, run `build-qfield` again.
 
 > Base map: Basic v1 starts without raster tiles (saves storage). Optionally
-> generate MBTiles offline later and copy them alongside.
+> generate MBTiles offline later and copy them alongside, or use Option B.
 
 ## Documentation in QField (Map Tips & info markers)
 
 Documentation travels **inside the project** — no separate files, no internet
 needed.
 
-- **Map Tips:** Tap a marker or route line → QField shows a formatted HTML card
-  on identify (POI: name, category, priority, notes; station: name + city; route:
-  name, from → to, tags). The HTML lives in `qgis/styles/*.qml` (category
-  *Map Tips*) and is embedded at `.qgz` save time — requires that styles were
-  loaded **with all categories** (see [01_qgis_setup.md](01_qgis_setup.md), step 5).
+- **Map Tips:** All four layers (POIs, stations, route lines, info marker) carry
+  an HTML card shown on identify (Identify tool / finger tap). The HTML is defined
+  in `qgis/styles/*.qml` (category *Map Tips*) and embedded at `.qgz` save time —
+  requires that styles were loaded **with all categories** (see
+  [01_qgis_setup.md](01_qgis_setup.md), step 5).
 - **"About this map" marker:** the ℹ point (`info_markers`) near the centre of
   Romania is the usage/legend help — tap it for symbol explanation, navigation
   hints, and the Danube Delta / rail note.
-
-> On the device, tap one POI, one station, one route, and the ℹ marker and
-> verify that the HTML card appears. If not: reload styles in QGIS with *All
-> Categories*, re-save the `.qgz`, and re-transfer.
 
 ## Option B: full QFieldSync plugin workflow
 
@@ -123,6 +144,8 @@ during packaging:
 
 - Missing symbols:
   - Apply styles in the project and re-save the `.qgz` — they travel with it.
+- Missing Map Tips (HTML card does not appear on tap):
+  - Styles must be loaded with *All Categories* in QGIS, not just "Symbology".
 - Layers not visible:
   - Check scale-dependent visibility in Layer Properties.
 - Diacritics / special characters:

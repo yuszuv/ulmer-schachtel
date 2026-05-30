@@ -15,36 +15,40 @@ A simple QGIS project containing:
 2. Set the project CRS to `EPSG:3844 (Stereo70)` — the official Romanian national
    projection, eliminates the distortion present in 4326. GeoJSON data stays in
    4326; QGIS reprojects on-the-fly.
-3. Load data — build the bundle first (`uv run reiseplan-cli build-gpkg`),
-   then load the four layers from `data/processed/reiseplan.gpkg`:
-   - `poi_destinations`
-   - `rail_stations`
-   - `rail_lines`
-   - `info_markers` (ℹ "About this map" – usage/legend help)
-   (GeoJSON files remain the versioned source format; the GPKG is the
-   generated single-file bundle for QGIS/QField.)
+3. Load data directly from the GeoJSON sources (EPSG:4326, versioned source of truth):
+   - `data/processed/poi_destinations.geojson`
+   - `data/processed/rail_stations.geojson`
+   - `data/processed/rail_lines.geojson`
+   - `data/processed/info_markers.geojson` (ℹ "About this map" – usage/legend help)
+
+   > **Why GeoJSON, not GPKG?** The desktop project reads GeoJSON directly so
+   > that any change to the data (re-running `fetch_cfr_data.py`) is immediately
+   > visible in QGIS without a `build-gpkg` step. The GPKG is a generated bundle
+   > *only* for QField export — see [02_qfield_export.md](02_qfield_export.md).
+
 4. Layer order (top to bottom):
    - `info_markers`
    - `poi_destinations`
    - `rail_stations`
    - `rail_lines`
-5. Apply styles (*Layer Properties → Symbology → Load Style…*):
+5. Apply styles (*Layer Properties → Style → Load Style…*):
    - `poi_destinations` → `qgis/styles/poi_destinations.qml`
    - `rail_lines` → `qgis/styles/rail_lines.qml`
    - `rail_stations` → `qgis/styles/rail_stations.qml`
    - `info_markers` → `qgis/styles/info_markers.qml`
-   > When loading a style use **All Categories**: the `.qml` files now also carry
-   > **Map Tips** (category *Map Tips*, HTML card on tap). Loading only
-   > "Symbology" drops Map Tips. For `info_markers` additionally set the display
-   > field to `title` (*Layer Properties → Display*).
+   > **Use "All Categories"** when loading: the `.qml` files carry **Symbology**,
+   > **Labeling**, *and* **Map Tips** (HTML card on tap). Loading only "Symbology"
+   > silently drops the other two categories.
+   >
+   > For `info_markers` additionally set the display field to `title`
+   > (*Layer Properties → Display*).
    >
    > **Connection data on `rail_lines`:** The lines carry the fields from
    > `data/processed/timetable.csv` (`from_city`, `to_city`, `days`, `dep_time`,
    > `arr_time`, `duration`, `via`, `train`) as attributes — visible in the
    > attribute table and via *Identify Features*. They appear once times have been
    > entered and the data rebuilt (`fetch_cfr_data.py --offline`, then
-   > `build-gpkg`). Optionally usable as a Map Tip/label expression, e.g.
-   > `[% "from_city" %] → [% "to_city" %]<br>dep [% "dep_time" %] arr [% "arr_time" %]`.
+   > `build-gpkg`).
 6. Load a base map via the **QuickMapServices** plugin:
    - Install: *Plugins → Manage and Install Plugins → "QuickMapServices"*
    - Load: *Web → QuickMapServices → OSM → OSM Standard* (or Stamen Toner for
@@ -57,11 +61,12 @@ A simple QGIS project containing:
    > Additional useful base maps (rail overlay, relief, satellite, historical) as
    > one-click imports: see [Additional base maps](#additional-base-maps).
 7. Save the project:
-   - `qgis/projects/ulmer_schachtel_basic.qgz`
+   - `qgis/reiseplan.qgz`
    - Ensure **relative paths** are used when saving
      (*Project → Properties → General* → Paths "relative").
-   - Styles are embedded into the `.qgz` at save time — for QField you only
-     need to copy `.qgz` + `reiseplan.gpkg` (see [02_qfield_export.md](02_qfield_export.md)).
+   - Styles are embedded into the `.qgz` at save time. For QField you do **not**
+     need to copy the `.qml` files — use `build-qfield` instead
+     (see [02_qfield_export.md](02_qfield_export.md)).
 
 ## Additional base maps
 
@@ -88,7 +93,7 @@ below your own vector layers).
 ## Colour palette (muted sepia, already in the QML files)
 
 - Map canvas background: warm off-white `#f3ecd5`
-- Route lines: sepia brown `#6b4f2a`, ~0.9 pt, dashed
+- Route lines: sepia brown `#6b4f2a`, label along line
 - Station markers: dark grey `#4c4c4c`, small circles
 - POI categories:
   - `dracula_city`: dark red (circle)

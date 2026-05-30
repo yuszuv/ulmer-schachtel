@@ -6,7 +6,8 @@ The CLI is a secondary tool alongside QGIS:
 - filtering by category or route
 - compact stop sequence per magistrală (`overview`)
 - connection overview with dep/arr/via (`timetable`)
-- good entry point for future automation (import/validation)
+- building the GeoJSON → GPKG bundle (`build-gpkg`)
+- building the QField export package (`build-qfield`)
 
 For map editing, QGIS remains the primary tool.
 
@@ -33,6 +34,26 @@ All data commands accept `--json` for machine-readable output (pipe-friendly):
 uv run reiseplan-cli timetable --json | jq '.[].route_id'
 uv run reiseplan-cli show-route M300 --json
 ```
+
+## Build commands
+
+```bash
+# Step 1: bundle GeoJSON sources into a GPKG (required before build-qfield)
+uv run reiseplan-cli build-gpkg
+
+# Step 2: create the QField package (2 files in qfield/current/)
+uv run reiseplan-cli build-qfield
+
+# Custom output folder:
+uv run reiseplan-cli build-qfield --out ~/some/folder
+```
+
+`build-gpkg` requires **GDAL/ogr2ogr** in PATH (Arch: `pacman -S gdal`).
+
+`build-qfield` opens `qgis/reiseplan.qgz` (a ZIP), rewrites the GeoJSON
+datasource paths to point to the GPKG, and writes two files to
+`qfield/current/`: `reiseplan.qgz` + `reiseplan.gpkg`. The original project
+is never modified. See [02_qfield_export.md](02_qfield_export.md) for details.
 
 Without installing the entrypoint:
 
