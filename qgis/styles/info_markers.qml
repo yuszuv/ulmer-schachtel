@@ -1,4 +1,18 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<!-- Stil für: info_markers (Punkt-Layer)
+     Handgepflegt: diese Datei direkt bearbeiten (nicht generiert).
+
+     Ein einzelner ℹ-Marker in der Mitte Rumäniens — dient als interaktive
+     Legende/Hilfe: Antippen in QField → HTML-Karte mit Erklärung der Symbole,
+     Navigationshinweisen und dem Hinweis zum Donaudelta (nicht per Bahn erreichbar).
+
+     Symbologie: türkisfarbener Kreis (47,107,107) mit cremefarbenem Rand (#f3ecd5).
+     Label: kursives „i" in Creme, immer sichtbar (displayAll="1").
+     Map Tip: Felder „title" (fett) und „body" (Freitext) aus dem GeoJSON.
+
+     WICHTIG beim Laden in QGIS:
+       Layer Properties → Style → Load Style → „All Categories" auswählen.
+       Danach Display-Feld auf „title" setzen (Layer Properties → Display). -->
 <qgis version="3.34.0" styleCategories="Symbology|Labeling|MapTips">
   <renderer-v2 type="singleSymbol" symbollevels="0">
     <symbols>
@@ -15,6 +29,14 @@
       </symbol>
     </symbols>
   </renderer-v2>
+  <!-- Beschriftung: kursives „i" als festes Literal, nicht als Attributfeld.
+       fieldName="'i'" + isExpression="1" = QGIS-Ausdruck, der immer „i" ergibt —
+         kein Attribut namens „i" nötig, der Text ist hartcodiert.
+       fontItalic="1" = kursiv für das klassische ℹ-Erscheinungsbild.
+       textColor="243,236,213,255" = cremefarbener Text auf türkisem Kreis.
+       placement="1" = Over Point (Text über dem Marker-Mittelpunkt, nicht daneben).
+       displayAll="1" = immer sichtbar, keine automatische Unterdrückung bei
+         Überlappungen (sinnvoll: es gibt genau einen ℹ-Marker in der ganzen Karte). -->
   <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="'i'" isExpression="1"
@@ -69,6 +91,12 @@
       </dd_properties>
     </settings>
   </labeling>
+  <!-- Map Tip: HTML-Karte beim Antippen in QGIS / QField (Identify / Finger-Tap).
+       CDATA schützt HTML-Sonderzeichen (<, >, &) vor XML-Interpretation.
+       [% "title" %] und [% "body" %] = QGIS-Expressions → werden durch die
+         gleichnamigen Felder aus info_markers.geojson ersetzt.
+         "body" darf selbst HTML enthalten (Fettdruck, Zeilenumbrüche usw.).
+       WICHTIG: nur aktiv wenn Style mit "All Categories" geladen wurde. -->
   <mapTip><![CDATA[<div style="font-family:serif;color:#39312b;max-width:260px">
   <div style="font-size:14px;font-weight:bold;color:#2f6b6b">[% "title" %]</div>
   <div style="font-size:12px;margin-top:4px">[% "body" %]</div>
