@@ -1,8 +1,24 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.34.0" styleCategories="Symbology|Labeling">
+<!--
+  Style für: rail_stations (Punkt-Layer)
+  Generiert von: qgis/styles/build_marker_styles.py
+  Nicht manuell bearbeiten — Änderungen werden beim nächsten Generieren
+  überschrieben. Stattdessen build_marker_styles.py anpassen, dann neu ausführen.
+-->
+<qgis version="3.34.0" styleCategories="Symbology|Labeling|MapTips">
+  <!-- Renderer: singleSymbol — alle Bahnhöfe sehen gleich aus, keine Untertypen.
+       Im Unterschied zu categorizedSymbol (POIs) gibt es hier nur ein Symbol
+       für alle Features. alpha="1" = vollständig opak. -->
   <renderer-v2 type="singleSymbol" symbollevels="0">
     <symbols>
       <symbol name="0" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">
+        <!-- SvgMarker: SVG-Icon als Marker, Base64-direkt eingebettet — kein Dateipfad,
+             daher in QField ohne lokale Ordnerstruktur verwendbar.
+             name="base64:…" = SVG-Inhalt als Data-URI statt Pfadangabe.
+             size_unit="MM" = gerätunabhängige Millimeter (nicht Pixel).
+             scale_method="diameter" = Größe ist der Durchmesser, nicht der Radius.
+             anchor_point="1" = Marker-Mittelpunkt als Ankerpunkt
+               (0 = oben/links, 1 = Mitte, 2 = unten/rechts). -->
         <layer class="SvgMarker" enabled="1" pass="0" locked="0">
           <Option type="Map">
             <Option name="name" type="QString" value="base64:PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBCYWhuaG9mOiBadWdrb3BmIGF1ZiBzY2hpZWZlcmdyYXVlbSBCYWRnZSAtLT4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIzMCIgZmlsbD0iIzM0NDk1ZSIgc3Ryb2tlPSIjMWIyNzMzIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8IS0tIFdhZ2Vua2FzdGVuIC0tPgogIDxwYXRoIGQ9Ik0yMiAxOCBoMjAgYTQgNCAwIDAgMSA0IDQgdjIwIGE0IDQgMCAwIDEgLTQgNCBoLTIwIGE0IDQgMCAwIDEgLTQgLTQgdi0yMCBhNCA0IDAgMCAxIDQgLTQgeiIKICAgICAgICBmaWxsPSIjZjNmNmY5Ii8+CiAgPCEtLSBGcm9udHNjaGVpYmUgLS0+CiAgPHJlY3QgeD0iMjMiIHk9IjIzIiB3aWR0aD0iMTgiIGhlaWdodD0iOSIgcng9IjIiIGZpbGw9IiMzNDQ5NWUiLz4KICA8IS0tIFNjaGVpbndlcmZlciAtLT4KICA8Y2lyY2xlIGN4PSIyNiIgY3k9IjM4IiByPSIyLjIiIGZpbGw9IiNmZmQyM2YiLz4KICA8Y2lyY2xlIGN4PSIzOCIgY3k9IjM4IiByPSIyLjIiIGZpbGw9IiNmZmQyM2YiLz4KICA8IS0tIFLDpGRlci9TY2hpZW5lbiAtLT4KICA8ZyBmaWxsPSIjMWIyNzMzIj4KICAgIDxyZWN0IHg9IjI0IiB5PSI0NiIgd2lkdGg9IjUiIGhlaWdodD0iNCIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjM1IiB5PSI0NiIgd2lkdGg9IjUiIGhlaWdodD0iNCIgcng9IjEiLz4KICA8L2c+CiAgPHJlY3QgeD0iMTgiIHk9IjUwIiB3aWR0aD0iMjgiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiNmM2Y2ZjkiLz4KPC9zdmc+Cg=="/>
@@ -20,6 +36,15 @@
       </symbol>
     </symbols>
   </renderer-v2>
+  <!-- Beschriftung: Feld "name", Sans-Serif, mit weißem Hintergrund-Puffer.
+       placement="0" = Around Point — QGIS sucht die beste Position rund um den Marker
+         (für Linien wäre placement="3" = Curved).
+       predefinedPositionOrder = Reihenfolge der geprüften Positionen: oben-rechts
+         zuerst (TR), dann TL, BR, BL usw. — QGIS nimmt die erste überlappungsfreie.
+       bufferDraw="1" + bufferColor "…,235" = leicht transparenter weißer Puffer
+         hinter dem Text → Lesbarkeit auf bunten Kacheln deutlich besser.
+       displayAll="0" = Labels werden unterdrückt wenn sie andere überdecken würden
+         (Ausnahme info_markers: dort ist displayAll="1", weil es nur einen gibt). -->
   <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="name" isExpression="0"
@@ -78,4 +103,10 @@
       </dd_properties>
     </settings>
   </labeling>
+  <!-- Map Tip: HTML-Karte beim Antippen in QGIS / QField (Identify / Finger-Tap).
+       CDATA schützt HTML-Sonderzeichen (<, >, &) vor XML-Interpretation.
+       [% "feldname" %] = QGIS-Expression → wird beim Anzeigen durch den
+         tatsächlichen Attributwert ersetzt (z.B. [% "name" %] → "Brașov").
+       WICHTIG: nur aktiv wenn Style mit "All Categories" geladen wurde. -->
+  <mapTip><![CDATA[<div style="font-family:serif;color:#39312b;max-width:260px"><div style="font-size:14px;font-weight:bold;color:#4c4c4c">[% "name" %]</div><div style="font-size:11px;color:#888;margin-top:2px">[% "city" %]</div></div>]]></mapTip>
 </qgis>
