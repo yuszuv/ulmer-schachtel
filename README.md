@@ -1,4 +1,28 @@
+```text
+ _   _ _
+| | | | |_ __  ___ _ _
+| |_| | | '  \/ -_) '_|
+ \___/|_|_|_|_\___|_|
+ ___     _            _   _       _
+/ __| __| |_  __ _ __| |_| |_ ___| |
+\__ \/ _| ' \/ _` / _| ' \  _/ -_) |
+|___/\__|_||_\__,_\__|_||_\__\___|_|
+
+         |>>>
+         |
+   ______|__________________________
+  / ___  ___  ___  ___  ___  ___     \
+ | |_o_||_o_||_o_||_o_||_o_||_o_|     |
+  \________________________________ _/
+~~~~~~~~~~~~~~ Donau ~~~~~~~~~~~~~~~~~~~
+```
+
 # Ulmer Schachtel – Reiseplaner Rumänien (QGIS → QField)
+
+> *Benannt nach der **»Ulmer Schachtel«** – dem einfachen hölzernen
+> Donau-Flachboot, mit dem im 18./19. Jahrhundert Auswanderer von Ulm
+> flussabwärts bis ins Banat (Rumänien) fuhren. Einbahn-Fahrt: am Ziel wurde
+> das Boot zerlegt – das Holz diente den Siedlern zum Hausbau.*
 
 Basis für eine einfache, historisch anmutende Karten-Anwendung zur Urlaubsplanung mit Bahnstationen in Rumänien.
 
