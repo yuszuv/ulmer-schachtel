@@ -14,6 +14,17 @@ Das Skript ist bewusst auf die *Haupt-Routen* und die *größeren Städte*
 beschränkt – keine Lokalbahnen, nicht jeder Haltepunkt. Pro Magistrale sind
 nur die regelmäßig bedienten Knoten-/Stadtbahnhöfe hinterlegt.
 
+Koordinatensystem (CRS)
+-----------------------
+Die GeoJSON-Ausgaben sind **bewusst EPSG:4326 (WGS84 lon/lat)** – nicht das
+rumänische EPSG:3844 (Stereo70). Das ist kein Anzeige-Kompromiss, sondern
+spec-konform: RFC 7946 §4 schreibt für GeoJSON zwingend WGS84 vor. Web-Consumer
+(Leaflet/Mapbox/GitHub-Vorschau) interpretieren die Koordinaten ohnehin als
+lon/lat. Das *projizierte* Arbeits-CRS 3844 lebt erst eine Stufe später: beim
+Bündeln nach ``reiseplan.gpkg`` reprojiziert ``reiseplan-cli build-gpkg`` via
+``ogr2ogr -t_srs EPSG:3844``. Kurz: GeoJSON = Austausch (4326), GPKG = Arbeit
+(3844). Die GeoJSON also nicht „aufräumend" auf 3844 umstellen.
+
 Erzeugte Dateien (alle EPSG:4326, Schema kompatibel zum bestehenden Projekt)
 ----------------------------------------------------------------------------
 * ``data/processed/rail_stations.geojson``  – Bahnhöfe (Point)
@@ -52,6 +63,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from _paths import PROCESSED, ROOT
+from timetable import (
+    TIMETABLE_COLUMNS,
+    TIMETABLE_FIELDS,
+    TIMETABLE_PATH,
+    load_timetable,
+)
 
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 USER_AGENT = "reisefuehrer-dataintegration/0.1 (jan@sternprodukt.de)"
@@ -227,10 +244,9 @@ RAW_PATH = ROOT / "data" / "raw" / "osm_ro_stations.json"
 STATIONS_OUT = PROCESSED / "rail_stations.geojson"
 LINES_OUT = PROCESSED / "rail_lines.geojson"
 ROUTE_STOPS_OUT = PROCESSED / "route_stops.csv"
-TIMETABLE_PATH = PROCESSED / "timetable.csv"
 
-# Felder, die aus timetable.csv in jedes rail_lines-Feature gemergt werden.
-TIMETABLE_FIELDS = ("days", "dep_time", "arr_time", "duration", "via", "train")
+# TIMETABLE_PATH / TIMETABLE_COLUMNS / TIMETABLE_FIELDS / load_timetable
+# leben jetzt in tools/timetable.py (gemeinsames Schema, s. Import oben).
 
 
 # --------------------------------------------------------------------------- #
@@ -298,8 +314,12 @@ def build_index(data: dict) -> dict[str, tuple[float, float]]:
         name = tags.get("name")
         if not name:
             continue
-        lat = el.get("lat") or el.get("center", {}).get("lat")
-        lon = el.get("lon") or el.get("center", {}).get("lon")
+        # Nodes tragen lat/lon direkt; ways/relations nur ``center``.
+        # Explizit auf None prüfen (nicht ``or``), damit lat/lon == 0.0 nicht
+        # fälschlich auf center ausweicht.
+        center = el.get("center", {})
+        lat = el["lat"] if "lat" in el else center.get("lat")
+        lon = el["lon"] if "lon" in el else center.get("lon")
         if lat is None or lon is None:
             continue
         rank = _RAILWAY_RANK.get(tags.get("railway", ""), 9)
@@ -334,22 +354,6 @@ def write_json(path: Path, obj: dict) -> None:
 # --------------------------------------------------------------------------- #
 # Timetable (handgepflegt)                                                    #
 # --------------------------------------------------------------------------- #
-# Spalten der timetable.csv. ``route_id`` ist der Schlüssel zu den Magistralen;
-# from_city/to_city/via werden beim Scaffold vorbefüllt, die übrigen vom Menschen.
-TIMETABLE_COLUMNS = (
-    "route_id", "from_city", "to_city", "days",
-    "dep_time", "arr_time", "duration", "via", "train", "notes",
-)
-
-
-def load_timetable() -> dict[str, dict]:
-    """``route_id`` → Timetable-Zeile. Leeres Dict, wenn die Datei fehlt."""
-    if not TIMETABLE_PATH.is_file():
-        return {}
-    with TIMETABLE_PATH.open("r", encoding="utf-8") as f:
-        return {row["route_id"]: row for row in csv.DictReader(f)}
-
-
 def scaffold_timetable() -> None:
     """Legt ``timetable.csv`` als Vorlage an – aber nur, wenn sie noch fehlt.
 
@@ -372,6 +376,7 @@ def scaffold_timetable() -> None:
             "duration": "",
             "via": ", ".join(cities[1:-1]),
             "train": "",
+            "approx": "",
             "notes": "",
         })
     with TIMETABLE_PATH.open("w", encoding="utf-8", newline="") as f:

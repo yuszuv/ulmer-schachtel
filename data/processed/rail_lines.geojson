@@ -23,7 +23,8 @@
         "arr_time": "16:30",
         "duration": "8:36",
         "via": "Sibiu, Simeria, Arad",
-        "train": "IR 1623"
+        "train": "IR 1623",
+        "approx": "dep,arr"
       },
       "geometry": {
         "type": "LineString",
@@ -74,7 +75,8 @@
         "arr_time": "18:15",
         "duration": "12:04",
         "via": "Ploiești, Brașov, Sighișoara, Cluj-Napoca",
-        "train": "IR 1735"
+        "train": "IR 1735",
+        "approx": "arr"
       },
       "geometry": {
         "type": "LineString",
@@ -129,7 +131,8 @@
         "arr_time": "10:39",
         "duration": "11:09",
         "via": "Dej, Baia Mare",
-        "train": "IRN 1641"
+        "train": "IRN 1641",
+        "approx": "dep"
       },
       "geometry": {
         "type": "LineString",
@@ -168,7 +171,8 @@
         "arr_time": "14:44",
         "duration": "8:26",
         "via": "Ploiești, Bacău, Pașcani",
-        "train": "IR 1655"
+        "train": "IR 1655",
+        "approx": ""
       },
       "geometry": {
         "type": "LineString",
@@ -219,7 +223,8 @@
         "arr_time": "12:30",
         "duration": "5:30",
         "via": "Bârlad, Vaslui",
-        "train": "R 6401"
+        "train": "R 6401",
+        "approx": "dep,arr"
       },
       "geometry": {
         "type": "LineString",
@@ -258,7 +263,8 @@
         "arr_time": "09:19",
         "duration": "3:49",
         "via": "Buzău, Brăila",
-        "train": "IR 1571"
+        "train": "IR 1571",
+        "approx": ""
       },
       "geometry": {
         "type": "LineString",
@@ -301,7 +307,8 @@
         "arr_time": "11:00",
         "duration": "4:43",
         "via": "Fetești, Constanța",
-        "train": "IC/IR + R"
+        "train": "IC/IR + R",
+        "approx": ""
       },
       "geometry": {
         "type": "LineString",
@@ -344,7 +351,8 @@
         "arr_time": "23:12",
         "duration": "11:52",
         "via": "Craiova, Caransebeș",
-        "train": "IR 16021"
+        "train": "IR 16021",
+        "approx": ""
       },
       "geometry": {
         "type": "LineString",
