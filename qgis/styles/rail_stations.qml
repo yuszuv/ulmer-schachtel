@@ -44,7 +44,9 @@
        bufferDraw="1" + bufferColor "…,235" = leicht transparenter weißer Puffer
          hinter dem Text → Lesbarkeit auf bunten Kacheln deutlich besser.
        displayAll="0" = Labels werden unterdrückt wenn sie andere überdecken würden
-         (Ausnahme info_markers: dort ist displayAll="1", weil es nur einen gibt). -->
+         (Ausnahme info_markers: dort ist displayAll="1", weil es nur einen gibt).
+       scaleVisibility="1" + scaleMax = Labels erscheinen erst ab diesem Maßstab
+         nach innen (gegen Label-Cluster bei Kontinental-/Weitzoom). -->
   <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="name" isExpression="0"
@@ -91,7 +93,7 @@
       <rendering drawLabels="1" displayAll="0" limitNumLabels="0"
                  maxNumLabels="2000" minFeatureSize="0"
                  fontLimitPixelSize="0" fontMinPixelSize="3" fontMaxPixelSize="10000"
-                 scaleVisibility="0" scaleMin="1" scaleMax="10000000"
+                 scaleVisibility="1" scaleMin="0" scaleMax="1500000"
                  obstacle="1" obstacleFactor="1" obstacleType="0"
                  zIndex="0" labelPerPart="0" mergeLines="0" upsidedownLabels="0"/>
       <dd_properties>

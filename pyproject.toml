@@ -1,6 +1,6 @@
 [project]
 name = "reiseplan-cli"
-version = "0.1.0"
+version = "0.2.0"
 description = "Basis-CLI für den Rumänien-Reiseplaner (QGIS → QField)"
 requires-python = ">=3.10"
 dependencies = [
@@ -8,20 +8,27 @@ dependencies = [
 ]
 
 [project.scripts]
-reiseplan-cli = "reiseplan_cli:main"
+reiseplan-cli   = "reiseplan.cli:main"
+reiseplan-fetch = "reiseplan.ingest:main"
+reiseplan-site  = "reiseplan.web:main"
 
 [dependency-groups]
 dev = ["pytest>=8"]
 
 [tool.pytest.ini_options]
-# tools/ liegt nicht im Paketpfad – für die Tests importierbar machen.
+# tools/ contains the reiseplan package — add it to the import path.
 pythonpath = ["tools"]
-testpaths = ["tests"]
+testpaths  = ["tests"]
 
 [build-system]
-requires = ["hatchling"]
+requires      = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-only-include = ["tools/reiseplan_cli.py", "tools/_paths.py", "tools/timetable.py"]
-sources = ["tools"]
+# Include the whole package directory (Python files + template.html).
+only-include = ["tools/reiseplan"]
+sources      = ["tools"]
+
+[tool.hatch.build.targets.wheel.force-include]
+# Ensure the HTML template is bundled even though hatchling only auto-includes .py.
+"tools/reiseplan/template.html" = "reiseplan/template.html"

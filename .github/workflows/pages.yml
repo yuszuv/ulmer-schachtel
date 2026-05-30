@@ -9,8 +9,7 @@ on:
     branches: [main]
     paths:
       - data/processed/**
-      - tools/build_site.py
-      - tools/reiseplan_cli.py
+      - tools/reiseplan/**
       - .github/workflows/pages.yml
   workflow_dispatch:
 
@@ -33,12 +32,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v5
 
       - name: Seite bauen
-        run: python tools/build_site.py --out site
+        run: uv run reiseplan-site --out site
 
       - uses: actions/configure-pages@v5
 

@@ -47,7 +47,7 @@ A lightly historical-flavoured map application for planning a rail holiday in Ro
 - `qgis/projects` – space for your own QGIS project files (`.qgz`)
 - `qgis/styles` – QGIS style files (`.qml`, incl. embedded SVG markers)
 - `docs` – setup and export documentation
-- `tools` – helper scripts / CLI (incl. `build_site.py` for the online map)
+- `tools/reiseplan` – Python package: CLI, site builder, OSM ingest, GPKG/QField packaging
 - `.github/workflows` – GitHub Actions (Pages deploy, data refresh)
 
 ## Quick start (QGIS)
@@ -93,10 +93,10 @@ uv run reiseplan-cli list-destinations --category dracula_city
 uv run reiseplan-cli timetable --json | jq .   # machine-readable
 ```
 
-Or without installing the entrypoint:
+Or as a Python module (same result):
 
 ```bash
-uv run python tools/reiseplan_cli.py overview
+uv run python -m reiseplan.cli overview
 ```
 
 ## Online map (GitHub Pages)
@@ -110,7 +110,7 @@ for non-QGIS users — no installation required. Open the Pages URL:
 Build and open locally:
 
 ```bash
-python tools/build_site.py        # generates site/index.html (self-contained)
+uv run reiseplan-site             # generates site/index.html (self-contained)
 xdg-open site/index.html          # or open the file directly in a browser
 ```
 
@@ -128,8 +128,8 @@ Rail data (stations and routes) is based on the **CFR magistrale 200–900**
 Overpass API:
 
 ```bash
-uv run python tools/fetch_cfr_data.py            # query OSM, cache, build GeoJSON
-uv run python tools/fetch_cfr_data.py --offline  # rebuild from data/raw cache only
+uv run reiseplan-fetch            # query OSM, cache, build GeoJSON
+uv run reiseplan-fetch --offline  # rebuild from data/raw cache only
 ```
 
 > Map data © **OpenStreetMap contributors**, licensed under the

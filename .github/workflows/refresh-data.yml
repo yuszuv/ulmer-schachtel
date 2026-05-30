@@ -23,12 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v5
 
       - name: Daten von Overpass holen und GeoJSON/CSV neu bauen
-        run: python tools/fetch_cfr_data.py
+        run: uv run reiseplan-fetch
 
       - name: Pull Request mit Datendiff erstellen
         uses: peter-evans/create-pull-request@v6
@@ -37,7 +35,7 @@ jobs:
           title: "chore: Bahndaten von Overpass aktualisieren"
           commit-message: "chore: Bahndaten von Overpass aktualisieren"
           body: |
-            Automatischer Refresh der Bahndaten via `tools/fetch_cfr_data.py`
+            Automatischer Refresh der Bahndaten via `reiseplan-fetch`
             (OpenStreetMap Overpass-API).
 
             Bitte den Datendiff prüfen. Nach dem Merge baut der Pages-Workflow

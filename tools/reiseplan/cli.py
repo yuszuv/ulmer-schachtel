@@ -1,0 +1,205 @@
+"""CLI entry point — Command-Registry pattern (Pattern 1).
+
+Instead of a long build_parser() that manually wires up every subcommand,
+each command is registered via the ``@command`` decorator.  build_parser()
+then iterates the registry and constructs the argparse tree dynamically.
+
+Benefits:
+  • Adding a command = one decorated function, zero boilerplate elsewhere.
+  • The registry is inspectable (tests can assert all expected commands exist).
+  • Argument declarations live next to the handler, not in a distant parser block.
+
+Usage:
+    uv run reiseplan-cli <subcommand> [options]
+
+All data inspection commands accept ``--json`` for machine-readable output.
+Build commands (build-gpkg, build-qfield, build-site) have no ``--json`` flag.
+"""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Callable
+
+# ---------------------------------------------------------------------------
+# Registry infrastructure
+# ---------------------------------------------------------------------------
+
+@dataclass
+class _Arg:
+    """Descriptor for one argparse argument on a command."""
+    flags: list[str]         # e.g. ["route_id"] or ["--out", "-o"]
+    kwargs: dict             # passed straight to parser.add_argument()
+
+
+@dataclass
+class _CommandSpec:
+    name: str
+    help: str
+    description: str
+    handler: Callable
+    has_json: bool = False
+    args: list[_Arg] = field(default_factory=list)
+
+
+REGISTRY: list[_CommandSpec] = []
+
+
+def command(
+    name: str,
+    *,
+    help: str,
+    description: str = "",
+    json: bool = False,
+    args: list[_Arg] | None = None,
+) -> Callable:
+    """Decorator that registers a CLI subcommand.
+
+    Example::
+
+        @command("list-routes", help="Alle Magistralen anzeigen", json=True)
+        def _list_routes(args):
+            tables.list_routes(args)
+    """
+    def decorator(fn: Callable) -> Callable:
+        REGISTRY.append(_CommandSpec(
+            name=name,
+            help=help,
+            description=description or help,
+            handler=fn,
+            has_json=json,
+            args=args or [],
+        ))
+        return fn
+    return decorator
+
+
+def _arg(*flags: str, **kwargs) -> _Arg:
+    """Shorthand for declaring a command argument inside @command(args=[...]).
+
+    Usage:
+        args=[_arg("route_id", help="z.B. M300")]           # positional
+        args=[_arg("--out", metavar="DIR", help="…")]        # optional
+    """
+    return _Arg(flags=list(flags), kwargs=kwargs)
+
+
+# ---------------------------------------------------------------------------
+# Command registrations
+# (imports happen here so tables/packaging don't depend on cli.py)
+# ---------------------------------------------------------------------------
+
+from . import packaging, tables  # noqa: E402  (after registry setup)
+
+
+@command("list-routes", help="Alle Magistralen anzeigen", json=True)
+def _list_routes(args):
+    tables.list_routes(args)
+
+
+@command("list-categories", help="POI-Kategorien anzeigen", json=True)
+def _list_categories(args):
+    tables.list_categories(args)
+
+
+@command(
+    "list-destinations",
+    help="Destinationen anzeigen",
+    json=True,
+    args=[_arg("--category", help="Filter nach Kategorie")],
+)
+def _list_destinations(args):
+    tables.list_destinations(args)
+
+
+@command("overview", help="Alle Magistralen inkl. Haltefolge kompakt", json=True)
+def _overview(args):
+    tables.overview(args)
+
+
+@command(
+    "timetable",
+    help="Verbindungen (Abfahrt/Ankunft/via) je Magistrale",
+    json=True,
+)
+def _timetable(args):
+    tables.timetable(args)
+
+
+@command(
+    "show-route",
+    help="Haltefolge einer Magistrale",
+    json=True,
+    args=[_arg("route_id", help="z.B. M300")],
+)
+def _show_route(args):
+    tables.show_route(args)
+
+
+@command("build-gpkg", help="GeoJSON zu einer reiseplan.gpkg bündeln")
+def _build_gpkg(args):
+    packaging.GpkgBuilder().build()
+
+
+@command(
+    "build-qfield",
+    help="QField-Paket (Option A) aus .qgz + .gpkg erzeugen",
+    description=(
+        "Erzeugt ein selbst-enthaltenes QField-Paket aus zwei Dateien "
+        "(reiseplan.qgz + reiseplan.gpkg) im Zielordner. "
+        "Voraussetzung: build-gpkg muss aktuell sein."
+    ),
+    args=[_arg("--out", metavar="DIR", help="Zielordner (Standard: qfield/current/)")],
+)
+def _build_qfield(args):
+    packaging.QFieldPackager().build(Path(args.out) if args.out else None)
+
+
+# ---------------------------------------------------------------------------
+# Parser builder (iterates registry)
+# ---------------------------------------------------------------------------
+
+def build_parser() -> argparse.ArgumentParser:
+    """Build the full argparse tree from the REGISTRY."""
+    parser = argparse.ArgumentParser(
+        prog="reiseplan-cli",
+        description="Basis-CLI für den Rumänien-Reiseplaner",
+    )
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    # Shared parent: --json flag for all data-inspection commands.
+    jsonp = argparse.ArgumentParser(add_help=False)
+    jsonp.add_argument(
+        "--json",
+        action="store_true",
+        help="Maschinenlesbare JSON-Ausgabe (für Pipes/jq)",
+    )
+
+    for spec in REGISTRY:
+        parents = [jsonp] if spec.has_json else []
+        p = sub.add_parser(
+            spec.name,
+            help=spec.help,
+            description=spec.description,
+            parents=parents,
+        )
+        for arg in spec.args:
+            p.add_argument(*arg.flags, **arg.kwargs)
+        p.set_defaults(func=spec.handler)
+
+    return parser
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    args = build_parser().parse_args()
+    args.func(args)
+
+
+if __name__ == "__main__":
+    main()

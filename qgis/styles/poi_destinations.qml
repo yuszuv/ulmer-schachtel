@@ -6,17 +6,22 @@
   überschrieben. Stattdessen build_marker_styles.py anpassen, dann neu ausführen.
 -->
 <qgis version="3.34.0" styleCategories="Symbology|Labeling|MapTips">
-  <!-- Renderer: categorizedSymbol — jede POI-Kategorie bekommt ein eigenes Icon.
-       attr="category" = QGIS wählt das Symbol anhand dieses GeoJSON-Attributfelds.
-       Mögliche Werte (value=): dracula_city, city, danube_delta.
-       Im Unterschied zu singleSymbol (gleicher Marker für alle) erlaubt dieser
-       Typ, pro Kategorie Farbe, Form und Größe individuell zu steuern. -->
-  <renderer-v2 attr="category" type="categorizedSymbol" symbollevels="0">
-    <categories>
-      <category value="dracula_city" label="Dracula-Stadt" symbol="0" render="true"/>
-      <category value="city" label="Stadt" symbol="1" render="true"/>
-      <category value="danube_delta" label="Donaudelta" symbol="2" render="true"/>
-    </categories>
+  <!-- Renderer: RuleRenderer — eine Regel je POI-Kategorie.
+       Jede Regel wählt ihr Icon über symbol="…", filtert per filter="…" auf das
+       Attribut "category" und blendet sich maßstabsabhängig ein:
+       scalemaxdenom = größter (am weitesten herausgezoomter) Maßstabsnenner, ab
+       dem die Regel sichtbar wird. So erscheinen wichtige POIs früher als
+       sekundäre:
+         dracula_city, city → ab 1:6 000 000
+         danube_delta       → ab 1:3 000 000
+       Im Unterschied zu categorizedSymbol (nur Icon-Wahl) erlaubt RuleRenderer
+       zusätzlich diese Maßstabs-Staffelung pro Kategorie. -->
+  <renderer-v2 type="RuleRenderer" symbollevels="0">
+    <rules key="{poi-rules}">
+      <rule symbol="0" filter="&quot;category&quot; = 'dracula_city'" scalemaxdenom="6000000" label="Dracula-Stadt" key="{poi-rule-dracula_city}"/>
+      <rule symbol="1" filter="&quot;category&quot; = 'city'" scalemaxdenom="6000000" label="Stadt" key="{poi-rule-city}"/>
+      <rule symbol="2" filter="&quot;category&quot; = 'danube_delta'" scalemaxdenom="3000000" label="Donaudelta" key="{poi-rule-danube_delta}"/>
+    </rules>
     <symbols>
       <symbol name="0" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">
         <!-- SvgMarker: SVG-Icon als Marker, Base64-direkt eingebettet — kein Dateipfad,
@@ -88,31 +93,6 @@
         </layer>
       </symbol>
     </symbols>
-    <source-symbol>
-      <symbol name="0" type="marker" alpha="1" clip_to_extent="1" force_rhr="0">
-        <!-- SvgMarker: SVG-Icon als Marker, Base64-direkt eingebettet — kein Dateipfad,
-             daher in QField ohne lokale Ordnerstruktur verwendbar.
-             name="base64:…" = SVG-Inhalt als Data-URI statt Pfadangabe.
-             size_unit="MM" = gerätunabhängige Millimeter (nicht Pixel).
-             scale_method="diameter" = Größe ist der Durchmesser, nicht der Radius.
-             anchor_point="1" = Marker-Mittelpunkt als Ankerpunkt
-               (0 = oben/links, 1 = Mitte, 2 = unten/rechts). -->
-        <layer class="SvgMarker" enabled="1" pass="0" locked="0">
-          <Option type="Map">
-            <Option name="name" type="QString" value="base64:PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBEcmFjdWxhLVN0YWR0OiBCdXJnICsgRmxlZGVybWF1cyBhdWYgZHVua2Vscm90ZW0gQmFkZ2UgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiM3ZTI0MjIiIHN0cm9rZT0iIzNhMTExMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPCEtLSBUw7xybWUgKyBNYXVlciAtLT4KICA8ZyBmaWxsPSIjZjRlY2UxIj4KICAgIDxyZWN0IHg9IjE1IiB5PSIyNyIgd2lkdGg9IjkiIGhlaWdodD0iMjIiLz4KICAgIDxyZWN0IHg9IjQwIiB5PSIyNyIgd2lkdGg9IjkiIGhlaWdodD0iMjIiLz4KICAgIDxyZWN0IHg9IjIyIiB5PSIzMyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2Ii8+CiAgICA8IS0tIFppbm5lbiAtLT4KICAgIDxyZWN0IHg9IjE1IiB5PSIyNCIgd2lkdGg9IjIuNiIgaGVpZ2h0PSI0Ii8+CiAgICA8cmVjdCB4PSIxOC43IiB5PSIyNCIgd2lkdGg9IjIuNiIgaGVpZ2h0PSI0Ii8+CiAgICA8cmVjdCB4PSIyMi40IiB5PSIyNCIgd2lkdGg9IjIuNiIgaGVpZ2h0PSI0Ii8+CiAgICA8cmVjdCB4PSI0MCIgeT0iMjQiIHdpZHRoPSIyLjYiIGhlaWdodD0iNCIvPgogICAgPHJlY3QgeD0iNDMuNyIgeT0iMjQiIHdpZHRoPSIyLjYiIGhlaWdodD0iNCIvPgogICAgPHJlY3QgeD0iNDcuNCIgeT0iMjQiIHdpZHRoPSIyLjYiIGhlaWdodD0iNCIvPgogICAgPHJlY3QgeD0iMjQiIHk9IjMwIiB3aWR0aD0iMi42IiBoZWlnaHQ9IjQiLz4KICAgIDxyZWN0IHg9IjMwLjciIHk9IjMwIiB3aWR0aD0iMi42IiBoZWlnaHQ9IjQiLz4KICAgIDxyZWN0IHg9IjM3LjQiIHk9IjMwIiB3aWR0aD0iMi42IiBoZWlnaHQ9IjQiLz4KICA8L2c+CiAgPCEtLSBUb3IgLS0+CiAgPHBhdGggZD0iTTI5IDQ5IHYtNiBhMyAzIDAgMCAxIDYgMCB2NiB6IiBmaWxsPSIjM2ExMTEwIi8+CiAgPCEtLSBGbGVkZXJtYXVzIC0tPgogIDxwYXRoIGQ9Ik0zMiAxMyBjMiAwIDIuNCAyIDQgMiBjMS42IDAgMi0xLjQgMy42LTEgYy0xIDEuMi0xIDIuNC0zIDIuOAogICAgICAgICAgIGMtMS44IC40LTIuNi0xLTQuNi0xIGMtMiAwLTIuOCAxLjQtNC42IDEgYy0yLS40LTItMS42LTMtMi44CiAgICAgICAgICAgYzEuNi0uNCAyIDEgMy42IDEgYzEuNiAwIDItMiA0LTIgeiIgZmlsbD0iI2Y0ZWNlMSIvPgo8L3N2Zz4K"/>
-            <Option name="size" type="QString" value="7.0"/>
-            <Option name="size_unit" type="QString" value="MM"/>
-            <Option name="angle" type="QString" value="0"/>
-            <Option name="offset" type="QString" value="0,0"/>
-            <Option name="offset_unit" type="QString" value="MM"/>
-            <Option name="fixedAspectRatio" type="QString" value="0"/>
-            <Option name="scale_method" type="QString" value="diameter"/>
-            <Option name="vertical_anchor_point" type="QString" value="1"/>
-            <Option name="horizontal_anchor_point" type="QString" value="1"/>
-          </Option>
-        </layer>
-      </symbol>
-    </source-symbol>
   </renderer-v2>
   <!-- Beschriftung: Feld "name", Sans-Serif, mit weißem Hintergrund-Puffer.
        placement="0" = Around Point — QGIS sucht die beste Position rund um den Marker
@@ -122,7 +102,9 @@
        bufferDraw="1" + bufferColor "…,235" = leicht transparenter weißer Puffer
          hinter dem Text → Lesbarkeit auf bunten Kacheln deutlich besser.
        displayAll="0" = Labels werden unterdrückt wenn sie andere überdecken würden
-         (Ausnahme info_markers: dort ist displayAll="1", weil es nur einen gibt). -->
+         (Ausnahme info_markers: dort ist displayAll="1", weil es nur einen gibt).
+       scaleVisibility="1" + scaleMax = Labels erscheinen erst ab diesem Maßstab
+         nach innen (gegen Label-Cluster bei Kontinental-/Weitzoom). -->
   <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="name" isExpression="0"
@@ -169,7 +151,7 @@
       <rendering drawLabels="1" displayAll="0" limitNumLabels="0"
                  maxNumLabels="2000" minFeatureSize="0"
                  fontLimitPixelSize="0" fontMinPixelSize="3" fontMaxPixelSize="10000"
-                 scaleVisibility="0" scaleMin="1" scaleMax="10000000"
+                 scaleVisibility="1" scaleMin="0" scaleMax="3000000"
                  obstacle="1" obstacleFactor="1" obstacleType="0"
                  zIndex="0" labelPerPart="0" mergeLines="0" upsidedownLabels="0"/>
       <dd_properties>

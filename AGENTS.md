@@ -71,24 +71,28 @@ qgis/reiseplan.qgz         data/processed/reiseplan.gpkg  ── GITIGNORED bund
   first few iterations (learning the QGIS UI). After that: agents may unzip
   `reiseplan.qgz`, edit the `reiseplan.qgs` XML directly, and repack.
 
-## CLI (`tools/reiseplan_cli.py`)
+## Python package (`tools/reiseplan/`)
 
-- Dependencies: **rich** (tables/colours) + **Python standard library**
-  (argparse/csv/json + subprocess for `ogr2ogr` + zipfile for `build-qfield`).
-  No new deps in `pyproject.toml` without good reason.
-- Run via **uv**: `uv run reiseplan-cli <cmd>` (entrypoint in `pyproject.toml`)
-  or `uv run python tools/reiseplan_cli.py <cmd>`.
-- Data directory is located by `find_repo_root()` (walks up from CWD) — run from
-  the repo root. Paths: `tools/_paths.py` exports `ROOT`, `PROCESSED`,
-  `QGIS_DIR`, `QFIELD_DIR`.
-- Commands: `list-routes`, `list-categories`, `list-destinations [--category]`,
-  `show-route <id>`, `overview`, `timetable`, `build-gpkg`, `build-qfield [--out]`.
-  All data commands accept `--json` for machine-readable output.
+The Python code lives in the `reiseplan` package under `tools/`.
+Dependencies: **rich** (tables/colours) + Python standard library.
+No new deps in `pyproject.toml` without good reason.
+
+Entrypoints (defined in `pyproject.toml`, run via **uv**):
+- `uv run reiseplan-cli <cmd>`   — data inspection + build commands
+- `uv run reiseplan-fetch`       — Overpass fetch → GeoJSON/CSV
+- `uv run reiseplan-site --out site` — build GitHub Pages site
+
+Data directory is located by `find_repo_root()` in `tools/reiseplan/paths.py`.
+Architecture documented in `docs/07_architecture.md`.
+
+CLI commands: `list-routes`, `list-categories`, `list-destinations [--category]`,
+`show-route <id>`, `overview`, `timetable`, `build-gpkg`, `build-qfield [--out]`.
+All data commands accept `--json` for machine-readable output.
+
 - `build-gpkg` requires **GDAL/ogr2ogr** in PATH (Arch: `pacman -S gdal`).
 - `build-qfield` opens `qgis/reiseplan.qgz` (ZIP), rewrites GeoJSON datasource
   paths to GPKG layer references, and writes `qfield/current/{.qgz,.gpkg}`.
   The original `.qgz` is never modified.
-- `build-gpkg` requires **GDAL/ogr2ogr** in PATH (Arch: `pacman -S gdal`).
 
 ## Verification
 
@@ -97,11 +101,12 @@ uv run reiseplan-cli overview          # magistrale + stop sequences
 uv run reiseplan-cli timetable         # connections (dep/arr/via) per magistrală
 uv run reiseplan-cli list-routes       # M200–M900
 uv run python -c "import json,glob; [json.load(open(f,encoding='utf-8')) for f in glob.glob('data/processed/*.geojson')]"
-uv run --group dev pytest              # unit tests (incl. build-qfield rewrite logic)
+uv run --group dev pytest              # unit tests (44 tests, all layers)
 
 # Build pipeline:
 uv run reiseplan-cli build-gpkg        # GeoJSON → reiseplan.gpkg (GPKG needed for QField)
 uv run reiseplan-cli build-qfield      # → qfield/current/{reiseplan.qgz, reiseplan.gpkg}
+uv run reiseplan-fetch --offline       # rebuild GeoJSON from OSM cache (no network)
 
 # Regenerate marker styles (after SVG changes):
 python qgis/styles/build_marker_styles.py
