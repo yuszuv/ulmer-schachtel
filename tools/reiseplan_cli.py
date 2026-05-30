@@ -14,6 +14,7 @@ import functools
 import json
 import shutil
 import subprocess
+import zipfile
 from pathlib import Path
 
 from rich import box
@@ -21,7 +22,7 @@ from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 
-from _paths import PROCESSED
+from _paths import PROCESSED, QGIS_DIR, QFIELD_DIR
 from timetable import TIMETABLE_PATH, approx_fields, load_timetable
 
 
@@ -264,6 +265,32 @@ def list_categories(args: argparse.Namespace) -> None:
         console.print(f"  • {value}")
 
 
+def _rewrite_datasources(qgs_xml: str, gpkg_filename: str) -> str:
+    """GeoJSON-Datenquellen im .qgs-XML auf GPKG-Layer-Verweise umschreiben.
+
+    Das Desktop-Projekt referenziert Vektor-Layer als relative GeoJSON-Pfade
+    (``../data/processed/xxx.geojson``). Für das QField-Paket (Option A) werden
+    sie auf GPKG-Layer-Verweise umgeschrieben (``./reiseplan.gpkg|layername=xxx``),
+    damit das Paket aus genau zwei Dateien besteht und keine externen Pfade
+    voraussetzt.
+
+    Defensiv: fehlt ein erwarteter Pfad, bricht die Funktion mit klarer Meldung
+    ab — lieber lautes Scheitern als ein stilles Halbfertig-Paket.
+    """
+    result = qgs_xml
+    for layer_name, geojson_name in GPKG_LAYERS:
+        old = f"../data/processed/{geojson_name}"
+        new = f"./{gpkg_filename}|layername={layer_name}"
+        if old not in result:
+            raise SystemExit(
+                f"Erwartete Datenquelle nicht im .qgs gefunden: {old!r}\n"
+                "Bitte prüfen ob das Projekt mit relativen Pfaden gespeichert wurde\n"
+                "(Projekt → Eigenschaften → Allgemein → Pfade: relativ)."
+            )
+        result = result.replace(old, new)
+    return result
+
+
 def build_gpkg(args: argparse.Namespace) -> None:
     """Bundle GeoJSON sources into a consolidated ``reiseplan.gpkg``.
 
@@ -300,6 +327,80 @@ def build_gpkg(args: argparse.Namespace) -> None:
         print(f"  - {layer_name}")
 
 
+def build_qfield(args: argparse.Namespace) -> None:
+    """Reproduzierbares QField-Paket (Option A) aus .qgz + .gpkg erzeugen.
+
+    Das Paket besteht aus genau zwei Dateien nebeneinander im Zielordner
+    (Standard: ``qfield/current/``):
+
+    - ``reiseplan.qgz``  – Projektdatei, Datenquellen auf GPKG umgeschrieben
+    - ``reiseplan.gpkg`` – Datenbündel (alle vier Layer in EPSG:3844)
+
+    Voraussetzungen:
+    - ``data/processed/reiseplan.gpkg`` muss aktuell sein → erst ``build-gpkg``
+    - ``qgis/reiseplan.qgz`` muss mit relativen Pfaden gespeichert sein
+
+    Für Offline-Basemap + Sync-back-Workflow (QFieldSync) → docs/02_qfield_export.md.
+    """
+    # ── 1. Voraussetzungen prüfen ───────────────────────────────────────────────
+    if not GPKG_PATH.is_file():
+        raise SystemExit(
+            "reiseplan.gpkg nicht gefunden — bitte zuerst ausführen:\n"
+            "  uv run reiseplan-cli build-gpkg"
+        )
+
+    qgz_path = QGIS_DIR / "reiseplan.qgz"
+    if not qgz_path.is_file():
+        raise SystemExit(f"Projektdatei nicht gefunden: {qgz_path}")
+
+    # ── 2. Zielordner ─────────────────────────────────────────────────────────
+    # Standard: qfield/current/ — festes Verzeichnis, das Syncthing immer an
+    # derselben Stelle auf dem Gerät landet. Mit --out überschreibbar.
+    out_dir = Path(args.out) if args.out else QFIELD_DIR / "current"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # ── 3. .qgz öffnen, Datenquellen umschreiben, neues .qgz schreiben ────────
+    # .qgz ist ein normales ZIP — es enthält eine .qgs-Datei (QGIS-Projekt-XML)
+    # und ggf. eine Styles-Datenbank (.db). Wir lesen das ZIP, schreiben die
+    # Datenquellen-Pfade im .qgs um und packen alle Member ins neue ZIP.
+    GPKG_FILENAME = "reiseplan.gpkg"
+    out_qgz = out_dir / "reiseplan.qgz"
+
+    with zipfile.ZipFile(qgz_path, "r") as zin:
+        member_names = zin.namelist()
+        qgs_name = next((n for n in member_names if n.endswith(".qgs")), None)
+        if qgs_name is None:
+            raise SystemExit(
+                f"Kein .qgs-Member in {qgz_path} gefunden.\n"
+                f"Inhalt: {member_names}"
+            )
+
+        qgs_xml = zin.read(qgs_name).decode("utf-8")
+        qgs_rewritten = _rewrite_datasources(qgs_xml, GPKG_FILENAME)
+
+        # Alle Original-Member übernehmen — nur die .qgs wird ersetzt.
+        with zipfile.ZipFile(out_qgz, "w", compression=zipfile.ZIP_DEFLATED) as zout:
+            for name in member_names:
+                if name == qgs_name:
+                    zout.writestr(name, qgs_rewritten.encode("utf-8"))
+                else:
+                    zout.writestr(name, zin.read(name))
+
+    # ── 4. GPKG neben die .qgz legen ─────────────────────────────────────────
+    out_gpkg = out_dir / GPKG_FILENAME
+    shutil.copy2(GPKG_PATH, out_gpkg)
+
+    # ── 5. Erfolgsmeldung ─────────────────────────────────────────────────────
+    console.print(f"\n[bold green]✓  QField-Paket erstellt[/bold green]  →  {out_dir}")
+    console.print("   [dim]reiseplan.qgz[/dim]   Projektdatei (Datenquellen → GPKG)")
+    console.print(f"   [dim]reiseplan.gpkg[/dim]  {len(GPKG_LAYERS)} Layer in EPSG:3844")
+    console.print()
+    console.print(
+        "[dim]Syncthing-Hinweis: qfield/current/ synct auf das Gerät.\n"
+        "In QField: Ordner öffnen → reiseplan.qgz antippen.[/dim]"
+    )
+
+
 # --------------------------------------------------------------------------- #
 # CLI                                                                         #
 # --------------------------------------------------------------------------- #
@@ -325,6 +426,21 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Verbindungen (Abfahrt/Ankunft/via) je Magistrale").set_defaults(func=timetable)
     sub.add_parser("build-gpkg",
                    help="GeoJSON zu einer reiseplan.gpkg bündeln").set_defaults(func=build_gpkg)
+
+    qfield = sub.add_parser(
+        "build-qfield",
+        help="QField-Paket (Option A) aus .qgz + .gpkg erzeugen",
+        description=(
+            "Erzeugt ein selbst-enthaltenes QField-Paket aus zwei Dateien "
+            "(reiseplan.qgz + reiseplan.gpkg) im Zielordner. "
+            "Voraussetzung: build-gpkg muss aktuell sein."
+        ),
+    )
+    qfield.add_argument(
+        "--out", metavar="DIR",
+        help="Zielordner (Standard: qfield/current/)",
+    )
+    qfield.set_defaults(func=build_qfield)
 
     dest = sub.add_parser("list-destinations", parents=[jsonp], help="Destinationen anzeigen")
     dest.add_argument("--category", help="Filter nach Kategorie")

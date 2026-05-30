@@ -16,3 +16,5 @@ def find_repo_root() -> Path:
 
 ROOT = find_repo_root()
 PROCESSED = ROOT / "data" / "processed"
+QGIS_DIR = ROOT / "qgis"        # Projektdatei + Styles
+QFIELD_DIR = ROOT / "qfield"    # Syncthing-Ordner → Handy
