@@ -10,14 +10,28 @@
 
   Hinweis: Alle Dienste brauchen eine Internetverbindung. Für Offline-
   Nutzung in QField müssen die Kacheln als MBTiles/GeoPackage-Raster
-  gecacht werden (siehe STYLE_TODO_FANCY.md).
+  gecacht werden (siehe docs/02_qfield_export.md, Option B Schritt 3).
 -->
 <qgsXYZTilesConnections version="1.0">
-  <!-- Neutrale, helle Alltags-Basemaps – ruhiger als OSM Standard, lassen die Sepia-Marker leuchten -->
+  <!-- Neutrale, helle Alltags-Basemaps – ruhiger als OSM Standard, lassen die Sepia-Marker leuchten.
+       OSM Standard ist absichtlich nicht enthalten: zu bunt, dominiert die eigenen thematischen Layer. -->
+
+  <!-- Stadia Alidade Smooth: sehr matter, entsättigter Stil – ideal für Sepia-Overlays.
+       Anonym von localhost erlaubt (QGIS Desktop, lokale Entwicklung).
+       Key nötig sobald nicht-localhost: QFieldSync-Export, anderes Gerät, Server.
+       Kostenloser Free-Tier: https://client.stadiamaps.com → registrieren → API Key.
+       Key einbauen: …/{z}/{x}/{y}.png?api_key=DEIN_KEY
+       Einfärben: Layereigenschaften → Symbolisierung → Farbwiedergabe:
+         Sättigung -70 · Helligkeit +15 · Kontrast -15 · Transparenz 85–90 % -->
+  <xyztiles name="Stadia Alidade Smooth (matt, Sepia-tauglich)" url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+
   <xyztiles name="CARTO Positron (hell, dezent)" url="https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="CARTO Voyager (hell, mehr Detail)" url="https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
-  <!-- Bahn-spezifischer Overlay – Strecken, Elektrifizierung, Bahnhöfe. Halbtransparent über die eigene Route legen -->
+  <!-- Bahn-spezifischer Overlay – Strecken, Elektrifizierung, Bahnhöfe.
+       Nur für Datencheck beim Bearbeiten (Quervergleich mit eigenen CFR-Vektorlayern).
+       Nicht für QField-Export: die eigenen Bahnlinien/Bahnhöfe-Layer ersetzen ihn.
+       Halbtransparent verwenden: Layer-Transparenz 60–70 %. -->
   <xyztiles name="OpenRailwayMap (Bahn-Overlay)" url="https://a.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png" zmin="2" zmax="19" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
   <!-- Reine Label-Overlays (transparent) – moderne Orts- & Straßennamen zum Drüberlegen,
@@ -36,7 +50,7 @@
 
   <!-- Historische Grundkarten (Fancy-Stufe) – Habsburger Militäraufnahmen via Arcanum.
        Brauchen einen Referer-Header. Chronologisch: 1. → 2. → 3. Landesaufnahme. -->
-  <xyztiles name="Arcanum 1. Militäraufnahme (1763–1787)" url="https://tiles.arcanum.com/mercator/europe-18century-firstsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <xyztiles name="Arcanum 1. Militäraufnahme (1763–1790)" url="https://tiles.arcanum.com/mercator/europe-18century-firstsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="Arcanum 2. Militäraufnahme (1806–1869)" url="https://tiles.arcanum.com/mercator/europe-19century-secondsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="Arcanum 3. Militäraufnahme (1869–1887)" url="https://tiles.arcanum.com/mercator/europe-19century-thirdsurvey/{z}/{x}/{y}" zmin="5" zmax="14" referer="https://maps.arcanum.com" username="" password="" authcfg="" tilePixelRatio="0"/>
 </qgsXYZTilesConnections>
