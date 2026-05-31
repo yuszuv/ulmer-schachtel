@@ -1,0 +1,12 @@
+GIMP Palette
+Name: Zimmermann - Historischer Atlas
+Columns: 4
+#
+ 26  25  23	#1a1917	Druckschwarz (Text)
+236 223 197	#ecdfc5	Papiergrund (Mitte)
+247 238 217	#f7eed9	Papiergrund (Hell)
+216 198 165	#d8c6a5	Papiergrund (Schatten/Falz)
+174  63  50	#ae3f32	Grenze Rot
+210 162  71	#d2a247	Grenze Gelb/Ocker
+113 141 155	#718d9b	Grenze Blau/Grau
+116 142  76	#748e4c	Grenze Grün
