@@ -1,0 +1,131 @@
+{
+  "generated": "2026-05-31",
+  "source": "Natural Earth 10m admin-1 states/provinces",
+  "url": "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_1_states_provinces.zip",
+  "license": "Public Domain — https://www.naturalearthdata.com/about/terms-of-use/",
+  "methodology": "Modern administrative units (Romanian județe, Serbian districts, Ukrainian oblasts) dissolved into historical regions as they existed around 1900 using ogr2ogr SQLite ST_Union. Boundaries are approximate at the county level; regional assignment follows standard historical geography (Wikipedia 'Historical regions of Romania', Encyclopaedia Britannica entries per region).",
+  "regions": [
+    {
+      "name": "Siebenbürgen",
+      "empire": "Österreich-Ungarn",
+      "units": {
+        "RO": [
+          "Alba",
+          "Bistrita-Nasaud",
+          "Brasov",
+          "Cluj",
+          "Covasna",
+          "Harghita",
+          "Hunedoara",
+          "Mures",
+          "Sibiu"
+        ]
+      }
+    },
+    {
+      "name": "Banat",
+      "empire": "Österreich-Ungarn",
+      "units": {
+        "RO": [
+          "Timis",
+          "Caras-Severin"
+        ],
+        "RS": [
+          "Severno-Banatski",
+          "Srednje-Banatski",
+          "Južno-Banatski"
+        ]
+      }
+    },
+    {
+      "name": "Crișana",
+      "empire": "Österreich-Ungarn",
+      "units": {
+        "RO": [
+          "Arad",
+          "Bihor",
+          "Salaj"
+        ]
+      }
+    },
+    {
+      "name": "Maramureș",
+      "empire": "Österreich-Ungarn",
+      "units": {
+        "RO": [
+          "Maramures",
+          "Satu Mare"
+        ]
+      }
+    },
+    {
+      "name": "Bukowina",
+      "empire": "Österreich-Ungarn",
+      "units": {
+        "RO": [
+          "Suceava"
+        ],
+        "UA": [
+          "Chernivtsi"
+        ]
+      }
+    },
+    {
+      "name": "Moldau",
+      "empire": "Königreich Rumänien",
+      "units": {
+        "RO": [
+          "Bacau",
+          "Botosani",
+          "Iasi",
+          "Neamt",
+          "Vaslui",
+          "Vrancea",
+          "Galati"
+        ]
+      }
+    },
+    {
+      "name": "Muntenia",
+      "empire": "Königreich Rumänien",
+      "units": {
+        "RO": [
+          "Arges",
+          "Braila",
+          "Buzau",
+          "Calarasi",
+          "Dâmbovita",
+          "Giurgiu",
+          "Ialomita",
+          "Ilfov",
+          "Prahova",
+          "Teleorman",
+          "Bucharest"
+        ]
+      }
+    },
+    {
+      "name": "Oltenien",
+      "empire": "Königreich Rumänien",
+      "units": {
+        "RO": [
+          "Dolj",
+          "Gorj",
+          "Mehedinti",
+          "Olt",
+          "Vâlcea"
+        ]
+      }
+    },
+    {
+      "name": "Dobrudscha",
+      "empire": "Königreich Rumänien",
+      "units": {
+        "RO": [
+          "Constanta",
+          "Tulcea"
+        ]
+      }
+    }
+  ]
+}

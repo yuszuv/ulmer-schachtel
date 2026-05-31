@@ -48,20 +48,26 @@ VECTOR_LAYERS = [
     ("rail_stations.geojson",     "Bahnhöfe",          "Bahn"),
     ("rail_lines.geojson",        "Bahn-Linien",       "Bahn"),
     ("rail_gaps.geojson",         "Bahn-Lücken",       "Bahn"),
-    ("staatsgrenzen.geojson",     "Grenzen 1800",      "Historisch"),
+    ("staatsgrenzen.geojson",       "Grenzen 1800",         "Historisch"),
+    ("historische_regionen.geojson","Historische Regionen",  "Historisch"),
+    ("historische_staedte.geojson", "Historische Städte",    "Historisch"),
 ]
 STYLE_FOR = {
-    "Info-Marker":       "info_markers.qml",
-    "POI":               "poi_destinations.qml",
-    "WikiVoyage Städte": "wikivoyage_cities.qml",
-    "Bahnhöfe":          "rail_stations.qml",
-    "Bahn-Linien":       "rail_lines.qml",
-    "Bahn-Lücken":       "rail_gaps.qml",
-    "Grenzen 1800":      "grenzen.qml",
+    "Info-Marker":         "info_markers.qml",
+    "POI":                 "poi_destinations.qml",
+    "WikiVoyage Städte":   "wikivoyage_cities.qml",
+    "Bahnhöfe":            "rail_stations.qml",
+    "Bahn-Linien":         "rail_lines.qml",
+    "Bahn-Lücken":         "rail_gaps.qml",
+    "Grenzen 1800":        "grenzen.qml",
+    "Historische Regionen":"historische_regionen.qml",
+    "Historische Städte":  "historische_staedte.qml",
 }
 # Layer, die NICHT in data/processed/ liegen → relativer Pfad ab Repo-Wurzel.
 BASE_DIR_FOR = {
-    "Grenzen 1800": ("data", "reference", "historical"),
+    "Grenzen 1800":         ("data", "reference", "historical"),
+    "Historische Regionen": ("data", "reference", "historical"),
+    "Historische Städte":   ("data", "reference", "historical"),
 }
 # Subset-Strings (Layer-Filter): den weltweiten Grenzdatensatz auf die für die
 # Reise relevanten Reiche/Nachbarn um 1900 eindampfen (236 → 10 Features).

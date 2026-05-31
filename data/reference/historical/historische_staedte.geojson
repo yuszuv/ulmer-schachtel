@@ -1,0 +1,486 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.59,
+          46.77
+        ]
+      },
+      "properties": {
+        "NAME": "Cluj-Napoca",
+        "NAME_DE": "Klausenburg",
+        "NAME_HU": "Kolozsvár",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Größte Stadt Siebenbürgens; Universitätsstadt und kulturelles Zentrum. Auf der Reise via M400 erreichbar.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.611,
+          45.657
+        ]
+      },
+      "properties": {
+        "NAME": "Brașov",
+        "NAME_DE": "Kronstadt",
+        "NAME_HU": "Brassó",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Sächsische Stadtgründung; bekannt für die Schwarze Kirche und die Burg Rasnov. Ziel der CFR-Magistrale 300.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.152,
+          45.798
+        ]
+      },
+      "properties": {
+        "NAME": "Sibiu",
+        "NAME_DE": "Hermannstadt",
+        "NAME_HU": "Nagyszeben",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Historische Hauptstadt der Siebenbürger Sachsen; Brukenthal-Museum; ab 1867 Sitz des evangelischen Bischofs.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.797,
+          46.219
+        ]
+      },
+      "properties": {
+        "NAME": "Sighișoara",
+        "NAME_DE": "Schäßburg",
+        "NAME_HU": "Segesvár",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Sächsische Bergstadt mit dem berühmten Uhrenturm; Geburtsort von Vlad III. (Voivod der Walachei).",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.58,
+          46.067
+        ]
+      },
+      "properties": {
+        "NAME": "Alba Iulia",
+        "NAME_DE": "Karlsburg",
+        "NAME_HU": "Gyulafehérvár",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Bischofssitz; hier wurde 1918 die Vereinigung Siebenbürgens mit Rumänien proklamiert. Historisch Weißenburg (Alba Carolina).",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.352,
+          46.158
+        ]
+      },
+      "properties": {
+        "NAME": "Mediaș",
+        "NAME_DE": "Mediasch",
+        "NAME_HU": "Medgyes",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Sächsische Weinstadt an der Kokel; Peterskirche mit bemalten Emporen.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.5,
+          47.133
+        ]
+      },
+      "properties": {
+        "NAME": "Bistrița",
+        "NAME_DE": "Bistritz",
+        "NAME_HU": "Beszterce",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Nördlichste sächsische Stadt; in Bram Stokers 'Dracula' Ausgangspunkt der Reise in die Karpaten.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.558,
+          46.545
+        ]
+      },
+      "properties": {
+        "NAME": "Târgu Mureș",
+        "NAME_DE": "Neumarkt am Mieresch",
+        "NAME_HU": "Marosvásárhely",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Kulturelle Metropole des Szeklerlandes; Sitz des siebenbürgischen Appellationsgerichts um 1900.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9,
+          45.883
+        ]
+      },
+      "properties": {
+        "NAME": "Deva",
+        "NAME_DE": "Diemrich",
+        "NAME_HU": "Déva",
+        "REGION": "Siebenbürgen",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Kreisstadt mit Burgruine; Tor zum Hunyadital. Corvinburg (Burg Hunedoara) liegt 14 km entfernt.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.234,
+          45.747
+        ]
+      },
+      "properties": {
+        "NAME": "Timișoara",
+        "NAME_DE": "Temeswar",
+        "NAME_HU": "Temesvár",
+        "REGION": "Banat",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Hauptstadt des Banats; 1884 erste elektrisch beleuchtete Stadt Europas. Ausgangspunkt vieler CFR-Verbindungen.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.903,
+          45.69
+        ]
+      },
+      "properties": {
+        "NAME": "Lugoj",
+        "NAME_DE": "Lugosch",
+        "NAME_HU": "Lugos",
+        "REGION": "Banat",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Zweitgrößte Banater Stadt; an der Temesch gelegen; bedeutend für die rumänische Kulturbewegung im Banat.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.889,
+          45.297
+        ]
+      },
+      "properties": {
+        "NAME": "Reșița",
+        "NAME_DE": "Reschitz",
+        "NAME_HU": "Resicabánya",
+        "REGION": "Banat",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Industriestadt im Gebirgsbanat; Eisenwerke seit 1771; Stahl und Lokomotiven für die österreichischen Bahnen.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.92,
+          47.047
+        ]
+      },
+      "properties": {
+        "NAME": "Oradea",
+        "NAME_DE": "Großwardein",
+        "NAME_HU": "Nagyvárad",
+        "REGION": "Crișana",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Bedeutende Bischofsstadt an der Schnellen Kreisch; reich an Jugendstilbauten; strategischer Bahnknoten.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.312,
+          46.176
+        ]
+      },
+      "properties": {
+        "NAME": "Arad",
+        "NAME_DE": "Arad",
+        "NAME_HU": "Arad",
+        "REGION": "Crișana",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Kreisstadt an der Marosch; Ort der Hinrichtung der 13 ungarischen Märtyrergenärale (1849). Wichtiger Bahnknoten.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.886,
+          47.791
+        ]
+      },
+      "properties": {
+        "NAME": "Satu Mare",
+        "NAME_DE": "Sathmar",
+        "NAME_HU": "Szatmárnémeti",
+        "REGION": "Maramureș",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Historisch Sitz des Komitats Szatmár; an der Somes gelegen; bekannt für den Frieden von Sathmar (1711).",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.579,
+          47.657
+        ]
+      },
+      "properties": {
+        "NAME": "Baia Mare",
+        "NAME_DE": "",
+        "NAME_HU": "Nagybánya",
+        "REGION": "Maramureș",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Bergbaustadt (Silber, Gold); bedeutende Malerschule um 1900; ungarisch 'Großmine'.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.89,
+          47.929
+        ]
+      },
+      "properties": {
+        "NAME": "Sighetu Marmației",
+        "NAME_DE": "Marmarosch-Siget",
+        "NAME_HU": "Máramarossziget",
+        "REGION": "Maramureș",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Hauptstadt des Marmaros-Komitats; Salz- und Holzhandel; heute direkt an der Grenze zur Ukraine.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.936,
+          48.295
+        ]
+      },
+      "properties": {
+        "NAME": "Cernăuți",
+        "NAME_DE": "Czernowitz",
+        "NAME_HU": "Csernovitz",
+        "REGION": "Bukowina",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Hauptstadt des Kronlandes Bukowina; Universitätsstadt; heute Tscherniwzi (Ukraine). Sprachenvielfalt: Deutsch, Rumänisch, Jiddisch, Ukrainisch.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.257,
+          47.632
+        ]
+      },
+      "properties": {
+        "NAME": "Suceava",
+        "NAME_DE": "Suczawa",
+        "NAME_HU": "Szucsáva",
+        "REGION": "Bukowina",
+        "EMPIRE": "Österreich-Ungarn",
+        "NOTE": "Einstige Hauptstadt des Fürstentums Moldau (14.–16. Jh.); Festungsruine und Klosterlandschaft (UNESCO-Welterbe).",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.59,
+          47.157
+        ]
+      },
+      "properties": {
+        "NAME": "Iași",
+        "NAME_DE": "Jassy",
+        "NAME_HU": "Jászvásár",
+        "REGION": "Moldau",
+        "EMPIRE": "Königreich Rumänien",
+        "NOTE": "Historische Hauptstadt der Moldau; 1859–1862 erste Hauptstadt des vereinigten rumänischen Fürstentums. Universität gegründet 1860.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.05,
+          45.435
+        ]
+      },
+      "properties": {
+        "NAME": "Galați",
+        "NAME_DE": "Galatz",
+        "NAME_HU": "Galac",
+        "REGION": "Moldau",
+        "EMPIRE": "Königreich Rumänien",
+        "NOTE": "Wichtigster Donauhafen Rumäniens; unter der Donaukommission als internationaler Freihafen; Stahlwerk gegründet 1966.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.097,
+          44.44
+        ]
+      },
+      "properties": {
+        "NAME": "București",
+        "NAME_DE": "Bukarest",
+        "NAME_HU": "Bukarest",
+        "REGION": "Muntenia",
+        "EMPIRE": "Königreich Rumänien",
+        "NOTE": "Hauptstadt des Königreichs Rumänien seit 1862; 'Kleines Paris' mit Calea Victoriei und Athenäum. Endhaltestelle der meisten CFR-Magistralen.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.975,
+          44.938
+        ]
+      },
+      "properties": {
+        "NAME": "Ploiești",
+        "NAME_DE": "Ploiești",
+        "NAME_HU": "Ploiești",
+        "REGION": "Muntenia",
+        "EMPIRE": "Königreich Rumänien",
+        "NOTE": "Zentrum der rumänischen Erdölindustrie seit den 1860ern; Treibstoffversorgung für ganz Mitteleuropa um 1900.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8,
+          44.32
+        ]
+      },
+      "properties": {
+        "NAME": "Craiova",
+        "NAME_DE": "Krajowa",
+        "NAME_HU": "Krajova",
+        "REGION": "Oltenien",
+        "EMPIRE": "Königreich Rumänien",
+        "NOTE": "Größte Stadt Olteniens; Sitz des Olt-Bezirks; wichtiger Eisenbahnknoten der Kleinen Walachei.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.655,
+          44.175
+        ]
+      },
+      "properties": {
+        "NAME": "Constanța",
+        "NAME_DE": "Konstanza",
+        "NAME_HU": "Konstanca",
+        "REGION": "Dobrudscha",
+        "EMPIRE": "Königreich Rumänien",
+        "NOTE": "Haupthafen am Schwarzen Meer; antike Gründung 'Tomis'; per Eisenbahn seit 1860 mit Cernavodă und Bukarest verbunden.",
+        "SOURCE": "Hand-curated; names from Meyers Konversationslexikon 1905, Brockhaus 1901, Encyclopaedia Britannica 1911"
+      }
+    }
+  ]
+}

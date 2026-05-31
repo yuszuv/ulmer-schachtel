@@ -15,8 +15,11 @@ __pycache__/
 qfield/
 
 # QGIS
+# .qgz are generated artifacts (pack via tools/export_qfield.py); source is .qgs + *_styles.db
+*.qgz
 *.qgz~
 *.qgs~
+*.qgz.bkp
 
 # Generated GIS bundle (from GeoJSON via 'reiseplan-cli build-gpkg')
 *.gpkg
@@ -35,7 +38,7 @@ gemini/
 site/
 
 # QField exports belong in qfield/ (fully ignored above), never in qgis/.
-# This keeps qgis/ a pure source folder (reiseplan.qgz, styles/, …) and makes
+# This keeps qgis/ a pure source folder (.qgs + *_styles.db, styles/, …) and makes
 # an accidentally placed export immediately visible in 'git status'.
 
 # OSM raw caches (regenerate via `uv run reiseplan-fetch` / `reiseplan-cli

@@ -14,6 +14,8 @@ eigenen Vektor-Layer des Projekts, plus die SVG-Quell-Icons.
 | `wikivoyage_cities.qml` | WikiVoyage-Städte | Handgepflegt |
 | `info_markers.qml` | ℹ-Marker (Legende) | Handgepflegt |
 | `grenzen.qml` | Historische Grenzen 1800 (AT-Ungarn/Regat) | Handgepflegt |
+| `historische_regionen.qml` | Historische Regionen (~1900, 9 Bezirke) | Handgepflegt |
+| `historische_staedte.qml` | Historische Städte (25 Städte, DE/HU/RO) | Handgepflegt |
 | `icons/` | SVG-Quellen für POI + Bahnhof | Handgepflegt |
 | `build_marker_styles.py` | Generator für die ersten zwei | — |
 

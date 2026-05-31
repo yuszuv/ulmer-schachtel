@@ -46,7 +46,9 @@ LAYER_STYLES = {
     "Bahn-Linien":       "rail_lines.qml",
     "Bahn-Lücken":       "rail_gaps.qml",
     "Info-Marker":       "info_markers.qml",
-    "Grenzen 1800":      "grenzen.qml",
+    "Grenzen 1800":         "grenzen.qml",
+    "Historische Regionen": "historische_regionen.qml",
+    "Historische Städte":   "historische_staedte.qml",
 }
 
 # layer name -> (minimumScale, maximumScale); 0 = unbegrenzt.
@@ -57,7 +59,11 @@ LAYER_SCALE = {
     "Info-Marker":       (8_000_000, 0),  # ab 1:8 Mio nach innen sichtbar
     "WikiVoyage Städte": (2_000_000, 0),  # ab 1:2 Mio (wie sekundäre POIs)
     # Historische Grenzen: Orientierungsrahmen bei Weitzoom, Lärm bei Nahzoom.
-    "Grenzen 1800":      (20_000_000, 800_000),  # sichtbar 1:800k … 1:20 Mio
+    "Grenzen 1800":         (20_000_000, 800_000),  # sichtbar 1:800k … 1:20 Mio
+    # Historische Regionen: Binnenstruktur — erst beim Hineinzoomen unter die Staatsebene.
+    "Historische Regionen": (3_000_000,  200_000),  # sichtbar 1:200k … 1:3 Mio
+    # Historische Städte: Punkte, analog zu Bahnhöfen.
+    "Historische Städte":   (1_500_000,  0),         # ab 1:1,5 Mio nach innen
     # Zugeschnittene Arcanum-Karte: Hintergrund bis ~1:1 Mio; beim weiteren Reinzoomen
     # ausblenden (Übersichts-Auflösung z9 würde unscharf), dann übernimmt die Detail-
     # Basiskarte. Erzeugt via tools/fetch_arcanum_clip.py.
