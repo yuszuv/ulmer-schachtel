@@ -83,18 +83,21 @@ Dependencies: **rich** (tables/colours) + Python standard library.
 No new deps in `pyproject.toml` without good reason.
 
 Entrypoints (defined in `pyproject.toml`, run via **uv**):
-- `uv run reiseplan-cli <cmd>`   — data inspection + build commands
-- `uv run reiseplan-fetch`       — Overpass fetch → GeoJSON/CSV. Stations from
+- `uv run reiseplan-cli <cmd>`        — data inspection + build commands
+- `uv run reiseplan-fetch`            — Overpass fetch → GeoJSON/CSV. Stations from
   `node[railway=station|…]`; line geometry is **routed along the real
   `railway=rail` tracks** (`reiseplan/routing.py` `RailNetwork`, shortest path
   between stops), not straight stop-to-stop. Caches: `data/raw/osm_ro_*.json`.
-- `uv run reiseplan-site --out site` — build GitHub Pages site
+- `uv run reiseplan-wikivoyage`       — standalone WikiVoyage fetch (same as
+  `reiseplan-cli fetch-wikivoyage`); accepts `--offline`.
+- `uv run reiseplan-site --out site`  — build GitHub Pages site
 
 Data directory is located by `find_repo_root()` in `tools/reiseplan/paths.py`.
 Architecture documented in `docs/07_architecture.md`.
 
 CLI commands: `list-routes`, `list-categories`, `list-destinations [--category]`,
-`show-route <id>`, `overview`, `timetable`, `build-gpkg`, `build-qfield [--out]`.
+`show-route <id>`, `overview`, `timetable`, `fetch-wikivoyage [--offline]`,
+`build-gpkg`, `build-qfield [--out]`.
 All data commands accept `--json` for machine-readable output.
 
 - `build-gpkg` requires **GDAL/ogr2ogr** in PATH (Arch: `pacman -S gdal`).
