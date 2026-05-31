@@ -12,11 +12,13 @@ buildable from code:
 
 1. **Project CRS** → ``EPSG:3844 (Stereo70)`` (avoids the EPSG:4326 trap: the data
    stays 4326 and is reprojected on the fly).
-2. **Loads the four vector layers** from ``data/processed/*.geojson`` with the
-   German display names the rest of the toolchain expects, grouped Guide / Bahn and
-   ordered top→bottom (Info-Marker, POI, Bahnhöfe, Bahn-Linien).
+2. **Loads the vector layers** (mostly ``data/processed/*.geojson``; the historical
+   ``staatsgrenzen.geojson`` from ``data/reference/historical/`` via ``BASE_DIR_FOR``)
+   with the German display names the rest of the toolchain expects, grouped
+   Guide / Bahn / Historisch and ordered top→bottom.
 3. **Applies the QML styles** (``loadNamedStyle`` = all categories: Symbology +
-   Labeling + MapTips).
+   Labeling + MapTips) and any **subset filter** (``SUBSET_FOR``; e.g. trims the
+   world borders to the empires relevant to the trip).
 4. **info_markers display field** → ``title``.
 5. **Canvas background** → ``#f3ecd5`` (warm off-white) and **relative paths**.
 
@@ -29,6 +31,7 @@ from pathlib import Path
 from qgis.core import (
     QgsCoordinateReferenceSystem,
     QgsProject,
+    QgsRasterLayer,
     QgsVectorLayer,
 )
 from qgis.PyQt.QtGui import QColor
@@ -36,14 +39,16 @@ from qgis.PyQt.QtGui import QColor
 CRS = "EPSG:3844"
 CANVAS_BG = QColor(243, 236, 213)  # #f3ecd5
 
-# (GeoJSON-Datei, Anzeigename, Gruppe) — Reihenfolge = oben→unten in der Legende
+# (GeoJSON-Datei, Anzeigename, Gruppe) — Reihenfolge = oben→unten in der Legende.
+# Die meisten Layer liegen in data/processed/; Ausnahmen siehe BASE_DIR_FOR unten.
 VECTOR_LAYERS = [
-    ("info_markers.geojson",      "Info-Marker",      "Guide"),
-    ("poi_destinations.geojson",  "POI",              "Guide"),
+    ("info_markers.geojson",      "Info-Marker",       "Guide"),
+    ("poi_destinations.geojson",  "POI",               "Guide"),
     ("wikivoyage_cities.geojson", "WikiVoyage Städte", "Guide"),
-    ("rail_stations.geojson",     "Bahnhöfe",         "Bahn"),
-    ("rail_lines.geojson",        "Bahn-Linien",      "Bahn"),
-    ("rail_gaps.geojson",         "Bahn-Lücken",      "Bahn"),
+    ("rail_stations.geojson",     "Bahnhöfe",          "Bahn"),
+    ("rail_lines.geojson",        "Bahn-Linien",       "Bahn"),
+    ("rail_gaps.geojson",         "Bahn-Lücken",       "Bahn"),
+    ("staatsgrenzen.geojson",     "Grenzen 1800",      "Historisch"),
 ]
 STYLE_FOR = {
     "Info-Marker":       "info_markers.qml",
@@ -52,8 +57,32 @@ STYLE_FOR = {
     "Bahnhöfe":          "rail_stations.qml",
     "Bahn-Linien":       "rail_lines.qml",
     "Bahn-Lücken":       "rail_gaps.qml",
+    "Grenzen 1800":      "grenzen.qml",
 }
-GROUP_ORDER = ["Guide", "Bahn"]  # oben→unten
+# Layer, die NICHT in data/processed/ liegen → relativer Pfad ab Repo-Wurzel.
+BASE_DIR_FOR = {
+    "Grenzen 1800": ("data", "reference", "historical"),
+}
+# Subset-Strings (Layer-Filter): den weltweiten Grenzdatensatz auf die für die
+# Reise relevanten Reiche/Nachbarn um 1900 eindampfen (236 → 10 Features).
+SUBSET_FOR = {
+    "Grenzen 1800": (
+        "\"NAME\" IN ('Austria Hungary','Romania','Ottoman Empire',"
+        "'Bulgaria','Serbia','Montenegro','Bosnia-Herzegovina',"
+        "'Greece','Russian Empire')"
+    ),
+}
+# Lokale Raster (Pfad ab Repo-Wurzel, Anzeigename, Gruppe). Werden NACH den Vektoren
+# eingehängt, landen also unter „Grenzen 1800" in der Gruppe — die historische Karte
+# ist der Hintergrund, die Grenz-Umrisse liegen darüber. Quelle: tools/fetch_arcanum_clip.py
+# (lokales, auf Rumänien+Österreich-Ungarn zugeschnittenes GeoTIFF, außen transparent —
+# QGIS kann ein Raster nicht auf der Leinwand clippen, daher vorab gebacken).
+RASTER_LAYERS = [
+    (("data", "raster", "arcanum2_ro_clip.tif"),
+     "Arcanum 2 (RO, zugeschnitten)", "Historisch"),
+]
+# Grenzen unter „Bahn", damit die Gleise über den getönten Grenzflächen liegen.
+GROUP_ORDER = ["Guide", "Bahn", "Historisch"]  # oben→unten
 
 
 def bootstrap():
@@ -64,7 +93,8 @@ def bootstrap():
         return
 
     qgis_dir = Path(project.fileName()).parent
-    data_dir = qgis_dir.parent / "data" / "processed"
+    repo_dir = qgis_dir.parent
+    data_dir = repo_dir / "data" / "processed"
     styles_dir = qgis_dir / "styles"
     root = project.layerTreeRoot()
 
@@ -85,7 +115,10 @@ def bootstrap():
         for dup in project.mapLayersByName(name):
             project.removeMapLayer(dup.id())
 
-        path = data_dir / fname
+        base_dir = data_dir
+        if name in BASE_DIR_FOR:
+            base_dir = repo_dir.joinpath(*BASE_DIR_FOR[name])
+        path = base_dir / fname
         if not path.exists():
             print(f"  ⚠ Datenquelle fehlt: {path}")
             continue
@@ -104,10 +137,32 @@ def bootstrap():
         if name == "Info-Marker":
             layer.setDisplayExpression('"title"')
 
+        # Layer-Filter (Subset) — z.B. Welt-Grenzen auf die relevanten Reiche kürzen
+        if name in SUBSET_FOR:
+            layer.setSubsetString(SUBSET_FOR[name])
+
         project.addMapLayer(layer, False)
         groups[gname].addLayer(layer)
         print(f"  + {name}  ←  {fname}"
               + (f"  [{STYLE_FOR[name]}]" if qml.exists() else ""))
+
+    # 2b) Lokale Raster (z.B. zugeschnittene Arcanum-Karte) — nach den Vektoren,
+    #     damit sie in der Gruppe darunter (= Hintergrund) liegen.
+    for parts, name, gname in RASTER_LAYERS:
+        for dup in project.mapLayersByName(name):
+            project.removeMapLayer(dup.id())
+        path = repo_dir.joinpath(*parts)
+        if not path.exists():
+            print(f"  ⚠ Raster fehlt — erst `python tools/fetch_arcanum_clip.py` "
+                  f"ausführen: {path}")
+            continue
+        layer = QgsRasterLayer(str(path), name, "gdal")
+        if not layer.isValid():
+            print(f"  ⚠ Raster ungültig: {name}")
+            continue
+        project.addMapLayer(layer, False)
+        groups[gname].addLayer(layer)
+        print(f"  + {name}  ←  {path.name}")
 
     # 5) Canvas-Hintergrund + relative Pfade
     project.writeEntry("Gui", "/CanvasColorRedPart", CANVAS_BG.red())

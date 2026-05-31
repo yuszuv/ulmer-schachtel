@@ -46,6 +46,7 @@ LAYER_STYLES = {
     "Bahn-Linien":       "rail_lines.qml",
     "Bahn-Lücken":       "rail_gaps.qml",
     "Info-Marker":       "info_markers.qml",
+    "Grenzen 1800":      "grenzen.qml",
 }
 
 # layer name -> (minimumScale, maximumScale); 0 = unbegrenzt.
@@ -55,6 +56,12 @@ LAYER_SCALE = {
     "Bahnhöfe":          (1_500_000, 0),  # ab 1:1,5 Mio nach innen sichtbar
     "Info-Marker":       (8_000_000, 0),  # ab 1:8 Mio nach innen sichtbar
     "WikiVoyage Städte": (2_000_000, 0),  # ab 1:2 Mio (wie sekundäre POIs)
+    # Historische Grenzen: Orientierungsrahmen bei Weitzoom, Lärm bei Nahzoom.
+    "Grenzen 1800":      (20_000_000, 800_000),  # sichtbar 1:800k … 1:20 Mio
+    # Zugeschnittene Arcanum-Karte: Hintergrund bis ~1:1 Mio; beim weiteren Reinzoomen
+    # ausblenden (Übersichts-Auflösung z9 würde unscharf), dann übernimmt die Detail-
+    # Basiskarte. Erzeugt via tools/fetch_arcanum_clip.py.
+    "Arcanum 2 (RO, zugeschnitten)": (0, 1_000_000),  # sichtbar 1:1 Mio … ∞ (weit)
     # Basemap bands: subtle grayscale overview → detailed map, one handoff at 1:8M.
     "Stadia Alidade Smooth (matt, Sepia-tauglich)": (0, 8_000_000),  # wide … 1:8M (overview)
     "CARTO Voyager (hell, mehr Detail)":            (8_000_000, 0),  # 1:8M … near (detail)

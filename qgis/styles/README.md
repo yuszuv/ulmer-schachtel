@@ -1,6 +1,6 @@
 # QGIS Styles – Ulmer Schachtel
 
-Dieses Verzeichnis enthält die Symbologie-Dateien (`.qml`) für alle vier
+Dieses Verzeichnis enthält die Symbologie-Dateien (`.qml`) für die
 eigenen Vektor-Layer des Projekts, plus die SVG-Quell-Icons.
 
 ## Überblick
@@ -10,7 +10,10 @@ eigenen Vektor-Layer des Projekts, plus die SVG-Quell-Icons.
 | `poi_destinations.qml` | Reiseziele (POIs) | Generator (s.u.) |
 | `rail_stations.qml` | Bahnhöfe | Generator (s.u.) |
 | `rail_lines.qml` | Strecken / Magistralen | Handgepflegt |
+| `rail_gaps.qml` | Ungeroutete Streckenlücken („Ghost") | Handgepflegt |
+| `wikivoyage_cities.qml` | WikiVoyage-Städte | Handgepflegt |
 | `info_markers.qml` | ℹ-Marker (Legende) | Handgepflegt |
+| `grenzen.qml` | Historische Grenzen 1800 (AT-Ungarn/Regat) | Handgepflegt |
 | `icons/` | SVG-Quellen für POI + Bahnhof | Handgepflegt |
 | `build_marker_styles.py` | Generator für die ersten zwei | — |
 
@@ -76,14 +79,20 @@ zu einem Cluster verschmelzen:
 | `rail_stations` | 1:1 500 000 |
 | `rail_lines` (M-Codes) | 1:6 000 000 |
 | `info_markers` (ℹ) | 1:8 000 000 |
+| `grenzen` (Ländernamen) | 1:2 000 000 … 1:15 000 000 |
 
 `poi_destinations` nutzt zusätzlich einen **RuleRenderer**: pro Kategorie eine
 Regel mit `scalemaxdenom`, sodass wichtige POIs (Dracula-/Großstädte, ab 1:6 Mio)
 früher erscheinen als sekundäre (Donaudelta, ab 1:3 Mio).
 
+`grenzen` ist ebenfalls **RuleRenderer**, aber narrativ statt nach Maßstab: drei
+Regeln (Österreich-Ungarn getönt · Königreich Rumänien getönt · Balkan-Nachbarn
+gestrichelt). Die Geometrie ist per **Layer-Maßstab** auf 1:800k … 1:20 Mio
+begrenzt, die Labels zusätzlich auf 1:2 Mio … 1:15 Mio.
+
 Die **Layer-Maßstäbe** (Marker-Geometrie von `rail_stations`/`info_markers` aus-
-blenden) und die **Basemap-Bänder** sind keine QML-Kategorie, sondern Projekt-
-Eigenschaften — sie werden von `tools/qgis_setup_scales.py` gesetzt. Details:
+blenden, Grenzen-Band) und die **Basemap-Bänder** sind keine QML-Kategorie, sondern
+Projekt-Eigenschaften — sie werden von `tools/qgis_setup_scales.py` gesetzt. Details:
 [docs/01_qgis_setup.md](../../docs/01_qgis_setup.md#helper-scripts-python-console).
 
 ## Styles in das Projekt einbetten
@@ -110,3 +119,21 @@ Workflow nach Änderungen:
 
 POI-Kategorien: `dracula_city` dunkelrot/Kreis · `city` sepia/Quadrat ·
 `danube_delta` türkis/Dreieck.
+
+### Erweiterung: Story-Ebene „Grenzen 1800"
+
+`grenzen.qml` erzählt die Reise-Story (Siebenbürgen = Österreich-Ungarn vs.
+Königreich Rumänien) und braucht dafür einen Farb**kontrast**, den die Kern-Palette
+nicht hergibt. Label-Text (`#6b4f2a`) und Halo (`#f3ecd5`) nutzen die Palette; die
+getönten Flächen sind bewusste, sepia-verwandte Erweiterungen:
+
+| Rolle | Hex | RGB |
+|---|---|---|
+| AT-Ungarn Füllung | `#c8a96e` @ 30 % | 200, 169, 110 |
+| AT-Ungarn Outline | `#6b4f2a` | 107, 79, 42 *(Palette)* |
+| Rumänien Füllung | `#8faf7a` @ 30 % | 143, 175, 122 |
+| Rumänien Outline | `#4a6b35` | 74, 107, 53 |
+| Nachbarn Outline (dash) | `#9c7a5a` | 156, 122, 90 |
+
+Das Rumänien-Grün ist Absicht (historische Atlas-Konvention AT-Ungarn-Gelb vs.
+Rumänien-Grün) — die einzige Nicht-Sepia-Farbe und nur dieser Story-Ebene vorbehalten.

@@ -56,6 +56,13 @@
     Wichtig für dieses Projekt: Nur die europe-*-Layer haben Abdeckung für Rumänien.
     Die -transylvania-spezifischen Layer liefern für RO leere Tiles — nicht verwenden.
 
+    Hinweis „zugeschnittene Karte": Diese Live-XYZ-Layer decken halb Europa ab. Um die
+    historische Karte NUR über Rumänien+Österreich-Ungarn zu zeigen (außen eine andere
+    Basiskarte), erzeugt `tools/fetch_arcanum_clip.py` aus Survey 2 ein lokales,
+    zugeschnittenes GeoTIFF (data/raster/, außen transparent) — QGIS kann ein Raster
+    nicht auf der Leinwand clippen. Den entfernten „Arcanum 2."-Layer hält
+    `qgis_setup_scales.py` daher aus (BASEMAPS_OFF); der lokale Clip ersetzt ihn.
+
     1. Josephinische Landesaufnahme (1763–1790) — „europe-18century-firstsurvey"
        Auftraggeber: Kaiserin Maria Theresia, fortgesetzt unter Joseph II.
        Erster systematischer Geländeaufnahme des gesamten Habsburgerreichs.

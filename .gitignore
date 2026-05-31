@@ -21,6 +21,12 @@ qfield/
 # Generated GIS bundle (from GeoJSON via 'reiseplan-cli build-gpkg')
 *.gpkg
 
+# Local clipped raster + WMS tile cache (regenerate via 'python tools/fetch_arcanum_clip.py';
+# large + reproducible — the cutline arcanum_clip.geojson IS committed)
+data/raster/
+data/raw/arcanum2_tilecache/
+data/raw/arcanum2_secondsurvey.wms.xml
+
 # Local scratch files
 tmp/
 gemini/
