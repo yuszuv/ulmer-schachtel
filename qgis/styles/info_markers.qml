@@ -36,7 +36,10 @@
        textColor="243,236,213,255" = cremefarbener Text auf türkisem Kreis.
        placement="1" = Over Point (Text über dem Marker-Mittelpunkt, nicht daneben).
        displayAll="1" = immer sichtbar, keine automatische Unterdrückung bei
-         Überlappungen (sinnvoll: es gibt genau einen ℹ-Marker in der ganzen Karte). -->
+         Überlappungen (sinnvoll: es gibt genau einen ℹ-Marker in der ganzen Karte).
+       scaleVisibility="1" + scaleMax="8000000" = Label erst ab 1:8 000 000 nach
+         innen; bei Kontinentalzoom bleibt die Karte ruhig. Der Marker selbst wird
+         zusätzlich per tools/qgis_setup_scales.py auf Layer-Ebene gleich gegated. -->
   <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="'i'" isExpression="1"
@@ -79,7 +82,7 @@
       <rendering drawLabels="1" displayAll="1" limitNumLabels="0"
                  maxNumLabels="2000" minFeatureSize="0"
                  fontLimitPixelSize="0" fontMinPixelSize="3" fontMaxPixelSize="10000"
-                 scaleVisibility="0" scaleMin="1" scaleMax="10000000"
+                 scaleVisibility="1" scaleMin="0" scaleMax="8000000"
                  obstacle="0" obstacleFactor="1" obstacleType="0"
                  zIndex="0" labelPerPart="0" mergeLines="0" upsidedownLabels="0"/>
       <dd_properties>

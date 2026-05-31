@@ -80,6 +80,11 @@ A lightly historical-flavoured map application for planning a rail holiday in Ro
 7. **Save the project**: *Project → Save As…* → `qgis/projects/v1.qgz`
    (`.qgz` extension required). Without a saved project, the later QField export
    will fail with an `AssertionError`.
+8. *(optional, recommended)* Automate the setup from the **Python Console** with the
+   helper scripts in `tools/` — run in order: `qgis_bootstrap.py` (CRS, layers,
+   styles, canvas), `qgis_basemaps.py` (base maps), `qgis_setup_scales.py`
+   (scale-dependent rendering + automatic base-map switching), `qgis_bookmarks.py`
+   (spatial bookmarks). They reproduce steps 2–7 from code. Then save again.
 
 Details: see [docs/01_qgis_setup.md](docs/01_qgis_setup.md).
 

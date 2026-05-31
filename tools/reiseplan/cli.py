@@ -19,9 +19,14 @@ Build commands (build-gpkg, build-qfield, build-site) have no ``--json`` flag.
 from __future__ import annotations
 
 import argparse
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
+
+from rich.console import Console
+
+from .banner import print_banner
 
 # ---------------------------------------------------------------------------
 # Registry infrastructure
@@ -197,7 +202,21 @@ def build_parser() -> argparse.ArgumentParser:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    args = build_parser().parse_args()
+    parser = build_parser()
+
+    # Nackter Aufruf (kein Subcommand): Banner + Hilfe statt argparse-Fehler.
+    if len(sys.argv) == 1:
+        print_banner(Console())
+        parser.print_help()
+        return
+
+    args = parser.parse_args()
+
+    # Banner nach stderr — stdout bleibt sauber für Pipes/jq. Bei --json (rein
+    # maschinenlesbare Ausgabe) wird das Banner ganz unterdrückt.
+    if not getattr(args, "json", False):
+        print_banner(Console(stderr=True))
+
     args.func(args)
 
 

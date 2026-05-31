@@ -57,7 +57,10 @@
        placement="3" = Curved — Labels folgen der Linienkrümmung.
        repeatDistance="40" = Label alle 40mm wiederholen (sinnvoll für lange Strecken).
        bufferDraw="1" = weißer Hintergrund-Puffer für Lesbarkeit auf bunten Kacheln.
-       Farbton 107,79,42 = gedämpftes Sepiabraun (konsistent zur Farbpalette). -->
+       Farbton 107,79,42 = gedämpftes Sepiabraun (konsistent zur Farbpalette).
+       scaleVisibility="1" + scaleMax="6000000" = M-Labels erscheinen erst ab
+         1:6 000 000 nach innen — bei Kontinentalzoom bleibt nur die Linie (das
+         Rückgrat der Karte), keine wiederholten „M300"-Labels über ganz Europa. -->
   <labeling type="simple">
     <settings calloutType="simple">
       <text-style fieldName="route_id" isExpression="0"
@@ -104,7 +107,7 @@
       <rendering drawLabels="1" displayAll="0" limitNumLabels="0"
                  maxNumLabels="2000" minFeatureSize="0"
                  fontLimitPixelSize="0" fontMinPixelSize="3" fontMaxPixelSize="10000"
-                 scaleVisibility="0" scaleMin="1" scaleMax="10000000"
+                 scaleVisibility="1" scaleMin="0" scaleMax="6000000"
                  obstacle="1" obstacleFactor="1" obstacleType="0"
                  zIndex="0" labelPerPart="0" mergeLines="0" upsidedownLabels="0"/>
       <dd_properties>

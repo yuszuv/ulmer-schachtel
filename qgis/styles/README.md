@@ -64,6 +64,28 @@ Tip:
 Syntax im HTML: `[% "feldname" %]` — QGIS ersetzt das beim Anzeigen durch den
 Attributwert. Leere Felder bei `rail_lines` zeigen „–" dank `coalesce()`.
 
+## Maßstabsabhängige Sichtbarkeit
+
+Alle vier QML tragen seit der Maßstabs-Überarbeitung **Label-Maßstabsgrenzen**
+(`scaleVisibility="1"` + `scaleMax`), damit Beschriftungen bei Weitzoom nicht
+zu einem Cluster verschmelzen:
+
+| Layer | Labels ab |
+|---|---|
+| `poi_destinations` | 1:3 000 000 |
+| `rail_stations` | 1:1 500 000 |
+| `rail_lines` (M-Codes) | 1:6 000 000 |
+| `info_markers` (ℹ) | 1:8 000 000 |
+
+`poi_destinations` nutzt zusätzlich einen **RuleRenderer**: pro Kategorie eine
+Regel mit `scalemaxdenom`, sodass wichtige POIs (Dracula-/Großstädte, ab 1:6 Mio)
+früher erscheinen als sekundäre (Donaudelta, ab 1:3 Mio).
+
+Die **Layer-Maßstäbe** (Marker-Geometrie von `rail_stations`/`info_markers` aus-
+blenden) und die **Basemap-Bänder** sind keine QML-Kategorie, sondern Projekt-
+Eigenschaften — sie werden von `tools/qgis_setup_scales.py` gesetzt. Details:
+[docs/01_qgis_setup.md](../../docs/01_qgis_setup.md#helper-scripts-python-console).
+
 ## Styles in das Projekt einbetten
 
 Styles reisen **nicht als separate Dateien** nach QField — sie müssen ins

@@ -90,6 +90,102 @@ below your own vector layers).
 > the field you will need to cache the chosen base map tiles as MBTiles/GeoPackage
 > raster — otherwise they will be empty offline.
 
+> **Tip:** instead of toggling base maps by hand, `tools/qgis_setup_scales.py`
+> wires three of them (CARTO / Arcanum / ESRI) into automatic scale bands — see
+> [Helper scripts](#helper-scripts-python-console) below.
+
+## Helper scripts (Python Console)
+
+Four PyQGIS scripts under `tools/` automate the otherwise click-heavy setup. Run
+them from *Plugins → Python Console* (open the editor, load the file, **Run** — or
+paste the contents). All are **idempotent** (safe to re-run) and look layers up by
+name, skipping any they can't find. Afterwards **save the project (Ctrl+S)** so the
+changes land in the `.qgz`.
+
+**Recommended order to build the project from scratch** (open an empty project,
+*Save As* `qgis/reiseplan.qgz` first):
+
+1. `qgis_bootstrap.py` — CRS, vector layers, styles, canvas, paths
+2. `qgis_basemaps.py` — load the XYZ base maps
+3. `qgis_setup_scales.py` — scale bands + scale visibility
+4. `qgis_bookmarks.py` — spatial bookmarks
+
+### `tools/qgis_bootstrap.py` — project skeleton from source files
+
+Reproduces the manual setup (steps 2–7 above) so the `.qgz` is buildable from code:
+
+- sets the project **CRS** to `EPSG:3844` (avoids the 4326 trap),
+- loads the **four vector layers** from `data/processed/*.geojson` with the German
+  display names the rest of the toolchain expects (Info-Marker, POI, Bahnhöfe,
+  Bahn-Linien), grouped Guide / Bahn and ordered top→bottom,
+- applies the **QML styles** (`loadNamedStyle`, all categories),
+- sets the **info_markers display field** to `title`,
+- sets the **canvas background** `#f3ecd5` and **relative paths**.
+
+It deliberately does *not* load base maps or set scales/bookmarks — that's the
+next three scripts (it prints the order on completion).
+
+### `tools/qgis_basemaps.py` — load the XYZ base maps
+
+Reads `qgis/xyz_connections.xml` and turns every entry into a raster layer in a
+group **"Hintergrundkarten"** at the bottom of the tree (behind your own data),
+all **unchecked**. Layer names match the XML exactly, which is what
+`qgis_setup_scales.py` looks up for the scale bands. Replaces the manual
+*Browser → XYZ Tiles → Load Connections… → double-click each* dance.
+
+> The Arcanum surveys need a Referer header (passed as `http-header:referer`). If
+> Arcanum tiles return 403, verify that parameter against your QGIS version.
+
+### `tools/qgis_bookmarks.py` — spatial bookmarks
+
+Adds 10 **project** bookmarks (stored in the `.qgz`, so they are versioned and
+travel with the project):
+
+- **Übersicht** group: whole-Romania extent + Siebenbürgen (Transylvania) core.
+- **Magistralen** group: one bookmark per CFR main line M200–M900, framed to that
+  line's bounding box — for quick QC and jumping between routes.
+
+Extents are computed from `data/processed/rail_lines.geojson` (stored as literals
+in the script, +8 % margin per axis). View them via *View → Show Spatial Bookmarks*.
+
+### `tools/qgis_setup_scales.py` — scale-dependent rendering
+
+Turns the flat "everything visible at every zoom" map into a layered one. It
+(1) reloads the QML styles onto the four vector layers (`loadNamedStyle`, all
+categories — also sidesteps the "All Categories" trap), (2) sets layer scale
+visibility so markers vanish at continental zoom, and (3) turns the basemap stack
+into scale bands, switching off the opaque competitors, so the right map shows
+automatically per zoom.
+
+Resulting visibility hierarchy (scale `1:X`, appears as you zoom *in*):
+
+| Layer / base map | visible from | to | mechanism |
+|---|---|---|---|
+| CARTO Positron (calm, wide) | ∞ | 1:4 000 000 | layer band |
+| Arcanum 2nd Survey (historical working range) | 1:4 000 000 | 1:25 000 | layer band |
+| ESRI World Imagery (sharp, close) | 1:25 000 | close | layer band (Arcanum hand-off) |
+| Bahn-Linien (backbone) | always | – | — |
+| rail_lines `M…` labels | 1:6 000 000 | – | QML `scaleVisibility` |
+| POI `dracula_city` + `city` | 1:6 000 000 | – | rule-based renderer |
+| POI `danube_delta` | 1:3 000 000 | – | rule-based renderer |
+| POI labels | 1:3 000 000 | – | QML `scaleVisibility` |
+| info_markers (ℹ) | 1:8 000 000 | – | QML + layer band |
+| Bahnhöfe (markers + labels) | 1:1 500 000 | – | layer band + QML |
+
+Why this fixes the three symptoms it was built for:
+
+- **Continental clutter** (7 POI + 36 stations + all labels piling up at Europe
+  zoom): markers and labels are scale-gated, so a wide view shows only CARTO +
+  rail lines.
+- **Arcanum blur** past its native tiles (`zmax=14` ≈ 1:34 000): the band hands
+  off to sharp ESRI imagery below 1:25 000.
+- **Manual base-map toggling**: the three bands switch automatically; the other
+  base maps stay available (just unchecked) as a manual fallback.
+
+**Tuning:** thresholds live in `LAYER_SCALE` (this script) and in
+`build_marker_styles.py` (POI `scale_max` per category, label `scale_max`). Change a
+value, re-run `build_marker_styles.py` if a QML is affected, then re-run this script.
+
 ## Colour palette (muted sepia, already in the QML files)
 
 - Map canvas background: warm off-white `#f3ecd5`
