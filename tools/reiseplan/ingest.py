@@ -53,6 +53,7 @@ from .repository import (
 # Avoid circular import — LINES_OUT is defined here because it is an output
 # of this use-case (other modules read it via repository.ROUTES_PATH).
 LINES_OUT = ROOT / "data" / "processed" / "rail_lines.geojson"
+GAPS_OUT  = ROOT / "data" / "processed" / "rail_gaps.geojson"
 
 # Padding (degrees) around a magistrală's stations → the Overpass corridor bbox
 # from which its rail-track geometry is fetched.
@@ -98,6 +99,7 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
     station_ids: dict[str, str] = {}          # canonical name → ST-ID
     station_features: list[dict] = []
     route_features: list[dict] = []
+    gap_features: list[dict] = []             # one feature per unroutable leg
     stop_rows: list[dict] = []
     missing: list[str] = []
     straight_fallback: list[str] = []          # magistralen with a routing gap
@@ -152,9 +154,24 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
         # Route the stop sequence along the real OSM tracks (falls back to a
         # straight line per leg only where the rail graph has a gap).
         network = RailNetwork.from_overpass(rail_data.get(mag.ref, {}))
-        line_coords, routed = network.route_stops([coord for _, coord in resolved])
-        if not routed:
+        line_coords, gaps = network.route_stops([coord for _, coord in resolved])
+        if gaps:
             straight_fallback.append(mag.ref)
+            # Look up city names for gap endpoints from the resolved stop list
+            coord_to_city = {coord: stop.city for stop, coord in resolved}
+            for gap_a, gap_b in gaps:
+                gap_features.append({
+                    "type": "Feature",
+                    "properties": {
+                        "route_id": mag.ref,
+                        "from_city": coord_to_city.get(gap_a, "?"),
+                        "to_city":   coord_to_city.get(gap_b, "?"),
+                    },
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [gap_a.as_list(), gap_b.as_list()],
+                    },
+                })
 
         # Merge hand-maintained connection data (1:1 per magistrală via route_id).
         conn = timetable.get(mag.ref)
@@ -170,7 +187,7 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
                 "tags": mag.tags,
                 "line_ref": mag.ref,
                 "length_km": mag.length_km,
-                "geom_source": "osm-routed" if routed else "fallback-straight",
+                "geom_source": "osm-routed" if not gaps else "fallback-straight",
                 **timetable_props,
             },
             "geometry": {
@@ -183,6 +200,8 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
                feature_collection("rail_stations", station_features))
     write_json(LINES_OUT,
                feature_collection("rail_lines", route_features))
+    write_json(GAPS_OUT,
+               feature_collection("rail_gaps", gap_features))
 
     with ROUTE_STOPS_PATH.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(
@@ -193,6 +212,7 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
 
     print(f"  → {STATIONS_OUT.relative_to(ROOT)} ({len(station_features)} Bahnhöfe)")
     print(f"  → {LINES_OUT.relative_to(ROOT)} ({len(route_features)} Magistralen)")
+    print(f"  → {GAPS_OUT.relative_to(ROOT)} ({len(gap_features)} Lücken-Segmente)")
     print(f"  → {ROUTE_STOPS_PATH.relative_to(ROOT)} ({len(stop_rows)} Halte)")
     if missing:
         print("  ! nicht aufgelöst (in Geometrie ausgelassen):")

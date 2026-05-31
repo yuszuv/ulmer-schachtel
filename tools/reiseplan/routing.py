@@ -148,27 +148,32 @@ class RailNetwork:
 
     def route_stops(
         self, stops: list[Coordinate]
-    ) -> tuple[list[Coordinate], bool]:
+    ) -> tuple[list[Coordinate], list[tuple[Coordinate, Coordinate]]]:
         """Route a full stop sequence, concatenating per-segment paths.
 
-        Returns ``(coordinates, routed)``. ``routed`` is ``False`` if **any**
-        segment fell back to a straight line between its two stops (a network gap)
-        — the rest still follows the tracks. Shared segment endpoints are
-        de-duplicated so the polyline has no repeated vertex at each stop.
+        Returns ``(coordinates, gaps)``:
+        - ``coordinates``: the full polyline, mixing routed and fallback legs.
+        - ``gaps``: list of ``(a, b)`` pairs for every leg that could *not* be
+          routed (empty graph, disconnected component) and therefore fell back to
+          a straight line. Callers can write these as a separate "ghost" layer to
+          show where the exact alignment is unknown.
+
+        Shared segment endpoints are de-duplicated so the polyline has no
+        repeated vertex at each stop junction.
         """
         if len(stops) < 2:
-            return (list(stops), True)
+            return (list(stops), [])
 
         coords: list[Coordinate] = []
-        routed = True
+        gaps: list[tuple[Coordinate, Coordinate]] = []
         for a, b in zip(stops, stops[1:]):
             segment = self.route(a, b)
             if segment.is_some:
                 seg = segment.unwrap()
             else:
                 seg = [a, b]          # gap → straight fallback for this leg
-                routed = False
+                gaps.append((a, b))
             if coords and seg and coords[-1] == seg[0]:
                 seg = seg[1:]         # drop shared endpoint
             coords.extend(seg)
-        return (coords, routed)
+        return (coords, gaps)

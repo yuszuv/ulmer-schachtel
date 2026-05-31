@@ -43,6 +43,7 @@ VECTOR_LAYERS = [
     ("wikivoyage_cities.geojson", "WikiVoyage Städte", "Guide"),
     ("rail_stations.geojson",     "Bahnhöfe",         "Bahn"),
     ("rail_lines.geojson",        "Bahn-Linien",      "Bahn"),
+    ("rail_gaps.geojson",         "Bahn-Lücken",      "Bahn"),
 ]
 STYLE_FOR = {
     "Info-Marker":       "info_markers.qml",
@@ -50,6 +51,7 @@ STYLE_FOR = {
     "WikiVoyage Städte": "wikivoyage_cities.qml",
     "Bahnhöfe":          "rail_stations.qml",
     "Bahn-Linien":       "rail_lines.qml",
+    "Bahn-Lücken":       "rail_gaps.qml",
 }
 GROUP_ORDER = ["Guide", "Bahn"]  # oben→unten
 

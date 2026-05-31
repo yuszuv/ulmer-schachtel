@@ -197,10 +197,10 @@ def test_route_stops_concatenates_and_dedups_shared_vertices():
     data = {"elements": [_way([(0.0, 0.0), (1.0, 0.0), (2.0, 0.0)])]}
     net = RailNetwork.from_overpass(data)
 
-    coords, routed = net.route_stops(
+    coords, gaps = net.route_stops(
         [Coordinate(0.0, 0.0), Coordinate(1.0, 0.0), Coordinate(2.0, 0.0)]
     )
-    assert routed is True
+    assert gaps == []                             # fully routed
     # Shared endpoint (1,0) between the two legs appears exactly once.
     assert coords == [Coordinate(0.0, 0.0), Coordinate(1.0, 0.0), Coordinate(2.0, 0.0)]
 
@@ -213,7 +213,8 @@ def test_route_stops_falls_back_to_straight_on_gap():
     ]}
     net = RailNetwork.from_overpass(data)
 
-    coords, routed = net.route_stops([Coordinate(0.0, 0.0), Coordinate(6.0, 0.0)])
-    assert routed is False                        # gap flagged
+    coords, gaps = net.route_stops([Coordinate(0.0, 0.0), Coordinate(6.0, 0.0)])
+    assert len(gaps) == 1                         # one gap flagged
+    assert gaps[0] == (Coordinate(0.0, 0.0), Coordinate(6.0, 0.0))
     assert coords[0] == Coordinate(0.0, 0.0)
     assert coords[-1] == Coordinate(6.0, 0.0)

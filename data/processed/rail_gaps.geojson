@@ -1,0 +1,54 @@
+{
+  "type": "FeatureCollection",
+  "name": "rail_gaps",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M300",
+        "from_city": "Cluj-Napoca",
+        "to_city": "Oradea"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.5861692,
+            46.7846249
+          ],
+          [
+            21.9361822,
+            47.0700561
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "M600",
+        "from_city": "Făurei",
+        "to_city": "Bârlad"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            27.2748099,
+            45.0827017
+          ],
+          [
+            27.6732486,
+            46.2150343
+          ]
+        ]
+      }
+    }
+  ]
+}

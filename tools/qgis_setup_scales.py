@@ -15,11 +15,13 @@ What it does (idempotent — safe to re-run)
    Bahn-Linien stays always-on (the backbone), only its labels are scale-gated
    inside the QML.
 3. **Turns the basemap stack into scale bands** so the right map shows
-   automatically per zoom, and switches off the opaque competitors that would
-   otherwise obscure them:
-       CARTO Positron   weit  … 1:4 000 000   (ruhige Kontinentalansicht)
-       Arcanum 2.       1:4 000 000 … 1:25 000 (historischer Arbeitsbereich)
-       ESRI World Imagery 1:25 000 … nah       (scharfer Hand-off bei Arcanum-zmax=14)
+   automatically per zoom, switching off the opaque competitors that would
+   otherwise obscure them. A single handoff at 1:8 000 000:
+       Stadia Alidade Smooth  wide … 1:8 000 000  (subtle grayscale overview)
+       CARTO Voyager          1:8 000 000 … near  (detailed map)
+   The overview map is desaturated to a subtle "s/w" grayscale via a raster
+   colour filter (step 4 below). Arcanum surveys, ESRI imagery and OpenTopoMap
+   stay available as manual layers (switched off here).
 
 Afterwards: **save the project (Strg+S)** so the changes land in the .qgz (and
 travel to QField). Nothing is written to disk by this script.
@@ -38,11 +40,12 @@ from qgis.core import QgsProject
 
 # layer name -> QML filename under qgis/styles/
 LAYER_STYLES = {
-    "POI": "poi_destinations.qml",
+    "POI":               "poi_destinations.qml",
     "WikiVoyage Städte": "wikivoyage_cities.qml",
-    "Bahnhöfe": "rail_stations.qml",
-    "Bahn-Linien": "rail_lines.qml",
-    "Info-Marker": "info_markers.qml",
+    "Bahnhöfe":          "rail_stations.qml",
+    "Bahn-Linien":       "rail_lines.qml",
+    "Bahn-Lücken":       "rail_gaps.qml",
+    "Info-Marker":       "info_markers.qml",
 }
 
 # layer name -> (minimumScale, maximumScale); 0 = unbegrenzt.
@@ -52,28 +55,40 @@ LAYER_SCALE = {
     "Bahnhöfe":          (1_500_000, 0),  # ab 1:1,5 Mio nach innen sichtbar
     "Info-Marker":       (8_000_000, 0),  # ab 1:8 Mio nach innen sichtbar
     "WikiVoyage Städte": (2_000_000, 0),  # ab 1:2 Mio (wie sekundäre POIs)
-    # Basemap-Bänder (genau eine Karte je Zoom-Stufe → kein Übereinanderliegen)
-    "CARTO Positron (hell, dezent)":          (0, 4_000_000),
-    "Arcanum 2. Militäraufnahme (1806–1869)": (4_000_000, 25_000),
-    "ESRI World Imagery (Satellit)":          (25_000, 0),
+    # Basemap bands: subtle grayscale overview → detailed map, one handoff at 1:8M.
+    "Stadia Alidade Smooth (matt, Sepia-tauglich)": (0, 8_000_000),  # wide … 1:8M (overview)
+    "CARTO Voyager (hell, mehr Detail)":            (8_000_000, 0),  # 1:8M … near (detail)
 }
 
-# Basemaps, die für die Auto-Umschaltung eingeschaltet sein müssen …
+# Basemaps that must be switched ON for the scale-band auto-handoff.
 BASEMAPS_ON = [
-    "CARTO Positron (hell, dezent)",
-    "Arcanum 2. Militäraufnahme (1806–1869)",
-    "ESRI World Imagery (Satellit)",
+    "Stadia Alidade Smooth (matt, Sepia-tauglich)",
+    "CARTO Voyager (hell, mehr Detail)",
 ]
-# … und opake Konkurrenten, die sonst die Bänder verdecken würden (ausschalten).
-# Transparente Overlays (Label-Layer, OpenRailwayMap) werden bewusst NICHT
-# angefasst — die darf der Nutzer frei dazuschalten.
+# Opaque competitors switched OFF so they don't obscure the bands; they remain
+# available as manual layers. Transparent overlays (label layers, OpenRailwayMap)
+# are deliberately left untouched — the user can toggle those freely.
 BASEMAPS_OFF = [
+    "CARTO Positron (hell, dezent)",
+    "Arcanum 1. Militäraufnahme (1763–1790)",
+    "Arcanum 2. Militäraufnahme (1806–1869)",
+    "Arcanum 3. Militäraufnahme (1869–1887)",
+    "ESRI World Imagery (Satellit)",
+    "OpenTopoMap (Höhenlinien + Relief)",
+    "ESRI World Hillshade (reines Relief)",
     "OSM Standard",
     "OSM Topografische Karte",
     "OSM ÖPNV",
-    "Arcanum 1. Militäraufnahme (1763–1790)",
-    "Arcanum 3. Militäraufnahme (1869–1887)",
 ]
+
+# Subtle grayscale ("s/w") tuning for the overview basemap, applied as a raster
+# colour filter (persists in the .qgz on save). Values are -100..100 each; this
+# matches the recipe documented in xyz_connections.xml. For a stronger, true
+# black-and-white look, add hueSaturationFilter().setGrayscaleMode(1) below.
+BASEMAP_COLOR = {
+    "Stadia Alidade Smooth (matt, Sepia-tauglich)":
+        {"saturation": -70, "brightness": 15, "contrast": -15},
+}
 
 
 def _layer(name, warn=True):
@@ -138,6 +153,18 @@ def setup_scales():
         layer = _layer(name, warn=False)  # missing = normal (e.g. QuickMapServices layers)
         if layer:
             _set_checked(root, layer, False)
+
+    # 4) Desaturate the overview basemap to a subtle grayscale ("s/w" look).
+    for name, cfg in BASEMAP_COLOR.items():
+        layer = _layer(name)
+        if layer is None:
+            continue
+        layer.hueSaturationFilter().setSaturation(cfg["saturation"])
+        layer.brightnessFilter().setBrightness(cfg["brightness"])
+        layer.brightnessFilter().setContrast(cfg["contrast"])
+        layer.triggerRepaint()
+        print(f"  Entsättigt: {name}  (Sättigung {cfg['saturation']}, "
+              f"Helligkeit {cfg['brightness']:+}, Kontrast {cfg['contrast']:+})")
 
     print("\nFertig. Projekt speichern (Strg+S), damit alles in der .qgz landet.")
 
