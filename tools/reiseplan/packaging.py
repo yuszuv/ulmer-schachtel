@@ -80,6 +80,16 @@ LAYERS: list[_Layer] = [
     _Layer("staatsgrenzen",
            "data/reference/historical/staatsgrenzen.geojson", None,
            "../data/reference/historical/staatsgrenzen.geojson"),
+    # data/processed/ — natural features (Gebirge & Landschaft)
+    _Layer("natural_ridges",
+           "data/processed/natural_ridges.geojson", None,
+           "../data/processed/natural_ridges.geojson"),
+    _Layer("mountain_peaks",
+           "data/processed/mountain_peaks.geojson", None,
+           "../data/processed/mountain_peaks.geojson"),
+    _Layer("landscape_labels",
+           "data/processed/landscape_labels.geojson", None,
+           "../data/processed/landscape_labels.geojson"),
     # root GPKG — merged empire polygons (label-only; distinct from the geojson entry above)
     _Layer("historische_reiche_merged",
            "historische_reiche.gpkg", "historische_reiche",
