@@ -167,10 +167,10 @@ def _build_gpkg(args):
 
 @command(
     "build-qfield",
-    help="QField-Paket (Option A) aus .qgz + .gpkg erzeugen",
+    help="QField-Paket aus .qgs + GPKG + Raster erzeugen",
     description=(
-        "Erzeugt ein selbst-enthaltenes QField-Paket aus zwei Dateien "
-        "(reiseplan.qgz + reiseplan.gpkg) im Zielordner. "
+        "Erzeugt ein selbst-enthaltenes QField-Paket (3 Dateien: "
+        "reiseplan.qgz + reiseplan.gpkg + arcanum2_ro_clip.tif) im Zielordner. "
         "Voraussetzung: build-gpkg muss aktuell sein."
     ),
     args=[_arg("--out", metavar="DIR", help="Zielordner (Standard: qfield/current/)")],

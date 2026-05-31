@@ -43,8 +43,9 @@ A lightly historical-flavoured map application for planning a rail holiday in Ro
 - `data/raw` – raw data (future: GTFS, OSM exports)
 - `data/processed` – vector and table data used by the project
 - `data/reference/historical` – reference material for the historical map style (Fancy stage)
-- `qgis/reiseplan.qgz` – ready-made QGIS project (layers + styles)
-- `qgis/projects` – space for your own QGIS project files (`.qgz`)
+- `qgis/reiseplan.qgs` – QGIS project source (XML, git-diffable)
+- `qgis/reiseplan_attachments.zip` – embedded styles (companion to `.qgs`)
+- `qgis/projects` – space for your own QGIS project files
 - `qgis/styles` – QGIS style files (`.qml`, incl. embedded SVG markers)
 - `docs` – setup and export documentation
 - `tools/reiseplan` – Python package: CLI, site builder, OSM ingest, GPKG/QField packaging
@@ -77,9 +78,8 @@ A lightly historical-flavoured map application for planning a rail holiday in Ro
    - `info_markers` → `qgis/styles/info_markers.qml`
 5. Load a base map: *Web → QuickMapServices → OSM Standard* (plugin required).
 6. Labels **and Map Tips** (HTML card on tap) come automatically from the QML files.
-7. **Save the project**: *Project → Save As…* → `qgis/projects/v1.qgz`
-   (`.qgz` extension required). Without a saved project, the later QField export
-   will fail with an `AssertionError`.
+7. **Save the project**: *Project → Save As…* → `qgis/projects/v1.qgs`.
+   Save with relative paths enabled (*Project → Properties → General → Paths: relative*).
 8. *(optional, recommended)* Automate the setup from the **Python Console** with the
    helper scripts in `tools/` — run in order: `qgis_bootstrap.py` (CRS, layers,
    styles, canvas), `qgis_basemaps.py` (base maps), `qgis_setup_scales.py`

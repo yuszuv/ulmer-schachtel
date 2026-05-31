@@ -61,11 +61,11 @@ A simple QGIS project containing:
    > Additional useful base maps (rail overlay, relief, satellite, historical) as
    > one-click imports: see [Additional base maps](#additional-base-maps).
 7. Save the project:
-   - `qgis/reiseplan.qgz`
+   - `qgis/reiseplan.qgs` (source format; XML, git-diffable)
    - Ensure **relative paths** are used when saving
      (*Project → Properties → General* → Paths "relative").
-   - Styles are embedded into the `.qgz` at save time. For QField you do **not**
-     need to copy the `.qml` files — use `build-qfield` instead
+   - Styles are embedded at save time. For QField you do **not** need to copy
+     the `.qml` files — use `uv run tools/export_qfield.py` instead
      (see [02_qfield_export.md](02_qfield_export.md)).
 
 ## Additional base maps
@@ -100,10 +100,10 @@ Four PyQGIS scripts under `tools/` automate the otherwise click-heavy setup. Run
 them from *Plugins → Python Console* (open the editor, load the file, **Run** — or
 paste the contents). All are **idempotent** (safe to re-run) and look layers up by
 name, skipping any they can't find. Afterwards **save the project (Ctrl+S)** so the
-changes land in the `.qgz`.
+changes land in the `.qgs`.
 
 **Recommended order to build the project from scratch** (open an empty project,
-*Save As* `qgis/reiseplan.qgz` first):
+*Save As* `qgis/reiseplan.qgs` first):
 
 1. `qgis_bootstrap.py` — CRS, vector layers, styles, canvas, paths
 2. `qgis_basemaps.py` — load the XYZ base maps
@@ -112,7 +112,7 @@ changes land in the `.qgz`.
 
 ### `tools/qgis_bootstrap.py` — project skeleton from source files
 
-Reproduces the manual setup (steps 2–7 above) so the `.qgz` is buildable from code:
+Reproduces the manual setup (steps 2–7 above) so the `.qgs` is buildable from code:
 
 - sets the project **CRS** to `EPSG:3844` (avoids the 4326 trap),
 - loads the **four vector layers** from `data/processed/*.geojson` with the German
@@ -138,7 +138,7 @@ all **unchecked**. Layer names match the XML exactly, which is what
 
 ### `tools/qgis_bookmarks.py` — spatial bookmarks
 
-Adds 10 **project** bookmarks (stored in the `.qgz`, so they are versioned and
+Adds 10 **project** bookmarks (stored in the `.qgs`, so they are versioned and
 travel with the project):
 
 - **Übersicht** group: whole-Romania extent + Siebenbürgen (Transylvania) core.

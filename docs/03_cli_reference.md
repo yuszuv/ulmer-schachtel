@@ -38,22 +38,24 @@ uv run reiseplan-cli show-route M300 --json
 ## Build commands
 
 ```bash
-# Step 1: bundle GeoJSON sources into a GPKG (required before build-qfield)
-uv run reiseplan-cli build-gpkg
-
-# Step 2: create the QField package (2 files in qfield/current/)
-uv run reiseplan-cli build-qfield
+# One-shot canonical export (builds GPKG + packs everything):
+uv run tools/export_qfield.py
 
 # Custom output folder:
+uv run tools/export_qfield.py --out ~/some/folder
+
+# Or two-step via CLI:
+uv run reiseplan-cli build-gpkg       # Step 1: bundle all vector layers into GPKG
+uv run reiseplan-cli build-qfield     # Step 2: pack 3-file QField package
 uv run reiseplan-cli build-qfield --out ~/some/folder
 ```
 
 `build-gpkg` requires **GDAL/ogr2ogr** in PATH (Arch: `pacman -S gdal`).
 
-`build-qfield` opens `qgis/reiseplan.qgz` (a ZIP), rewrites the GeoJSON
-datasource paths to point to the GPKG, and writes two files to
-`qfield/current/`: `reiseplan.qgz` + `reiseplan.gpkg`. The original project
-is never modified. See [02_qfield_export.md](02_qfield_export.md) for details.
+`build-qfield` reads `qgis/reiseplan.qgs` + `qgis/reiseplan_attachments.zip`,
+rewrites all datasource paths to local bundle references, and writes three files
+to `qfield/current/`: `reiseplan.qgz` + `reiseplan.gpkg` + `arcanum2_ro_clip.tif`.
+The original project is never modified. See [02_qfield_export.md](02_qfield_export.md) for details.
 
 > The CLI locates `data/processed` by walking up from the current directory —
 > run from the repo root for simplest usage.

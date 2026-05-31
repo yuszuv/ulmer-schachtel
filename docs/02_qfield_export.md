@@ -2,54 +2,55 @@
 
 Two ways to get the project onto the device:
 
-- **Option A – `build-qfield` (recommended):** Automated script builds a
-  self-contained 2-file package from the desktop project. No plugin, no manual
-  copying. Use for primarily **read-only** use (viewing markers and routes).
+- **Option A – `export_qfield.py` / `build-qfield` (recommended):** Automated
+  script builds a self-contained 3-file package from the desktop project. No
+  plugin, no manual copying. Use for primarily **read-only** use (viewing
+  markers and routes).
 - **Option B – full QFieldSync workflow:** The plugin handles the complete export
   including a self-rendered **offline base map**. Required for offline maps without
   manual tile preparation and for **editing + syncing back** from the field.
 
 If you only need to read the map and don't need an offline base map, use Option A.
 
-## Option A (recommended): `build-qfield`
+## Option A (recommended): `export_qfield.py`
 
 QField opens `.qgz` projects natively. The script builds a clean, reproducible
-2-file package and places it in `qfield/current/` — which Syncthing syncs to the
+3-file package and places it in `qfield/current/` — which Syncthing syncs to the
 device.
 
 ### Prerequisites
 
 - GeoJSON data is current (re-run `uv run reiseplan-fetch` if routes changed).
-- Data bundle is built:
-
-  ```bash
-  uv run reiseplan-cli build-gpkg
-  ```
-
-- The desktop project `qgis/reiseplan.qgz` is saved with **relative paths**
+- The desktop project `qgis/reiseplan.qgs` is saved with **relative paths**
   (*Project → Properties → General* → Paths "relative").
 - Styles are embedded in the project (loaded with *All Categories*, project saved).
 
 ### Procedure
 
 ```bash
-uv run reiseplan-cli build-qfield
+uv run tools/export_qfield.py
 ```
 
-This creates two files in `qfield/current/`:
-- `reiseplan.qgz` — project file with datasources rewritten to the GPKG
-- `reiseplan.gpkg` — data bundle (all four layers in EPSG:3844)
+This creates three files in `qfield/current/`:
+- `reiseplan.qgz` — project file (datasources rewritten) + embedded styles
+- `reiseplan.gpkg` — all 12 vector layers in EPSG:3844
+- `arcanum2_ro_clip.tif` — Arcanum raster, copied as-is
 
 Syncthing picks up the changes and syncs them to the device automatically.
 Open `qfield/current/` in QField and tap `reiseplan.qgz`.
 
-> **Custom output folder:** `uv run reiseplan-cli build-qfield --out ~/some/path`
+> **Custom output folder:** `uv run tools/export_qfield.py --out ~/some/path`
 
-> **How it works (good to know once):** `.qgz` is a ZIP file containing a
-> `.qgs` project XML. The desktop project references GeoJSON via relative paths
-> (`../data/processed/xxx.geojson`). `build-qfield` opens the ZIP, rewrites
-> those paths to `./reiseplan.gpkg|layername=xxx`, and creates a new ZIP. The
-> original `qgis/reiseplan.qgz` is never modified.
+> **CLI alternative:** `uv run reiseplan-cli build-gpkg && uv run reiseplan-cli build-qfield`
+> — same result, two steps (GPKG must be built first).
+
+> **How it works (good to know once):** `qgis/reiseplan.qgs` is a plain XML
+> project file; `qgis/reiseplan_attachments.zip` holds the embedded styles.
+> The desktop project references local files via relative paths
+> (`../data/processed/xxx.geojson`, `../data/raster/...`). The export script
+> rewrites every path to a local bundle reference, packs them into a `.qgz`
+> ZIP, and copies the data files alongside. The original `reiseplan.qgs` is
+> never modified.
 
 ### Verify on device
 
@@ -60,7 +61,7 @@ Toggle layers visible, check labels, tap one marker of each type:
 - the ℹ marker → legend / usage hints
 
 If no HTML card appears: reload styles in QGIS with *All Categories*, re-save
-`reiseplan.qgz`, run `build-qfield` again.
+`reiseplan.qgs`, run `export_qfield.py` again.
 
 > Base map: Basic v1 starts without raster tiles (saves storage). Optionally
 > generate MBTiles offline later and copy them alongside, or use Option B.

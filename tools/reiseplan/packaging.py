@@ -1,18 +1,21 @@
 """Build steps: GPKG bundle and QField package.
 
-GpkgBuilder   — runs ogr2ogr to consolidate GeoJSON layers into one GPKG
+GpkgBuilder   — runs ogr2ogr to consolidate all vector layers into one GPKG
                 (EPSG:3844); idempotent (deletes and recreates on each run).
 
-QFieldPackager — opens qgis/reiseplan.qgz (a ZIP), rewrites GeoJSON datasource
-                 paths to GPKG layer references, writes the patched .qgz and
-                 a GPKG copy side-by-side in the target directory.
+QFieldPackager — reads qgis/reiseplan.qgs + qgis/reiseplan_attachments.zip,
+                 rewrites all datasource paths to local bundle references,
+                 and writes a self-contained 3-file QField package:
+                   reiseplan.qgz          — project XML + embedded styles
+                   reiseplan.gpkg         — all vector layers, EPSG:3844
+                   arcanum2_ro_clip.tif   — raster, copied as-is
 
 rewrite_datasources() is a module-level pure function (no IO) so it is directly
 importable by tests without instantiating the packager.
 
-GPKG_LAYERS defines the layer order for both the GPKG build and the QGS rewrite;
-keeping it here (not in repository.py) avoids pulling ogr2ogr concerns into the
-data-access layer.
+LAYERS defines the vector layers included in both the GPKG build and the QGS
+rewrite; keeping it here (not in repository.py) avoids pulling ogr2ogr concerns
+into the data-access layer.
 """
 
 from __future__ import annotations
@@ -21,22 +24,72 @@ import shutil
 import subprocess
 import zipfile
 from pathlib import Path
+from typing import NamedTuple
 
 from rich.console import Console
 
-from .paths import QFIELD_DIR, QGIS_DIR
+from .paths import QFIELD_DIR, QGIS_DIR, ROOT
 from .repository import GPKG_PATH
 
 console = Console()
 
-# Layername in GPKG → source GeoJSON filename.
-# Order = ogr2ogr call order; first call creates the GPKG, subsequent add layers.
-GPKG_LAYERS: list[tuple[str, str]] = [
-    ("poi_destinations",  "poi_destinations.geojson"),
-    ("rail_stations",     "rail_stations.geojson"),
-    ("rail_lines",        "rail_lines.geojson"),
-    ("info_markers",      "info_markers.geojson"),
+
+class _Layer(NamedTuple):
+    """Descriptor for one vector layer included in the QField bundle."""
+    gpkg_name: str         # output layer name in the QField GPKG
+    source: str            # path relative to repo ROOT (the file itself, no |layername= suffix)
+    src_layer: str | None  # source layer name for GPKG inputs; None for single-layer files
+    qgs_token: str         # the literal datasource string in the .qgs XML to replace
+
+
+# Vector layers bundled into the QField GPKG.
+# Order = ogr2ogr call order; first call creates the GPKG, subsequent calls add layers.
+LAYERS: list[_Layer] = [
+    # data/processed/ — core travel layers
+    _Layer("poi_destinations",
+           "data/processed/poi_destinations.geojson", None,
+           "../data/processed/poi_destinations.geojson"),
+    _Layer("rail_stations",
+           "data/processed/rail_stations.geojson", None,
+           "../data/processed/rail_stations.geojson"),
+    _Layer("rail_lines",
+           "data/processed/rail_lines.geojson", None,
+           "../data/processed/rail_lines.geojson"),
+    _Layer("rail_gaps",
+           "data/processed/rail_gaps.geojson", None,
+           "../data/processed/rail_gaps.geojson"),
+    _Layer("info_markers",
+           "data/processed/info_markers.geojson", None,
+           "../data/processed/info_markers.geojson"),
+    _Layer("wikivoyage_cities",
+           "data/processed/wikivoyage_cities.geojson", None,
+           "../data/processed/wikivoyage_cities.geojson"),
+    # data/reference/historical/ — historical context layers
+    _Layer("historische_regionen",
+           "data/reference/historical/historische_regionen.geojson", None,
+           "../data/reference/historical/historische_regionen.geojson"),
+    _Layer("historische_reiche",
+           "data/reference/historical/historische_reiche.geojson", None,
+           "../data/reference/historical/historische_reiche.geojson"),
+    _Layer("historische_staedte",
+           "data/reference/historical/historische_staedte.geojson", None,
+           "../data/reference/historical/historische_staedte.geojson"),
+    _Layer("kuk_clip",
+           "data/reference/historical/kuk_clip.geojson", None,
+           "../data/reference/historical/kuk_clip.geojson"),
+    _Layer("staatsgrenzen",
+           "data/reference/historical/staatsgrenzen.geojson", None,
+           "../data/reference/historical/staatsgrenzen.geojson"),
+    # root GPKG — merged empire polygons (label-only; distinct from the geojson entry above)
+    _Layer("historische_reiche_merged",
+           "historische_reiche.gpkg", "historische_reiche",
+           "../historische_reiche.gpkg|layername=historische_reiche"),
 ]
+
+# Raster bundled alongside the GPKG (copied verbatim, no reprojection).
+RASTER_SOURCE = "data/raster/arcanum2_ro_clip.tif"
+RASTER_QGS_TOKEN = "../data/raster/arcanum2_ro_clip.tif"
+RASTER_FILENAME = "arcanum2_ro_clip.tif"
 
 
 # ---------------------------------------------------------------------------
@@ -44,20 +97,20 @@ GPKG_LAYERS: list[tuple[str, str]] = [
 # ---------------------------------------------------------------------------
 
 def rewrite_datasources(qgs_xml: str, gpkg_filename: str) -> str:
-    """Rewrite GeoJSON datasource paths in a .qgs XML string to GPKG references.
+    """Rewrite all local datasource paths in a .qgs XML string to bundle-local references.
 
-    The desktop project references vector layers as relative GeoJSON paths
-    (``../data/processed/xxx.geojson``).  For the QField package we rewrite
-    them to GPKG layer references (``./reiseplan.gpkg|layername=xxx``) so the
-    package is entirely self-contained (two files, no external paths).
+    Vector layers:  ``../data/.../xxx.geojson``  →  ``./gpkg_filename|layername=xxx``
+    Root GPKG:      ``../historische_reiche.gpkg|layername=...``  → same scheme
+    Raster:         ``../data/raster/arcanum2_ro_clip.tif``  →  ``./arcanum2_ro_clip.tif``
 
     Raises SystemExit with a clear message if an expected path is missing —
     loud failure beats a silently broken half-done package.
     """
     result = qgs_xml
-    for layer_name, geojson_name in GPKG_LAYERS:
-        old = f"../data/processed/{geojson_name}"
-        new = f"./{gpkg_filename}|layername={layer_name}"
+
+    for layer in LAYERS:
+        old = layer.qgs_token
+        new = f"./{gpkg_filename}|layername={layer.gpkg_name}"
         if old not in result:
             raise SystemExit(
                 f"Erwartete Datenquelle nicht im .qgs gefunden: {old!r}\n"
@@ -65,6 +118,15 @@ def rewrite_datasources(qgs_xml: str, gpkg_filename: str) -> str:
                 "(Projekt → Eigenschaften → Allgemein → Pfade: relativ)."
             )
         result = result.replace(old, new)
+
+    # Raster — copied as-is, just rewrite the path reference.
+    if RASTER_QGS_TOKEN not in result:
+        raise SystemExit(
+            f"Erwartete Raster-Quelle nicht im .qgs gefunden: {RASTER_QGS_TOKEN!r}\n"
+            "Bitte prüfen ob das Projekt mit relativen Pfaden gespeichert wurde."
+        )
+    result = result.replace(RASTER_QGS_TOKEN, f"./{RASTER_FILENAME}")
+
     return result
 
 
@@ -73,11 +135,11 @@ def rewrite_datasources(qgs_xml: str, gpkg_filename: str) -> str:
 # ---------------------------------------------------------------------------
 
 class GpkgBuilder:
-    """Consolidates all GeoJSON layers into a single GPKG (EPSG:3844).
+    """Consolidates all vector layers into a single GPKG (EPSG:3844).
 
-    GeoJSON files remain the versioned source of truth (EPSG:4326, GeoJSON
-    spec); the GPKG is a reproducible, gitignored bundle for QGIS/QField
-    (one file, multiple layers) reprojected to the project CRS EPSG:3844.
+    Source files remain the versioned source of truth; the GPKG is a
+    reproducible, gitignored bundle for QGIS/QField (one file, multiple layers)
+    reprojected to the project CRS EPSG:3844.
     """
 
     def build(self) -> None:
@@ -87,29 +149,35 @@ class GpkgBuilder:
                 "(Arch: 'pacman -S gdal')."
             )
 
-        from .repository import PROCESSED  # local import avoids top-level path dep
-
         # Delete first → idempotent, clean rebuild every time.
         GPKG_PATH.unlink(missing_ok=True)
 
-        for idx, (layer_name, source_file) in enumerate(GPKG_LAYERS):
-            source = PROCESSED / source_file
-            if not source.is_file():
-                raise SystemExit(f"Quelle fehlt: {source}")
+        for idx, layer in enumerate(LAYERS):
+            source_path = ROOT / layer.source
+            if not source_path.is_file():
+                raise SystemExit(f"Quelle fehlt: {source_path}")
+
             # First call creates the GPKG; subsequent calls add layers via -update.
             update_flags = [] if idx == 0 else ["-update"]
+
+            # For GPKG sources we must name the source layer explicitly;
+            # for single-layer files (GeoJSON, etc.) this is not needed.
+            src_layer_args = [layer.src_layer] if layer.src_layer else []
+
             subprocess.run(
                 [
                     "ogr2ogr", "-f", "GPKG", *update_flags,
                     "-t_srs", "EPSG:3844",
-                    str(GPKG_PATH), str(source), "-nln", layer_name,
+                    str(GPKG_PATH), str(source_path),
+                    *src_layer_args,
+                    "-nln", layer.gpkg_name,
                 ],
                 check=True,
             )
 
         print(f"GPKG gebaut: {GPKG_PATH}")
-        for layer_name, _ in GPKG_LAYERS:
-            print(f"  - {layer_name}")
+        for layer in LAYERS:
+            print(f"  - {layer.gpkg_name}")
 
 
 # ---------------------------------------------------------------------------
@@ -117,16 +185,23 @@ class GpkgBuilder:
 # ---------------------------------------------------------------------------
 
 class QFieldPackager:
-    """Produces a reproducible QField package from .qgz + .gpkg.
+    """Produces a reproducible, self-contained QField package.
 
-    The package contains exactly two files side-by-side in the target directory:
-      reiseplan.qgz   – project file with datasources rewritten to GPKG refs
-      reiseplan.gpkg  – data bundle (all four layers, EPSG:3844)
+    Reads the project source from:
+      qgis/reiseplan.qgs              — QGIS project XML
+      qgis/reiseplan_attachments.zip  — embedded styles (hNhyAH_styles.db etc.)
+
+    Writes three files to the target directory (default qfield/current/):
+      reiseplan.qgz          — project XML (paths rewritten) + styles, bundled as ZIP
+      reiseplan.gpkg         — all vector layers in EPSG:3844
+      arcanum2_ro_clip.tif   — raster, copied as-is
 
     Prerequisites:
-      - data/processed/reiseplan.gpkg must be current → run build-gpkg first.
-      - qgis/reiseplan.qgz must be saved with relative paths
-        (Projekt → Eigenschaften → Allgemein → Pfade: relativ).
+      data/processed/reiseplan.gpkg must be current → run build-gpkg first.
+
+    Note: the project XML contains ``iccProfileId="attachment:///QGIS4-aLCBqh"``
+    which has no backing file in the attachments zip. This is a pre-existing
+    QGIS 4 colour-profile reference; QField ignores it with a warning — harmless.
     """
 
     GPKG_FILENAME = "reiseplan.gpkg"
@@ -138,42 +213,45 @@ class QFieldPackager:
                 "reiseplan.gpkg nicht gefunden — bitte zuerst ausführen:\n"
                 "  uv run reiseplan-cli build-gpkg"
             )
-        qgz_path = QGIS_DIR / "reiseplan.qgz"
-        if not qgz_path.is_file():
-            raise SystemExit(f"Projektdatei nicht gefunden: {qgz_path}")
+
+        qgs_path = QGIS_DIR / "reiseplan.qgs"
+        if not qgs_path.is_file():
+            raise SystemExit(f"Projektdatei nicht gefunden: {qgs_path}")
+
+        attachments_zip = QGIS_DIR / "reiseplan_attachments.zip"
+        if not attachments_zip.is_file():
+            raise SystemExit(f"Attachments-ZIP nicht gefunden: {attachments_zip}")
+
+        raster_path = ROOT / RASTER_SOURCE
+        if not raster_path.is_file():
+            raise SystemExit(f"Raster nicht gefunden: {raster_path}")
 
         # ── 2. Target directory ─────────────────────────────────────────────
         # Default: qfield/current/ — fixed Syncthing path; overridable via --out.
         target = out_dir or QFIELD_DIR / "current"
         target.mkdir(parents=True, exist_ok=True)
 
-        # ── 3. Open .qgz, rewrite datasources, write patched .qgz ──────────
-        # .qgz is a standard ZIP containing a .qgs (QGIS project XML) and
-        # optionally a styles DB (.db).  We rewrite only the .qgs member.
+        # ── 3. Rewrite datasources in the .qgs XML ──────────────────────────
+        qgs_xml = qgs_path.read_text(encoding="utf-8")
+        qgs_rewritten = rewrite_datasources(qgs_xml, self.GPKG_FILENAME)
+
+        # ── 4. Write .qgz (ZIP of rewritten .qgs + all styles from attachments) ──
         out_qgz = target / "reiseplan.qgz"
-        with zipfile.ZipFile(qgz_path, "r") as zin:
-            member_names = zin.namelist()
-            qgs_name = next((n for n in member_names if n.endswith(".qgs")), None)
-            if qgs_name is None:
-                raise SystemExit(
-                    f"Kein .qgs-Member in {qgz_path} gefunden.\n"
-                    f"Inhalt: {member_names}"
-                )
-            qgs_xml = zin.read(qgs_name).decode("utf-8")
-            qgs_rewritten = rewrite_datasources(qgs_xml, self.GPKG_FILENAME)
+        with zipfile.ZipFile(out_qgz, "w", compression=zipfile.ZIP_DEFLATED) as zout:
+            zout.writestr("reiseplan.qgs", qgs_rewritten.encode("utf-8"))
+            with zipfile.ZipFile(attachments_zip) as zatt:
+                for entry in zatt.infolist():
+                    zout.writestr(entry, zatt.read(entry.filename))
 
-            with zipfile.ZipFile(out_qgz, "w", compression=zipfile.ZIP_DEFLATED) as zout:
-                for name in member_names:
-                    data = qgs_rewritten.encode("utf-8") if name == qgs_name else zin.read(name)
-                    zout.writestr(name, data)
-
-        # ── 4. Copy GPKG next to the .qgz ──────────────────────────────────
+        # ── 5. Copy GPKG and raster next to the .qgz ───────────────────────
         shutil.copy2(GPKG_PATH, target / self.GPKG_FILENAME)
+        shutil.copy2(raster_path, target / RASTER_FILENAME)
 
-        # ── 5. Success output ───────────────────────────────────────────────
+        # ── 6. Success output ───────────────────────────────────────────────
         console.print(f"\n[bold green]✓  QField-Paket erstellt[/bold green]  →  {target}")
-        console.print("   [dim]reiseplan.qgz[/dim]   Projektdatei (Datenquellen → GPKG)")
-        console.print(f"   [dim]reiseplan.gpkg[/dim]  {len(GPKG_LAYERS)} Layer in EPSG:3844")
+        console.print(f"   [dim]reiseplan.qgz[/dim]          Projektdatei (Datenquellen → Bundle)")
+        console.print(f"   [dim]reiseplan.gpkg[/dim]         {len(LAYERS)} Vektorlayer in EPSG:3844")
+        console.print(f"   [dim]{RASTER_FILENAME}[/dim]  Raster (kopiert)")
         console.print()
         console.print(
             "[dim]Syncthing-Hinweis: qfield/current/ synct auf das Gerät.\n"

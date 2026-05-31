@@ -16,30 +16,34 @@ stage — documented in `docs/STYLE_TODO_FANCY.md`.
 
 ```
 data/processed/*.geojson   ── versioned source of truth (EPSG:4326)
+data/reference/historical/ ── historical vector layers
+data/raster/               ── raster files (Arcanum .tif)
         │                          │
-        │  QGIS Desktop            │  uv run reiseplan-cli build-gpkg
-        │  loads GeoJSON directly  │  (ogr2ogr → EPSG:3844)
-        ▼                          ▼
-qgis/reiseplan.qgz         data/processed/reiseplan.gpkg  ── GITIGNORED bundle
-(styles + labels embedded)         │
-                                   │  uv run reiseplan-cli build-qfield
-                                   ▼
-                           qfield/current/{reiseplan.qgz, reiseplan.gpkg}
+        │  QGIS Desktop            │  uv run tools/export_qfield.py
+        │  loads files directly    │   ├─ build-gpkg (ogr2ogr → EPSG:3844)
+        ▼                          │   └─ build-qfield (pack 3-file bundle)
+qgis/reiseplan.qgs               │
++ reiseplan_attachments.zip        ▼
+(styles embedded)    qfield/current/{reiseplan.qgz, reiseplan.gpkg,
+                                     arcanum2_ro_clip.tif}
                                    │  Syncthing
                                    ▼
                            QField on device
 ```
 
-- **GeoJSON are the source**; the GPKG is a reproducible build artefact.
-  Always make content changes in GeoJSON, then `build-gpkg`.
+- **Source format is `.qgs`** (plain XML, git-diffable). `qgis/reiseplan.qgs`
+  is the primary project file; `qgis/reiseplan_attachments.zip` holds embedded
+  styles. `.qgz` is a generated artefact (never committed).
+- **GeoJSON / raster / historical files are the source**; the GPKG is a
+  reproducible build artefact. Always make content changes in the source files,
+  then re-export.
 - `*.gpkg` is in `.gitignore` — **do not commit**.
-- **Desktop vs. QField datasources:** The desktop project `qgis/reiseplan.qgz`
-  loads GeoJSON **directly** via relative paths (`../data/processed/*.geojson`),
-  so data changes are immediately visible without a `build-gpkg` step. The
-  QField package created by `build-qfield` uses the GPKG instead (single-file
-  bundle). Both reference the same data; only the transport format differs.
-  If you rename a GeoJSON file, update the path in the `.qgz` too (it is a ZIP
-  containing `reiseplan.qgs`).
+- **Desktop vs. QField datasources:** The desktop project `qgis/reiseplan.qgs`
+  loads all files **directly** via relative paths, so data changes are
+  immediately visible without a build step. The QField package created by
+  `export_qfield.py` bundles everything into a self-contained 3-file package.
+  If you rename a source file, update the path in `reiseplan.qgs` and in the
+  `LAYERS` table in `tools/reiseplan/packaging.py`.
 - **Connection times:** `data/processed/timetable.csv` is a **hand-maintained**
   source (one row per magistrală, real dep/arr/days/via). `reiseplan-fetch`
   creates it only as a scaffold template (if missing) and merges its fields into
@@ -53,8 +57,8 @@ qgis/reiseplan.qgz         data/processed/reiseplan.gpkg  ── GITIGNORED bund
   CRS rationale in `tools/reiseplan/ingest.py` docstring for the reason GeoJSON stays 4326.
 - **Encoding:** real UTF-8 diacritics (Brașov, Timișoara, București) — no ASCII
   transliteration (`Rumaenien`).
-- **QGIS paths:** save projects with **relative** paths so `.qgz` + `.gpkg` can be
-  copied together to a QField device.
+- **QGIS paths:** save projects with **relative** paths so the QField bundle can be
+  reproduced reliably (*Project → Properties → General → Paths: relative*).
 - **Styles:** `qgis/styles/*.qml` carry **Symbology + Labeling + Map Tips** (HTML
   card on tap, category `MapTips`). When loading a style in QGIS use
   *Load Style → All Categories*, otherwise Labeling and Map Tips are silently
