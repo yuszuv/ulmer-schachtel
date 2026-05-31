@@ -26,6 +26,11 @@
   <xyztiles name="Stadia Alidade Smooth (matt, Sepia-tauglich)" url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
   <xyztiles name="CARTO Positron (hell, dezent)" url="https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
+  <!-- light_nolabels: identisch mit light_all, aber ohne Ortsnamen/Straßenbeschriftung.
+       Sinnvoll wenn man eigene Labels (Labels-Overlay-Layer oder QGIS-Labeling) nutzt
+       und Doppelbeschriftung vermeiden will. Kombination: nolabels + "Labels: dezent hell"
+       gibt identisches Ergebnis wie light_all, aber mit Kontrolle über Sichtbarkeit. -->
+  <xyztiles name="CARTO Positron (ohne Labels)" url="https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
   <xyztiles name="CARTO Voyager (hell, mehr Detail)" url="https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png" zmin="0" zmax="20" referer="" username="" password="" authcfg="" tilePixelRatio="0"/>
 
   <!-- Bahn-spezifischer Overlay – Strecken, Elektrifizierung, Bahnhöfe.
