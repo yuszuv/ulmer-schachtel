@@ -47,6 +47,7 @@ LAYER_STYLES = {
     "Bahn-Lücken":       "rail_gaps.qml",
     "Info-Marker":       "info_markers.qml",
     "Grenzen 1800":         "grenzen.qml",
+    "Historische Reiche":   "historische_reiche.qml",
     "Historische Regionen": "historische_regionen.qml",
     "Historische Städte":   "historische_staedte.qml",
 }
@@ -60,6 +61,8 @@ LAYER_SCALE = {
     "WikiVoyage Städte": (2_000_000, 0),  # ab 1:2 Mio (wie sekundäre POIs)
     # Historische Grenzen: Orientierungsrahmen bei Weitzoom, Lärm bei Nahzoom.
     "Grenzen 1800":         (20_000_000, 800_000),  # sichtbar 1:800k … 1:20 Mio
+    # Historische Reiche: reine Label-Ebene (Reich einmal beschriftet), mittlerer Zoom.
+    "Historische Reiche":   (5_000_000,  1_000_000),  # sichtbar 1:1 Mio … 1:5 Mio
     # Historische Regionen: Binnenstruktur — erst beim Hineinzoomen unter die Staatsebene.
     "Historische Regionen": (3_000_000,  200_000),  # sichtbar 1:200k … 1:3 Mio
     # Historische Städte: Punkte, analog zu Bahnhöfen.

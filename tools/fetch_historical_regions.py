@@ -45,6 +45,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "data" / "reference" / "historical"
 OUT_FILE = OUT_DIR / "historische_regionen.geojson"
+EMPIRES_FILE = OUT_DIR / "historische_reiche.geojson"
 ATTR_FILE = OUT_DIR / "historische_regionen_attribution.json"
 
 NE_URL = (
@@ -316,6 +317,34 @@ def main() -> None:
     ATTR_FILE.write_text(json.dumps(attribution, ensure_ascii=False, indent=2),
                          encoding="utf-8")
     print(f"Wrote attribution → {ATTR_FILE}")
+
+    build_empires()
+
+
+def build_empires() -> None:
+    """Dissolve the regions by EMPIRE into a separate label-only layer.
+
+    QGIS labels every region polygon individually, so labelling the EMPIRE field
+    on the regions layer prints each empire name once per region. This merged
+    layer (one MultiPolygon per empire) lets QGIS draw a single empire label.
+    """
+    sql = (
+        "SELECT ST_Union(geometry) AS geometry, EMPIRE "
+        "FROM historische_regionen GROUP BY EMPIRE"
+    )
+    result = subprocess.run(
+        [
+            "ogr2ogr", "-f", "GeoJSON", str(EMPIRES_FILE), str(OUT_FILE),
+            "-dialect", "SQLite", "-sql", sql,
+            "-t_srs", "EPSG:4326", "-overwrite",
+        ],
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        print(f"  ⚠ empire dissolve failed: {result.stderr[:200]}")
+        return
+    n = len(json.loads(EMPIRES_FILE.read_text(encoding="utf-8"))["features"])
+    print(f"Wrote {n} empires → {EMPIRES_FILE}")
 
 
 if __name__ == "__main__":

@@ -49,6 +49,7 @@ VECTOR_LAYERS = [
     ("rail_lines.geojson",        "Bahn-Linien",       "Bahn"),
     ("rail_gaps.geojson",         "Bahn-Lücken",       "Bahn"),
     ("staatsgrenzen.geojson",       "Grenzen 1800",         "Historisch"),
+    ("historische_reiche.geojson",  "Historische Reiche",    "Historisch"),
     ("historische_regionen.geojson","Historische Regionen",  "Historisch"),
     ("historische_staedte.geojson", "Historische Städte",    "Historisch"),
 ]
@@ -60,12 +61,14 @@ STYLE_FOR = {
     "Bahn-Linien":         "rail_lines.qml",
     "Bahn-Lücken":         "rail_gaps.qml",
     "Grenzen 1800":        "grenzen.qml",
+    "Historische Reiche":  "historische_reiche.qml",
     "Historische Regionen":"historische_regionen.qml",
     "Historische Städte":  "historische_staedte.qml",
 }
 # Layer, die NICHT in data/processed/ liegen → relativer Pfad ab Repo-Wurzel.
 BASE_DIR_FOR = {
     "Grenzen 1800":         ("data", "reference", "historical"),
+    "Historische Reiche":   ("data", "reference", "historical"),
     "Historische Regionen": ("data", "reference", "historical"),
     "Historische Städte":   ("data", "reference", "historical"),
 }
