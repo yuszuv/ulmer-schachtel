@@ -12,8 +12,16 @@ primary reference:
 
 ### 1. Universal Weltatlas — Stuttgarter Hausbücherei, 7th edition, 1952
 
-A popular German general atlas from the immediate postwar period. Cartographic
-house style reflects Central European mid-century conventions:
+A popular German general atlas from the immediate postwar period. Full title:
+*Universal Weltatlas — 103 mehrfarbige Haupt- und Nebenkarten nebst
+Geschichtsatlas mit Erläuterungen*; text editors: Prof. Dr. Oswald Muris
+(general) and Dr. Hans Kleinert (historical atlas); cartographic design and
+historical maps by **Alfred Zimmermann, Kartograph, Stuttgart** (hence the
+project nickname "Zimmermann atlas"). Copyright Hermann Pfahl-Verlag, Laupheim
+1950; series: Stuttgarter Hausbücherei (Holtzbrinck book club). Later retitled
+*Hansa Weltatlas*. Full bibliographic record and production colophon in
+`bookmarks.md`.
+Cartographic house style reflects Central European mid-century conventions:
 
 - **Colour palette:** muted, flat — soft terrain washes in yellow-ochre and
   khaki for lowlands, stepwise blue-grey for highlands, no photographic
