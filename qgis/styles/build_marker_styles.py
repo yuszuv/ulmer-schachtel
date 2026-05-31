@@ -110,6 +110,46 @@ def svg_marker_layer(b64data: str, size: float) -> str:
         </layer>"""
 
 
+def _hex_to_rgba(hex_color: str, alpha: int = 255) -> str:
+    """``"#b5503c"`` → ``"181,80,60,255"`` (QGIS colour string syntax)."""
+    h = hex_color.lstrip("#")
+    r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+    return f"{r},{g},{b},{alpha}"
+
+
+def simple_marker_layer(fill_hex: str, size: float) -> str:
+    """Generate a QGIS SimpleMarker layer XML snippet (filled circle).
+
+    Unlike ``svg_marker_layer`` this needs no SVG file — shape and colour live
+    directly in the QML.  Ideal for category-coloured markers (e.g. one colour
+    per historical region) without maintaining separate icon files.
+    The cream outline (``#f3ecd5`` = canvas background) gives contrast on
+    coloured tiles.  Sizes in MM, anchored at the centre point.
+    """
+    return f"""        <!-- SimpleMarker: filled circle, colour encodes category.
+             No SVG required — shape and fill are defined inline (unlike SvgMarker).
+             outline_color = canvas cream (#f3ecd5) for contrast on coloured tiles.
+             size_unit="MM" = device-independent; anchor_point="1" = centre. -->
+        <layer class="SimpleMarker" enabled="1" pass="0" locked="0">
+          <Option type="Map">
+            <Option name="name" type="QString" value="circle"/>
+            <Option name="color" type="QString" value="{_hex_to_rgba(fill_hex)}"/>
+            <Option name="outline_color" type="QString" value="243,236,213,255"/>
+            <Option name="outline_width" type="QString" value="0.4"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="size" type="QString" value="{size}"/>
+            <Option name="size_unit" type="QString" value="MM"/>
+            <Option name="angle" type="QString" value="0"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="scale_method" type="QString" value="diameter"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="horizontal_anchor_point" type="QString" value="1"/>
+            <Option name="vertical_anchor_point" type="QString" value="1"/>
+          </Option>
+        </layer>"""
+
+
 def labeling_block(font_size: float, weight: int, color: str, dist: float,
                    scale_max: int) -> str:
     """Beschriftungs-Block für Punkt-Layer erzeugen.
@@ -374,6 +414,86 @@ def build_stations() -> str:
     )
 
 
+# Historical region → marker colour.  Keys must exactly match the region values
+# in tools/reiseplan/regions.py (used as RuleRenderer filter values).
+# Earthy palette tuned to the cream canvas (#f3ecd5).
+REGION_COLORS: list[tuple[str, str]] = [
+    ("Banat",               "#b5503c"),  # warm terracotta red
+    ("Kreischgebiet",       "#c47e3a"),  # amber / orange
+    ("Sathmar/Marmarosch",  "#5f7d4f"),  # muted green
+    ("Siebenbürgen",        "#c9a227"),  # ochre gold
+    ("Walachei (Muntenia)", "#5a7184"),  # blue-grey
+    ("Walachei (Oltenia)",  "#7d93a3"),  # lighter blue-grey
+    ("Moldau",              "#8a5b6e"),  # plum / mauve
+    ("Bukowina",            "#3f7d77"),  # petrol / teal
+    ("Dobrudscha",          "#a89048"),  # sandy khaki
+]
+# Cities become visible at this scale denominator (1:scale_max inward) —
+# matches secondary POIs, avoids cluster clutter at continental zoom.
+_WIKIVOYAGE_SCALE_MAX = 2_000_000
+
+
+def build_wikivoyage() -> str:
+    """Generate the QML for the ``wikivoyage_cities`` layer — colour-coded by region.
+
+    Renderer: ``RuleRenderer`` with one rule per historical region, each assigned
+    a unique ``SimpleMarker`` colour.  The filter matches the ``region`` attribute
+    (values from ``regions.py``).  Follows the same pattern as ``build_poi`` but
+    uses plain coloured circles instead of SVG icons — no icon files to maintain.
+
+    Map tip: city name (bold), region (small), WikiVoyage summary, link to the
+    German article (``wikivoyage_url``).
+    """
+    # <rules>: eine Regel je Landschaft. &quot; schützt die Anführungszeichen des
+    # Feldnamens; die Region-Literale dürfen Leerzeichen/Klammern enthalten.
+    rules = "\n".join(
+        f'      <rule symbol="{i}"'
+        f" filter=\"&quot;region&quot; = '{region}'\""
+        f' scalemaxdenom="{_WIKIVOYAGE_SCALE_MAX}" label="{region}"'
+        f' key="{{wv-rule-{i}}}"/>'
+        for i, (region, _) in enumerate(REGION_COLORS)
+    )
+
+    symbols = "\n".join(
+        f'      <symbol name="{i}" type="marker" alpha="1"'
+        f' clip_to_extent="1" force_rhr="0">\n'
+        f"{simple_marker_layer(color, 4.0)}\n      </symbol>"
+        for i, (_, color) in enumerate(REGION_COLORS)
+    )
+
+    renderer = f"""  <!-- Renderer: RuleRenderer — one rule per historical region.
+       Each rule filters on the "region" attribute and picks its marker colour via
+       symbol="…". scalemaxdenom makes all cities appear at 1:{_WIKIVOYAGE_SCALE_MAX}
+       inward (avoids cluster clutter at continental zoom). Colour-coded instead
+       of icons: the region is immediately legible from the colour (legend = regions). -->
+  <renderer-v2 type="RuleRenderer" symbollevels="0">
+    <rules key="{{wv-rules}}">
+{rules}
+    </rules>
+    <symbols>
+{symbols}
+    </symbols>
+  </renderer-v2>"""
+
+    tip_html = (
+        '<div style="font-family:serif;color:#39312b;max-width:260px">'
+        '<div style="font-size:14px;font-weight:bold;color:#6b4f2a">[% "name" %]</div>'
+        '<div style="font-size:11px;color:#888;margin-top:2px">[% "region" %]</div>'
+        '<div style="font-size:12px;margin-top:6px">[% "summary" %]</div>'
+        '<div style="font-size:11px;margin-top:6px">'
+        '<a href="[% &quot;wikivoyage_url&quot; %]">de.wikivoyage.org</a></div>'
+        '</div>'
+    )
+
+    return qml_document(
+        layer_name="wikivoyage_cities (Punkt-Layer)",
+        renderer_xml=renderer,
+        labeling_xml=labeling_block(7.5, 50, "57,49,43,255", 1.2,
+                                    scale_max=_WIKIVOYAGE_SCALE_MAX),
+        maptip_xml=maptip_block(tip_html),
+    )
+
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
@@ -381,8 +501,10 @@ def build_stations() -> str:
 def main() -> None:
     (HERE / "poi_destinations.qml").write_text(build_poi(), encoding="utf-8")
     (HERE / "rail_stations.qml").write_text(build_stations(), encoding="utf-8")
+    (HERE / "wikivoyage_cities.qml").write_text(build_wikivoyage(), encoding="utf-8")
     print("✓  poi_destinations.qml  (Symbology + Labeling + MapTips)")
     print("✓  rail_stations.qml     (Symbology + Labeling + MapTips)")
+    print("✓  wikivoyage_cities.qml (Symbology + Labeling + MapTips)")
     print()
     print("Nächster Schritt in QGIS:")
     print("  Layer Properties → Style → Load Style → All Categories auswählen")

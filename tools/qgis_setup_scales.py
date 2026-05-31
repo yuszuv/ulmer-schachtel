@@ -39,6 +39,7 @@ from qgis.core import QgsProject
 # layer name -> QML filename under qgis/styles/
 LAYER_STYLES = {
     "POI": "poi_destinations.qml",
+    "WikiVoyage Städte": "wikivoyage_cities.qml",
     "Bahnhöfe": "rail_stations.qml",
     "Bahn-Linien": "rail_lines.qml",
     "Info-Marker": "info_markers.qml",
@@ -48,8 +49,9 @@ LAYER_STYLES = {
 # Nur Layer, deren *Geometrie* maßstabsabhängig aus-/eingeblendet werden soll.
 LAYER_SCALE = {
     # Vektor-Marker: bei Weitzoom ausblenden (gegen Europa-Cluster)
-    "Bahnhöfe":    (1_500_000, 0),    # ab 1:1,5 Mio nach innen sichtbar
-    "Info-Marker": (8_000_000, 0),    # ab 1:8 Mio nach innen sichtbar
+    "Bahnhöfe":          (1_500_000, 0),  # ab 1:1,5 Mio nach innen sichtbar
+    "Info-Marker":       (8_000_000, 0),  # ab 1:8 Mio nach innen sichtbar
+    "WikiVoyage Städte": (2_000_000, 0),  # ab 1:2 Mio (wie sekundäre POIs)
     # Basemap-Bänder (genau eine Karte je Zoom-Stufe → kein Übereinanderliegen)
     "CARTO Positron (hell, dezent)":          (0, 4_000_000),
     "Arcanum 2. Militäraufnahme (1806–1869)": (4_000_000, 25_000),
@@ -74,10 +76,11 @@ BASEMAPS_OFF = [
 ]
 
 
-def _layer(name):
+def _layer(name, warn=True):
     hits = QgsProject.instance().mapLayersByName(name)
     if not hits:
-        print(f"  ⚠ Layer nicht gefunden, übersprungen: {name!r}")
+        if warn:
+            print(f"  ⚠ Layer nicht gefunden, übersprungen: {name!r}")
         return None
     return hits[0]
 
@@ -132,7 +135,7 @@ def setup_scales():
         if layer:
             _set_checked(root, layer, True)
     for name in BASEMAPS_OFF:
-        layer = _layer(name)
+        layer = _layer(name, warn=False)  # missing = normal (e.g. QuickMapServices layers)
         if layer:
             _set_checked(root, layer, False)
 

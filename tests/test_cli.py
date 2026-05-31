@@ -21,6 +21,7 @@ _EXPECTED_COMMANDS = {
     "overview",
     "timetable",
     "show-route",
+    "fetch-wikivoyage",
     "build-gpkg",
     "build-qfield",
 }

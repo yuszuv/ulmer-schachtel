@@ -38,16 +38,18 @@ CANVAS_BG = QColor(243, 236, 213)  # #f3ecd5
 
 # (GeoJSON-Datei, Anzeigename, Gruppe) — Reihenfolge = oben→unten in der Legende
 VECTOR_LAYERS = [
-    ("info_markers.geojson",     "Info-Marker", "Guide"),
-    ("poi_destinations.geojson", "POI",         "Guide"),
-    ("rail_stations.geojson",    "Bahnhöfe",    "Bahn"),
-    ("rail_lines.geojson",       "Bahn-Linien", "Bahn"),
+    ("info_markers.geojson",      "Info-Marker",      "Guide"),
+    ("poi_destinations.geojson",  "POI",              "Guide"),
+    ("wikivoyage_cities.geojson", "WikiVoyage Städte", "Guide"),
+    ("rail_stations.geojson",     "Bahnhöfe",         "Bahn"),
+    ("rail_lines.geojson",        "Bahn-Linien",      "Bahn"),
 ]
 STYLE_FOR = {
-    "Info-Marker": "info_markers.qml",
-    "POI":         "poi_destinations.qml",
-    "Bahnhöfe":    "rail_stations.qml",
-    "Bahn-Linien": "rail_lines.qml",
+    "Info-Marker":       "info_markers.qml",
+    "POI":               "poi_destinations.qml",
+    "WikiVoyage Städte": "wikivoyage_cities.qml",
+    "Bahnhöfe":          "rail_stations.qml",
+    "Bahn-Linien":       "rail_lines.qml",
 }
 GROUP_ORDER = ["Guide", "Bahn"]  # oben→unten
 

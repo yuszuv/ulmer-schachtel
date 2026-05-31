@@ -96,7 +96,7 @@ def _arg(*flags: str, **kwargs) -> _Arg:
 # (imports happen here so tables/packaging don't depend on cli.py)
 # ---------------------------------------------------------------------------
 
-from . import packaging, tables  # noqa: E402  (after registry setup)
+from . import packaging, tables, wikivoyage  # noqa: E402  (after registry setup)
 
 
 @command("list-routes", help="Alle Magistralen anzeigen", json=True)
@@ -141,6 +141,23 @@ def _timetable(args):
 )
 def _show_route(args):
     tables.show_route(args)
+
+
+@command(
+    "fetch-wikivoyage",
+    help="Fetch de.wikivoyage cities for each historical region of Romania",
+    description=(
+        "Fetches cities (place=city|town) from the historical regions of Romania "
+        "via Overpass and keeps only those with an article on de.wikivoyage.org "
+        "(the German edition is both source and filter). "
+        "Writes data/processed/wikivoyage_cities.geojson. "
+        "Sources: OSM © ODbL · WikiVoyage texts CC BY-SA 3.0."
+    ),
+    args=[_arg("--offline", action="store_true",
+               help="Rebuild from data/raw/osm_ro_cities.json only (no network).")],
+)
+def _fetch_wikivoyage(args):
+    wikivoyage.run(args.offline)
 
 
 @command("build-gpkg", help="GeoJSON zu einer reiseplan.gpkg bündeln")

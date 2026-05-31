@@ -1,0 +1,910 @@
+{
+  "type": "FeatureCollection",
+  "name": "wikivoyage_cities",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jimbolia",
+        "region": "Banat",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Hatzfeld",
+        "summary": "Hatzfeld ist eine Stadt im Landkreis Waldeck-Frankenberg, sie liegt im Einzugsgebiet der Eder am Rand des Rothaargebirges und gehört zum Bundesland Hessen.",
+        "name_de": "Hatzfeld",
+        "kind": "town",
+        "population": 11830,
+        "wikidata": "Q226000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.7183733,
+          45.7917331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Timișoara",
+        "region": "Banat",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Timi%C8%99oara",
+        "summary": "Timișoara (IPA: [timiˈʃo̯ara] , gesprochen: timischoara; deutsch: Temeswar, Temeschwar oder Temeschburg; ungarisch: Temesvár) ist die drittgrößte Stadt in Rumänien und das wirtschaftliche und kulturelle Zentrum des Banat. Es wird oft als „kleines Wien“ bezeichnet, weil es viel architektonische Substanz aus der Zeit der k.u.k.-Herrschaft gibt und der Stadt ein besonderer Charme nachgesagt wird. Es handelt sich außerdem um eine ausgesprochen grüne Stadt, der Stadtkern ist von einem Promenadenring umgeben und von Grünflächen durchzogen. Für das Jahr 2021 wurde Timișoara der Titel Kulturhauptstadt …",
+        "name_de": "Temeswar",
+        "kind": "city",
+        "population": 319279,
+        "wikidata": "Q83404"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.2257474,
+          45.7538355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Băile Herculane",
+        "region": "Banat",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/B%C4%83ile_Herculane",
+        "summary": "Băile Herculane (deutsch Herkulesbad) ist ein Kurort in der rumänischen Region Banat.",
+        "name_de": "Herkulesbad",
+        "kind": "town",
+        "population": 5698,
+        "wikidata": "Q650981"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.4143883,
+          44.8785058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Arad",
+        "region": "Kreischgebiet",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Arad_%28Rum%C3%A4nien%29",
+        "summary": "Arad ist eine Großstadt ganz im Westen Rumäniens, am Übergang des Kreischgebiets zum Banat und unweit der Grenze zu Ungarn. Sie bietet eine gut erhaltene Festung im Vauban-Stil und eine schöne Altstadt mit viel historischer Bausubstanz aus der Habsburgerära – von Barock bis Jugendstil. Arad ist eine Kulturstadt mit einer Philharmonie, mehreren Theatern und einem großen Museumskomplex. Letzter dürfte vor allem Geschichtsinteressierte locken, wurden in der Region doch viele bedeutende Zeugnisse aus verschiedenen Phasen der Menschheitsgeschichte ausgegraben, die hier ausgestellt werden. Letztlich …",
+        "kind": "city",
+        "population": 159074,
+        "wikidata": "Q173591"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.3196342,
+          46.1753793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oradea",
+        "region": "Kreischgebiet",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Oradea",
+        "summary": "Oradea (deutsch Großwardein; ungarisch Nagyvárad) ist eine Großstadt im äußersten Nordwesten Rumäniens, unweit der Grenze zu Ungarn. Sie ist die inoffizielle Hauptstadt des Kreischgebiets (Crișana). Die geschichtsreiche und multikulturelle Stadt dürfte vor allem Liebhabern der k.u.k.-Architektur und des Secessions- oder Jugendstil gefallen. Die historischen Baudenkmäler sind aber teilweise noch unsaniert.",
+        "kind": "city",
+        "population": 196367,
+        "wikidata": "Q93358"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9285231,
+          47.0549163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baia Mare",
+        "region": "Sathmar/Marmarosch",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Baia_Mare",
+        "summary": "Baia Mare ist die Kreisstadt des Kreises Maramureş im Nordwesten von Rumänien.",
+        "kind": "city",
+        "population": 123738,
+        "wikidata": "Q185280"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5719843,
+          47.6565584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Borșa",
+        "region": "Sathmar/Marmarosch",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Bor%C8%99a",
+        "summary": "Borșa (dt. Borscha, ung. Borsa) ist eine Kleinstadt im Kreis Maramureș im Nordwesten von Rumänien.",
+        "kind": "town",
+        "population": 26275,
+        "wikidata": "Q209782"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.6639308,
+          47.6554079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sighetu Marmației",
+        "region": "Sathmar/Marmarosch",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Sighetu_Marma%C8%9Biei",
+        "summary": "Sighetu Marmației (dt. Marmaroschsiget, ung. Máramarossziget) ist eine Stadt im Kreis Maramureș im Nordwesten von Rumänien, unmittelbar an der Grenze zur Ukraine. Sie hat eine sehenswerte Altstadt mit zahlreichen historischen Gebäuden.",
+        "name_de": "Marmaroschsiget",
+        "kind": "city",
+        "population": 37640,
+        "wikidata": "Q334874"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8915583,
+          47.9283242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vișeu de Sus",
+        "region": "Sathmar/Marmarosch",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Vi%C8%99eu_de_Sus",
+        "summary": "Vișeu de Sus (deu. Oberwischau, veraltet: Zwischenbach, ung.: Felsővisó) ist eine Kleinstadt in der Maramureș, die vor allem durch die Wassertalbahn bekannt ist.",
+        "kind": "town",
+        "population": 15944,
+        "wikidata": "Q596609"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.4311547,
+          47.7099597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Seini",
+        "region": "Sathmar/Marmarosch",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Leuchtenburg",
+        "summary": "Leuchtenburg ist der Name: einer Burg in Thüringen, siehe Leuchtenburg (Thüringen). einer Burgruine in Südtirol, siehe Leuchtenburg (Südtirol). einer Stadt im Nordwesten Rumäniens, siehe Seini.",
+        "name_de": "Leuchtenburg",
+        "kind": "town",
+        "population": 7774,
+        "wikidata": "Q666373"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.2831939,
+          47.7484996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Satu Mare",
+        "region": "Sathmar/Marmarosch",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Satu_Mare",
+        "summary": "Satu Mare (ungarisch: Szatmárnémeti, deutsch: Sathmar) ist eine Großstadt im Nordwesten Rumäniens, nahe der Grenze zu Ungarn.",
+        "name_de": "Sathmar",
+        "kind": "city",
+        "population": 102411,
+        "wikidata": "Q185332"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8725598,
+          47.7891763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Târgu Mureș",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/T%C3%A2rgu_Mure%C8%99",
+        "summary": "Târgu Mureș (IPA: [ˈtɨrɡu ˈmureʃ], deutsch: Neumarkt am Mieresch, ungarisch: Marosvásárhely , IPA: [ˈmɒroʃvaːʃaːrhɛj]), die inoffizielle Hauptstadt des traditionell überwiegend ungarischsprachigen Szeklerlands in Zentralrumänien, ist allemal eine Reise wert.",
+        "name_de": "Neumarkt am Mieresch",
+        "kind": "city",
+        "population": 134290,
+        "wikidata": "Q186349"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.561196,
+          46.5446253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cluj-Napoca",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Cluj-Napoca",
+        "summary": "Cluj-Napoca (IPA: [ˈkluːʒ naˈpɔka] , deutsch Klausenburg, ungarisch Kolozsvár) ist die zweitgrößte Stadt Rumäniens und die größte Stadt in Siebenbürgen.",
+        "name_de": "Klausenburg",
+        "kind": "city",
+        "population": 324576,
+        "wikidata": "Q100188"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5899542,
+          46.769379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sighișoara",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Sighi%C8%99oara",
+        "summary": "Sighișoara (IPA: [sigiˈʃoara] , gesprochen: sigischoara, deutsch: Schäßburg, ungarisch: Segesvár) ist eine Stadt in Siebenbürgen. Das einzigartige historische Zentrum ist Teil des UNESCO-Weltkulturerbes.",
+        "name_de": "Schäßburg",
+        "kind": "city",
+        "population": 32570,
+        "wikidata": "Q193001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7934483,
+          46.2202037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Târnăveni",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Sankt_Martin",
+        "summary": "Der Ortsname St. Martin ist nicht eindeutig. Es können damit folgende Orte gemeint sein: Sankt Martin (Pfalz) in Rheinland-Pfalz St. Martin (Niederösterreich) in Niederösterreich St. Martin im Innkreis in Oberösterreich St. Martin im Mühlkreis in Oberösterreich St. Martin in Passeier in Südtirol St. Martin in Thurn in Südtirol St. Martin GR in Graubünden siehe auch: Saint-Martin (Insel)",
+        "name_de": "Sankt Martin",
+        "kind": "city",
+        "population": 26120,
+        "wikidata": "Q754729"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.2804126,
+          46.3295278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hunedoara",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Hunedoara",
+        "summary": "Hunedoara (deutsch Eisenmarkt, ungarisch Vajdahunyad) ist die Hauptstadt des gleichnamigen Kreises in der rumänischen Region Siebenbürgen. Hauptsehenswürdigkeit ist die spätmittelalterliche Burg, die als „die Burg Draculas“ vermarktet wird.",
+        "name_de": "Eisenmarkt",
+        "kind": "city",
+        "population": 78675,
+        "wikidata": "Q215719"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9073522,
+          45.757454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baia de Arieș",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Offenburg",
+        "summary": "Offenburg ist das Oberzentrum der Ortenau in Baden und liegt am Westrand des mittleren Schwarzwalds, am Ausgang von Kinzigtal und Renchtal.",
+        "name_de": "Offenburg",
+        "kind": "town",
+        "population": 3521
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.2812063,
+          46.3802511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ocna Sibiului",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Salzburg",
+        "summary": "Salzburg ist die Landeshauptstadt des gleichnamigen Bundeslandes im Nordwesten Österreichs. Die Geburtsstadt Mozarts ist neben ihrem wohl berühmtesten Sohn vor allem für die barocke Altstadt, die Festung Hohensalzburg sowie für die alljährlich stattfindenden „Salzburger Festspiele“ bekannt. Viele Touristen (vor allem aus den englischen Sprachraum) verbinden auch den Film „The Sound of Music“ mit der Stadt.",
+        "name_de": "Salzburg",
+        "kind": "town",
+        "population": 4178,
+        "wikidata": "Q186719"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.0576688,
+          45.8804278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vulcan",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Wolkersdorf",
+        "summary": "Das Reiseziel Wolkersdorf ist nicht eindeutig. Folgende Artikel könnten gemeint sein:",
+        "name_de": "Wolkersdorf",
+        "kind": "city",
+        "population": 32160,
+        "wikidata": "Q837964"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.2940874,
+          45.3748642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brașov",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Bra%C8%99ov",
+        "summary": "Brașov (IPA: [braˈʃov] , gesprochen: braschov; deutsch: Kronstadt, ungarisch: Brassó) ist eine Stadt im Zentrum Rumäniens im Südosten Siebenbürgens. Im Süden und Osten wird die Stadt von den Karpaten begrenzt. Die Stadt gehört zu den am meisten besuchten Städten Rumäniens.",
+        "name_de": "Kronstadt",
+        "kind": "city",
+        "population": 253200,
+        "wikidata": "Q82174"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6105654,
+          45.6525105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sibiu",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Sibiu",
+        "summary": "Sibiu (IPA: [siˈbiw] , gesprochen: sibiu, mit scharfem ‚S‘; deutsch Hermannstadt, früher auch die „Haupt- und Hermannstadt“ der Siebenbürger Sachsen genannt, ungarisch Nagyszeben) ist eine Stadt in Rumänien. Im Jahr 2007 war Sibiu Kulturhauptstadt der EU. In diesem Zusammenhang wurde vor allem die Altstadt umfangreich renoviert und moderne Luxushotels eröffnet. Die Stadt hat ca. 150.000 Einwohner und war früher Zentrum der Siebenbürgener Sachsen.",
+        "name_de": "Hermannstadt",
+        "kind": "city",
+        "population": 147245,
+        "wikidata": "Q83324"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.1519202,
+          45.7973912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alba Iulia",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Alba_Iulia",
+        "summary": "Alba Iulia (deutsch Karlsburg, ungarisch Gyulafehérvár) ist eine Stadt in Siebenbürgen. Sie ist eines der kulturellen Zentren der Region und hat eine gut erhaltene Altstadt, die von einer barocken Zitadelle umgeben ist. Viele historische Bauwerke stammen noch aus der Habsburgerzeit.",
+        "kind": "city",
+        "population": 63536,
+        "wikidata": "Q174665"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5664761,
+          46.0682753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Victoria",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Victoria",
+        "summary": "Das Reiseziel Victoria ist nicht eindeutig. Folgende Artikel könnten gemeint sein:",
+        "kind": "town",
+        "population": 10247
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.700608,
+          45.7287181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sebeș",
+        "region": "Siebenbürgen",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/M%C3%BChlbach",
+        "summary": "Der Ortsname Mühlbach ist nicht eindeutig. Es können folgende Orte gemeint sein: Deutschland: Gemeinden: Mühlbach am Manhartsberg in Niederösterreich Mühlbach am Hochkönig im Salzburger Land Mühlbach (Südtirol), Gemeinde in Italien Ortsteile Mühlbach (Eppingen), Stadtteil von Eppingen in Baden-Württemberg Mühlbach (Frankenberg), Stadtteil von Frankenberg in Sachsen ein Gemeindeteil von Rieschweiler-Mühlbach in Rheinland-Pfalz ein Gemeindeteil von Altenglan in Rheinland-Pfalz ein Gemeindeteil von Dietfurt an der Altmühl in Bayern ein Gemeindeteil von Lenggries in Bayern ein Gemeindeteil von Kie …",
+        "name_de": "Mühlbach",
+        "kind": "city",
+        "population": 23227,
+        "wikidata": "Q732376"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5691574,
+          45.9575384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brăila",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Br%C4%83ila",
+        "summary": "Brăila () ist eine Stadt an der Donau im nord-östlichsten Zipfel der Walachei in Rumänien.",
+        "kind": "city",
+        "population": 180302,
+        "wikidata": "Q188478"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.9742932,
+          45.2716092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bușteni",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Bu%C8%99teni",
+        "summary": "Bușteni ist eine Stadt in Zentral-Rumänien, sie liegt am Südrand der Karpaten und gehört zur Großen Walachei.",
+        "kind": "town",
+        "population": 10000,
+        "wikidata": "Q265012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5354853,
+          45.4147706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sinaia",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Sinaia",
+        "summary": "Sinaia ist eine Kleinstadt im Zentrum Rumäniens. Sie liegt ca. 50 km südlich von Brașov im Tal des Flusses Prahova in den Karpaten. Touristische Bedeutung hat sie vor allem wegen Schloss Pelișor, dem ehemaligen Sommersitz des rumänischen Königs und der Villen weiterer bedeutender Persönlichkeiten.",
+        "kind": "town",
+        "population": 15465,
+        "wikidata": "Q213296"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5481496,
+          45.3455492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ploiești",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Ploie%C8%99ti",
+        "summary": "Ploiești ist eine Großstadt in der Walachei, Rumänien.",
+        "kind": "city",
+        "population": 224406,
+        "wikidata": "Q179585"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0236504,
+          44.9417468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "București",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Bukarest",
+        "summary": "Bukarest (rumänisch: București, IPA: [bukuˈreʃtʲ] ) ist die Hauptstadt Rumäniens und kulturelles, kommerzielles und industrielles Zentrum des Landes. Mit rund 2 Millionen Einwohnern in der Stadt und weiteren ca. 2,4 Mio. in der Umgebung ist die Stadt eine der größten in Osteuropa.",
+        "name_de": "Bukarest",
+        "kind": "city",
+        "population": 1883425,
+        "wikidata": "Q19660"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.102684,
+          44.4361414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Târgoviște",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/T%C3%A2rgovi%C8%99te",
+        "summary": "Târgoviște (alte Schreibweise Tîrgoviște, deutsch: Tergowisch) ist eine Stadt in Rumänien, in der historischen Region Walachei. Über den Fluß liegen die Vororte 1 Valea Voievozilor​ ​ 44.93543625.48077 und 2 Viforâta​ ​ 44.96041325.456609, nominell eigenständige Gemeinden.",
+        "kind": "city",
+        "population": 79610,
+        "wikidata": "Q188673"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.462816,
+          44.9267709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pitești",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Pite%C8%99ti",
+        "summary": "Pitești, deutsch Pitesk, ist eine Stadt in der Walachei. Durch Pitești fließt der Argeș. Über den Fluß ist 1 Valea Mare-Podgoria​ ​ 44.88512924.906131 nominell eine eigenständige Gemeinde.",
+        "kind": "city",
+        "population": 155383,
+        "wikidata": "Q187938"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.8721156,
+          44.8572882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Curtea de Argeș",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Curtea_de_Arge%C8%99",
+        "summary": "Curtea de Argeș (deutsch auch Argisch) ist eine Stadt in der Großen Walachei in Rumänien.",
+        "name_de": "Argisch",
+        "kind": "city",
+        "population": 35107,
+        "wikidata": "Q652838"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.6779826,
+          45.1469341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Câmpulung",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Langenau",
+        "summary": "Langenau ist eine Kleinstadt in der Alb-Donau-Region. Sie liegt am Übergang von der Niederen Alb zum Donauried.",
+        "name_de": "Langenau",
+        "kind": "city",
+        "population": 43552,
+        "wikidata": "Q736296"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0438643,
+          45.2697704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alexandria",
+        "region": "Walachei (Muntenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Alexandria",
+        "summary": "Alexandria oder el-Iskandariya (arabisch: ‏الإسْكَنْدَرِيَّة‎, al-Iskandarīya; griechisch: Αλεξάνδρεια, Alexandreia; französisch: Alexandrie), kurz Alex, ist die zweitgrößte Stadt Ägyptens und eine Hafenstadt an der ägyptischen Mittelmeerküste am westlichen Nilarm des Nildeltas. Ihre Bevölkerung umfasste 2009 4.317.000 Einwohner. Die Stadt wird im Norden vom Mittelmeer und im Süden vom Mareotis-See begrenzt. Zahlreiche Denkmäler, insbesondere aus griechisch-römischer Zeit, locken zu einem Besuch dieser Stadt, auch wenn die glorreichen Zeiten längst Geschichte sind. Das Klima ist auch im Hochso …",
+        "kind": "city",
+        "population": 45434,
+        "wikidata": "Q209929"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.3288462,
+          43.9702236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Drobeta-Turnu Severin",
+        "region": "Walachei (Oltenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Drobeta-Turnu_Severin",
+        "summary": "Drobeta-Turnu Severin (; ungarisch: Szörényvár), im Alltag sagt man nur „Severin,“ ist eine Stadt in Rumänien. Hauptanziehungspunkt ist die grandiose Landschaft des eisernen Tors.",
+        "name_de": "Turm Severin",
+        "kind": "city",
+        "population": 92617,
+        "wikidata": "Q193890"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.6531975,
+          44.6257835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Craiova",
+        "region": "Walachei (Oltenia)",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Craiova",
+        "summary": "Craiova (IPA: [kraˈjova] ) ist eine Großstadt in Rumänien in der Region Walachei.",
+        "name_de": "Krajowa",
+        "kind": "city",
+        "population": 269506,
+        "wikidata": "Q168057"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7965614,
+          44.3190159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Focșani",
+        "region": "Moldau",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Foc%C5%9Fani",
+        "summary": "Die Stadt Focşani liegt in Rumänien, bekannt durch Textilindustrie und den Weinanbau. Die Stadt verfügt über einen Intercity-Bahnhof.",
+        "kind": "city",
+        "population": 97186,
+        "wikidata": "Q192265"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.1856921,
+          45.697274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Galați",
+        "region": "Moldau",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Gala%C8%9Bi",
+        "summary": "Galati () ist eine Stadt in der rumänischen Region Moldau am linken Ufer der Donau, die fast rechtwinklig nach Osten abbiegt. Die südliche Gemeindegrenze bildet der in die Donau mündende Siret. Der Kreis wird von der Stadt aus verwaltet.",
+        "name_de": "Galatz",
+        "kind": "city",
+        "population": 249432,
+        "wikidata": "Q170996"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.0549395,
+          45.4338215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Iași",
+        "region": "Moldau",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Ia%C8%99i",
+        "summary": "Iași (IPA: [jaʃʲ] , gesprochen: ''jasch'', das letzte ‚i‘ ist kaum hörbar, deutsch: Jassy oder Jasch, veraltet: Jassenmarkt) ist die inoffizielle Hauptstadt der Region Moldau im Osten Rumäniens. Es ist die viertgrößte Stadt des Landes.",
+        "kind": "city",
+        "population": 290422,
+        "wikidata": "Q46852"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5837814,
+          47.1615598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gura Humorului",
+        "region": "Bukowina",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Gura_Humorului",
+        "summary": "Gura Humorului ist eine Kleinstadt in der Bukowina (Rumänien) im nördlichen Rumänien.",
+        "name_de": "Gura Humora",
+        "kind": "town",
+        "population": 15879,
+        "wikidata": "Q837170"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.889007,
+          47.553693
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Suceava",
+        "region": "Bukowina",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Suceava",
+        "summary": "Suceava ist eine Stadt in der Bukowina in Rumänien.",
+        "name_de": "Suczawa",
+        "kind": "city",
+        "population": 92121,
+        "wikidata": "Q46400"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2522599,
+          47.647001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tulcea",
+        "region": "Dobrudscha",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Tulcea",
+        "summary": "Tulcea (IPA: [ˈtult͜ʃe̯a] , deutsch: Tultscha) ist eine Hafenstadt in der Dobrudscha in Rumänien. Die Stadt liegt am rechten, dem südlichen Ufer des St.-Georgs-Mündungsarm der Donau (rumänisch: Brațul Sfîntu Gheorghe), der für Großschifffahrt nicht geeignet ist.",
+        "kind": "city",
+        "population": 73707,
+        "wikidata": "Q11585"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8016348,
+          45.177518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Constanța",
+        "region": "Dobrudscha",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Constan%C8%9Ba",
+        "summary": "Constanța (IPA: [konˈstant͜sa] , deutsch: Konstanza oder Konstanz) ist eine Hafenstadt (internationaler Hafen) und mit ca. 310.000 Einwohnern die zweitgrößte Stadt Rumäniens. Die meisten Wege zu den Badeorten am Schwarzen Meer führen durch Constanța.",
+        "name_de": "Konstanza",
+        "kind": "city",
+        "population": 283872,
+        "wikidata": "Q79808"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.6507598,
+          44.1767161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Murfatlar",
+        "region": "Dobrudscha",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Murfatlar",
+        "summary": "Constanța (IPA: [konˈstant͜sa] , deutsch: Konstanza oder Konstanz) ist eine Hafenstadt (internationaler Hafen) und mit ca. 310.000 Einwohnern die zweitgrößte Stadt Rumäniens. Die meisten Wege zu den Badeorten am Schwarzen Meer führen durch Constanța.",
+        "kind": "town",
+        "population": 9728,
+        "wikidata": "Q593157"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.4107956,
+          44.1742796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mangalia",
+        "region": "Dobrudscha",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Mangalia",
+        "summary": "Constanța (IPA: [konˈstant͜sa] , deutsch: Konstanza oder Konstanz) ist eine Hafenstadt (internationaler Hafen) und mit ca. 310.000 Einwohnern die zweitgrößte Stadt Rumäniens. Die meisten Wege zu den Badeorten am Schwarzen Meer führen durch Constanța.",
+        "kind": "city",
+        "population": 36364,
+        "wikidata": "Q467498"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.5830306,
+          43.8150793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sulina",
+        "region": "Dobrudscha",
+        "wikivoyage_url": "https://de.wikivoyage.org/wiki/Sulina",
+        "summary": "Sulina (rumänische Aussprache: [suˈlina]) ist eine Kleinstadt im rumänischen Donaudelta.",
+        "kind": "town",
+        "population": 3663,
+        "wikidata": "Q328647"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.655027,
+          45.155824
+        ]
+      }
+    }
+  ]
+}

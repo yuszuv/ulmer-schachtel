@@ -52,18 +52,23 @@ _RAILWAY_RANK: dict[str, int] = {"station": 0, "halt": 1, "stop": 2}
 class OverpassGateway:
     """HTTP gateway to the Overpass API.
 
+    The Overpass query is injectable (default = the station query above) so the
+    same gateway serves other use-cases — e.g. the WikiVoyage city fetch passes
+    a per-county place query (see tools/reiseplan/wikivoyage.py).
+
     Returns Result[dict] so callers can handle failures at their own boundary
     instead of catching exceptions from deep inside urllib.
     """
 
-    def __init__(self, url: str = OVERPASS_URL) -> None:
+    def __init__(self, url: str = OVERPASS_URL, query: str = OVERPASS_QUERY) -> None:
         self.url = url
+        self.query = query
 
     def fetch(self) -> Result[dict]:
         """Query Overpass and return Ok(parsed_json) or Err(message)."""
         request = urllib.request.Request(
             self.url,
-            data=urllib.parse.urlencode({"data": OVERPASS_QUERY}).encode("utf-8"),
+            data=urllib.parse.urlencode({"data": self.query}).encode("utf-8"),
             headers={
                 "User-Agent": USER_AGENT,
                 "Content-Type": "application/x-www-form-urlencoded",

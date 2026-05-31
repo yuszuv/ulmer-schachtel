@@ -8,9 +8,10 @@ dependencies = [
 ]
 
 [project.scripts]
-reiseplan-cli   = "reiseplan.cli:main"
-reiseplan-fetch = "reiseplan.ingest:main"
-reiseplan-site  = "reiseplan.web:main"
+reiseplan-cli        = "reiseplan.cli:main"
+reiseplan-fetch      = "reiseplan.ingest:main"
+reiseplan-wikivoyage = "reiseplan.wikivoyage:main"
+reiseplan-site       = "reiseplan.web:main"
 
 [dependency-groups]
 dev = ["pytest>=8"]
