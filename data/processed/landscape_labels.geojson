@@ -1,0 +1,4014 @@
+{
+  "type": "FeatureCollection",
+  "name": "landscape_labels",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9130016603,
+        "osm_type": "node",
+        "name": "Almgrund",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9443086,
+          51.0246767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7996860614,
+        "osm_type": "node",
+        "name": "Almásvölgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.5793117,
+          46.9423556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11542989585,
+        "osm_type": "node",
+        "name": "Alsó-Andocsi-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.9462912,
+          46.6529604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11226418716,
+        "osm_type": "node",
+        "name": "Apuseni Mountains",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.2,
+          46.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8088391314,
+        "osm_type": "node",
+        "name": "Bagolyvölgyi-árok",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.5366981,
+          46.9464166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11226411299,
+        "osm_type": "node",
+        "name": "Banat Mountains",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1666667,
+          45.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849533,
+        "osm_type": "node",
+        "name": "Bieszczady",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5265964,
+          49.1783356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11226418717,
+        "osm_type": "node",
+        "name": "Bihor Mountains",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.6333333,
+          46.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11409484633,
+        "osm_type": "node",
+        "name": "Cheile Runcului",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4399209,
+          46.5082891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8061837574,
+        "osm_type": "node",
+        "name": "Csalánvölgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4860721,
+          46.9454023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9130016604,
+        "osm_type": "node",
+        "name": "Der Tiefe Grund",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9387512,
+          51.0174974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10164078681,
+        "osm_type": "node",
+        "name": "Dolina Agatowa",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.5093144,
+          51.0942996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161642164,
+        "osm_type": "node",
+        "name": "Dolina Bobru",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.6209574,
+          51.1028874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4161642163,
+        "osm_type": "node",
+        "name": "Dolina Widnicy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.6274444,
+          51.1166863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5941585417,
+        "osm_type": "node",
+        "name": "Dolina Świerków",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.6611394,
+          51.0089667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627227259,
+        "osm_type": "node",
+        "name": "Działki",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8226688,
+          50.9931033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11542989586,
+        "osm_type": "node",
+        "name": "Felső-Andocsi-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.9417663,
+          46.6649559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8312052988,
+        "osm_type": "node",
+        "name": "Fundul Cupașului",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8041274,
+          46.8114819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627262044,
+        "osm_type": "node",
+        "name": "Gradowiec",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.0065885,
+          51.0118743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849541,
+        "osm_type": "node",
+        "name": "Góry Kaczawskie",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9000267,
+          50.9430949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849536,
+        "osm_type": "node",
+        "name": "Góry Sanocko-Turczańskie",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5340822,
+          49.4899248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10119270318,
+        "osm_type": "node",
+        "name": "Gödör-ág",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.8966399,
+          46.560347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627227228,
+        "osm_type": "node",
+        "name": "Głębocznica",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8588137,
+          50.9886888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9917092630,
+        "osm_type": "node",
+        "name": "Halbenloch",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.1052103,
+          50.9732949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11225470653,
+        "osm_type": "node",
+        "name": "Hessisches Bergland",
+        "name_de": "Hessisches Bergland",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.75,
+          51.0833333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8066138210,
+        "osm_type": "node",
+        "name": "Holló-kúti-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.5227174,
+          46.8941274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8061839945,
+        "osm_type": "node",
+        "name": "Homok-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4861503,
+          46.9634356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 571502126,
+        "osm_type": "node",
+        "name": "Hopfengrund",
+        "name_de": null,
+        "natural": "valley",
+        "place": "locality"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1125236,
+          50.9312293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5869024943,
+        "osm_type": "node",
+        "name": "Horog-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.9002927,
+          47.0040028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5869024942,
+        "osm_type": "node",
+        "name": "János-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.9080945,
+          46.9998388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627262038,
+        "osm_type": "node",
+        "name": "Kamienny Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8181763,
+          50.9981764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11915825625,
+        "osm_type": "node",
+        "name": "Kobyli Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.0732476,
+          50.8868057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765582713,
+        "osm_type": "node",
+        "name": "Kotelnice",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.1427063,
+          50.4897855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627173813,
+        "osm_type": "node",
+        "name": "Lenne Doły",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9494644,
+          50.9931541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8044186559,
+        "osm_type": "node",
+        "name": "Macskaluka-árok",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.499866,
+          46.9550438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5517483856,
+        "osm_type": "node",
+        "name": "Malom-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.7708859,
+          46.9340408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13027262322,
+        "osm_type": "node",
+        "name": "Masleni Do",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.764987,
+          43.2715759
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11226418718,
+        "osm_type": "node",
+        "name": "Metaliferi Mountains",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.1666667,
+          46.1166667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9956766023,
+        "osm_type": "node",
+        "name": "Muntele Văii Negre",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8355922,
+          45.4305425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9855861860,
+        "osm_type": "node",
+        "name": "Munții Făgăraș",
+        "name_de": "Fogarascher Gebirge",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7340555,
+          45.6022219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11226731915,
+        "osm_type": "node",
+        "name": "Munții Gutâi",
+        "name_de": "Gutin-Gebirge",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.657428,
+          47.7858837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8091806692,
+        "osm_type": "node",
+        "name": "Mészvölgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4893313,
+          46.9102875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627262043,
+        "osm_type": "node",
+        "name": "Obszary",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.822144,
+          50.985778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627262039,
+        "osm_type": "node",
+        "name": "Odnuszka",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8142433,
+          50.9975963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7549338665,
+        "osm_type": "node",
+        "name": "Pasul Doamnei Mici (Mitoc)",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1130
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.103948,
+          47.1207199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12486011656,
+        "osm_type": "node",
+        "name": "Preluca la Groapa lui Niță",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8371349,
+          47.1774427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12486011654,
+        "osm_type": "node",
+        "name": "Preluca lui Ion a lui GG",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8402624,
+          47.1830546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2174838671,
+        "osm_type": "node",
+        "name": "Prießnitzdurchbruch",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8021153,
+          51.112407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12663096040,
+        "osm_type": "node",
+        "name": "Rapa lu' Costache",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8124506,
+          47.1105042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9130016606,
+        "osm_type": "node",
+        "name": "Ratzengrund",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9495917,
+          51.0213818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5515543038,
+        "osm_type": "node",
+        "name": "Robogó-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.8894237,
+          46.9941024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11226655158,
+        "osm_type": "node",
+        "name": "Rodna Mountains",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7073039,
+          47.5592682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12597869824,
+        "osm_type": "node",
+        "name": "Rygołtowe Doły",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2566865,
+          50.9217248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8661159451,
+        "osm_type": "node",
+        "name": "Râpa Groapa Largă",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8192704,
+          46.540297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13033590881,
+        "osm_type": "node",
+        "name": "Râpa Nămălvii",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.746323,
+          47.9617383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8061851040,
+        "osm_type": "node",
+        "name": "Rókás-árok",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.5461517,
+          46.9807336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627227256,
+        "osm_type": "node",
+        "name": "Ręczyńskie Doły",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8387253,
+          51.0045057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8312055606,
+        "osm_type": "node",
+        "name": "Saua Piatra Surducului",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 969
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.839271,
+          46.8112953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627184787,
+        "osm_type": "node",
+        "name": "Sikorzany Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9948674,
+          51.0315373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9295357534,
+        "osm_type": "node",
+        "name": "Sinjajevina",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.3302939,
+          42.9698898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5515554742,
+        "osm_type": "node",
+        "name": "Siske völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.8606572,
+          46.9637512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3890303250,
+        "osm_type": "node",
+        "name": "Spitzgrund",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6062934,
+          51.1451962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8094745253,
+        "osm_type": "node",
+        "name": "Stará železnica v Stužici",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 690
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5396577,
+          49.0738195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5521734930,
+        "osm_type": "node",
+        "name": "Szurdok-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.7947709,
+          46.931137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8399730441,
+        "osm_type": "node",
+        "name": "Szöke kút völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0363665,
+          47.107698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 473430400,
+        "osm_type": "node",
+        "name": "Tiefes Loch",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2531959,
+          50.9726687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12486011553,
+        "osm_type": "node",
+        "name": "Trecătoarea Sasului",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1015
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8953913,
+          47.2273147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13277410262,
+        "osm_type": "node",
+        "name": "Valcelul Junglei",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.422303,
+          44.8737237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1707063007,
+        "osm_type": "node",
+        "name": "Valea Celnic",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.8521824,
+          45.1399647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10088639225,
+        "osm_type": "node",
+        "name": "Valea Codiului",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.6066219,
+          46.6240001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13796551904,
+        "osm_type": "node",
+        "name": "Valea Finis",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2946744,
+          46.6222949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10088639281,
+        "osm_type": "node",
+        "name": "Valea Glodurile",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.6186501,
+          46.6183361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13689373043,
+        "osm_type": "node",
+        "name": "Valea Meghes",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2632328,
+          46.4763776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11455975713,
+        "osm_type": "node",
+        "name": "Valea Mica",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7657011,
+          46.5883268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13343174907,
+        "osm_type": "node",
+        "name": "Valea Peteroaiei",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8315303,
+          46.9038064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1744263338,
+        "osm_type": "node",
+        "name": "Valea Prisacina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5056,
+          45.01236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8288871122,
+        "osm_type": "node",
+        "name": "Valea Pârâului Valea Batrână",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1262641,
+          46.8464147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1765179473,
+        "osm_type": "node",
+        "name": "Valea Stanii",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0174379,
+          45.4699225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11228576980,
+        "osm_type": "node",
+        "name": "Valea Techea",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.5830712,
+          45.0742328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10125450951,
+        "osm_type": "node",
+        "name": "Valea Vitioana",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2429089,
+          46.7645162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9751640802,
+        "osm_type": "node",
+        "name": "Valea Văcăriei",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.240637,
+          46.9469191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8814235619,
+        "osm_type": "node",
+        "name": "Veliki Šantić",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.6153339,
+          44.3192758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627184789,
+        "osm_type": "node",
+        "name": "Wielki Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8832154,
+          51.0094471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627262042,
+        "osm_type": "node",
+        "name": "Wielki Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8178262,
+          50.9847085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627227229,
+        "osm_type": "node",
+        "name": "Witków",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8555187,
+          50.9906137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7740569820,
+        "osm_type": "node",
+        "name": "Wąwóz",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.14674,
+          50.4747061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627184786,
+        "osm_type": "node",
+        "name": "Zakrzowski Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9860477,
+          51.0259092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089464,
+        "osm_type": "node",
+        "name": "Zvijezda",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.2851181,
+          43.9134232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5324962825,
+        "osm_type": "node",
+        "name": "Ördögtorok",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.7747231,
+          46.9332542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8959399060,
+        "osm_type": "node",
+        "name": "Ćirin prolaz",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1653931,
+          43.324839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9627227257,
+        "osm_type": "node",
+        "name": "Średni Dół",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8311124,
+          50.9958244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8288610609,
+        "osm_type": "node",
+        "name": "Șaua Cupaș",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1275
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7956949,
+          46.8205999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8288671762,
+        "osm_type": "node",
+        "name": "Șaua Licaș",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1452
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.738107,
+          46.8031176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769765377,
+        "osm_type": "node",
+        "name": "Јабланик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6666484,
+          44.1758889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769765378,
+        "osm_type": "node",
+        "name": "Јабука",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.4532138,
+          43.367948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780588,
+        "osm_type": "node",
+        "name": "Јавор",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.0539854,
+          43.4418041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780589,
+        "osm_type": "node",
+        "name": "Јавориште",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.7904989,
+          44.0332282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780590,
+        "osm_type": "node",
+        "name": "Јаворје",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.2976358,
+          43.5437129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780586,
+        "osm_type": "node",
+        "name": "Јагодња",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.293562,
+          44.3430751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769765379,
+        "osm_type": "node",
+        "name": "Јадовник",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.8310643,
+          43.2783313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780587,
+        "osm_type": "node",
+        "name": "Јарут",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2449392,
+          43.0646972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804088986,
+        "osm_type": "node",
+        "name": "Јастребац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4443712,
+          43.3911672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780591,
+        "osm_type": "node",
+        "name": "Јелица",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3625841,
+          43.7922096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780593,
+        "osm_type": "node",
+        "name": "Јелова гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7711819,
+          43.9499511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780594,
+        "osm_type": "node",
+        "name": "Јешевац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.5526481,
+          44.0050134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769780595,
+        "osm_type": "node",
+        "name": "Јухор",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.2639575,
+          43.8123652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724359,
+        "osm_type": "node",
+        "name": "Арбанашка планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4607337,
+          43.0461898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724361,
+        "osm_type": "node",
+        "name": "Баба",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.5511128,
+          43.8374829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724362,
+        "osm_type": "node",
+        "name": "Бабичка гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.061662,
+          43.1266376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724363,
+        "osm_type": "node",
+        "name": "Бањско брдо",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.5975489,
+          43.539124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724364,
+        "osm_type": "node",
+        "name": "Белава",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.4764746,
+          43.1940468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7820330243,
+        "osm_type": "node",
+        "name": "Бешњаја",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.0319694,
+          43.9796764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724365,
+        "osm_type": "node",
+        "name": "Бељаница",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6993843,
+          44.1114919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724368,
+        "osm_type": "node",
+        "name": "Битовик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6924185,
+          43.4485276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724367,
+        "osm_type": "node",
+        "name": "Бић",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.4893693,
+          43.5699713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724369,
+        "osm_type": "node",
+        "name": "Благаја",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.015024,
+          43.7734299
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724370,
+        "osm_type": "node",
+        "name": "Бобија",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.554136,
+          44.1966851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724371,
+        "osm_type": "node",
+        "name": "Борања",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.2570215,
+          44.3760733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724375,
+        "osm_type": "node",
+        "name": "Буковик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.5201809,
+          43.9537952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724374,
+        "osm_type": "node",
+        "name": "Буковик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6358643,
+          43.6922767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13368350665,
+        "osm_type": "node",
+        "name": "Буковинські гори",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.2954436,
+          48.0360164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724373,
+        "osm_type": "node",
+        "name": "Букуља",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.5294697,
+          44.2985392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804088985,
+        "osm_type": "node",
+        "name": "Велики гребен",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2448613,
+          44.3567311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804035283,
+        "osm_type": "node",
+        "name": "Видлич",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8188528,
+          43.1372422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804088988,
+        "osm_type": "node",
+        "name": "Видојевица",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.5550118,
+          43.1415565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089005,
+        "osm_type": "node",
+        "name": "Влашић",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.8051567,
+          44.3777572
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13351062321,
+        "osm_type": "node",
+        "name": "Влашић",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6821769,
+          44.398378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804035284,
+        "osm_type": "node",
+        "name": "Влашка планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5884246,
+          42.9855171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089006,
+        "osm_type": "node",
+        "name": "Вршачке планине",
+        "name_de": "Werschetzer Gebirge",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4120508,
+          45.1375188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089007,
+        "osm_type": "node",
+        "name": "Вујан",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.4650162,
+          43.9748878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4146192413,
+        "osm_type": "node",
+        "name": "Вітовта або Вітькова долина",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2519176,
+          49.4244431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7556596361,
+        "osm_type": "node",
+        "name": "Гајева планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.3321833,
+          43.5903833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337562,
+        "osm_type": "node",
+        "name": "Гиљева",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9074284,
+          43.1794483
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337563,
+        "osm_type": "node",
+        "name": "Гледићке планине",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.904671,
+          43.8611116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337570,
+        "osm_type": "node",
+        "name": "Големи стол",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.4952043,
+          43.0282653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337567,
+        "osm_type": "node",
+        "name": "Голија",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2767696,
+          43.3393652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337568,
+        "osm_type": "node",
+        "name": "Голубац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.198071,
+          43.7365787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337566,
+        "osm_type": "node",
+        "name": "Гоч",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.8454375,
+          43.5366339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337561,
+        "osm_type": "node",
+        "name": "Градина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.3407996,
+          43.4265739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337573,
+        "osm_type": "node",
+        "name": "Гребен",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.6423472,
+          42.9477933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337576,
+        "osm_type": "node",
+        "name": "Гучево",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.1781121,
+          44.4892081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765728185,
+        "osm_type": "node",
+        "name": "Дебела гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1678821,
+          43.8870258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765728187,
+        "osm_type": "node",
+        "name": "Девица",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9339815,
+          43.5943593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765728186,
+        "osm_type": "node",
+        "name": "Дели Јован",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.216839,
+          44.2208719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6603724711,
+        "osm_type": "node",
+        "name": "Долина Предків",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.6091855,
+          50.586103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9960377599,
+        "osm_type": "node",
+        "name": "Долина Серате",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.3998372,
+          45.5284968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8429511411,
+        "osm_type": "node",
+        "name": "Долина диких тюльпанів",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9609644,
+          49.4741937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765728188,
+        "osm_type": "node",
+        "name": "Дрмановина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.8326302,
+          43.9807478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089465,
+        "osm_type": "node",
+        "name": "Жилиндар",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.0099176,
+          43.0443498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089009,
+        "osm_type": "node",
+        "name": "Златар",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7912,
+          43.4090452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804089033,
+        "osm_type": "node",
+        "name": "Златибор",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6405865,
+          43.6531807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999286,
+        "osm_type": "node",
+        "name": "Камена гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.5356561,
+          43.3110362
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8648354470,
+        "osm_type": "node",
+        "name": "Китоња",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7101256,
+          43.4912746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999292,
+        "osm_type": "node",
+        "name": "Козомор",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9448978,
+          44.0914157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999288,
+        "osm_type": "node",
+        "name": "Копаоник",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.826741,
+          43.2689885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999289,
+        "osm_type": "node",
+        "name": "Котленик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.6784631,
+          43.8431702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999293,
+        "osm_type": "node",
+        "name": "Краварска планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.33952,
+          42.9408173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999294,
+        "osm_type": "node",
+        "name": "Крстац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1937249,
+          43.794872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999295,
+        "osm_type": "node",
+        "name": "Крушевица",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1766051,
+          43.0394917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999296,
+        "osm_type": "node",
+        "name": "Кучај",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.8214165,
+          44.0814233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999298,
+        "osm_type": "node",
+        "name": "Лепа гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.1212648,
+          43.2463756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769999299,
+        "osm_type": "node",
+        "name": "Лишковац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0209445,
+          44.4532878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181401,
+        "osm_type": "node",
+        "name": "Маглеш",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.8415831,
+          44.1485774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181402,
+        "osm_type": "node",
+        "name": "Мали Јастребац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6290404,
+          43.3935236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181403,
+        "osm_type": "node",
+        "name": "Мали Крш",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0159361,
+          44.2854211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181406,
+        "osm_type": "node",
+        "name": "Малиник",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9120242,
+          43.9924238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181405,
+        "osm_type": "node",
+        "name": "Мајдан",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4747015,
+          42.9437747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181407,
+        "osm_type": "node",
+        "name": "Маљен",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.0224611,
+          44.1200055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12598211636,
+        "osm_type": "node",
+        "name": "Микренски височини",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.6639206,
+          43.019461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181411,
+        "osm_type": "node",
+        "name": "Мироч",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2788021,
+          44.5920351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181412,
+        "osm_type": "node",
+        "name": "Муртеница",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7917,
+          43.5904884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12981846277,
+        "osm_type": "node",
+        "name": "Мъртвата долина",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.612182,
+          43.3950611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12628114764,
+        "osm_type": "node",
+        "name": "Нагорянський каньйон",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0905163,
+          50.5075188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7770181413,
+        "osm_type": "node",
+        "name": "Нинаја",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.222885,
+          43.1688931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803532360,
+        "osm_type": "node",
+        "name": "Озрен",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.8473086,
+          43.2445952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803532358,
+        "osm_type": "node",
+        "name": "Оштрик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6553139,
+          43.5033407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803532362,
+        "osm_type": "node",
+        "name": "Пасјача",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6224363,
+          43.1632729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803532366,
+        "osm_type": "node",
+        "name": "Побијеник",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.5466212,
+          43.4789904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803532367,
+        "osm_type": "node",
+        "name": "Повлен",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7404654,
+          44.1302877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13368350664,
+        "osm_type": "node",
+        "name": "Покутські гори",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.8348254,
+          48.3189762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803667769,
+        "osm_type": "node",
+        "name": "Равна планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.7790195,
+          43.5227658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803623914,
+        "osm_type": "node",
+        "name": "Радан",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4975186,
+          43.0004669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803623915,
+        "osm_type": "node",
+        "name": "Радочело",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.4717574,
+          43.474541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831135,
+        "osm_type": "node",
+        "name": "Ргајска планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.5328256,
+          43.1204743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13180382956,
+        "osm_type": "node",
+        "name": "Ресавски хумови",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.2355915,
+          44.164984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831136,
+        "osm_type": "node",
+        "name": "Рогозна",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.5738299,
+          43.0140998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831138,
+        "osm_type": "node",
+        "name": "Рожањ",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3434369,
+          43.990808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831137,
+        "osm_type": "node",
+        "name": "Рожањ",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6912312,
+          43.7184951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831139,
+        "osm_type": "node",
+        "name": "Ртањ",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.8937805,
+          43.7760071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831142,
+        "osm_type": "node",
+        "name": "Самањац",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6806864,
+          43.7943769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831154,
+        "osm_type": "node",
+        "name": "Сврљишке планине",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2520496,
+          43.3306095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831143,
+        "osm_type": "node",
+        "name": "Селичевица",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9690907,
+          43.236073
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831144,
+        "osm_type": "node",
+        "name": "Слемен",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0557349,
+          43.6897035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831145,
+        "osm_type": "node",
+        "name": "Соколовица",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4782594,
+          43.0335513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831146,
+        "osm_type": "node",
+        "name": "Соколска планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.458483,
+          44.2824677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831147,
+        "osm_type": "node",
+        "name": "Стара планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.6767435,
+          43.3946931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831148,
+        "osm_type": "node",
+        "name": "Стол",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1350993,
+          44.1772773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831149,
+        "osm_type": "node",
+        "name": "Столови",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.6099628,
+          43.6094074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831150,
+        "osm_type": "node",
+        "name": "Студена планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.6797521,
+          43.5261579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831152,
+        "osm_type": "node",
+        "name": "Субјел",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9834016,
+          44.014967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831153,
+        "osm_type": "node",
+        "name": "Сува планина",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1714555,
+          43.1847628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2627163197,
+        "osm_type": "node",
+        "name": "Сувобор",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.181684,
+          44.1208582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804035276,
+        "osm_type": "node",
+        "name": "Тара",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.4591762,
+          43.8484465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804035278,
+        "osm_type": "node",
+        "name": "Тресибаба",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.3556753,
+          43.4369264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804035279,
+        "osm_type": "node",
+        "name": "Троглав",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.4873647,
+          43.6403164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7804035280,
+        "osm_type": "node",
+        "name": "Тупижница",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1615808,
+          43.7293763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295052089,
+        "osm_type": "node",
+        "name": "Тупижница",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1572122,
+          43.7003806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337560,
+        "osm_type": "node",
+        "name": "Фрушка гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7114729,
+          45.1515915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337577,
+        "osm_type": "node",
+        "name": "Хомољске планине",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6290882,
+          44.3574622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7769337578,
+        "osm_type": "node",
+        "name": "Хум",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.122145,
+          42.9642461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 430104557,
+        "osm_type": "node",
+        "name": "Цер",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.4928604,
+          44.6029582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724380,
+        "osm_type": "node",
+        "name": "Црвена гора",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1435698,
+          43.535455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724378,
+        "osm_type": "node",
+        "name": "Црни врх",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.5696227,
+          43.5915087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724377,
+        "osm_type": "node",
+        "name": "Црни врх",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9647943,
+          44.1303091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724379,
+        "osm_type": "node",
+        "name": "Црнокоса",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9161475,
+          43.9677259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724382,
+        "osm_type": "node",
+        "name": "Чемерница",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9839673,
+          43.5210843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7765724383,
+        "osm_type": "node",
+        "name": "Чемерно",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.4251681,
+          43.5824475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10704956887,
+        "osm_type": "node",
+        "name": "Шиманів Котел",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.2391192,
+          48.22159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831157,
+        "osm_type": "node",
+        "name": "Шомрда",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9646746,
+          44.5467439
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7803831151,
+        "osm_type": "node",
+        "name": "Шљивовик",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.3547328,
+          43.1635109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10926147385,
+        "osm_type": "node",
+        "name": "балка Казійська Долина",
+        "name_de": null,
+        "natural": "valley",
+        "place": "locality"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.442312,
+          45.6487852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13388800890,
+        "osm_type": "node",
+        "name": "Ґорґани",
+        "name_de": "Gorgany",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.0665052,
+          48.569893
+        ]
+      }
+    }
+  ]
+}
