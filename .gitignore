@@ -23,6 +23,7 @@ qfield/
 
 # Local scratch files
 tmp/
+gemini/
 
 # Generated website (from GeoJSON via 'tools/build_site.py'; deployed to Pages by CI)
 site/
