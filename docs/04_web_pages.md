@@ -6,7 +6,7 @@ map plus a readable route/destination overview.
 
 ## What is shown?
 
-The page (`tools/build_site.py` → `site/index.html`) is **self-contained**:
+The page (`tools/reiseplan/web.py` → `site/index.html`) is **self-contained**:
 data is inlined directly, so it also works locally via `file://`. Contents:
 
 - **Interactive map** (Leaflet, OpenStreetMap base) with togglable layers:
@@ -23,8 +23,8 @@ The overview text is server-side-rendered and readable without JavaScript.
 ## Build locally
 
 ```bash
-python tools/build_site.py            # generates ./site/index.html
-python tools/build_site.py --out _out # alternative output directory
+uv run reiseplan-site                 # generates ./site/index.html
+uv run reiseplan-site --out _out      # alternative output directory
 ```
 
 The source remains the versioned GeoJSON/CSV in `data/processed/`; `site/`
@@ -52,7 +52,7 @@ Workflow: `.github/workflows/refresh-data.yml`
 
 - Trigger manually (*Actions → "Bahndaten aktualisieren (Overpass)" → Run
   workflow*).
-- Fetches fresh data from the Overpass API (`tools/fetch_cfr_data.py`) and opens
+- Fetches fresh data from the Overpass API (`uv run reiseplan-fetch`) and opens
   a **pull request** with the data diff (branch `data/overpass-refresh`).
 - After review/merge, `pages.yml` rebuilds the site automatically.
 

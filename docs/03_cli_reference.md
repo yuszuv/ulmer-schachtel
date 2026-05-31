@@ -13,9 +13,9 @@ For map editing, QGIS remains the primary tool.
 
 ## Tool
 
-- Script: `tools/reiseplan_cli.py`
+- Package: `tools/reiseplan/cli.py` (entry point `reiseplan-cli`, defined in `pyproject.toml`)
 - External dependency: **rich** (tables, colours) — already in `pyproject.toml`
-- Run via **uv** (`pyproject.toml` defines the entrypoint `reiseplan-cli`)
+- Run via **uv**: `uv run reiseplan-cli <cmd>`
 
 ## Examples
 
@@ -54,12 +54,6 @@ uv run reiseplan-cli build-qfield --out ~/some/folder
 datasource paths to point to the GPKG, and writes two files to
 `qfield/current/`: `reiseplan.qgz` + `reiseplan.gpkg`. The original project
 is never modified. See [02_qfield_export.md](02_qfield_export.md) for details.
-
-Without installing the entrypoint:
-
-```bash
-uv run python tools/reiseplan_cli.py overview
-```
 
 > The CLI locates `data/processed` by walking up from the current directory —
 > run from the repo root for simplest usage.

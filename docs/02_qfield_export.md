@@ -19,7 +19,7 @@ device.
 
 ### Prerequisites
 
-- GeoJSON data is current (re-run `fetch_cfr_data.py` if routes changed).
+- GeoJSON data is current (re-run `uv run reiseplan-fetch` if routes changed).
 - Data bundle is built:
 
   ```bash

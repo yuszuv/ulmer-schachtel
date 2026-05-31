@@ -41,7 +41,7 @@ qgis/reiseplan.qgz         data/processed/reiseplan.gpkg  ── GITIGNORED bund
   If you rename a GeoJSON file, update the path in the `.qgz` too (it is a ZIP
   containing `reiseplan.qgs`).
 - **Connection times:** `data/processed/timetable.csv` is a **hand-maintained**
-  source (one row per magistrală, real dep/arr/days/via). `fetch_cfr_data.py`
+  source (one row per magistrală, real dep/arr/days/via). `reiseplan-fetch`
   creates it only as a scaffold template (if missing) and merges its fields into
   `rail_lines.geojson` as attributes (key: `route_id`). Entered times are never
   overwritten.
@@ -50,7 +50,7 @@ qgis/reiseplan.qgz         data/processed/reiseplan.gpkg  ── GITIGNORED bund
 
 - **CRS:** Data is stored in `EPSG:4326` (GeoJSON standard). Project/GPKG CRS is
   `EPSG:3844` (Stereo70, Romanian national projection). Do not mix them up. See the
-  CRS rationale block in `tools/fetch_cfr_data.py` for the reason GeoJSON stays 4326.
+  CRS rationale in `tools/reiseplan/ingest.py` docstring for the reason GeoJSON stays 4326.
 - **Encoding:** real UTF-8 diacritics (Brașov, Timișoara, București) — no ASCII
   transliteration (`Rumaenien`).
 - **QGIS paths:** save projects with **relative** paths so `.qgz` + `.gpkg` can be

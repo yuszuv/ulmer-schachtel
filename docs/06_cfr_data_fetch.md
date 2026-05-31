@@ -1,8 +1,8 @@
 # CFR Rail Data: Fetch Process and Data Flow
 
-Technical reference for `tools/fetch_cfr_data.py` — the script that fetches
-Romanian railway data (CFR magistrale 200–900) from OpenStreetMap and converts
-it into project-ready GeoJSON/CSV files.
+Technical reference for `uv run reiseplan-fetch` (`tools/reiseplan/ingest.py`) —
+the command that fetches Romanian railway data (CFR magistrale 200–900) from
+OpenStreetMap and converts it into project-ready GeoJSON/CSV files.
 
 The query syntax itself is explained in [docs/05_overpass_101.md](05_overpass_101.md).
 
@@ -10,10 +10,10 @@ The query syntax itself is explained in [docs/05_overpass_101.md](05_overpass_10
 
 ## Context: fetch process in the overall pipeline
 
-`fetch_cfr_data.py` sits at the **start** of the data pipeline. The files it
+`reiseplan-fetch` sits at the **start** of the data pipeline. The files it
 produces are the versioned source that all downstream steps build on. Alongside
 it, `timetable.csv` is a **hand-maintained** source for real connection data —
-the fetch script reads it but never writes it.
+the fetch command reads it but never writes it.
 
 ```mermaid
 flowchart LR
@@ -21,11 +21,11 @@ flowchart LR
     TT["data/processed/timetable.csv\n(hand-maintained, times entered by user)"]
 
     subgraph fetch ["1 · Fetch + merge"]
-        FP["tools/fetch_cfr_data.py"]
+        FP["uv run reiseplan-fetch\n(tools/reiseplan/ingest.py)"]
     end
 
     subgraph raw ["data/raw/"]
-        R1["osm_ro_stations.json\n(raw cache, gitignored)"]
+        R1["osm_ro_stations.json\nosm_ro_rail_ways.json\n(raw caches, gitignored)"]
     end
 
     subgraph processed ["data/processed/  (versioned)"]
@@ -44,7 +44,7 @@ flowchart LR
     subgraph consume ["3 · Consume"]
         QGIS["QGIS: qgis/reiseplan.qgz\n(loads GeoJSON directly!)"]
         QF["QField (on device)"]
-        WEB["tools/build_site.py\n→ site/index.html"]
+        WEB["uv run reiseplan-site\n→ site/index.html"]
     end
 
     OSM --> FP
@@ -69,11 +69,11 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[["Invocation:\ntools/fetch_cfr_data.py"]] --> B{--offline?}
+    A[["uv run reiseplan-fetch\n(tools/reiseplan/ingest.py)"]] --> B{--offline?}
 
     B -- no --> C["Overpass API\nhttps://overpass-api.de/api/interpreter\nPOST, timeout 180 s"]
-    C --> D["Save raw JSON\ndata/raw/osm_ro_stations.json"]
-    B -- yes  --> E["Read raw cache\ndata/raw/osm_ro_stations.json"]
+    C --> D["Save raw JSON\ndata/raw/osm_ro_stations.json\ndata/raw/osm_ro_rail_ways.json"]
+    B -- yes  --> E["Read raw caches\nosm_ro_stations.json\nosm_ro_rail_ways.json"]
     D --> F
     E --> F
 
@@ -113,7 +113,9 @@ flowchart TD
 
 ## Overpass query
 
-The script sends exactly one query to the Overpass API:
+The command sends **two types** of queries — see [docs/05_overpass_101.md](05_overpass_101.md) for the full syntax walk-through.
+
+**Query 1 — station nodes** (one call, Romania-wide):
 
 ```overpassql
 [out:json][timeout:120];
@@ -122,9 +124,17 @@ node["railway"~"^(station|halt|stop)$"]["name"](area.ro);
 out tags center;
 ```
 
-Result: **all named rail stops in Romania** — roughly 700–900 nodes. The script
-intentionally fetches this broad raw dataset and filters locally to the defined
-magistrală stops. One network call, then `--offline`.
+Result: all named rail stops in Romania (~700–900 nodes). Fetched once, cached, matched locally.
+
+**Query 2 — rail track geometry** (one call per magistrală corridor):
+
+```overpassql
+[out:json][timeout:180];
+way["railway"="rail"]["service"!~"."](S,W,N,E);
+out geom;
+```
+
+One bounding box per line (station coords ± 0.25°). The `["service"!~"."]` filter drops sidings and yards. `out geom` returns the full vertex list, which `RailNetwork` uses to build the routing graph.
 
 Query syntax details: [docs/05_overpass_101.md](05_overpass_101.md).
 
@@ -132,7 +142,7 @@ Query syntax details: [docs/05_overpass_101.md](05_overpass_101.md).
 
 ## Line definition (hard-coded)
 
-The CFR magistrale and their stops are defined in the script as `Line`/`Stop`
+The CFR magistrale and their stops are defined in `tools/reiseplan/catalog.py` as `Magistrale`/`Stop`
 objects. These are the canonical data — they come **not** from OSM but reflect
 the official CFR line layout (Wikipedia).
 
@@ -159,42 +169,47 @@ because OSM names can diverge from German/Romanian standard names (e.g.
 
 ```mermaid
 sequenceDiagram
-    participant CLI as fetch_cfr_data.py
+    participant CLI as reiseplan-fetch (ingest.py)
     participant OA  as Overpass API
     participant FS  as Filesystem
 
     CLI->>CLI: argparse (--offline?)
 
     alt Online mode
-        CLI->>OA: POST /api/interpreter (query, timeout 180 s)
-        OA-->>CLI: JSON (elements[])
+        CLI->>OA: POST station query (RO-wide, timeout 120 s)
+        OA-->>CLI: JSON (station nodes)
         CLI->>FS: write data/raw/osm_ro_stations.json
+        loop per magistrală corridor (×8)
+            CLI->>OA: POST rail-ways query (bbox, timeout 180 s)
+            OA-->>CLI: JSON (way elements with geometry)
+        end
+        CLI->>FS: write data/raw/osm_ro_rail_ways.json
     else Offline mode
-        CLI->>FS: read data/raw/osm_ro_stations.json
+        CLI->>FS: read osm_ro_stations.json + osm_ro_rail_ways.json
     end
 
-    CLI->>FS: scaffold_timetable() – create timetable.csv (if missing)
-    CLI->>FS: load_timetable() – read timetable.csv → dict{route_id → row}
-    CLI->>CLI: build_index() — name → (lon, lat), rank: station=0, halt=1, stop=2
+    CLI->>FS: TimetableRepository.scaffold() – create timetable.csv (if missing)
+    CLI->>FS: TimetableRepository.load() – read timetable.csv → Timetable
+    CLI->>CLI: StationIndex.from_overpass() — name → Coordinate
 
     loop for each magistrală (M200–M900)
-        CLI->>CLI: resolve() – look up canonical name + all osm_names in index
-        CLI->>CLI: station_id_for() – assign ST01, ST02, …
-        CLI->>CLI: merge timetable fields from dict (via route_id)
-        CLI->>CLI: build route_feature + stop_rows
+        CLI->>CLI: StationIndex.resolve() – canonical name + osm_names aliases
+        CLI->>CLI: RailNetwork.from_overpass() – build rail graph for corridor
+        CLI->>CLI: RailNetwork.route_stops() – Dijkstra along tracks
+        CLI->>CLI: merge timetable fields (via route_id)
     end
 
     CLI->>FS: write rail_stations.geojson
-    CLI->>FS: write rail_lines.geojson  (+ timetable attributes)
+    CLI->>FS: write rail_lines.geojson  (routed geometry + timetable attributes)
     CLI->>FS: write route_stops.csv
-    CLI->>CLI: hint: run build-gpkg
+    CLI->>CLI: hint: uv run reiseplan-cli build-gpkg
 ```
 
-### Index building (`build_index`)
+### Index building (`StationIndex.from_overpass`)
 
-The Overpass response is converted to a dictionary `name → (lon, lat)`. When the
-same name appears multiple times (OSM duplicates), the type with the highest rank
-wins:
+The Overpass station response is converted to a `name → Coordinate` dictionary
+(`tools/reiseplan/overpass.py`). When the same name appears multiple times (OSM
+duplicates), the type with the highest rank wins:
 
 | OSM `railway` value | Rank |
 |---|---|
@@ -207,12 +222,22 @@ Coordinate fallback: nodes carry `lat`/`lon` directly; ways/relations only have
 `center`. The code uses an explicit `in` check (not `or`) so `lat/lon == 0.0`
 is not treated as missing.
 
-### Stop resolution (`resolve`)
+### Stop resolution (`StationIndex.resolve`)
 
 For each `Stop`, all `lookup_names()` (canonical name + `osm_names` list) are
-checked against the index in order. The first match wins. If no name is found,
-a warning is printed and the stop is omitted from the output geometry (the rest
-of the magistrală is still written, provided at least two stops resolved).
+checked against the index in order. The first match wins — returns
+`Some(Coordinate)`. If no name is found, `Nothing` is returned, a warning is
+printed, and the stop is omitted from the geometry (the rest of the magistrală
+is still written, provided at least two stops resolved).
+
+### Track routing (`RailNetwork`)
+
+After the stations are resolved, `RailNetwork.from_overpass(ways_data)` builds
+an undirected weighted graph from the `railway=rail` way geometry for that
+corridor. `route_stops(coords)` then runs Dijkstra between consecutive stops,
+concatenates the path segments, and falls back to a straight line for any
+segment where the graph has a gap — tagged `geom_source = "fallback-straight"`.
+See `tools/reiseplan/routing.py` and [docs/07_architecture.md](07_architecture.md).
 
 ### Station deduplication
 
@@ -239,7 +264,7 @@ as you rebuild the data once.
 ```mermaid
 flowchart LR
     TT["timetable.csv\n(hand-maintained)"]
-    FP["fetch_cfr_data.py\n--offline"]
+    FP["uv run reiseplan-fetch --offline"]
     RL["rail_lines.geojson\nfeature.properties:\n  days, dep_time, arr_time,\n  duration, via, train, approx"]
     QGIS["QGIS\nattribute table / Map Tip"]
     WEB["Website\nconnection line per route"]
@@ -270,12 +295,12 @@ flowchart LR
 nvim data/processed/timetable.csv
 
 # 2. Rebuild data (no network needed):
-uv run python tools/fetch_cfr_data.py --offline
+uv run reiseplan-fetch --offline
 # → rail_lines.geojson now carries the dep_time, arr_time, … fields
 
 # 3. Update GPKG and website:
 uv run reiseplan-cli build-gpkg
-uv run python tools/build_site.py
+uv run reiseplan-site
 
 # 4. Inspect the result:
 uv run reiseplan-cli timetable
@@ -367,11 +392,11 @@ the routed geometry from it without the network.
 
 ```bash
 # Query Overpass, cache, and build all output files:
-uv run python tools/fetch_cfr_data.py
+uv run reiseplan-fetch
 
-# Rebuild from existing raw cache only (no network),
+# Rebuild from existing raw caches only (no network),
 # e.g. after entering times in timetable.csv:
-uv run python tools/fetch_cfr_data.py --offline
+uv run reiseplan-fetch --offline
 ```
 
 Then update the GPKG bundle for QGIS/QField:
@@ -382,10 +407,9 @@ uv run reiseplan-cli build-gpkg
 
 ### Dependencies
 
-The script uses only the **Python standard library**
-(`urllib`, `json`, `csv`, `pathlib`, `dataclasses`, `argparse`) — no additional
-packages needed, no `uv`/`pip install` required. The `uv run` prefix is optional;
-`python tools/fetch_cfr_data.py` works equally well.
+`reiseplan-fetch` uses only the **Python standard library** plus **rich** (already
+in `pyproject.toml`) — no additional packages needed beyond the project's own
+dependencies.
 
 ---
 
@@ -395,7 +419,7 @@ Workflow: `.github/workflows/refresh-data.yml`
 
 ```mermaid
 flowchart LR
-    A["GitHub Actions\nmanual trigger"] --> B["python tools/fetch_cfr_data.py\n(online mode)"]
+    A["GitHub Actions\nmanual trigger"] --> B["uv run reiseplan-fetch\n(online mode)"]
     B --> C["data/processed/*.geojson\ndata/processed/*.csv\nupdated"]
     C --> D["Open pull request\n(branch data/overpass-refresh)"]
     D --> E{Merge?}

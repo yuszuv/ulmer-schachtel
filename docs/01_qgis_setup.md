@@ -22,7 +22,7 @@ A simple QGIS project containing:
    - `data/processed/info_markers.geojson` (ℹ "About this map" – usage/legend help)
 
    > **Why GeoJSON, not GPKG?** The desktop project reads GeoJSON directly so
-   > that any change to the data (re-running `fetch_cfr_data.py`) is immediately
+   > that any change to the data (re-running `uv run reiseplan-fetch`) is immediately
    > visible in QGIS without a `build-gpkg` step. The GPKG is a generated bundle
    > *only* for QField export — see [02_qfield_export.md](02_qfield_export.md).
 
@@ -47,7 +47,7 @@ A simple QGIS project containing:
    > `data/processed/timetable.csv` (`from_city`, `to_city`, `days`, `dep_time`,
    > `arr_time`, `duration`, `via`, `train`) as attributes — visible in the
    > attribute table and via *Identify Features*. They appear once times have been
-   > entered and the data rebuilt (`fetch_cfr_data.py --offline`, then
+   > entered and the data rebuilt (`uv run reiseplan-fetch --offline`, then
    > `build-gpkg`).
 6. Load a base map via the **QuickMapServices** plugin:
    - Install: *Plugins → Manage and Install Plugins → "QuickMapServices"*
