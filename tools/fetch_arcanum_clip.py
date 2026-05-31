@@ -154,6 +154,11 @@ def warp(wms_xml: Path, cutline: Path, output: Path, zoom: int) -> None:
         "-t_srs", "EPSG:3857",
         "-tr", str(res), str(res),
         "-dstalpha",
+        # Treat pure-black source pixels as nodata → transparent in output.
+        # Arcanum XYZ tiles return black (0 0 0) where no Habsburg survey data
+        # exists (Ottoman territories: Dobruja, Wallachia, Moldavia). Without
+        # this, those pixels render as opaque black inside the cutline.
+        "-srcnodata", "0 0 0",
         "-r", "bilinear",
         "-co", "COMPRESS=DEFLATE",
         "-co", "TILED=YES",

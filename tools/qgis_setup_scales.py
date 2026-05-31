@@ -64,10 +64,12 @@ LAYER_SCALE = {
     "Historische Regionen": (3_000_000,  200_000),  # sichtbar 1:200k … 1:3 Mio
     # Historische Städte: Punkte, analog zu Bahnhöfen.
     "Historische Städte":   (1_500_000,  0),         # ab 1:1,5 Mio nach innen
-    # Zugeschnittene Arcanum-Karte: Hintergrund bis ~1:1 Mio; beim weiteren Reinzoomen
-    # ausblenden (Übersichts-Auflösung z9 würde unscharf), dann übernimmt die Detail-
-    # Basiskarte. Erzeugt via tools/fetch_arcanum_clip.py.
-    "Arcanum 2 (RO, zugeschnitten)": (0, 1_000_000),  # sichtbar 1:1 Mio … ∞ (weit)
+    # Zugeschnittene Arcanum-Karte: nur im Detail-Band 1:100k … 1:4 Mio sichtbar.
+    # Nicht bei Weitzooms: die Arcanum-Tiles enden an der Habsburg-Grenze; Dobruja
+    # und das rumänische Regat waren Ottoman/autonom → keine Survey-Daten → schwarze
+    # Pixel im geclippten Raster. Bei Weitzooms überdecken diese Flächen zu viel.
+    # Erzeugt via tools/fetch_arcanum_clip.py.
+    "Arcanum 2 (RO, zugeschnitten)": (4_000_000, 100_000),  # sichtbar 1:100k … 1:4 Mio
     # Basemap bands: subtle grayscale overview → detailed map, one handoff at 1:8M.
     "Stadia Alidade Smooth (matt, Sepia-tauglich)": (0, 8_000_000),  # wide … 1:8M (overview)
     "CARTO Voyager (hell, mehr Detail)":            (8_000_000, 0),  # 1:8M … near (detail)
