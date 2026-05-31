@@ -47,6 +47,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 6725269660,
+        "osm_type": "node",
+        "name": "Alp Manuir",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.607638,
+          46.7030479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11542989585,
         "osm_type": "node",
         "name": "Alsó-Andocsi-völgy",
@@ -119,6 +137,150 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 2669290062,
+        "osm_type": "node",
+        "name": "Banská Dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.3775177,
+          48.2204626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295921938,
+        "osm_type": "node",
+        "name": "Behulová",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4104447,
+          48.7624167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849523,
+        "osm_type": "node",
+        "name": "Beskid Makowski",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6372507,
+          49.7474806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849528,
+        "osm_type": "node",
+        "name": "Beskid Mały",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.2327563,
+          49.7827303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849538,
+        "osm_type": "node",
+        "name": "Beskid Sądecki",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.7855532,
+          49.4546026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849520,
+        "osm_type": "node",
+        "name": "Beskid Wyspowy",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2205231,
+          49.7132216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849544,
+        "osm_type": "node",
+        "name": "Beskid Śląski",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0184915,
+          49.683924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849529,
+        "osm_type": "node",
+        "name": "Beskid Żywiecki",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.2482295,
+          49.5658186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7475849533,
         "osm_type": "node",
         "name": "Bieszczady",
@@ -155,6 +317,258 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7938610798,
+        "osm_type": "node",
+        "name": "Biokovo",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.04885,
+          43.3392874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295921929,
+        "osm_type": "node",
+        "name": "Blatná dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4080958,
+          48.7839719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9971981997,
+        "osm_type": "node",
+        "name": "Boal Santo",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7010452,
+          46.0620035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295922034,
+        "osm_type": "node",
+        "name": "Bodianska dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7652104,
+          48.92935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663184,
+        "osm_type": "node",
+        "name": "Bova Bianca",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.772628,
+          46.0126093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663180,
+        "osm_type": "node",
+        "name": "Boàl di Vallorca",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7671383,
+          46.0173044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7280018075,
+        "osm_type": "node",
+        "name": "Bošácka dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.7770577,
+          48.8892164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10049762708,
+        "osm_type": "node",
+        "name": "Buco del Ciglione",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0976296,
+          45.6691765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12513902178,
+        "osm_type": "node",
+        "name": "Busa de Calgeroi",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1791836,
+          46.1971307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3580674871,
+        "osm_type": "node",
+        "name": "Busa di Cavaren",
+        "name_de": null,
+        "natural": "valley",
+        "place": "locality"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8262513,
+          46.0993587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3580674870,
+        "osm_type": "node",
+        "name": "Busa di Monsampiano",
+        "name_de": null,
+        "natural": "valley",
+        "place": "locality"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8133802,
+          46.0951096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10695175187,
+        "osm_type": "node",
+        "name": "Buse Larghe",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9264072,
+          45.976867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12787009305,
+        "osm_type": "node",
+        "name": "Butik-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3906422,
+          46.8967557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13482118720,
+        "osm_type": "node",
+        "name": "Cenglas",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0835133,
+          46.2982767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11409484633,
         "osm_type": "node",
         "name": "Cheile Runcului",
@@ -167,6 +581,24 @@
         "coordinates": [
           23.4399209,
           46.5082891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8300842874,
+        "osm_type": "node",
+        "name": "Cigánka",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9650432,
+          49.0302464
         ]
       }
     },
@@ -191,6 +623,42 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 11184161840,
+        "osm_type": "node",
+        "name": "Csattogó-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0292099,
+          47.8334406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6550130293,
+        "osm_type": "node",
+        "name": "Dagostin",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.843347,
+          45.3210351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 9130016604,
         "osm_type": "node",
         "name": "Der Tiefe Grund",
@@ -203,6 +671,60 @@
         "coordinates": [
           13.9387512,
           51.0174974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5702783022,
+        "osm_type": "node",
+        "name": "Dinarsko gorje",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.58,
+          43.95
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8300842744,
+        "osm_type": "node",
+        "name": "Dlhé báne",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6406991,
+          48.7226749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7922218488,
+        "osm_type": "node",
+        "name": "Dol",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9393496,
+          45.6068253
         ]
       }
     },
@@ -245,6 +767,79 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13004060760,
+        "osm_type": "node",
+        "name": "Dolina Bolechowicka",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7846212,
+          50.1528584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12388621518,
+        "osm_type": "node",
+        "name": "Dolina Cisterna",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5890961,
+          45.8738286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7470468746,
+        "osm_type": "node",
+        "name": "Dolina Kochłówki",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8833392,
+          50.2622766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7809533715,
+        "osm_type": "node",
+        "name": "Dolina Kotarnego",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 644
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2240209,
+          49.3888326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4161642163,
         "osm_type": "node",
         "name": "Dolina Widnicy",
@@ -281,6 +876,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 3288768661,
+        "osm_type": "node",
+        "name": "Dolinka Aleksandrowicka",
+        "name_de": null,
+        "natural": "valley",
+        "place": "locality"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7554284,
+          50.0883711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 9627227259,
         "osm_type": "node",
         "name": "Działki",
@@ -293,6 +906,60 @@
         "coordinates": [
           22.8226688,
           50.9931033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4855600523,
+        "osm_type": "node",
+        "name": "Eastern Alps",
+        "name_de": "Ostalpen",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0,
+          47.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5871734800,
+        "osm_type": "node",
+        "name": "Egres-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3666219,
+          48.1051974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11151053676,
+        "osm_type": "node",
+        "name": "Essacherrinne",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.3828486,
+          46.870197
         ]
       }
     },
@@ -317,6 +984,43 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10001269334,
+        "osm_type": "node",
+        "name": "Forra del Limarò/ Canyon del Limarò",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8983594,
+          46.049463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1235843013,
+        "osm_type": "node",
+        "name": "Forra del Presale",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 507
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5412245,
+          43.5706766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8312052988,
         "osm_type": "node",
         "name": "Fundul Cupașului",
@@ -329,6 +1033,24 @@
         "coordinates": [
           25.8041274,
           46.8114819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849540,
+        "osm_type": "node",
+        "name": "Gorce",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1616004,
+          49.549422
         ]
       }
     },
@@ -353,6 +1075,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12344509543,
+        "osm_type": "node",
+        "name": "Grass de la Pala Alta",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1567957,
+          46.1941361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7475849541,
         "osm_type": "node",
         "name": "Góry Kaczawskie",
@@ -371,6 +1111,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13312237076,
+        "osm_type": "node",
+        "name": "Góry Makowskie",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6295842,
+          49.7559833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7475849536,
         "osm_type": "node",
         "name": "Góry Sanocko-Turczańskie",
@@ -383,6 +1141,24 @@
         "coordinates": [
           22.5340822,
           49.4899248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849524,
+        "osm_type": "node",
+        "name": "Góry Świętokrzyskie",
+        "name_de": "Heiligkreuzgebirge",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.973377,
+          50.8760293
         ]
       }
     },
@@ -437,6 +1213,42 @@
         "coordinates": [
           14.1052103,
           50.9732949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9535666144,
+        "osm_type": "node",
+        "name": "Harmaci-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2096536,
+          48.2560031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8999625090,
+        "osm_type": "node",
+        "name": "Hegy-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3799894,
+          46.8985166
         ]
       }
     },
@@ -533,6 +1345,43 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9870726531,
+        "osm_type": "node",
+        "name": "Il Vallone",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9299868,
+          46.0497434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7810009992,
+        "osm_type": "node",
+        "name": "Jar Zrębiska",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 590
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.314648,
+          49.4021739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 5869024942,
         "osm_type": "node",
         "name": "János-völgy",
@@ -587,6 +1436,42 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9950803473,
+        "osm_type": "node",
+        "name": "Kocioł Zmarzłego Stawu",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.0219199,
+          49.2238903
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8297653940,
+        "osm_type": "node",
+        "name": "Korytnisko",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.613974,
+          47.8629476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7765582713,
         "osm_type": "node",
         "name": "Kotelnice",
@@ -599,6 +1484,96 @@
         "coordinates": [
           23.1427063,
           50.4897855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11331905056,
+        "osm_type": "node",
+        "name": "Kotlinka pod Snehovým štítom",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1890722,
+          49.2037472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8300881050,
+        "osm_type": "node",
+        "name": "Kravianska dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2565462,
+          49.0231722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1468247094,
+        "osm_type": "node",
+        "name": "Krčnik",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.529692,
+          46.0389824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5871734799,
+        "osm_type": "node",
+        "name": "Körte-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3422534,
+          48.109115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8297617953,
+        "osm_type": "node",
+        "name": "Lelovská dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4880024,
+          48.6994926
         ]
       }
     },
@@ -623,6 +1598,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 8297537808,
+        "osm_type": "node",
+        "name": "Lungárová",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0817244,
+          48.7759275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8044186559,
         "osm_type": "node",
         "name": "Macskaluka-árok",
@@ -635,6 +1628,42 @@
         "coordinates": [
           17.499866,
           46.9550438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3496968304,
+        "osm_type": "node",
+        "name": "Madonna de la Boca de la Val",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.999485,
+          45.9737373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11225309352,
+        "osm_type": "node",
+        "name": "Mala Kapela",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.3833333,
+          44.8333333
         ]
       }
     },
@@ -659,6 +1688,25 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7809922407,
+        "osm_type": "node",
+        "name": "Marczowa Dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 561
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2847956,
+          49.3825171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 13027262322,
         "osm_type": "node",
         "name": "Masleni Do",
@@ -677,6 +1725,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7848661405,
+        "osm_type": "node",
+        "name": "Maćkowa Dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1176874,
+          49.3263481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11226418718,
         "osm_type": "node",
         "name": "Metaliferi Mountains",
@@ -689,6 +1755,98 @@
         "coordinates": [
           23.1666667,
           46.1166667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7809493321,
+        "osm_type": "node",
+        "name": "Międzygóry",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 598
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2393708,
+          49.402201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10892943776,
+        "osm_type": "node",
+        "name": "Miškotov dol",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9431546,
+          45.6048919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13464767802,
+        "osm_type": "node",
+        "name": "Monte di Ruint",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0694576,
+          46.2898248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6725269659,
+        "osm_type": "node",
+        "name": "Mosch",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6151911,
+          46.710405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7809894120,
+        "osm_type": "node",
+        "name": "Mrówczany Potoczek",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 606
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.2623242,
+          49.3838876
         ]
       }
     },
@@ -767,6 +1925,42 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 5871734807,
+        "osm_type": "node",
+        "name": "Nagy-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.35253,
+          48.1182526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8990242556,
+        "osm_type": "node",
+        "name": "Nyúzó-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3103339,
+          46.879192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 9627262043,
         "osm_type": "node",
         "name": "Obszary",
@@ -803,28 +1997,27 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 7549338665,
+        "osm_id": 9658136997,
         "osm_type": "node",
-        "name": "Pasul Doamnei Mici (Mitoc)",
+        "name": "Pagóry Jaworznickie",
         "name_de": null,
-        "natural": "valley",
-        "place": null,
-        "ele": 1130
+        "natural": "mountain_range",
+        "place": null
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          26.103948,
-          47.1207199
+          19.265911,
+          50.1661446
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 12486011656,
+        "osm_id": 13464877510,
         "osm_type": "node",
-        "name": "Preluca la Groapa lui Niță",
+        "name": "Parz",
         "name_de": null,
         "natural": "valley",
         "place": null
@@ -832,17 +2025,35 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          25.8371349,
-          47.1774427
+          13.067173,
+          46.291721
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 12486011654,
+        "osm_id": 7475849534,
         "osm_type": "node",
-        "name": "Preluca lui Ion a lui GG",
+        "name": "Pieniny",
+        "name_de": "Pieninen",
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.4162874,
+          49.4135596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13451365867,
+        "osm_type": "node",
+        "name": "Pomolars",
         "name_de": null,
         "natural": "valley",
         "place": null
@@ -850,8 +2061,80 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          25.8402624,
-          47.1830546
+          13.0255347,
+          46.3551857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13451365851,
+        "osm_type": "node",
+        "name": "Pradis",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0776601,
+          46.3508962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8300881115,
+        "osm_type": "node",
+        "name": "Prchútka",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.5842833,
+          48.7945287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11235218669,
+        "osm_type": "node",
+        "name": "Prealpi Lombarde",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6757813,
+          46.0381456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11225257293,
+        "osm_type": "node",
+        "name": "Prealpi Venete",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5,
+          46.1666667
         ]
       }
     },
@@ -876,9 +2159,9 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 12663096040,
+        "osm_id": 3911372239,
         "osm_type": "node",
-        "name": "Rapa lu' Costache",
+        "name": "Przełom Tylmanowski",
         "name_de": null,
         "natural": "valley",
         "place": null
@@ -886,8 +2169,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          26.8124506,
-          47.1105042
+          20.4342366,
+          49.4758152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7464557866,
+        "osm_type": "node",
+        "name": "Ramino korito",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2092078,
+          44.4802553
         ]
       }
     },
@@ -948,6 +2249,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7464557865,
+        "osm_type": "node",
+        "name": "Ružne drage",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2274145,
+          44.4862715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 12597869824,
         "osm_type": "node",
         "name": "Rygołtowe Doły",
@@ -984,18 +2303,18 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 13033590881,
+        "osm_id": 5834428385,
         "osm_type": "node",
-        "name": "Râpa Nămălvii",
+        "name": "Rätische Alpen",
         "name_de": null,
-        "natural": "valley",
+        "natural": "mountain_range",
         "place": null
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          28.746323,
-          47.9617383
+          9.85,
+          46.625
         ]
       }
     },
@@ -1032,6 +2351,24 @@
         "coordinates": [
           22.8387253,
           51.0045057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9103782636,
+        "osm_type": "node",
+        "name": "Saldarella",
+        "name_de": null,
+        "natural": "valley",
+        "place": "isolated_dwelling"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0495731,
+          44.4632132
         ]
       }
     },
@@ -1111,6 +2448,43 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9890114509,
+        "osm_type": "node",
+        "name": "Sittmooser Graben",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9138303,
+          46.6452494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7811673783,
+        "osm_type": "node",
+        "name": "Snajgrąd",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 571
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3018319,
+          49.3841277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3890303250,
         "osm_type": "node",
         "name": "Spitzgrund",
@@ -1142,6 +2516,97 @@
         "coordinates": [
           22.5396577,
           49.0738195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295921928,
+        "osm_type": "node",
+        "name": "Strašná dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5540096,
+          48.8439531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295921930,
+        "osm_type": "node",
+        "name": "Suchá dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4037914,
+          48.7865612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7810008377,
+        "osm_type": "node",
+        "name": "Szabin",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 604
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3185987,
+          49.3943522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12787009307,
+        "osm_type": "node",
+        "name": "Szaká-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3982539,
+          46.8993203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7961717945,
+        "osm_type": "node",
+        "name": "Szila-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1333529,
+          47.7143532
         ]
       }
     },
@@ -1184,6 +2649,78 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9066918768,
+        "osm_type": "node",
+        "name": "Szőlőhegy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.5712865,
+          46.6898932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5871734803,
+        "osm_type": "node",
+        "name": "Sűrű-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3578457,
+          48.0988494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7475849535,
+        "osm_type": "node",
+        "name": "Tatry",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.93595,
+          49.2401648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6725269664,
+        "osm_type": "node",
+        "name": "Tealf",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6168112,
+          46.7248956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 473430400,
         "osm_type": "node",
         "name": "Tiefes Loch",
@@ -1202,19 +2739,649 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 12486011553,
+        "osm_id": 13042701750,
         "osm_type": "node",
-        "name": "Trecătoarea Sasului",
+        "name": "Tiesňava Bránka",
         "name_de": null,
         "natural": "valley",
-        "place": null,
-        "ele": 1015
+        "place": "locality"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          25.8953913,
-          47.2273147
+          20.1672576,
+          49.2386534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10208043937,
+        "osm_type": "node",
+        "name": "Tiha dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1596
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5265222,
+          46.3004116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9707850617,
+        "osm_type": "node",
+        "name": "Tres de Cavort",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8625396,
+          46.0680104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12787009306,
+        "osm_type": "node",
+        "name": "Tótik-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4085665,
+          46.9011146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663181,
+        "osm_type": "node",
+        "name": "Val Beghèra",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7613493,
+          46.0207238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9885344884,
+        "osm_type": "node",
+        "name": "Val Carbonaia",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8448221,
+          45.9758621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9986203211,
+        "osm_type": "node",
+        "name": "Val Cornin",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2365305,
+          46.2701963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663314,
+        "osm_type": "node",
+        "name": "Val Covola",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9337632,
+          46.0824208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130238,
+        "osm_type": "node",
+        "name": "Val Doro",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5074315,
+          45.7532622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663340,
+        "osm_type": "node",
+        "name": "Val Fallonega",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.882974,
+          46.0824734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10021324193,
+        "osm_type": "node",
+        "name": "Val Guinzana",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1591904,
+          46.3198984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9911673236,
+        "osm_type": "node",
+        "name": "Val Igola",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7707864,
+          46.061426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9921915807,
+        "osm_type": "node",
+        "name": "Val Lavello",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7524752,
+          45.9098033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6725246434,
+        "osm_type": "node",
+        "name": "Val Lunga",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.69599,
+          46.5858687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910387164,
+        "osm_type": "node",
+        "name": "Val Madonna",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8144103,
+          46.0452471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9908441510,
+        "osm_type": "node",
+        "name": "Val Masiéra",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8229384,
+          46.073173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10003781199,
+        "osm_type": "node",
+        "name": "Val Mozzana",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.215926,
+          46.3096666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9970552022,
+        "osm_type": "node",
+        "name": "Val Nuvola",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6919677,
+          46.0792425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3686116668,
+        "osm_type": "node",
+        "name": "Val Paghera",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.406547,
+          46.2184509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9911673244,
+        "osm_type": "node",
+        "name": "Val Rosna",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7755021,
+          46.0851831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11581885084,
+        "osm_type": "node",
+        "name": "Val Sanguinera",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4459583,
+          45.8817204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7177739765,
+        "osm_type": "node",
+        "name": "Val Sigolara",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2298683,
+          45.6718525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12296326133,
+        "osm_type": "node",
+        "name": "Val Vaccara",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4882115,
+          45.760296
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663186,
+        "osm_type": "node",
+        "name": "Val d'Arnaut",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9248423,
+          46.0708819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6725246435,
+        "osm_type": "node",
+        "name": "Val d'Err",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6854113,
+          46.5796745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9758377669,
+        "osm_type": "node",
+        "name": "Val dal Rossat",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7627229,
+          46.1031417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910387113,
+        "osm_type": "node",
+        "name": "Val de Faont",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8748363,
+          46.0576547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9924361141,
+        "osm_type": "node",
+        "name": "Val de Sossalf",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1819377,
+          46.3689369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9924361137,
+        "osm_type": "node",
+        "name": "Val de Sotandre",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1734894,
+          46.3601841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7173804214,
+        "osm_type": "node",
+        "name": "Val de Staffol",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9455367,
+          46.0258565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9927535149,
+        "osm_type": "node",
+        "name": "Val de le Andre",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1920442,
+          46.3703992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2891621536,
+        "osm_type": "node",
+        "name": "Val dell'Asino",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3403533,
+          45.6773591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10021368650,
+        "osm_type": "node",
+        "name": "Val di Pedruna",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1408365,
+          46.3268015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 915624685,
+        "osm_type": "node",
+        "name": "Val di Tovo",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3022511,
+          45.8270368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6725269663,
+        "osm_type": "node",
+        "name": "Val digl Guert",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6255874,
+          46.7186291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11487086749,
+        "osm_type": "node",
+        "name": "Valbelluna",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0788234,
+          46.107178
         ]
       }
     },
@@ -1233,6 +3400,24 @@
         "coordinates": [
           22.422303,
           44.8737237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910371283,
+        "osm_type": "node",
+        "name": "Valdàca",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8952226,
+          46.0480433
         ]
       }
     },
@@ -1473,6 +3658,762 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7177739766,
+        "osm_type": "node",
+        "name": "Vallarga",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2378913,
+          45.6775607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130291,
+        "osm_type": "node",
+        "name": "Valle Albanigo",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.472467,
+          45.7345716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130249,
+        "osm_type": "node",
+        "name": "Valle Becco",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4861051,
+          45.7593114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913138835,
+        "osm_type": "node",
+        "name": "Valle Castello",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.462291,
+          45.7482471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4857720929,
+        "osm_type": "node",
+        "name": "Valle Costlas",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.627143,
+          46.132322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130250,
+        "osm_type": "node",
+        "name": "Valle Dagani",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.477472,
+          45.7588254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10695175186,
+        "osm_type": "node",
+        "name": "Valle Feltrina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9295622,
+          45.9765843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4859060921,
+        "osm_type": "node",
+        "name": "Valle Globoscian",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.631431,
+          46.13738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130299,
+        "osm_type": "node",
+        "name": "Valle Grossa",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4934878,
+          45.7458863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130304,
+        "osm_type": "node",
+        "name": "Valle Grossa",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5068873,
+          45.7387317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913138809,
+        "osm_type": "node",
+        "name": "Valle Grossa",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5124754,
+          45.7343876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130244,
+        "osm_type": "node",
+        "name": "Valle Magan Nord",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4986126,
+          45.7623295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130243,
+        "osm_type": "node",
+        "name": "Valle Magan Sud",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5026109,
+          45.7595149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10242044715,
+        "osm_type": "node",
+        "name": "Valle Mille Campi",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1833229,
+          45.276789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130248,
+        "osm_type": "node",
+        "name": "Valle Murisa",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4952297,
+          45.756707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10914200607,
+        "osm_type": "node",
+        "name": "Valle Nord del Lago di Spèccheri",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1502378,
+          45.7664381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4857720930,
+        "osm_type": "node",
+        "name": "Valle Potpuoie",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.620354,
+          46.129764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130242,
+        "osm_type": "node",
+        "name": "Valle Pralunghi",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5064546,
+          45.7576488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913138810,
+        "osm_type": "node",
+        "name": "Valle Riale",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5188462,
+          45.7387559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130287,
+        "osm_type": "node",
+        "name": "Valle Rozzola",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4738405,
+          45.762839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130288,
+        "osm_type": "node",
+        "name": "Valle Rozzola",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4682456,
+          45.7604622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130298,
+        "osm_type": "node",
+        "name": "Valle Sant'Andrea",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4912967,
+          45.7420855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130300,
+        "osm_type": "node",
+        "name": "Valle Scheferla",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4825698,
+          45.7476964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10914200608,
+        "osm_type": "node",
+        "name": "Valle Sud del Lago di Spèccheri",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1496175,
+          45.764279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130241,
+        "osm_type": "node",
+        "name": "Valle Vallona",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5165473,
+          45.7445577
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10915694497,
+        "osm_type": "node",
+        "name": "Valle Venier",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.3020895,
+          45.0692896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913138805,
+        "osm_type": "node",
+        "name": "Valle del Bizzo",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5093066,
+          45.7409334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130296,
+        "osm_type": "node",
+        "name": "Valle del Pra' Grande",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4759359,
+          45.7445666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10695175183,
+        "osm_type": "node",
+        "name": "Valle del Sabbione",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9311059,
+          45.9817714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10914133803,
+        "osm_type": "node",
+        "name": "Valle dell'Erbizo",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.551072,
+          45.6621347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913138811,
+        "osm_type": "node",
+        "name": "Valle della Corniola",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4914661,
+          45.7319022
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7236670342,
+        "osm_type": "node",
+        "name": "Valle delle Anguane",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.600729,
+          45.7790452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7236670373,
+        "osm_type": "node",
+        "name": "Valle delle Anguane",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6015525,
+          45.7771719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10913130303,
+        "osm_type": "node",
+        "name": "Valle delle Coste",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5040048,
+          45.7426185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3956301153,
+        "osm_type": "node",
+        "name": "Valle delle Zolle",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3100315,
+          45.8562193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11156960339,
+        "osm_type": "node",
+        "name": "Valle di Astino",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6381373,
+          45.7057314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9910663307,
+        "osm_type": "node",
+        "name": "Valle di San Mauro",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9181678,
+          46.0846859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10695175184,
+        "osm_type": "node",
+        "name": "Valle di Scheng",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9362177,
+          45.9829372
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9876608610,
+        "osm_type": "node",
+        "name": "Valsorda",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8891582,
+          46.0740295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4123948872,
+        "osm_type": "node",
+        "name": "Vant della Moiazza",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0642519,
+          46.3362165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4123948873,
+        "osm_type": "node",
+        "name": "Vant delle Nevere",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0548749,
+          46.3423664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11225309351,
+        "osm_type": "node",
+        "name": "Velika Kapela",
+        "name_de": null,
+        "natural": "mountain_range",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.0,
+          45.1666667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8814235619,
         "osm_type": "node",
         "name": "Veliki Šantić",
@@ -1485,6 +4426,42 @@
         "coordinates": [
           17.6153339,
           44.3192758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5871734798,
+        "osm_type": "node",
+        "name": "Velyva-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.3246368,
+          48.133364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8300829000,
+        "osm_type": "node",
+        "name": "Vlčia dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.0088224,
+          49.0499317
         ]
       }
     },
@@ -1581,6 +4558,60 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 8300858291,
+        "osm_type": "node",
+        "name": "Zbyňovská dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7419392,
+          49.071665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13136761745,
+        "osm_type": "node",
+        "name": "Zeleni vir",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.3178318,
+          45.7281266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8295891465,
+        "osm_type": "node",
+        "name": "Zliechovská dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4591948,
+          48.9161304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7804089464,
         "osm_type": "node",
         "name": "Zvijezda",
@@ -1599,6 +4630,24 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 8295922089,
+        "osm_type": "node",
+        "name": "Záhonová dolina",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6410546,
+          48.9000417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 5324962825,
         "osm_type": "node",
         "name": "Ördögtorok",
@@ -1611,6 +4660,24 @@
         "coordinates": [
           17.7747231,
           46.9332542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8990242555,
+        "osm_type": "node",
+        "name": "Úr-erdei-völgy",
+        "name_de": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3090464,
+          46.8849999
         ]
       }
     },
@@ -2357,24 +5424,6 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 4146192413,
-        "osm_type": "node",
-        "name": "Вітовта або Вітькова долина",
-        "name_de": null,
-        "natural": "valley",
-        "place": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          26.2519176,
-          49.4244431
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": 7556596361,
         "osm_type": "node",
         "name": "Гајева планина",
@@ -2603,24 +5652,6 @@
         "coordinates": [
           22.216839,
           44.2208719
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": 6603724711,
-        "osm_type": "node",
-        "name": "Долина Предків",
-        "name_de": null,
-        "natural": "valley",
-        "place": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          28.6091855,
-          50.586103
         ]
       }
     },
@@ -3107,24 +6138,6 @@
         "coordinates": [
           24.612182,
           43.3950611
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": 12628114764,
-        "osm_type": "node",
-        "name": "Нагорянський каньйон",
-        "name_de": null,
-        "natural": "valley",
-        "place": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          26.0905163,
-          50.5075188
         ]
       }
     },
