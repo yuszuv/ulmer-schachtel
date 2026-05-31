@@ -11,6 +11,7 @@ dependencies = [
 reiseplan-cli        = "reiseplan.cli:main"
 reiseplan-fetch      = "reiseplan.ingest:main"
 reiseplan-wikivoyage = "reiseplan.wikivoyage:main"
+reiseplan-natural    = "reiseplan.fetch_natural:main"
 reiseplan-site       = "reiseplan.web:main"
 
 [dependency-groups]
