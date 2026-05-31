@@ -31,5 +31,6 @@ site/
 # This keeps qgis/ a pure source folder (reiseplan.qgz, styles/, …) and makes
 # an accidentally placed export immediately visible in 'git status'.
 
-# OSM raw cache (regenerate via tools/fetch_cfr_data.py)
-data/raw/osm_ro_stations.json
+# OSM raw caches (regenerate via `uv run reiseplan-fetch` / `reiseplan-cli
+# fetch-wikivoyage`): stations, rail-track geometry, cities. README.md stays.
+data/raw/osm_ro_*.json

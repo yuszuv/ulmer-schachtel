@@ -39,8 +39,9 @@ from pathlib import Path
 
 from .catalog import MAIN_LINES
 from .domain import TIMETABLE_FIELDS, Coordinate, Magistrale, Stop
-from .overpass import StationIndex, load_or_fetch
+from .overpass import StationIndex, load_or_fetch, load_or_fetch_rail
 from .paths import ROOT
+from .routing import RailNetwork
 from .repository import (
     ROUTE_STOPS_PATH,
     STATIONS_PATH,
@@ -53,19 +54,45 @@ from .repository import (
 # of this use-case (other modules read it via repository.ROUTES_PATH).
 LINES_OUT = ROOT / "data" / "processed" / "rail_lines.geojson"
 
+# Padding (degrees) around a magistrală's stations → the Overpass corridor bbox
+# from which its rail-track geometry is fetched.
+_CORRIDOR_BUFFER_DEG = 0.25
+
 
 # ---------------------------------------------------------------------------
 # Output builder
 # ---------------------------------------------------------------------------
 
-def _build_outputs(index: StationIndex) -> None:
+def _corridors(
+    index: StationIndex, magistrales: tuple[Magistrale, ...]
+) -> dict[str, tuple[float, float, float, float]]:
+    """Bounding box (south, west, north, east) per magistrală from its stations.
+
+    Buffered by _CORRIDOR_BUFFER_DEG so the rail-ways query around the straight
+    station chain also captures the real (curving) alignment between them.
+    """
+    out: dict[str, tuple[float, float, float, float]] = {}
+    for mag in magistrales:
+        coords = [index.resolve(s).unwrap() for s in mag.stops if index.resolve(s).is_some]
+        if len(coords) < 2:
+            continue
+        lons = [c.lon for c in coords]
+        lats = [c.lat for c in coords]
+        b = _CORRIDOR_BUFFER_DEG
+        out[mag.ref] = (min(lats) - b, min(lons) - b, max(lats) + b, max(lons) + b)
+    return out
+
+
+def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
     """Translate the station index + catalog into GeoJSON / CSV outputs.
 
     Steps:
     1. For each magistrală in MAIN_LINES, resolve stops via StationIndex.
     2. Assign stable station IDs (ST01, ST02, …) per canonical name.
-    3. Merge timetable.csv connection fields into the LineString properties.
-    4. Write rail_stations.geojson, rail_lines.geojson, route_stops.csv.
+    3. Route the stop sequence along the real OSM tracks (``RailNetwork`` built
+       from ``rail_data[ref]``) → the LineString geometry; tag ``geom_source``.
+    4. Merge timetable.csv connection fields into the LineString properties.
+    5. Write rail_stations.geojson, rail_lines.geojson, route_stops.csv.
     """
     timetable = TimetableRepository().load()
     station_ids: dict[str, str] = {}          # canonical name → ST-ID
@@ -73,6 +100,7 @@ def _build_outputs(index: StationIndex) -> None:
     route_features: list[dict] = []
     stop_rows: list[dict] = []
     missing: list[str] = []
+    straight_fallback: list[str] = []          # magistralen with a routing gap
 
     def _station_id(stop: Stop, coord: Coordinate) -> str:
         if stop.name not in station_ids:
@@ -121,6 +149,13 @@ def _build_outputs(index: StationIndex) -> None:
                 "trip_hint": hint,
             })
 
+        # Route the stop sequence along the real OSM tracks (falls back to a
+        # straight line per leg only where the rail graph has a gap).
+        network = RailNetwork.from_overpass(rail_data.get(mag.ref, {}))
+        line_coords, routed = network.route_stops([coord for _, coord in resolved])
+        if not routed:
+            straight_fallback.append(mag.ref)
+
         # Merge hand-maintained connection data (1:1 per magistrală via route_id).
         conn = timetable.get(mag.ref)
         timetable_props = conn.geojson_fields() if conn else {f: "" for f in TIMETABLE_FIELDS}
@@ -135,11 +170,12 @@ def _build_outputs(index: StationIndex) -> None:
                 "tags": mag.tags,
                 "line_ref": mag.ref,
                 "length_km": mag.length_km,
+                "geom_source": "osm-routed" if routed else "fallback-straight",
                 **timetable_props,
             },
             "geometry": {
                 "type": "LineString",
-                "coordinates": [coord.as_list() for _, coord in resolved],
+                "coordinates": [c.as_list() for c in line_coords],
             },
         })
 
@@ -162,6 +198,9 @@ def _build_outputs(index: StationIndex) -> None:
         print("  ! nicht aufgelöst (in Geometrie ausgelassen):")
         for item in missing:
             print(f"      - {item}")
+    if straight_fallback:
+        print("  ! Gleis-Routing-Lücke – Luftlinie als Fallback für: "
+              + ", ".join(straight_fallback))
 
 
 # ---------------------------------------------------------------------------
@@ -187,7 +226,13 @@ def main() -> None:
 
     # scaffold() is a no-op when timetable.csv already exists.
     TimetableRepository().scaffold(MAIN_LINES)
-    _build_outputs(index)
+
+    # Fetch real track geometry per corridor (bbox from the resolved stations),
+    # then build the routed line geometry. --offline rebuilds from the cache.
+    corridors = _corridors(index, MAIN_LINES)
+    rail_data = load_or_fetch_rail(args.offline, corridors).unwrap_or_exit()
+
+    _build_outputs(index, rail_data)
     print("[fertig]  GPKG erneuern? → uv run reiseplan-cli build-gpkg")
 
 

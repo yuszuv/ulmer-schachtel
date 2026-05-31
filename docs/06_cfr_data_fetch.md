@@ -101,8 +101,8 @@ flowchart TD
 
 | Source | Content | Licence |
 |---|---|---|
-| OpenStreetMap via Overpass API | Geometry and names of all named rail stops in Romania | **ODbL 1.0** |
-| Wikipedia / CFR line definition | Route alignment and official line lengths (M200–M900) | — |
+| OpenStreetMap via Overpass API | Names/coordinates of all named rail stops **and** the `railway=rail` track geometry per corridor | **ODbL 1.0** |
+| Wikipedia / CFR line definition | Stop sequence and official line lengths (M200–M900) | — |
 | `timetable.csv` | Connection data (hand-maintained from infofer.ro) | — |
 
 > **ODbL requirement:** When distributing derived data (GeoJSON, CSV, GPKG,
@@ -310,8 +310,12 @@ GeoJSON `FeatureCollection`, geometry type `Point`.
 
 ### `data/processed/rail_lines.geojson`
 
-GeoJSON `FeatureCollection`, geometry type `LineString`
-(vertices = resolved stops in sequence order).
+GeoJSON `FeatureCollection`, geometry type `LineString`. The vertices follow the
+**real OSM track alignment**: the stop sequence is routed along the
+`railway=rail` graph (`RailNetwork`, shortest path between consecutive stops), so
+the line curves through the valleys instead of cutting straight between stations.
+Where the rail graph has a gap, that one leg falls back to a straight line and the
+feature is tagged `geom_source = "fallback-straight"` (see below).
 
 | Field | Type | Description |
 |---|---|---|
@@ -322,6 +326,7 @@ GeoJSON `FeatureCollection`, geometry type `LineString`
 | `tags` | String | Comma-separated topic tags |
 | `line_ref` | String | Same as `route_id` |
 | `length_km` | Integer | Official line length (Wikipedia) |
+| `geom_source` | String | `osm-routed` (track-following) or `fallback-straight` (a leg hit a graph gap) |
 | `days` | String | e.g. `täglich` (from `timetable.csv`, empty until entered) |
 | `dep_time` | String | Departure time `HH:MM` |
 | `arr_time` | String | Arrival time `HH:MM` |
@@ -347,6 +352,14 @@ Stop sequences per magistrală, one row per stop. No time columns — for times 
 
 Raw cache of the Overpass response. Not versioned (`.gitignore`), overwritten on
 each online run. Enables `--offline` operation without a new network request.
+
+### `data/raw/osm_ro_rail_ways.json`
+
+Raw cache of the per-corridor `railway=rail` geometry queries, keyed by magistrală
+ref (`{"M200": {…overpass…}, …}`). One Overpass request per corridor (the bounding
+box of that line's stations, buffered ~0.25°), with a short pause between them.
+Not versioned (`.gitignore`), overwritten on each online run; `--offline` rebuilds
+the routed geometry from it without the network.
 
 ---
 
