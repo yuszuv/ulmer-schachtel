@@ -137,6 +137,22 @@ uv run reiseplan-fetch            # query OSM, cache, build GeoJSON
 uv run reiseplan-fetch --offline  # rebuild from data/raw cache only
 ```
 
+**Natural features** (mountain ridges for curved atlas-style labels, peaks with
+elevation, landscape label anchors) are fetched separately via a tiled Overpass
+strategy:
+
+```bash
+uv run reiseplan-natural                 # fetch online → data/processed/
+uv run reiseplan-natural --offline       # rebuild from data/raw/osm_natural_features.json
+uv run reiseplan-natural --min-ele 2000  # raise peak elevation threshold
+```
+
+Output: `natural_ridges.geojson` (LineString, for QGIS *Curved* label placement),
+`mountain_peaks.geojson` (Point, spot-height style), `landscape_labels.geojson`
+(Point, spaced labels). The iconic range names (Karpaten, Alpen, Siebenbürgen)
+are stored as OSM relations and need hand-drawn label lines in QGIS — see
+[docs/09_natural_features.md](docs/09_natural_features.md).
+
 > Map data © **OpenStreetMap contributors**, licensed under the
 > [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
 > This attribution must be included when redistributing derived data.
@@ -161,4 +177,5 @@ How the Overpass query works and how to customise it:
 - Online map / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
 - Overpass 101 (rail data from OSM): [docs/05_overpass_101.md](docs/05_overpass_101.md)
 - CFR fetch process and data flow: [docs/06_cfr_data_fetch.md](docs/06_cfr_data_fetch.md)
+- Natural features (Gebirge & Landschaftszüge): [docs/09_natural_features.md](docs/09_natural_features.md)
 - Fancy style TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)
