@@ -15,6 +15,8 @@
         "osm_type": "node",
         "name": "Almgrund",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -33,6 +35,8 @@
         "osm_type": "node",
         "name": "Almásvölgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -51,6 +55,8 @@
         "osm_type": "node",
         "name": "Alp Manuir",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -69,6 +75,8 @@
         "osm_type": "node",
         "name": "Alsó-Andocsi-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -86,7 +94,9 @@
         "osm_id": 11226418716,
         "osm_type": "node",
         "name": "Apuseni Mountains",
-        "name_de": null,
+        "name_de": "Apuseni-Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q285425",
         "natural": "mountain_range",
         "place": null
       },
@@ -105,6 +115,8 @@
         "osm_type": "node",
         "name": "Bagolyvölgyi-árok",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -122,7 +134,9 @@
         "osm_id": 11226411299,
         "osm_type": "node",
         "name": "Banat Mountains",
-        "name_de": null,
+        "name_de": "Banater Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q252546",
         "natural": "mountain_range",
         "place": null
       },
@@ -141,6 +155,8 @@
         "osm_type": "node",
         "name": "Banská Dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -159,6 +175,8 @@
         "osm_type": "node",
         "name": "Behulová",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -177,6 +195,8 @@
         "osm_type": "node",
         "name": "Beskid Makowski",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6740528",
         "natural": "mountain_range",
         "place": null
       },
@@ -194,7 +214,9 @@
         "osm_id": 7475849528,
         "osm_type": "node",
         "name": "Beskid Mały",
-        "name_de": null,
+        "name_de": "Kleine Beskiden",
+        "name_de_src": "wikidata",
+        "wikidata": "Q6649083",
         "natural": "mountain_range",
         "place": null
       },
@@ -212,7 +234,9 @@
         "osm_id": 7475849538,
         "osm_type": "node",
         "name": "Beskid Sądecki",
-        "name_de": null,
+        "name_de": "Sandezer Beskiden",
+        "name_de_src": "wikidata",
+        "wikidata": "Q9169579",
         "natural": "mountain_range",
         "place": null
       },
@@ -230,7 +254,9 @@
         "osm_id": 7475849520,
         "osm_type": "node",
         "name": "Beskid Wyspowy",
-        "name_de": null,
+        "name_de": "Inselbeskiden",
+        "name_de_src": "wikidata",
+        "wikidata": "Q6083026",
         "natural": "mountain_range",
         "place": null
       },
@@ -248,7 +274,9 @@
         "osm_id": 7475849544,
         "osm_type": "node",
         "name": "Beskid Śląski",
-        "name_de": null,
+        "name_de": "Schlesische Beskiden",
+        "name_de_src": "wikidata",
+        "wikidata": "Q633849",
         "natural": "mountain_range",
         "place": null
       },
@@ -266,7 +294,9 @@
         "osm_id": 7475849529,
         "osm_type": "node",
         "name": "Beskid Żywiecki",
-        "name_de": null,
+        "name_de": "Saybuscher Beskiden",
+        "name_de_src": "wikidata",
+        "wikidata": "Q2982654",
         "natural": "mountain_range",
         "place": null
       },
@@ -285,6 +315,8 @@
         "osm_type": "node",
         "name": "Bieszczady",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q125529",
         "natural": "mountain_range",
         "place": null
       },
@@ -302,7 +334,9 @@
         "osm_id": 11226418717,
         "osm_type": "node",
         "name": "Bihor Mountains",
-        "name_de": null,
+        "name_de": "Bihor-Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q794778",
         "natural": "mountain_range",
         "place": null
       },
@@ -320,7 +354,9 @@
         "osm_id": 7938610798,
         "osm_type": "node",
         "name": "Biokovo",
-        "name_de": null,
+        "name_de": "Biokovo-Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q864456",
         "natural": "mountain_range",
         "place": null
       },
@@ -339,6 +375,8 @@
         "osm_type": "node",
         "name": "Blatná dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -357,6 +395,8 @@
         "osm_type": "node",
         "name": "Boal Santo",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -375,6 +415,8 @@
         "osm_type": "node",
         "name": "Bodianska dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -393,6 +435,8 @@
         "osm_type": "node",
         "name": "Bova Bianca",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -411,6 +455,8 @@
         "osm_type": "node",
         "name": "Boàl di Vallorca",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -429,6 +475,8 @@
         "osm_type": "node",
         "name": "Bošácka dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12763411",
         "natural": "valley",
         "place": null
       },
@@ -447,6 +495,8 @@
         "osm_type": "node",
         "name": "Buco del Ciglione",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -465,6 +515,8 @@
         "osm_type": "node",
         "name": "Busa de Calgeroi",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -483,6 +535,8 @@
         "osm_type": "node",
         "name": "Busa di Cavaren",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": "locality"
       },
@@ -501,6 +555,8 @@
         "osm_type": "node",
         "name": "Busa di Monsampiano",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": "locality"
       },
@@ -519,6 +575,8 @@
         "osm_type": "node",
         "name": "Buse Larghe",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -537,6 +595,8 @@
         "osm_type": "node",
         "name": "Butik-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -555,6 +615,8 @@
         "osm_type": "node",
         "name": "Cenglas",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -573,6 +635,8 @@
         "osm_type": "node",
         "name": "Cheile Runcului",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -591,6 +655,8 @@
         "osm_type": "node",
         "name": "Cigánka",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -609,6 +675,8 @@
         "osm_type": "node",
         "name": "Csalánvölgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -627,6 +695,8 @@
         "osm_type": "node",
         "name": "Csattogó-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -645,6 +715,8 @@
         "osm_type": "node",
         "name": "Dagostin",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -663,6 +735,8 @@
         "osm_type": "node",
         "name": "Der Tiefe Grund",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -680,7 +754,9 @@
         "osm_id": 5702783022,
         "osm_type": "node",
         "name": "Dinarsko gorje",
-        "name_de": null,
+        "name_de": "Dinarisches Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q189915",
         "natural": "mountain_range",
         "place": null
       },
@@ -699,6 +775,8 @@
         "osm_type": "node",
         "name": "Dlhé báne",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -717,6 +795,8 @@
         "osm_type": "node",
         "name": "Dol",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -735,6 +815,8 @@
         "osm_type": "node",
         "name": "Dolina Agatowa",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -753,6 +835,8 @@
         "osm_type": "node",
         "name": "Dolina Bobru",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -771,6 +855,8 @@
         "osm_type": "node",
         "name": "Dolina Bolechowicka",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q11694503",
         "natural": "valley",
         "place": null
       },
@@ -789,6 +875,8 @@
         "osm_type": "node",
         "name": "Dolina Cisterna",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -807,6 +895,8 @@
         "osm_type": "node",
         "name": "Dolina Kochłówki",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -825,6 +915,8 @@
         "osm_type": "node",
         "name": "Dolina Kotarnego",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 644
@@ -844,6 +936,8 @@
         "osm_type": "node",
         "name": "Dolina Widnicy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -862,6 +956,8 @@
         "osm_type": "node",
         "name": "Dolina Świerków",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -880,6 +976,8 @@
         "osm_type": "node",
         "name": "Dolinka Aleksandrowicka",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": "locality"
       },
@@ -898,6 +996,8 @@
         "osm_type": "node",
         "name": "Działki",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -916,6 +1016,8 @@
         "osm_type": "node",
         "name": "Eastern Alps",
         "name_de": "Ostalpen",
+        "name_de_src": "osm",
+        "wikidata": "Q63817",
         "natural": "mountain_range",
         "place": null
       },
@@ -934,6 +1036,8 @@
         "osm_type": "node",
         "name": "Egres-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -952,6 +1056,8 @@
         "osm_type": "node",
         "name": "Essacherrinne",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -970,6 +1076,8 @@
         "osm_type": "node",
         "name": "Felső-Andocsi-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -988,6 +1096,8 @@
         "osm_type": "node",
         "name": "Forra del Limarò/ Canyon del Limarò",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1006,6 +1116,8 @@
         "osm_type": "node",
         "name": "Forra del Presale",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 507
@@ -1025,6 +1137,8 @@
         "osm_type": "node",
         "name": "Fundul Cupașului",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1043,6 +1157,8 @@
         "osm_type": "node",
         "name": "Gorce",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q973504",
         "natural": "mountain_range",
         "place": null
       },
@@ -1061,6 +1177,8 @@
         "osm_type": "node",
         "name": "Gradowiec",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1079,6 +1197,8 @@
         "osm_type": "node",
         "name": "Grass de la Pala Alta",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1096,7 +1216,9 @@
         "osm_id": 7475849541,
         "osm_type": "node",
         "name": "Góry Kaczawskie",
-        "name_de": null,
+        "name_de": "Bober-Katzbach-Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q604327",
         "natural": "mountain_range",
         "place": null
       },
@@ -1115,6 +1237,8 @@
         "osm_type": "node",
         "name": "Góry Makowskie",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -1132,7 +1256,9 @@
         "osm_id": 7475849536,
         "osm_type": "node",
         "name": "Góry Sanocko-Turczańskie",
-        "name_de": null,
+        "name_de": "Sanok-Turkaer Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q4108349",
         "natural": "mountain_range",
         "place": null
       },
@@ -1151,6 +1277,8 @@
         "osm_type": "node",
         "name": "Góry Świętokrzyskie",
         "name_de": "Heiligkreuzgebirge",
+        "name_de_src": "osm",
+        "wikidata": "Q631059",
         "natural": "mountain_range",
         "place": null
       },
@@ -1169,6 +1297,8 @@
         "osm_type": "node",
         "name": "Gödör-ág",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1187,6 +1317,8 @@
         "osm_type": "node",
         "name": "Głębocznica",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1205,6 +1337,8 @@
         "osm_type": "node",
         "name": "Halbenloch",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1223,6 +1357,8 @@
         "osm_type": "node",
         "name": "Harmaci-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1241,6 +1377,8 @@
         "osm_type": "node",
         "name": "Hegy-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1258,7 +1396,9 @@
         "osm_id": 11225470653,
         "osm_type": "node",
         "name": "Hessisches Bergland",
-        "name_de": "Hessisches Bergland",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q1615967",
         "natural": "mountain_range",
         "place": null
       },
@@ -1277,6 +1417,8 @@
         "osm_type": "node",
         "name": "Holló-kúti-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1295,6 +1437,8 @@
         "osm_type": "node",
         "name": "Homok-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1313,6 +1457,8 @@
         "osm_type": "node",
         "name": "Hopfengrund",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": "locality"
       },
@@ -1331,6 +1477,8 @@
         "osm_type": "node",
         "name": "Horog-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1349,6 +1497,8 @@
         "osm_type": "node",
         "name": "Il Vallone",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1367,6 +1517,8 @@
         "osm_type": "node",
         "name": "Jar Zrębiska",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 590
@@ -1386,6 +1538,8 @@
         "osm_type": "node",
         "name": "János-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1404,6 +1558,8 @@
         "osm_type": "node",
         "name": "Kamienny Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1422,6 +1578,8 @@
         "osm_type": "node",
         "name": "Kobyli Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1440,6 +1598,8 @@
         "osm_type": "node",
         "name": "Kocioł Zmarzłego Stawu",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1458,6 +1618,8 @@
         "osm_type": "node",
         "name": "Korytnisko",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1476,6 +1638,8 @@
         "osm_type": "node",
         "name": "Kotelnice",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1494,6 +1658,8 @@
         "osm_type": "node",
         "name": "Kotlinka pod Snehovým štítom",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q25107879",
         "natural": "valley",
         "place": null
       },
@@ -1512,6 +1678,8 @@
         "osm_type": "node",
         "name": "Kravianska dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1530,6 +1698,8 @@
         "osm_type": "node",
         "name": "Krčnik",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1548,6 +1718,8 @@
         "osm_type": "node",
         "name": "Körte-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1566,6 +1738,8 @@
         "osm_type": "node",
         "name": "Lelovská dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1584,6 +1758,8 @@
         "osm_type": "node",
         "name": "Lenne Doły",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1602,6 +1778,8 @@
         "osm_type": "node",
         "name": "Lungárová",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1620,6 +1798,8 @@
         "osm_type": "node",
         "name": "Macskaluka-árok",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1638,6 +1818,8 @@
         "osm_type": "node",
         "name": "Madonna de la Boca de la Val",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1655,7 +1837,9 @@
         "osm_id": 11225309352,
         "osm_type": "node",
         "name": "Mala Kapela",
-        "name_de": null,
+        "name_de": "Kapela",
+        "name_de_src": "wikidata",
+        "wikidata": "Q2166811",
         "natural": "mountain_range",
         "place": null
       },
@@ -1674,6 +1858,8 @@
         "osm_type": "node",
         "name": "Malom-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1692,6 +1878,8 @@
         "osm_type": "node",
         "name": "Marczowa Dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 561
@@ -1711,6 +1899,8 @@
         "osm_type": "node",
         "name": "Masleni Do",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1729,6 +1919,8 @@
         "osm_type": "node",
         "name": "Maćkowa Dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1746,7 +1938,9 @@
         "osm_id": 11226418718,
         "osm_type": "node",
         "name": "Metaliferi Mountains",
-        "name_de": null,
+        "name_de": "Siebenbürgisches Erzgebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q635800",
         "natural": "mountain_range",
         "place": null
       },
@@ -1765,6 +1959,8 @@
         "osm_type": "node",
         "name": "Międzygóry",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 598
@@ -1784,6 +1980,8 @@
         "osm_type": "node",
         "name": "Miškotov dol",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1802,6 +2000,8 @@
         "osm_type": "node",
         "name": "Monte di Ruint",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1820,6 +2020,8 @@
         "osm_type": "node",
         "name": "Mosch",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1838,6 +2040,8 @@
         "osm_type": "node",
         "name": "Mrówczany Potoczek",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 606
@@ -1857,6 +2061,8 @@
         "osm_type": "node",
         "name": "Muntele Văii Negre",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -1875,6 +2081,8 @@
         "osm_type": "node",
         "name": "Munții Făgăraș",
         "name_de": "Fogarascher Gebirge",
+        "name_de_src": "osm",
+        "wikidata": "Q847604",
         "natural": "mountain_range",
         "place": null
       },
@@ -1893,6 +2101,8 @@
         "osm_type": "node",
         "name": "Munții Gutâi",
         "name_de": "Gutin-Gebirge",
+        "name_de_src": "osm",
+        "wikidata": "Q822198",
         "natural": "mountain_range",
         "place": null
       },
@@ -1911,6 +2121,8 @@
         "osm_type": "node",
         "name": "Mészvölgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1929,6 +2141,8 @@
         "osm_type": "node",
         "name": "Nagy-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1947,6 +2161,8 @@
         "osm_type": "node",
         "name": "Nyúzó-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1965,6 +2181,8 @@
         "osm_type": "node",
         "name": "Obszary",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -1983,6 +2201,8 @@
         "osm_type": "node",
         "name": "Odnuszka",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2001,6 +2221,8 @@
         "osm_type": "node",
         "name": "Pagóry Jaworznickie",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q11802199",
         "natural": "mountain_range",
         "place": null
       },
@@ -2019,6 +2241,8 @@
         "osm_type": "node",
         "name": "Parz",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2037,6 +2261,8 @@
         "osm_type": "node",
         "name": "Pieniny",
         "name_de": "Pieninen",
+        "name_de_src": "osm",
+        "wikidata": "Q677415",
         "natural": "mountain_range",
         "place": null
       },
@@ -2055,6 +2281,8 @@
         "osm_type": "node",
         "name": "Pomolars",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2073,6 +2301,8 @@
         "osm_type": "node",
         "name": "Pradis",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2091,6 +2321,8 @@
         "osm_type": "node",
         "name": "Prchútka",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2108,7 +2340,9 @@
         "osm_id": 11235218669,
         "osm_type": "node",
         "name": "Prealpi Lombarde",
-        "name_de": null,
+        "name_de": "Lombardische Voralpen",
+        "name_de_src": "wikidata",
+        "wikidata": "Q326872",
         "natural": "mountain_range",
         "place": null
       },
@@ -2126,7 +2360,9 @@
         "osm_id": 11225257293,
         "osm_type": "node",
         "name": "Prealpi Venete",
-        "name_de": null,
+        "name_de": "Venetische Voralpen",
+        "name_de_src": "wikidata",
+        "wikidata": "Q2643250",
         "natural": "mountain_range",
         "place": null
       },
@@ -2145,6 +2381,8 @@
         "osm_type": "node",
         "name": "Prießnitzdurchbruch",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2163,6 +2401,8 @@
         "osm_type": "node",
         "name": "Przełom Tylmanowski",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2181,6 +2421,8 @@
         "osm_type": "node",
         "name": "Ramino korito",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2199,6 +2441,8 @@
         "osm_type": "node",
         "name": "Ratzengrund",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2217,6 +2461,8 @@
         "osm_type": "node",
         "name": "Robogó-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2234,7 +2480,9 @@
         "osm_id": 11226655158,
         "osm_type": "node",
         "name": "Rodna Mountains",
-        "name_de": null,
+        "name_de": "Rodnaer Gebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q903484",
         "natural": "mountain_range",
         "place": null
       },
@@ -2253,6 +2501,8 @@
         "osm_type": "node",
         "name": "Ružne drage",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2271,6 +2521,8 @@
         "osm_type": "node",
         "name": "Rygołtowe Doły",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2289,6 +2541,8 @@
         "osm_type": "node",
         "name": "Râpa Groapa Largă",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2307,6 +2561,8 @@
         "osm_type": "node",
         "name": "Rätische Alpen",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q1277",
         "natural": "mountain_range",
         "place": null
       },
@@ -2325,6 +2581,8 @@
         "osm_type": "node",
         "name": "Rókás-árok",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2343,6 +2601,8 @@
         "osm_type": "node",
         "name": "Ręczyńskie Doły",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2361,6 +2621,8 @@
         "osm_type": "node",
         "name": "Saldarella",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": "isolated_dwelling"
       },
@@ -2379,6 +2641,8 @@
         "osm_type": "node",
         "name": "Saua Piatra Surducului",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 969
@@ -2398,6 +2662,8 @@
         "osm_type": "node",
         "name": "Sikorzany Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2416,6 +2682,8 @@
         "osm_type": "node",
         "name": "Sinjajevina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3047008",
         "natural": "mountain_range",
         "place": null
       },
@@ -2434,6 +2702,8 @@
         "osm_type": "node",
         "name": "Siske völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2452,6 +2722,8 @@
         "osm_type": "node",
         "name": "Sittmooser Graben",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2470,6 +2742,8 @@
         "osm_type": "node",
         "name": "Snajgrąd",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 571
@@ -2489,6 +2763,8 @@
         "osm_type": "node",
         "name": "Spitzgrund",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2507,6 +2783,8 @@
         "osm_type": "node",
         "name": "Stará železnica v Stužici",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 690
@@ -2526,6 +2804,8 @@
         "osm_type": "node",
         "name": "Strašná dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2544,6 +2824,8 @@
         "osm_type": "node",
         "name": "Suchá dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2562,6 +2844,8 @@
         "osm_type": "node",
         "name": "Szabin",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 604
@@ -2581,6 +2865,8 @@
         "osm_type": "node",
         "name": "Szaká-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2599,6 +2885,8 @@
         "osm_type": "node",
         "name": "Szila-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2617,6 +2905,8 @@
         "osm_type": "node",
         "name": "Szurdok-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2635,6 +2925,8 @@
         "osm_type": "node",
         "name": "Szöke kút völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2653,6 +2945,8 @@
         "osm_type": "node",
         "name": "Szőlőhegy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2671,6 +2965,8 @@
         "osm_type": "node",
         "name": "Sűrű-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2688,7 +2984,9 @@
         "osm_id": 7475849535,
         "osm_type": "node",
         "name": "Tatry",
-        "name_de": null,
+        "name_de": "Tatra",
+        "name_de_src": "wikidata",
+        "wikidata": "Q194263",
         "natural": "mountain_range",
         "place": null
       },
@@ -2707,6 +3005,8 @@
         "osm_type": "node",
         "name": "Tealf",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2725,6 +3025,8 @@
         "osm_type": "node",
         "name": "Tiefes Loch",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2743,6 +3045,8 @@
         "osm_type": "node",
         "name": "Tiesňava Bránka",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": "locality"
       },
@@ -2761,6 +3065,8 @@
         "osm_type": "node",
         "name": "Tiha dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 1596
@@ -2780,6 +3086,8 @@
         "osm_type": "node",
         "name": "Tres de Cavort",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2798,6 +3106,8 @@
         "osm_type": "node",
         "name": "Tótik-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2816,6 +3126,8 @@
         "osm_type": "node",
         "name": "Val Beghèra",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2834,6 +3146,8 @@
         "osm_type": "node",
         "name": "Val Carbonaia",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2852,6 +3166,8 @@
         "osm_type": "node",
         "name": "Val Cornin",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2870,6 +3186,8 @@
         "osm_type": "node",
         "name": "Val Covola",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2888,6 +3206,8 @@
         "osm_type": "node",
         "name": "Val Doro",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2906,6 +3226,8 @@
         "osm_type": "node",
         "name": "Val Fallonega",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2924,6 +3246,8 @@
         "osm_type": "node",
         "name": "Val Guinzana",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2942,6 +3266,8 @@
         "osm_type": "node",
         "name": "Val Igola",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2960,6 +3286,8 @@
         "osm_type": "node",
         "name": "Val Lavello",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2978,6 +3306,8 @@
         "osm_type": "node",
         "name": "Val Lunga",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -2996,6 +3326,8 @@
         "osm_type": "node",
         "name": "Val Madonna",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3014,6 +3346,8 @@
         "osm_type": "node",
         "name": "Val Masiéra",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3032,6 +3366,8 @@
         "osm_type": "node",
         "name": "Val Mozzana",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3050,6 +3386,8 @@
         "osm_type": "node",
         "name": "Val Nuvola",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3068,6 +3406,8 @@
         "osm_type": "node",
         "name": "Val Paghera",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q4007380",
         "natural": "valley",
         "place": null
       },
@@ -3086,6 +3426,8 @@
         "osm_type": "node",
         "name": "Val Rosna",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3104,6 +3446,8 @@
         "osm_type": "node",
         "name": "Val Sanguinera",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3122,6 +3466,8 @@
         "osm_type": "node",
         "name": "Val Sigolara",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3140,6 +3486,8 @@
         "osm_type": "node",
         "name": "Val Vaccara",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3158,6 +3506,8 @@
         "osm_type": "node",
         "name": "Val d'Arnaut",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3175,7 +3525,9 @@
         "osm_id": 6725246435,
         "osm_type": "node",
         "name": "Val d'Err",
-        "name_de": null,
+        "name_de": "Val d’Err",
+        "name_de_src": "wikidata",
+        "wikidata": "Q24538340",
         "natural": "valley",
         "place": null
       },
@@ -3194,6 +3546,8 @@
         "osm_type": "node",
         "name": "Val dal Rossat",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3212,6 +3566,8 @@
         "osm_type": "node",
         "name": "Val de Faont",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3230,6 +3586,8 @@
         "osm_type": "node",
         "name": "Val de Sossalf",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3248,6 +3606,8 @@
         "osm_type": "node",
         "name": "Val de Sotandre",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3266,6 +3626,8 @@
         "osm_type": "node",
         "name": "Val de Staffol",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3284,6 +3646,8 @@
         "osm_type": "node",
         "name": "Val de le Andre",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3302,6 +3666,8 @@
         "osm_type": "node",
         "name": "Val dell'Asino",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3320,6 +3686,8 @@
         "osm_type": "node",
         "name": "Val di Pedruna",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3338,6 +3706,8 @@
         "osm_type": "node",
         "name": "Val di Tovo",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3356,6 +3726,8 @@
         "osm_type": "node",
         "name": "Val digl Guert",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3374,6 +3746,8 @@
         "osm_type": "node",
         "name": "Valbelluna",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q2879894",
         "natural": "valley",
         "place": null
       },
@@ -3392,6 +3766,8 @@
         "osm_type": "node",
         "name": "Valcelul Junglei",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3410,6 +3786,8 @@
         "osm_type": "node",
         "name": "Valdàca",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3428,6 +3806,8 @@
         "osm_type": "node",
         "name": "Valea Celnic",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3446,6 +3826,8 @@
         "osm_type": "node",
         "name": "Valea Codiului",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3464,6 +3846,8 @@
         "osm_type": "node",
         "name": "Valea Finis",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3482,6 +3866,8 @@
         "osm_type": "node",
         "name": "Valea Glodurile",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3500,6 +3886,8 @@
         "osm_type": "node",
         "name": "Valea Meghes",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3518,6 +3906,8 @@
         "osm_type": "node",
         "name": "Valea Mica",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3536,6 +3926,8 @@
         "osm_type": "node",
         "name": "Valea Peteroaiei",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3554,6 +3946,8 @@
         "osm_type": "node",
         "name": "Valea Prisacina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3572,6 +3966,8 @@
         "osm_type": "node",
         "name": "Valea Pârâului Valea Batrână",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3590,6 +3986,8 @@
         "osm_type": "node",
         "name": "Valea Stanii",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3608,6 +4006,8 @@
         "osm_type": "node",
         "name": "Valea Techea",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3626,6 +4026,8 @@
         "osm_type": "node",
         "name": "Valea Vitioana",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3644,6 +4046,8 @@
         "osm_type": "node",
         "name": "Valea Văcăriei",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3662,6 +4066,8 @@
         "osm_type": "node",
         "name": "Vallarga",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3680,6 +4086,8 @@
         "osm_type": "node",
         "name": "Valle Albanigo",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3698,6 +4106,8 @@
         "osm_type": "node",
         "name": "Valle Becco",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3716,6 +4126,8 @@
         "osm_type": "node",
         "name": "Valle Castello",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3734,6 +4146,8 @@
         "osm_type": "node",
         "name": "Valle Costlas",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3752,6 +4166,8 @@
         "osm_type": "node",
         "name": "Valle Dagani",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3770,6 +4186,8 @@
         "osm_type": "node",
         "name": "Valle Feltrina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3788,6 +4206,8 @@
         "osm_type": "node",
         "name": "Valle Globoscian",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3806,6 +4226,8 @@
         "osm_type": "node",
         "name": "Valle Grossa",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3824,6 +4246,8 @@
         "osm_type": "node",
         "name": "Valle Grossa",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3842,6 +4266,8 @@
         "osm_type": "node",
         "name": "Valle Grossa",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3860,6 +4286,8 @@
         "osm_type": "node",
         "name": "Valle Magan Nord",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3878,6 +4306,8 @@
         "osm_type": "node",
         "name": "Valle Magan Sud",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3896,6 +4326,8 @@
         "osm_type": "node",
         "name": "Valle Mille Campi",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3914,6 +4346,8 @@
         "osm_type": "node",
         "name": "Valle Murisa",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3932,6 +4366,8 @@
         "osm_type": "node",
         "name": "Valle Nord del Lago di Spèccheri",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3950,6 +4386,8 @@
         "osm_type": "node",
         "name": "Valle Potpuoie",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3968,6 +4406,8 @@
         "osm_type": "node",
         "name": "Valle Pralunghi",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -3986,6 +4426,8 @@
         "osm_type": "node",
         "name": "Valle Riale",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4004,6 +4446,8 @@
         "osm_type": "node",
         "name": "Valle Rozzola",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4022,6 +4466,8 @@
         "osm_type": "node",
         "name": "Valle Rozzola",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4040,6 +4486,8 @@
         "osm_type": "node",
         "name": "Valle Sant'Andrea",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4058,6 +4506,8 @@
         "osm_type": "node",
         "name": "Valle Scheferla",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4076,6 +4526,8 @@
         "osm_type": "node",
         "name": "Valle Sud del Lago di Spèccheri",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4094,6 +4546,8 @@
         "osm_type": "node",
         "name": "Valle Vallona",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4112,6 +4566,8 @@
         "osm_type": "node",
         "name": "Valle Venier",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4130,6 +4586,8 @@
         "osm_type": "node",
         "name": "Valle del Bizzo",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4148,6 +4606,8 @@
         "osm_type": "node",
         "name": "Valle del Pra' Grande",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4166,6 +4626,8 @@
         "osm_type": "node",
         "name": "Valle del Sabbione",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4184,6 +4646,8 @@
         "osm_type": "node",
         "name": "Valle dell'Erbizo",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4202,6 +4666,8 @@
         "osm_type": "node",
         "name": "Valle della Corniola",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4220,6 +4686,8 @@
         "osm_type": "node",
         "name": "Valle delle Anguane",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4238,6 +4706,8 @@
         "osm_type": "node",
         "name": "Valle delle Anguane",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4256,6 +4726,8 @@
         "osm_type": "node",
         "name": "Valle delle Coste",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4274,6 +4746,8 @@
         "osm_type": "node",
         "name": "Valle delle Zolle",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4292,6 +4766,8 @@
         "osm_type": "node",
         "name": "Valle di Astino",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q4008174",
         "natural": "valley",
         "place": null
       },
@@ -4310,6 +4786,8 @@
         "osm_type": "node",
         "name": "Valle di San Mauro",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4328,6 +4806,8 @@
         "osm_type": "node",
         "name": "Valle di Scheng",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4346,6 +4826,8 @@
         "osm_type": "node",
         "name": "Valsorda",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4364,6 +4846,8 @@
         "osm_type": "node",
         "name": "Vant della Moiazza",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4382,6 +4866,8 @@
         "osm_type": "node",
         "name": "Vant delle Nevere",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4400,6 +4886,8 @@
         "osm_type": "node",
         "name": "Velika Kapela",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q781166",
         "natural": "mountain_range",
         "place": null
       },
@@ -4418,6 +4906,8 @@
         "osm_type": "node",
         "name": "Veliki Šantić",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4436,6 +4926,8 @@
         "osm_type": "node",
         "name": "Velyva-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4454,6 +4946,8 @@
         "osm_type": "node",
         "name": "Vlčia dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4472,6 +4966,8 @@
         "osm_type": "node",
         "name": "Wielki Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4490,6 +4986,8 @@
         "osm_type": "node",
         "name": "Wielki Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4508,6 +5006,8 @@
         "osm_type": "node",
         "name": "Witków",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4526,6 +5026,8 @@
         "osm_type": "node",
         "name": "Wąwóz",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4544,6 +5046,8 @@
         "osm_type": "node",
         "name": "Zakrzowski Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4562,6 +5066,8 @@
         "osm_type": "node",
         "name": "Zbyňovská dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4580,6 +5086,8 @@
         "osm_type": "node",
         "name": "Zeleni vir",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4598,6 +5106,8 @@
         "osm_type": "node",
         "name": "Zliechovská dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4616,6 +5126,8 @@
         "osm_type": "node",
         "name": "Zvijezda",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3576325",
         "natural": "mountain_range",
         "place": null
       },
@@ -4634,6 +5146,8 @@
         "osm_type": "node",
         "name": "Záhonová dolina",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4652,6 +5166,8 @@
         "osm_type": "node",
         "name": "Ördögtorok",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4670,6 +5186,8 @@
         "osm_type": "node",
         "name": "Úr-erdei-völgy",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4688,6 +5206,8 @@
         "osm_type": "node",
         "name": "Ćirin prolaz",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4706,6 +5226,8 @@
         "osm_type": "node",
         "name": "Średni Dół",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -4724,6 +5246,8 @@
         "osm_type": "node",
         "name": "Șaua Cupaș",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 1275
@@ -4743,6 +5267,8 @@
         "osm_type": "node",
         "name": "Șaua Licaș",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null,
         "ele": 1452
@@ -4762,6 +5288,8 @@
         "osm_type": "node",
         "name": "Јабланик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3499768",
         "natural": "mountain_range",
         "place": null
       },
@@ -4780,6 +5308,8 @@
         "osm_type": "node",
         "name": "Јабука",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15229107",
         "natural": "mountain_range",
         "place": null
       },
@@ -4798,6 +5328,8 @@
         "osm_type": "node",
         "name": "Јавор",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3163181",
         "natural": "mountain_range",
         "place": null
       },
@@ -4816,6 +5348,8 @@
         "osm_type": "node",
         "name": "Јавориште",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6165832",
         "natural": "mountain_range",
         "place": null
       },
@@ -4834,6 +5368,8 @@
         "osm_type": "node",
         "name": "Јаворје",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6165836",
         "natural": "mountain_range",
         "place": null
       },
@@ -4852,6 +5388,8 @@
         "osm_type": "node",
         "name": "Јагодња",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q1266410",
         "natural": "mountain_range",
         "place": null
       },
@@ -4869,7 +5407,9 @@
         "osm_id": 7769765379,
         "osm_type": "node",
         "name": "Јадовник",
-        "name_de": null,
+        "name_de": "Jadovnik",
+        "name_de_src": "wikidata",
+        "wikidata": "Q938433",
         "natural": "mountain_range",
         "place": null
       },
@@ -4888,6 +5428,8 @@
         "osm_type": "node",
         "name": "Јарут",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3162810",
         "natural": "mountain_range",
         "place": null
       },
@@ -4905,7 +5447,9 @@
         "osm_id": 7804088986,
         "osm_type": "node",
         "name": "Јастребац",
-        "name_de": null,
+        "name_de": "Jastrebac",
+        "name_de_src": "wikidata",
+        "wikidata": "Q1684066",
         "natural": "mountain_range",
         "place": null
       },
@@ -4924,6 +5468,8 @@
         "osm_type": "node",
         "name": "Јелица",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3176888",
         "natural": "mountain_range",
         "place": null
       },
@@ -4942,6 +5488,8 @@
         "osm_type": "node",
         "name": "Јелова гора",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q20437295",
         "natural": "mountain_range",
         "place": null
       },
@@ -4960,6 +5508,8 @@
         "osm_type": "node",
         "name": "Јешевац",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3178530",
         "natural": "mountain_range",
         "place": null
       },
@@ -4978,6 +5528,8 @@
         "osm_type": "node",
         "name": "Јухор",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3113323",
         "natural": "mountain_range",
         "place": null
       },
@@ -4996,6 +5548,8 @@
         "osm_type": "node",
         "name": "Арбанашка планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q16348846",
         "natural": "mountain_range",
         "place": null
       },
@@ -5014,6 +5568,8 @@
         "osm_type": "node",
         "name": "Баба",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -5032,6 +5588,8 @@
         "osm_type": "node",
         "name": "Бабичка гора",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q2016129",
         "natural": "mountain_range",
         "place": null
       },
@@ -5050,6 +5608,8 @@
         "osm_type": "node",
         "name": "Бањско брдо",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12748768",
         "natural": "mountain_range",
         "place": null
       },
@@ -5068,6 +5628,8 @@
         "osm_type": "node",
         "name": "Белава",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q674649",
         "natural": "mountain_range",
         "place": null
       },
@@ -5086,6 +5648,8 @@
         "osm_type": "node",
         "name": "Бешњаја",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q98442554",
         "natural": "mountain_range",
         "place": null
       },
@@ -5104,6 +5668,8 @@
         "osm_type": "node",
         "name": "Бељаница",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q2894533",
         "natural": "mountain_range",
         "place": null
       },
@@ -5122,6 +5688,8 @@
         "osm_type": "node",
         "name": "Битовик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15199507",
         "natural": "mountain_range",
         "place": null
       },
@@ -5140,6 +5708,8 @@
         "osm_type": "node",
         "name": "Бић",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q4919469",
         "natural": "mountain_range",
         "place": null
       },
@@ -5158,6 +5728,8 @@
         "osm_type": "node",
         "name": "Благаја",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q4923843",
         "natural": "mountain_range",
         "place": null
       },
@@ -5175,7 +5747,9 @@
         "osm_id": 7765724370,
         "osm_type": "node",
         "name": "Бобија",
-        "name_de": null,
+        "name_de": "Bobija",
+        "name_de_src": "wikidata",
+        "wikidata": "Q19427495",
         "natural": "mountain_range",
         "place": null
       },
@@ -5194,6 +5768,8 @@
         "osm_type": "node",
         "name": "Борања",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q2910607",
         "natural": "mountain_range",
         "place": null
       },
@@ -5212,6 +5788,8 @@
         "osm_type": "node",
         "name": "Буковик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q18210513",
         "natural": "mountain_range",
         "place": null
       },
@@ -5230,6 +5808,8 @@
         "osm_type": "node",
         "name": "Буковик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q4987018",
         "natural": "mountain_range",
         "place": null
       },
@@ -5248,6 +5828,8 @@
         "osm_type": "node",
         "name": "Буковинські гори",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -5266,6 +5848,8 @@
         "osm_type": "node",
         "name": "Букуља",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q1258696",
         "natural": "mountain_range",
         "place": null
       },
@@ -5284,6 +5868,8 @@
         "osm_type": "node",
         "name": "Велики гребен",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7918974",
         "natural": "mountain_range",
         "place": null
       },
@@ -5302,6 +5888,8 @@
         "osm_type": "node",
         "name": "Видлич",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12275237",
         "natural": "mountain_range",
         "place": null
       },
@@ -5320,6 +5908,8 @@
         "osm_type": "node",
         "name": "Видојевица",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3032057",
         "natural": "mountain_range",
         "place": null
       },
@@ -5338,6 +5928,8 @@
         "osm_type": "node",
         "name": "Влашић",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3561958",
         "natural": "mountain_range",
         "place": null
       },
@@ -5356,6 +5948,8 @@
         "osm_type": "node",
         "name": "Влашић",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3561958",
         "natural": "mountain_range",
         "place": null
       },
@@ -5374,6 +5968,8 @@
         "osm_type": "node",
         "name": "Влашка планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6646817",
         "natural": "mountain_range",
         "place": null
       },
@@ -5392,6 +5988,8 @@
         "osm_type": "node",
         "name": "Вршачке планине",
         "name_de": "Werschetzer Gebirge",
+        "name_de_src": "osm",
+        "wikidata": "Q1431570",
         "natural": "mountain_range",
         "place": null
       },
@@ -5410,6 +6008,8 @@
         "osm_type": "node",
         "name": "Вујан",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3563770",
         "natural": "mountain_range",
         "place": null
       },
@@ -5428,6 +6028,8 @@
         "osm_type": "node",
         "name": "Гајева планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q5517590",
         "natural": "mountain_range",
         "place": null
       },
@@ -5446,6 +6048,8 @@
         "osm_type": "node",
         "name": "Гиљева",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3106024",
         "natural": "mountain_range",
         "place": null
       },
@@ -5464,6 +6068,8 @@
         "osm_type": "node",
         "name": "Гледићке планине",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3108650",
         "natural": "mountain_range",
         "place": null
       },
@@ -5482,6 +6088,8 @@
         "osm_type": "node",
         "name": "Големи стол",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q18345217",
         "natural": "mountain_range",
         "place": null
       },
@@ -5500,6 +6108,8 @@
         "osm_type": "node",
         "name": "Голија",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q2734930",
         "natural": "mountain_range",
         "place": null
       },
@@ -5518,6 +6128,8 @@
         "osm_type": "node",
         "name": "Голубац",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q5580991",
         "natural": "mountain_range",
         "place": null
       },
@@ -5536,6 +6148,8 @@
         "osm_type": "node",
         "name": "Гоч",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3028631",
         "natural": "mountain_range",
         "place": null
       },
@@ -5554,6 +6168,8 @@
         "osm_type": "node",
         "name": "Градина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15221993",
         "natural": "mountain_range",
         "place": null
       },
@@ -5572,6 +6188,8 @@
         "osm_type": "node",
         "name": "Гребен",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q5601525",
         "natural": "mountain_range",
         "place": null
       },
@@ -5589,7 +6207,9 @@
         "osm_id": 7769337576,
         "osm_type": "node",
         "name": "Гучево",
-        "name_de": null,
+        "name_de": "Gučevo",
+        "name_de_src": "wikidata",
+        "wikidata": "Q1502845",
         "natural": "mountain_range",
         "place": null
       },
@@ -5608,6 +6228,8 @@
         "osm_type": "node",
         "name": "Дебела гора",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q18350845",
         "natural": "mountain_range",
         "place": null
       },
@@ -5626,6 +6248,8 @@
         "osm_type": "node",
         "name": "Девица",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3025426",
         "natural": "mountain_range",
         "place": null
       },
@@ -5643,7 +6267,9 @@
         "osm_id": 7765728186,
         "osm_type": "node",
         "name": "Дели Јован",
-        "name_de": null,
+        "name_de": "Deli Jovan",
+        "name_de_src": "wikidata",
+        "wikidata": "Q1561378",
         "natural": "mountain_range",
         "place": null
       },
@@ -5662,6 +6288,8 @@
         "osm_type": "node",
         "name": "Долина Серате",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -5680,6 +6308,8 @@
         "osm_type": "node",
         "name": "Долина диких тюльпанів",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -5698,6 +6328,8 @@
         "osm_type": "node",
         "name": "Дрмановина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q5308147",
         "natural": "mountain_range",
         "place": null
       },
@@ -5716,6 +6348,8 @@
         "osm_type": "node",
         "name": "Жилиндар",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q16082525",
         "natural": "mountain_range",
         "place": null
       },
@@ -5734,6 +6368,8 @@
         "osm_type": "node",
         "name": "Златар",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q953591",
         "natural": "mountain_range",
         "place": null
       },
@@ -5751,7 +6387,9 @@
         "osm_id": 7804089033,
         "osm_type": "node",
         "name": "Златибор",
-        "name_de": null,
+        "name_de": "Zlatibor",
+        "name_de_src": "wikidata",
+        "wikidata": "Q207143",
         "natural": "mountain_range",
         "place": null
       },
@@ -5770,6 +6408,8 @@
         "osm_type": "node",
         "name": "Камена гора",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15233187",
         "natural": "mountain_range",
         "place": null
       },
@@ -5788,6 +6428,8 @@
         "osm_type": "node",
         "name": "Китоња",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -5806,6 +6448,8 @@
         "osm_type": "node",
         "name": "Козомор",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15240318",
         "natural": "mountain_range",
         "place": null
       },
@@ -5823,7 +6467,9 @@
         "osm_id": 7769999288,
         "osm_type": "node",
         "name": "Копаоник",
-        "name_de": null,
+        "name_de": "Kopaonik",
+        "name_de_src": "wikidata",
+        "wikidata": "Q1266471",
         "natural": "mountain_range",
         "place": null
       },
@@ -5842,6 +6488,8 @@
         "osm_type": "node",
         "name": "Котленик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3199170",
         "natural": "mountain_range",
         "place": null
       },
@@ -5860,6 +6508,8 @@
         "osm_type": "node",
         "name": "Краварска планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q18353144",
         "natural": "mountain_range",
         "place": null
       },
@@ -5878,6 +6528,8 @@
         "osm_type": "node",
         "name": "Крстац",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6439149",
         "natural": "mountain_range",
         "place": null
       },
@@ -5896,6 +6548,8 @@
         "osm_type": "node",
         "name": "Крушевица",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3199996",
         "natural": "mountain_range",
         "place": null
       },
@@ -5914,6 +6568,8 @@
         "osm_type": "node",
         "name": "Кучај",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q2346380",
         "natural": "mountain_range",
         "place": null
       },
@@ -5932,6 +6588,8 @@
         "osm_type": "node",
         "name": "Лепа гора",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3229832",
         "natural": "mountain_range",
         "place": null
       },
@@ -5950,6 +6608,8 @@
         "osm_type": "node",
         "name": "Лишковац",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q1558042",
         "natural": "mountain_range",
         "place": null
       },
@@ -5968,6 +6628,8 @@
         "osm_type": "node",
         "name": "Маглеш",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15243631",
         "natural": "mountain_range",
         "place": null
       },
@@ -5986,6 +6648,8 @@
         "osm_type": "node",
         "name": "Мали Јастребац",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -6004,6 +6668,8 @@
         "osm_type": "node",
         "name": "Мали Крш",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6743295",
         "natural": "mountain_range",
         "place": null
       },
@@ -6022,6 +6688,8 @@
         "osm_type": "node",
         "name": "Малиник",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q6743756",
         "natural": "mountain_range",
         "place": null
       },
@@ -6040,6 +6708,8 @@
         "osm_type": "node",
         "name": "Мајдан",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q18351743",
         "natural": "mountain_range",
         "place": null
       },
@@ -6058,6 +6728,8 @@
         "osm_type": "node",
         "name": "Маљен",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3048671",
         "natural": "mountain_range",
         "place": null
       },
@@ -6076,6 +6748,8 @@
         "osm_type": "node",
         "name": "Микренски височини",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12286652",
         "natural": "mountain_range",
         "place": null
       },
@@ -6094,6 +6768,8 @@
         "osm_type": "node",
         "name": "Мироч",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3316169",
         "natural": "mountain_range",
         "place": null
       },
@@ -6112,6 +6788,8 @@
         "osm_type": "node",
         "name": "Муртеница",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3328240",
         "natural": "mountain_range",
         "place": null
       },
@@ -6130,6 +6808,8 @@
         "osm_type": "node",
         "name": "Мъртвата долина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -6148,6 +6828,8 @@
         "osm_type": "node",
         "name": "Нинаја",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3341961",
         "natural": "mountain_range",
         "place": null
       },
@@ -6166,6 +6848,8 @@
         "osm_type": "node",
         "name": "Озрен",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3359230",
         "natural": "mountain_range",
         "place": null
       },
@@ -6184,6 +6868,8 @@
         "osm_type": "node",
         "name": "Оштрик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12756912",
         "natural": "mountain_range",
         "place": null
       },
@@ -6202,6 +6888,8 @@
         "osm_type": "node",
         "name": "Пасјача",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3367767",
         "natural": "mountain_range",
         "place": null
       },
@@ -6220,6 +6908,8 @@
         "osm_type": "node",
         "name": "Побијеник",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7206201",
         "natural": "mountain_range",
         "place": null
       },
@@ -6238,6 +6928,8 @@
         "osm_type": "node",
         "name": "Повлен",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3029399",
         "natural": "mountain_range",
         "place": null
       },
@@ -6256,6 +6948,8 @@
         "osm_type": "node",
         "name": "Покутські гори",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -6274,6 +6968,8 @@
         "osm_type": "node",
         "name": "Равна планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7296800",
         "natural": "mountain_range",
         "place": null
       },
@@ -6292,6 +6988,8 @@
         "osm_type": "node",
         "name": "Радан",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3113529",
         "natural": "mountain_range",
         "place": null
       },
@@ -6310,6 +7008,8 @@
         "osm_type": "node",
         "name": "Радочело",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3028609",
         "natural": "mountain_range",
         "place": null
       },
@@ -6328,6 +7028,8 @@
         "osm_type": "node",
         "name": "Ргајска планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7319946",
         "natural": "mountain_range",
         "place": null
       },
@@ -6346,6 +7048,8 @@
         "osm_type": "node",
         "name": "Ресавски хумови",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q61363644",
         "natural": "mountain_range",
         "place": null
       },
@@ -6364,6 +7068,8 @@
         "osm_type": "node",
         "name": "Рогозна",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3112560",
         "natural": "mountain_range",
         "place": null
       },
@@ -6382,6 +7088,8 @@
         "osm_type": "node",
         "name": "Рожањ",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q25203020",
         "natural": "mountain_range",
         "place": null
       },
@@ -6399,7 +7107,9 @@
         "osm_id": 7803831137,
         "osm_type": "node",
         "name": "Рожањ",
-        "name_de": null,
+        "name_de": "Rožanj",
+        "name_de_src": "wikidata",
+        "wikidata": "Q7375524",
         "natural": "mountain_range",
         "place": null
       },
@@ -6418,6 +7128,8 @@
         "osm_type": "node",
         "name": "Ртањ",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -6436,6 +7148,8 @@
         "osm_type": "node",
         "name": "Самањац",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7408593",
         "natural": "mountain_range",
         "place": null
       },
@@ -6454,6 +7168,8 @@
         "osm_type": "node",
         "name": "Сврљишке планине",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3506386",
         "natural": "mountain_range",
         "place": null
       },
@@ -6472,6 +7188,8 @@
         "osm_type": "node",
         "name": "Селичевица",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7448506",
         "natural": "mountain_range",
         "place": null
       },
@@ -6490,6 +7208,8 @@
         "osm_type": "node",
         "name": "Слемен",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7540043",
         "natural": "mountain_range",
         "place": null
       },
@@ -6508,6 +7228,8 @@
         "osm_type": "node",
         "name": "Соколовица",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3489043",
         "natural": "mountain_range",
         "place": null
       },
@@ -6526,6 +7248,8 @@
         "osm_type": "node",
         "name": "Соколска планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3489049",
         "natural": "mountain_range",
         "place": null
       },
@@ -6543,7 +7267,9 @@
         "osm_id": 7803831147,
         "osm_type": "node",
         "name": "Стара планина",
-        "name_de": null,
+        "name_de": "Balkangebirge",
+        "name_de_src": "wikidata",
+        "wikidata": "Q170427",
         "natural": "mountain_range",
         "place": null
       },
@@ -6562,6 +7288,8 @@
         "osm_type": "node",
         "name": "Стол",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7618590",
         "natural": "mountain_range",
         "place": null
       },
@@ -6580,6 +7308,8 @@
         "osm_type": "node",
         "name": "Столови",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3499674",
         "natural": "mountain_range",
         "place": null
       },
@@ -6598,6 +7328,8 @@
         "osm_type": "node",
         "name": "Студена планина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7627565",
         "natural": "mountain_range",
         "place": null
       },
@@ -6616,6 +7348,8 @@
         "osm_type": "node",
         "name": "Субјел",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7631429",
         "natural": "mountain_range",
         "place": null
       },
@@ -6633,7 +7367,9 @@
         "osm_id": 7803831153,
         "osm_type": "node",
         "name": "Сува планина",
-        "name_de": null,
+        "name_de": "Suva Planina",
+        "name_de_src": "wikidata",
+        "wikidata": "Q1981857",
         "natural": "mountain_range",
         "place": null
       },
@@ -6652,6 +7388,8 @@
         "osm_type": "node",
         "name": "Сувобор",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3029476",
         "natural": "mountain_range",
         "place": null
       },
@@ -6670,6 +7408,8 @@
         "osm_type": "node",
         "name": "Тара",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12759913",
         "natural": "mountain_range",
         "place": null
       },
@@ -6688,6 +7428,8 @@
         "osm_type": "node",
         "name": "Тресибаба",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3538520",
         "natural": "mountain_range",
         "place": null
       },
@@ -6706,6 +7448,8 @@
         "osm_type": "node",
         "name": "Троглав",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3539825",
         "natural": "mountain_range",
         "place": null
       },
@@ -6724,6 +7468,8 @@
         "osm_type": "node",
         "name": "Тупижница",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q7853554",
         "natural": "mountain_range",
         "place": null
       },
@@ -6742,6 +7488,8 @@
         "osm_type": "node",
         "name": "Тупижница",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "mountain_range",
         "place": null
       },
@@ -6759,7 +7507,9 @@
         "osm_id": 7769337560,
         "osm_type": "node",
         "name": "Фрушка гора",
-        "name_de": null,
+        "name_de": "Fruška Gora",
+        "name_de_src": "wikidata",
+        "wikidata": "Q116285",
         "natural": "mountain_range",
         "place": null
       },
@@ -6778,6 +7528,8 @@
         "osm_type": "node",
         "name": "Хомољске планине",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q615586",
         "natural": "mountain_range",
         "place": null
       },
@@ -6796,6 +7548,8 @@
         "osm_type": "node",
         "name": "Хум",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3143096",
         "natural": "mountain_range",
         "place": null
       },
@@ -6814,6 +7568,8 @@
         "osm_type": "node",
         "name": "Цер",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q859564",
         "natural": "mountain_range",
         "place": null
       },
@@ -6832,6 +7588,8 @@
         "osm_type": "node",
         "name": "Црвена гора",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15212115",
         "natural": "mountain_range",
         "place": null
       },
@@ -6850,6 +7608,8 @@
         "osm_type": "node",
         "name": "Црни врх",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q15212021",
         "natural": "mountain_range",
         "place": null
       },
@@ -6868,6 +7628,8 @@
         "osm_type": "node",
         "name": "Црни врх",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q5186988",
         "natural": "mountain_range",
         "place": null
       },
@@ -6886,6 +7648,8 @@
         "osm_type": "node",
         "name": "Црнокоса",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3003110",
         "natural": "mountain_range",
         "place": null
       },
@@ -6904,6 +7668,8 @@
         "osm_type": "node",
         "name": "Чемерница",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q20640785",
         "natural": "mountain_range",
         "place": null
       },
@@ -6922,6 +7688,8 @@
         "osm_type": "node",
         "name": "Чемерно",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q3028628",
         "natural": "mountain_range",
         "place": null
       },
@@ -6940,6 +7708,8 @@
         "osm_type": "node",
         "name": "Шиманів Котел",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
         "natural": "valley",
         "place": null
       },
@@ -6958,6 +7728,8 @@
         "osm_type": "node",
         "name": "Шомрда",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q8082846",
         "natural": "mountain_range",
         "place": null
       },
@@ -6976,6 +7748,8 @@
         "osm_type": "node",
         "name": "Шљивовик",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q25247496",
         "natural": "mountain_range",
         "place": null
       },
@@ -6994,6 +7768,8 @@
         "osm_type": "node",
         "name": "балка Казійська Долина",
         "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q109428867",
         "natural": "valley",
         "place": "locality"
       },
@@ -7012,6 +7788,8 @@
         "osm_type": "node",
         "name": "Ґорґани",
         "name_de": "Gorgany",
+        "name_de_src": "osm",
+        "wikidata": "Q1538205",
         "natural": "mountain_range",
         "place": null
       },

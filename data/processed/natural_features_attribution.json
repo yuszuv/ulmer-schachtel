@@ -1,9 +1,15 @@
 {
-  "generated": "2026-05-31",
+  "generated": "2026-06-02",
   "source": "OpenStreetMap via Overpass API",
   "url": "https://overpass-api.de/api/interpreter",
   "license": "ODbL 1.0 — © OpenStreetMap contributors",
   "attribution_url": "https://www.openstreetmap.org/copyright",
+  "name_de_source": {
+    "source": "Wikidata (wbgetentities labels, languages=de)",
+    "license": "CC0",
+    "cache": "data/raw/wikidata_de_labels.json",
+    "note": "Where OSM has no name:de tag but the feature carries a wikidata QID, the German label is used as name_de (name_de_src='wikidata'); otherwise name_de_src='osm'."
+  },
   "roi_bbox": {
     "south": 42.929272,
     "west": 9.464611,
