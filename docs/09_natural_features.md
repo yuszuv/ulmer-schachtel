@@ -5,17 +5,22 @@ overlaid on the map canvas. The visual goal is the *zimmermann.jpg*
 "Donau-Staaten" atlas (1:5 Mio, ca. 1940): letter-spaced, brown names
 that follow ridge lines.
 
-## Data source
+## Data sources
 
-OpenStreetMap via Overpass API. **© OpenStreetMap contributors, ODbL 1.0.**
+**Geometry & tags:** OpenStreetMap via Overpass API.
+**© OpenStreetMap contributors, ODbL 1.0.**
 <https://www.openstreetmap.org/copyright>
+
+**German names:** Wikidata `wbgetentities` labels. **CC0.**
+<https://www.wikidata.org>
 
 ## Fetch
 
 ```
-uv run reiseplan-natural                 # online fetch + cache
-uv run reiseplan-natural --offline       # rebuild from raw cache (no network)
+uv run reiseplan-natural                 # online fetch + cache + Wikidata enrich
+uv run reiseplan-natural --offline       # rebuild from raw caches (no network)
 uv run reiseplan-natural --min-ele 1500  # default: peaks ≥ 1500 m only
+uv run reiseplan-natural --no-enrich     # skip Wikidata, name_de from OSM only
 ```
 
 The k.u.k. bounding box is too large for a single Overpass call.
@@ -40,16 +45,46 @@ the script deduplicates across runs via OSM id + type.
 | `data/processed/landscape_labels.geojson` | Point | `natural=mountain_range`, `natural=valley` nodes | straight, spaced |
 | `data/processed/natural_features_attribution.json` | — | ODbL sidecar | — |
 
-Properties per feature: `name`, `name_de`, `natural`, `place`,
-`ele` (peaks), `osm_id`, `osm_type`.
+Properties per feature: `name`, `name_de`, `name_de_src`, `wikidata`,
+`natural`, `place`, `ele` (peaks), `osm_id`, `osm_type`.
+
+## German name enrichment (Wikidata)
+
+The QGIS labels use `coalesce("name_de", "name")` — the **German** name wins
+when present. OSM, however, carries very few `name:de` tags. Where a feature
+has a `wikidata` QID, the fetch resolves its German label via the Wikidata
+`wbgetentities` API (`props=labels&languages=de`, **CC0**) and uses it as the
+`name_de` fallback. This fills in atlas exonyms such as *Karpaten* /
+*Siebenbürgen* that OSM stores only under the local name.
+
+Priority and provenance (per feature):
+
+| field | meaning |
+|---|---|
+| `name_de` | German name — **only set when it differs from `name`** (an identical value adds nothing to `coalesce`) |
+| `name_de_src` | `osm` (from `name:de`) · `wikidata` (from the QID label) · `null` |
+| `wikidata` | the OSM `wikidata` QID, kept for verifiability (`null` if absent) |
+
+Priority: OSM `name:de` > Wikidata `de` label. No machine translation or
+transliteration is done — only verifiable sources.
+
+Resolved labels are cached in `data/raw/wikidata_de_labels.json` (a committed
+`{QID: label}` map; it does **not** match the gitignored `osm_*.json` pattern).
+The cache is additive across runs, so `--offline` reproduces the German names
+without network access. Skip the lookup entirely with `--no-enrich`
+(`name_de` then comes from OSM `name:de` only).
 
 ## OSM coverage note
 
-The big iconic range names (**Karpaten**, **Alpen**, **Siebenbürgen**,
-**Beskiden**, **Ostalpen** …) are stored in OSM as *relations*, not as
-point nodes — so they do **not** appear in `landscape_labels.geojson`.
-For these, draw hand-made label lines (see
-[08_curved_labels.md](08_curved_labels.md)):
+Most range names appear as point nodes in `landscape_labels.geojson`.
+Many of the Slavic/English OSM names were resolved to German exonyms via
+Wikidata (e.g. *Dinarsko gorje → Dinarisches Gebirge*,
+*Eastern Alps → Ostalpen*, *Banat Mountains → Banater Gebirge*).
+
+The very large arc names — **Karpaten** and **Siebenbürgen** — are stored
+in OSM as *relations* only, so they have no point node and do **not** appear
+in `landscape_labels.geojson`. For these, draw hand-made label lines
+(see [08_curved_labels.md](08_curved_labels.md)):
 
 - Create `data/label_lines_relief.gpkg` (LineString, EPSG:4326, field `label`)
 - Draw one gentle left-to-right arc per range name
@@ -83,8 +118,8 @@ uses `placement="3"` — copy that block's `<labeling>` XML if needed.
 ### mountain_peaks — spot heights
 
 1. **Symbology:** small brown triangle marker (▲), size 1.5–2 mm
-2. **Labels:** expression `"name" || '\n' || "ele"` — name on top,
-   elevation on bottom in small numerals
+2. **Labels:** expression `coalesce("name_de","name") || '\n' || "ele"` —
+   German name on top (when available), elevation below in small numerals
 3. **Scale visibility:** only show prominent peaks at small scales
    (consider a scale-dependent rule to hide below, say, 2200 m when
    zoomed out)
@@ -101,14 +136,12 @@ uses `placement="3"` — copy that block's `<labeling>` XML if needed.
 
 Follow [08_curved_labels.md](08_curved_labels.md) steps 1–5.
 Styled identically to `natural_ridges` but with larger font (the
-iconic range names span more space).  Suggested names to draw:
+iconic range names span more space).  Names needed as hand-drawn arcs
+(not present as OSM nodes):
 
 - Karpaten (the great Carpathian arc)
 - Südkarpaten / Transsilvanische Alpen
 - Siebenbürgen (Transylvania region)
-- Ostalpen (Eastern Alps)
-- Beskiden (northern arc)
-- Dinarische Alpen / Dinarides
 
 ## QField packaging
 

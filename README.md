@@ -142,9 +142,10 @@ elevation, landscape label anchors) are fetched separately via a tiled Overpass
 strategy:
 
 ```bash
-uv run reiseplan-natural                 # fetch online → data/processed/
-uv run reiseplan-natural --offline       # rebuild from data/raw/osm_natural_features.json
+uv run reiseplan-natural                 # fetch online + Wikidata enrich → data/processed/
+uv run reiseplan-natural --offline       # rebuild from data/raw caches (no network)
 uv run reiseplan-natural --min-ele 2000  # raise peak elevation threshold
+uv run reiseplan-natural --no-enrich     # skip Wikidata, name_de from OSM only
 ```
 
 Output: `natural_ridges.geojson` (LineString, for QGIS *Curved* label placement),
@@ -153,9 +154,16 @@ Output: `natural_ridges.geojson` (LineString, for QGIS *Curved* label placement)
 are stored as OSM relations and need hand-drawn label lines in QGIS — see
 [docs/09_natural_features.md](docs/09_natural_features.md).
 
+German names are sparse in OSM, so where a feature has a `wikidata` QID its
+German label is pulled from **Wikidata** (`wbgetentities`, CC0) and used as the
+`name_de` fallback (provenance kept in `name_de_src` + `wikidata`). Resolved
+labels are cached in `data/raw/wikidata_de_labels.json` (committed) for
+reproducible offline rebuilds.
+
 > Map data © **OpenStreetMap contributors**, licensed under the
 > [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
 > This attribution must be included when redistributing derived data.
+> German names enriched via **Wikidata** (CC0).
 
 CFR does not publish an open timetable feed. `route_stops.csv` therefore contains
 only the **stop sequence** per magistrală (order + role), no times. Real connections
