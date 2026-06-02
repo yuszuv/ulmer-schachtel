@@ -39,18 +39,15 @@ from __future__ import annotations
 
 import json
 import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from pathlib import Path
 
-from .overpass import USER_AGENT
 from .paths import ROOT
 from .regions import HISTORICAL_REGIONS
 from .repository import feature_collection, write_json
 from .result import Err, Ok, Result
+from .wikidata import WIKIDATA_API, chunked, get_json
 
-WIKIDATA_API = "https://www.wikidata.org/w/api.php"
 WIKIVOYAGE_API = "https://de.wikivoyage.org/w/api.php"
 WIKIVOYAGE_WIKI = "https://de.wikivoyage.org/wiki/"
 
@@ -171,33 +168,6 @@ def parse_places(by_region: dict[str, dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# HTTP helper
-# ---------------------------------------------------------------------------
-
-def _get_json(url: str, params: dict[str, str]) -> Result[dict]:
-    """GET ``url?params``, parse JSON, return Ok(dict) or Err(message)."""
-    full = f"{url}?{urllib.parse.urlencode(params)}"
-    request = urllib.request.Request(full, headers={"User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(request, timeout=60) as resp:
-            payload = resp.read()
-    except urllib.error.HTTPError as exc:
-        return Err(f"HTTP {exc.code}: {exc.reason}")
-    except urllib.error.URLError as exc:
-        return Err(f"unreachable: {exc.reason}")
-    try:
-        return Ok(json.loads(payload))
-    except json.JSONDecodeError as exc:
-        return Err(f"invalid JSON: {exc}")
-
-
-def _chunks(seq: list, size: int):
-    """Yield consecutive ``size``-length slices of ``seq``."""
-    for i in range(0, len(seq), size):
-        yield seq[i:i + size]
-
-
-# ---------------------------------------------------------------------------
 # Stage 2: Wikidata QID → de.wikivoyage article title
 # ---------------------------------------------------------------------------
 
@@ -212,8 +182,8 @@ class WikidataGateway:
         missing sitelink is expected (most cities have no article), not a crash.
         """
         out: dict[str, str] = {}
-        for batch in _chunks(qids, _WIKIDATA_BATCH):
-            result = _get_json(WIKIDATA_API, {
+        for batch in chunked(qids, _WIKIDATA_BATCH):
+            result = get_json(WIKIDATA_API, {
                 "action": "wbgetentities",
                 "ids": "|".join(batch),
                 "props": "sitelinks",
@@ -249,8 +219,8 @@ class WikivoyageGateway:
         appear in the result.
         """
         out: dict[str, str] = {}
-        for batch in _chunks(titles, _EXTRACT_BATCH):
-            result = _get_json(WIKIVOYAGE_API, {
+        for batch in chunked(titles, _EXTRACT_BATCH):
+            result = get_json(WIKIVOYAGE_API, {
                 "action": "query",
                 "prop": "extracts",
                 "exintro": "1",
