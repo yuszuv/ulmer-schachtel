@@ -24,7 +24,7 @@ A simple QGIS project containing:
    > **Why GeoJSON, not GPKG?** The desktop project reads GeoJSON directly so
    > that any change to the data (re-running `uv run reiseplan-fetch`) is immediately
    > visible in QGIS without a `build-gpkg` step. The GPKG is a generated bundle
-   > *only* for QField export — see [02_qfield_export.md](02_qfield_export.md).
+   > *only* for QField export — see [QField export](qfield-export.md).
 
 4. Layer order (top to bottom):
    - `info_markers`
@@ -66,7 +66,7 @@ A simple QGIS project containing:
      (*Project → Properties → General* → Paths "relative").
    - Styles are embedded at save time. For QField you do **not** need to copy
      the `.qml` files — use `uv run tools/export_qfield.py` instead
-     (see [02_qfield_export.md](02_qfield_export.md)).
+     (see [QField export](qfield-export.md)).
 
 ## Additional base maps
 
@@ -105,25 +105,31 @@ changes land in the `.qgs`.
 **Recommended order to build the project from scratch** (open an empty project,
 *Save As* `qgis/reiseplan.qgs` first):
 
-1. `qgis_bootstrap.py` — CRS, vector layers, styles, canvas, paths
-2. `qgis_basemaps.py` — load the XYZ base maps
-3. `qgis_setup_scales.py` — scale bands + scale visibility
-4. `qgis_bookmarks.py` — spatial bookmarks
+1. `qgis_bootstrap.py`         — CRS, core vector layers, styles, canvas, paths
+2. `qgis_basemaps.py`          — load the XYZ base maps
+3. `qgis_natural_features.py`  — mountain ridges, peaks, landscape names
+4. `qgis_mining.py`            — mineral resources
+5. `qgis_industry.py`          — industry sites
+6. `qgis_terrain.py`           — hillshade + contour lines
+7. `qgis_landcover.py`         — land-cover polygons
+8. `qgis_setup_scales.py`      — scale bands + scale visibility
+9. `qgis_bookmarks.py`         — spatial bookmarks
 
 ### `tools/qgis_bootstrap.py` — project skeleton from source files
 
 Reproduces the manual setup (steps 2–7 above) so the `.qgs` is buildable from code:
 
 - sets the project **CRS** to `EPSG:3844` (avoids the 4326 trap),
-- loads the **four vector layers** from `data/processed/*.geojson` with the German
-  display names the rest of the toolchain expects (Info-Marker, POI, Bahnhöfe,
-  Bahn-Linien), grouped Guide / Bahn and ordered top→bottom,
+- loads the **core vector layers** from `data/processed/*.geojson` and
+  `data/reference/historical/` with the German display names the rest of the
+  toolchain expects, grouped Guide / Bahn / Historisch and ordered top→bottom,
 - applies the **QML styles** (`loadNamedStyle`, all categories),
 - sets the **info_markers display field** to `title`,
 - sets the **canvas background** `#f3ecd5` and **relative paths**.
 
-It deliberately does *not* load base maps or set scales/bookmarks — that's the
-next three scripts (it prints the order on completion).
+It deliberately does *not* load base maps, thematic layers, or set
+scales/bookmarks — that's the next eight scripts (it prints the order on
+completion).
 
 ### `tools/qgis_basemaps.py` — load the XYZ base maps
 
@@ -135,6 +141,50 @@ all **unchecked**. Layer names match the XML exactly, which is what
 
 > The Arcanum surveys need a Referer header (passed as `http-header:referer`). If
 > Arcanum tiles return 403, verify that parameter against your QGIS version.
+
+### `tools/qgis_natural_features.py` — mountain ridges, peaks, landscape names
+
+Creates a **"Relief / Landschaft"** group below "Historisch" and loads three
+GeoJSON layers from `data/processed/`:
+
+- **Gebirgs-Kämme** (`natural_ridges.geojson`) — invisible carrier + curved atlas labels along ridge lines
+- **Berggipfel** (`mountain_peaks.geojson`) — small brown ▲ marker + name/elevation label
+- **Gebirgsbezeichnungen** (`landscape_labels.geojson`) — invisible point + ALL-CAPS spaced labels
+
+All three layers are scale-gated to 1:500 000 … 1:6 000 000 (no clutter at wide
+zoom). Source: OSM via Overpass. Prerequisite: `uv run reiseplan-cli fetch-natural`.
+
+### `tools/qgis_mining.py` — mineral resources
+
+Creates a **"Bodenschätze"** group below "Relief / Landschaft". Loads
+`data/processed/mineral_resources.geojson` with rule-based pictogram symbology
+keyed on the `commodity` field (coal, iron_ore, salt, gold, oil/gas, stone …).
+Scale visibility: 1:500 000 … 1:6 000 000. Prerequisite: `uv run reiseplan-cli fetch-mining`.
+
+### `tools/qgis_industry.py` — industry sites
+
+Creates an **"Industrie"** group below "Bodenschätze". Loads
+`data/processed/industry_sites.geojson` with rule-based pictogram symbology
+keyed on the `branch` field (power_hydro, steel, chemical, textile …).
+Scale visibility: 1:500 000 … 1:6 000 000. Prerequisite: `uv run reiseplan-cli fetch-industry`.
+
+### `tools/qgis_terrain.py` — hillshade and contour lines
+
+Creates a **"Terrain"** group at the bottom of the tree (rasters render below all
+vectors). Loads:
+
+- **Hillshade** (`terrain_hillshade.tif`) — multiply blend, 70 % opacity
+- **DEM** (`terrain_dem.tif`) — hidden by default (reference only)
+- **Höhenlinien** (`contours.geojson`) — thin brown lines + italic elevation label at 100 m / 500 m
+
+Prerequisite: `uv run reiseplan-cli fetch-terrain`.
+
+### `tools/qgis_landcover.py` — land-cover polygons
+
+Creates a **"Landbedeckung"** group above "Terrain". Loads
+`data/processed/landcover.geojson` with flat atlas-palette categorised symbology
+at 60 % opacity (8 classes: arable/forest/pasture/water/urban …).
+Scale visibility: 1:500 000 … 1:8 000 000. Prerequisite: `uv run reiseplan-cli fetch-landcover`.
 
 ### `tools/qgis_bookmarks.py` — spatial bookmarks
 
@@ -151,7 +201,7 @@ in the script, +8 % margin per axis). View them via *View → Show Spatial Bookm
 ### `tools/qgis_setup_scales.py` — scale-dependent rendering
 
 Turns the flat "everything visible at every zoom" map into a layered one. It
-(1) reloads the QML styles onto the four vector layers (`loadNamedStyle`, all
+(1) reloads the QML styles onto the vector layers (`loadNamedStyle`, all
 categories — also sidesteps the "All Categories" trap), (2) sets layer scale
 visibility so markers vanish at continental zoom, and (3) turns the basemap stack
 into scale bands, switching off the opaque competitors, so the right map shows

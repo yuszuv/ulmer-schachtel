@@ -1,11 +1,11 @@
-# Natural Features Layer — Gebirge & Landschaftszüge
+# Natural Features Layer — Mountain Ridges & Landscape Labels
 
 > **Architecture note (2026-06):** The natural-feature pipeline now runs on
 > the generic thematic-layer infrastructure (Pattern 4).  `fetch_natural.py`
 > is a thin wrapper around `thematic.run(themes.natural.SPEC, …)`.  The fetch
 > logic, tile grid, Wikidata cache, and GeoJSON outputs are unchanged —
 > `--offline` rebuilds remain byte-identical to prior runs.  See
-> `docs/10_thematic_layers.md` for the full pipeline design.
+> `docs/data-and-layers/thematic-layers.md` for the full pipeline design.
 
 Historical-atlas style mountain ridges, peaks, and landscape labels
 overlaid on the map canvas. The visual goal is the *zimmermann.jpg*
@@ -50,10 +50,12 @@ the script deduplicates across runs via OSM id + type.
 | `data/processed/natural_ridges.geojson` | LineString | `natural=ridge` ways | **Curved** (placement=3) |
 | `data/processed/mountain_peaks.geojson` | Point | `natural=peak` nodes (ele filtered) | straight, spot-height style |
 | `data/processed/landscape_labels.geojson` | Point | `natural=mountain_range`, `natural=valley` nodes | straight, spaced |
-| `data/processed/natural_features_attribution.json` | — | ODbL sidecar | — |
+| `data/processed/natural_attribution.json` | — | ODbL sidecar | — |
 
-Properties per feature: `name`, `name_de`, `name_de_src`, `wikidata`,
-`natural`, `place`, `ele` (peaks), `osm_id`, `osm_type`.
+Properties per feature:
+- **Peaks**: `name`, `name_de`, `name_de_src`, `wikidata`, `natural`, `place`, `ele`, `importance` (1 = Major, 2 = Significant, 3 = Minor, 4 = Local), `osm_id`, `osm_type`.
+- **Ridges**: `name`, `name_de`, `name_de_src`, `wikidata`, `natural`, `place`, `length_deg`, `importance` (1 = Major, 2 = Significant, 3 = Minor), `osm_id`, `osm_type`.
+- **Landscape Labels**: `name`, `name_de`, `name_de_src`, `wikidata`, `natural`, `place`, `importance` (1 = Major, 2 = Minor), `osm_id`, `osm_type`.
 
 ## German name enrichment (Wikipedia / Wikidata)
 
@@ -97,7 +99,7 @@ Wikidata (e.g. *Dinarsko gorje → Dinarisches Gebirge*,
 The very large arc names — **Karpaten** and **Siebenbürgen** — are stored
 in OSM as *relations* only, so they have no point node and do **not** appear
 in `landscape_labels.geojson`. For these, draw hand-made label lines
-(see [08_curved_labels.md](08_curved_labels.md)):
+(see [curved-labels.md](curved-labels.md)):
 
 - Create `data/label_lines_relief.gpkg` (LineString, EPSG:4326, field `label`)
 - Draw one gentle left-to-right arc per range name
@@ -113,41 +115,68 @@ Add all layers to a group **"Relief / Landschaft"** in the layer tree
 ### natural_ridges — curved brown names
 
 1. **Symbology:** Simple Line → Pen style: No Pen (invisible carrier)
-2. **Labels → Single labels → Value:** `coalesce("name_de", "name")`
+2. **Labels → Single labels → Value:** scale-dependent `CASE` expression:
+   ```sql
+   CASE 
+     WHEN "importance" = 1 OR 
+          (@map_scale <= 1500000 AND "importance" = 2) OR 
+          (@map_scale <= 750000 AND "importance" = 3) 
+     THEN coalesce("name_de", "name") 
+     ELSE NULL 
+   END
+   ```
 3. **Placement → Mode:** Curved
-   - Max curved angle inner / outer: **20° / 20°**
+   - Max curved angle inner / outer: **25° / 25°**
    - Allow upside-down: *never*
    - Placement: On line, distance 0
-4. **Text:** font matching other layers; size ≈ 7; color `107,79,42`
+4. **Text:** font matching other layers; size ≈ 6.5; color `107,79,42`
    (brown as in existing labels at `reiseplan.qgs:2138`); increase
    Letter spacing for the spaced-out atlas look
 5. **Buffer:** white, 0.6 mm
 6. **Scale visibility:** show only in the project's typical map range
    (e.g. maxScale ≈ 6 000 000)
 
-Reference: the existing curved-label layer at `qgis/reiseplan.qgs:2186`
-uses `placement="3"` — copy that block's `<labeling>` XML if needed.
-
 ### mountain_peaks — spot heights
 
-1. **Symbology:** small brown triangle marker (▲), size 1.5–2 mm
-2. **Labels:** expression `coalesce("name_de","name") || '\n' || "ele"` —
-   German name on top (when available), elevation below in small numerals
-3. **Scale visibility:** only show prominent peaks at small scales
-   (consider a scale-dependent rule to hide below, say, 2200 m when
-   zoomed out)
+1. **Symbology:** Rule-based renderer with four rules for different importance levels to avoid clutter:
+   - **Major Peaks (Imp 1):** filter `"importance" = 1`, visible scale `1:3 000 000` to `0`
+   - **Significant Peaks (Imp 2):** filter `"importance" = 2`, visible scale `1:1 500 000` to `0`
+   - **Minor Peaks (Imp 3):** filter `"importance" = 3`, visible scale `1:750 000` to `0`
+   - **Local Peaks (Imp 4):** filter `"importance" = 4`, visible scale `1:300 000` to `0`
+   Symbol: small brown triangle marker (▲), size 1.6 mm
+2. **Labels:** scale-dependent expression:
+   ```sql
+   CASE 
+     WHEN "importance" = 1 OR 
+          (@map_scale <= 1500000 AND "importance" = 2) OR 
+          (@map_scale <= 750000 AND "importance" = 3) OR 
+          (@map_scale <= 300000 AND "importance" = 4) 
+     THEN coalesce("name_de", "name") || 
+          CASE WHEN "ele" IS NOT NULL THEN '\n' || to_string("ele") || ' m' ELSE '' END 
+     ELSE NULL 
+   END
+   ```
+   German name on top (when available), elevation below in small numerals.
+3. **Scale visibility:** 1:3 000 000 to 0 (entire layer scale gate)
 
 ### landscape_labels — spaced range names
 
 1. **Symbology:** no marker (invisible)
-2. **Labels:** `coalesce("name_de", "name")`; placement: free/horizontal;
-   increase Letter spacing significantly (atlas "Sperrung" effect);
-   same brown `107,79,42`
-3. **Scale visibility:** same range as ridges
+2. **Labels:** scale-dependent expression:
+   ```sql
+   CASE 
+     WHEN "importance" = 1 OR 
+          (@map_scale <= 3000000 AND "importance" = 2) 
+     THEN upper(coalesce("name_de", "name")) 
+     ELSE NULL 
+   END
+   ```
+   Placement: free/horizontal; increase Letter spacing significantly (atlas "Sperrung" effect); same brown `107,79,42`
+3. **Scale visibility:** 1:10 000 000 to 800 000
 
 ### hand-drawn lines (label_lines_relief.gpkg)
 
-Follow [08_curved_labels.md](08_curved_labels.md) steps 1–5.
+Follow [curved-labels.md](curved-labels.md) steps 1–5.
 Styled identically to `natural_ridges` but with larger font (the
 iconic range names span more space).  Names needed as hand-drawn arcs
 (not present as OSM nodes):

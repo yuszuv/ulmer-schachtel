@@ -163,6 +163,27 @@ Mapped from `power=plant` + `plant:source=*` and `man_made=works` + `product=*`.
 
 ---
 
+## Clutter Prevention & Importance Categorization
+
+Due to the huge amount of OSM data within the k.u.k. / Romania bounding box, all layers are filtered to remove local noise and categorized by an `importance` property (values 1–4, where 1 is highest priority). This allows QGIS and QField to use scale-dependent rendering rules to display only major landmarks when zoomed out and gradually reveal minor elements when zooming in.
+
+### 1. General Noise Filters
+*   **Unnamed elements** without a Wikidata QID or Wikipedia link are filtered out entirely for `mining` and `industry` themes.
+*   **Generic industrial zones** (`branch = industrial`) without an operator or Wikidata are skipped.
+*   **Minor peaks** without Wikidata/Wikipedia are skipped if their elevation is below 2000m, and all peaks without both elevation and Wikidata are skipped.
+*   **Short ridges** less than 0.005° (~500m) without Wikidata are skipped.
+
+### 2. Importance Classifications
+| Theme | Level 1 (Major) | Level 2 (Significant) | Level 3 (Minor) | Level 4 (Local) |
+|---|---|---|---|---|
+| **Natural Peaks** | Has Wikidata/WP and `ele` $\ge 2000$ | Has Wikidata/WP and `ele` $\ge 1500$, or no Wikidata and `ele` $\ge 2500$ | Has Wikidata/WP and `ele` $\ge 1000$, or no Wikidata and `ele` $\ge 2000$ | Has Wikidata/WP but no parsed elevation |
+| **Natural Ridges** | Has Wikidata/WP and length $\ge 0.02^\circ$ | Has Wikidata/WP and length $< 0.02^\circ$, or no Wikidata and length $\ge 0.04^\circ$ | Others | — |
+| **Landscape Labels** | Has Wikidata/Wikipedia | Others | — | — |
+| **Mineral Resources** | Has Wikidata/WP, or gold/silver/salt/uranium commodity | Coal, iron_ore, oil, gas, copper commodity | Others | — |
+| **Industry Sites** | Has Wikidata/WP, or `power_nuclear` | Other power plants, or major works (steel, chemical, cement, paper) | Others (food, wood, textile, works_other, industrial) | — |
+
+---
+
 ## Wikidata cache
 
 All themes share a single committed cache at

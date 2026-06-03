@@ -75,7 +75,7 @@ needed.
   an HTML card shown on identify (Identify tool / finger tap). The HTML is defined
   in `qgis/styles/*.qml` (category *Map Tips*) and embedded at `.qgz` save time —
   requires that styles were loaded **with all categories** (see
-  [01_qgis_setup.md](01_qgis_setup.md), step 5).
+  [QGIS setup](qgis-setup.md), step 5).
 - **"About this map" marker:** the ℹ point (`info_markers`) near the centre of
   Romania is the usage/legend help — tap it for symbol explanation, navigation
   hints, and the Danube Delta / rail note.
@@ -121,7 +121,7 @@ during packaging:
 1. In the same configuration dialog open the **Base map** section.
 2. Enable **Create base map**.
 3. Select the **map theme** or layer of the desired base map as the source (e.g.
-   the XYZ OSM or CARTO map from [01_qgis_setup.md](01_qgis_setup.md)).
+   the XYZ OSM or CARTO map from [QGIS setup](qgis-setup.md)).
 4. Set the level of detail:
    - **Map units per pixel**: smaller = sharper, but larger file.
    - **Tile size**: the default (usually 1024 px) is sufficient.

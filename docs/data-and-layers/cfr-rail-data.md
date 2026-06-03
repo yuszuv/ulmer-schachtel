@@ -4,7 +4,7 @@ Technical reference for `uv run reiseplan-fetch` (`tools/reiseplan/ingest.py`) �
 the command that fetches Romanian railway data (CFR magistrale 200–900) from
 OpenStreetMap and converts it into project-ready GeoJSON/CSV files.
 
-The query syntax itself is explained in [docs/05_overpass_101.md](05_overpass_101.md).
+The query syntax itself is explained in [docs/data-and-layers/overpass-101.md](overpass-101.md).
 
 ---
 
@@ -113,7 +113,7 @@ flowchart TD
 
 ## Overpass query
 
-The command sends **two types** of queries — see [docs/05_overpass_101.md](05_overpass_101.md) for the full syntax walk-through.
+The command sends **two types** of queries — see [docs/data-and-layers/overpass-101.md](overpass-101.md) for the full syntax walk-through.
 
 **Query 1 — station nodes** (one call, Romania-wide):
 
@@ -136,7 +136,7 @@ out geom;
 
 One bounding box per line (station coords ± 0.25°). The `["service"!~"."]` filter drops sidings and yards. `out geom` returns the full vertex list, which `RailNetwork` uses to build the routing graph.
 
-Query syntax details: [docs/05_overpass_101.md](05_overpass_101.md).
+Query syntax details: [docs/data-and-layers/overpass-101.md](overpass-101.md).
 
 ---
 
@@ -237,7 +237,7 @@ an undirected weighted graph from the `railway=rail` way geometry for that
 corridor. `route_stops(coords)` then runs Dijkstra between consecutive stops,
 concatenates the path segments, and falls back to a straight line for any
 segment where the graph has a gap — tagged `geom_source = "fallback-straight"`.
-See `tools/reiseplan/routing.py` and [docs/07_architecture.md](07_architecture.md).
+See `tools/reiseplan/routing.py` and [docs/architecture/code-architecture.md](../architecture/code-architecture.md).
 
 ### Station deduplication
 
@@ -436,13 +436,13 @@ and can be enabled if needed.
 > `timetable.csv` was not manually modified.
 
 After the PR is merged, `pages.yml` rebuilds the online map automatically.
-Details: [docs/04_web_pages.md](04_web_pages.md).
+Details: [docs/getting-started/web-map.md](../getting-started/web-map.md).
 
 ---
 
 ## Further reading
 
-- Overpass query syntax explained: [docs/05_overpass_101.md](05_overpass_101.md)
-- Online map and GitHub Pages: [docs/04_web_pages.md](04_web_pages.md)
+- Overpass query syntax explained: [docs/data-and-layers/overpass-101.md](overpass-101.md)
+- Online map and GitHub Pages: [docs/getting-started/web-map.md](../getting-started/web-map.md)
 - Overpass Turbo (interactive): <https://overpass-turbo.eu>
 - ODbL licence text: <https://opendatacommons.org/licenses/odbl/>

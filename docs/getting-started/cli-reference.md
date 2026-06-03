@@ -55,7 +55,7 @@ uv run reiseplan-cli build-qfield --out ~/some/folder
 `build-qfield` reads `qgis/reiseplan.qgs` + `qgis/reiseplan_attachments.zip`,
 rewrites all datasource paths to local bundle references, and writes three files
 to `qfield/current/`: `reiseplan.qgz` + `reiseplan.gpkg` + `arcanum2_ro_clip.tif`.
-The original project is never modified. See [02_qfield_export.md](02_qfield_export.md) for details.
+The original project is never modified. See [QField export](qfield-export.md) for details.
 
 > The CLI locates `data/processed` by walking up from the current directory —
 > run from the repo root for simplest usage.
