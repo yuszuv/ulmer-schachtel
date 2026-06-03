@@ -95,7 +95,7 @@ begrenzt, die Labels zusätzlich auf 1:2 Mio … 1:15 Mio.
 Die **Layer-Maßstäbe** (Marker-Geometrie von `rail_stations`/`info_markers` aus-
 blenden, Grenzen-Band) und die **Basemap-Bänder** sind keine QML-Kategorie, sondern
 Projekt-Eigenschaften — sie werden von `tools/qgis_setup_scales.py` gesetzt. Details:
-[docs/01_qgis_setup.md](../../docs/01_qgis_setup.md#helper-scripts-python-console).
+[docs/getting-started/qgis-setup.md](../../docs/getting-started/qgis-setup.md#helper-scripts-python-console).
 
 ## Styles in das Projekt einbetten
 

@@ -1,20 +1,20 @@
 # QGIS projects
 
-> **Hinweis:** Das Projektverzeichnis `qgis/projects/` ist vestigial — die
-> eigentliche Projektdatei liegt eine Ebene höher:
+> **Note:** The `qgis/projects/` directory is vestigial — the actual project file
+> lives one level up:
 >
-> `qgis/reiseplan.qgz`
+> `qgis/reiseplan.qgs`
 >
-> Dieses Verzeichnis kann ignoriert werden.
+> This directory can be ignored.
 
-## Kurzreferenz
+## Quick reference
 
-- Das Projekt wird **direkt in QGIS** geöffnet und gespeichert.
-- Beim Speichern **relative Pfade** aktivieren:
-  *Projekt → Eigenschaften → Allgemein → Pfade: relativ*
-- Styles vor dem Speichern mit **All Categories** laden, damit Map Tips im
-  `.qgz` eingebettet werden.
-- Für den QField-Export: `uv run reiseplan-cli build-qfield`
-  (baut `qfield/current/{reiseplan.qgz, reiseplan.gpkg}`)
+- The project is **opened and saved directly in QGIS**.
+- When saving, enable **relative paths**:
+  *Project → Properties → General → Paths: relative*
+- Load styles with **All Categories** before saving so that Map Tips are
+  embedded in the `.qgs`.
+- For the QField export: `uv run reiseplan-cli build-qfield`
+  (builds `qfield/current/{reiseplan.qgz, reiseplan.gpkg}`)
 
-Vollständige Anleitung: [../../docs/01_qgis_setup.md](../../docs/01_qgis_setup.md)
+Full setup guide: [../../docs/getting-started/qgis-setup.md](../../docs/getting-started/qgis-setup.md)
