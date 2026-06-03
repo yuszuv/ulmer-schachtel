@@ -48837,7 +48837,7 @@
         "osm_type": "way",
         "name": "Czerwone Wierchy / Červené vrchy",
         "name_de": "Czerwone Wierchy",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9198812",
         "natural": "ridge",
         "place": null
@@ -53346,6 +53346,98 @@
           [
             19.7499794,
             49.1858041
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1525562103,
+        "osm_type": "way",
+        "name": "Dobogó",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "ridge",
+        "place": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.8512409,
+            47.4397499
+          ],
+          [
+            18.8504791,
+            47.4410271
+          ],
+          [
+            18.8494384,
+            47.4421228
+          ],
+          [
+            18.8486445,
+            47.4427287
+          ],
+          [
+            18.8468742,
+            47.4440312
+          ],
+          [
+            18.8445851,
+            47.4453219
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1525562104,
+        "osm_type": "way",
+        "name": "Dobogó",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "ridge",
+        "place": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.8481188,
+            47.430047
+          ],
+          [
+            18.8471317,
+            47.431455
+          ],
+          [
+            18.8458657,
+            47.4336468
+          ],
+          [
+            18.8447713,
+            47.4373915
+          ],
+          [
+            18.8435483,
+            47.4398733
+          ],
+          [
+            18.8411236,
+            47.444169
+          ],
+          [
+            18.8409197,
+            47.4449672
+          ],
+          [
+            18.8409412,
+            47.445359
           ]
         ]
       }
@@ -58579,7 +58671,7 @@
         "osm_type": "way",
         "name": "Eménkes",
         "name_de": "Gerecse-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q256766",
         "natural": "ridge",
         "place": null,
@@ -58630,7 +58722,7 @@
         "osm_type": "way",
         "name": "Eménkes",
         "name_de": "Gerecse-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q256766",
         "natural": "ridge",
         "place": null,
@@ -83405,7 +83497,7 @@
         "osm_type": "way",
         "name": "Hinterautalkette",
         "name_de": "Hinterautal-Vomper-Kette",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1619623",
         "natural": "ridge",
         "place": null
@@ -86186,7 +86278,7 @@
         "osm_type": "way",
         "name": "Hochälpele-Weißenfluhgruppe",
         "name_de": "Hochälpele-Weißenfluh-Gruppe",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q121410316",
         "natural": "ridge",
         "place": null
@@ -109460,7 +109552,7 @@
         "osm_type": "way",
         "name": "Kotolnica / Kotelnica",
         "name_de": "Kotelnica",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11744312",
         "natural": "ridge",
         "place": null
@@ -116824,7 +116916,7 @@
         "osm_type": "way",
         "name": "Landrücken",
         "name_de": "Hessischer Landrücken",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1520429",
         "natural": "ridge",
         "place": null
@@ -119364,7 +119456,7 @@
         "osm_type": "way",
         "name": "Liptovské múry / Liptowskie Mury",
         "name_de": "Liptowskie Mury",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11757794",
         "natural": "ridge",
         "place": null
@@ -169672,8 +169764,8 @@
         "osm_id": 1092022167,
         "osm_type": "way",
         "name": "Schneiderkopfkamm",
-        "name_de": null,
-        "name_de_src": null,
+        "name_de": "Schneiderkopf",
+        "name_de_src": "wikipedia",
         "wikidata": "Q131815268",
         "natural": "ridge",
         "place": null
@@ -177434,8 +177526,8 @@
         "osm_id": 42301918,
         "osm_type": "way",
         "name": "Stanser-Joch-Kamm",
-        "name_de": "Rauer Knöll-Verzweigung",
-        "name_de_src": "wikidata",
+        "name_de": "Rauer-Knöll-Verzweigung",
+        "name_de_src": "wikipedia",
         "wikidata": "Q15125909",
         "natural": "ridge",
         "place": null
@@ -181555,7 +181647,7 @@
         "osm_type": "way",
         "name": "Sulzbergrücken",
         "name_de": "Sulzberg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q124094319",
         "natural": "ridge",
         "place": null
@@ -181581,7 +181673,7 @@
         "osm_type": "way",
         "name": "Sulzbergrücken",
         "name_de": "Sulzberg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q124094319",
         "natural": "ridge",
         "place": null
@@ -185721,7 +185813,7 @@
         "osm_type": "way",
         "name": "Tri Roháče",
         "name_de": "Tri kopy",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9362324",
         "natural": "ridge",
         "place": null
@@ -187355,7 +187447,7 @@
         "osm_type": "way",
         "name": "Tűzköves",
         "name_de": "Gerecse-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q256766",
         "natural": "ridge",
         "place": null,
@@ -187402,7 +187494,7 @@
         "osm_type": "way",
         "name": "Tűzköves",
         "name_de": "Gerecse-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q256766",
         "natural": "ridge",
         "place": null,
@@ -191247,7 +191339,7 @@
         "osm_type": "way",
         "name": "Vomper Kette",
         "name_de": "Hinterautal-Vomper-Kette",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1619623",
         "natural": "ridge",
         "place": null
@@ -191333,7 +191425,7 @@
         "osm_type": "way",
         "name": "Vomperkette",
         "name_de": "Hinterautal-Vomper-Kette",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1619623",
         "natural": "ridge",
         "place": null
@@ -192231,7 +192323,7 @@
         "osm_type": "way",
         "name": "Vran planina",
         "name_de": "Vran",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3445913",
         "natural": "ridge",
         "place": null
@@ -222408,7 +222500,7 @@
         "osm_type": "way",
         "name": "Свидовець",
         "name_de": "Swydiwez",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q32474",
         "natural": "ridge",
         "place": null
@@ -222586,7 +222678,7 @@
         "osm_type": "way",
         "name": "Свидовець",
         "name_de": "Swydiwez",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q32474",
         "natural": "ridge",
         "place": null
@@ -222752,7 +222844,7 @@
         "osm_type": "way",
         "name": "Свидовець",
         "name_de": "Swydiwez",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q32474",
         "natural": "ridge",
         "place": null

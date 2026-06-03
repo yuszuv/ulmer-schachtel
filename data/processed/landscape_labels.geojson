@@ -95,7 +95,7 @@
         "osm_type": "node",
         "name": "Apuseni Mountains",
         "name_de": "Apuseni-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q285425",
         "natural": "mountain_range",
         "place": null
@@ -135,7 +135,7 @@
         "osm_type": "node",
         "name": "Banat Mountains",
         "name_de": "Banater Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q252546",
         "natural": "mountain_range",
         "place": null
@@ -215,7 +215,7 @@
         "osm_type": "node",
         "name": "Beskid Mały",
         "name_de": "Kleine Beskiden",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q6649083",
         "natural": "mountain_range",
         "place": null
@@ -235,7 +235,7 @@
         "osm_type": "node",
         "name": "Beskid Sądecki",
         "name_de": "Sandezer Beskiden",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9169579",
         "natural": "mountain_range",
         "place": null
@@ -255,7 +255,7 @@
         "osm_type": "node",
         "name": "Beskid Wyspowy",
         "name_de": "Inselbeskiden",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q6083026",
         "natural": "mountain_range",
         "place": null
@@ -275,7 +275,7 @@
         "osm_type": "node",
         "name": "Beskid Śląski",
         "name_de": "Schlesische Beskiden",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q633849",
         "natural": "mountain_range",
         "place": null
@@ -295,7 +295,7 @@
         "osm_type": "node",
         "name": "Beskid Żywiecki",
         "name_de": "Saybuscher Beskiden",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2982654",
         "natural": "mountain_range",
         "place": null
@@ -335,7 +335,7 @@
         "osm_type": "node",
         "name": "Bihor Mountains",
         "name_de": "Bihor-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q794778",
         "natural": "mountain_range",
         "place": null
@@ -355,7 +355,7 @@
         "osm_type": "node",
         "name": "Biokovo",
         "name_de": "Biokovo-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q864456",
         "natural": "mountain_range",
         "place": null
@@ -755,7 +755,7 @@
         "osm_type": "node",
         "name": "Dinarsko gorje",
         "name_de": "Dinarisches Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q189915",
         "natural": "mountain_range",
         "place": null
@@ -1217,7 +1217,7 @@
         "osm_type": "node",
         "name": "Góry Kaczawskie",
         "name_de": "Bober-Katzbach-Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q604327",
         "natural": "mountain_range",
         "place": null
@@ -1257,7 +1257,7 @@
         "osm_type": "node",
         "name": "Góry Sanocko-Turczańskie",
         "name_de": "Sanok-Turkaer Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4108349",
         "natural": "mountain_range",
         "place": null
@@ -1838,7 +1838,7 @@
         "osm_type": "node",
         "name": "Mala Kapela",
         "name_de": "Kapela",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2166811",
         "natural": "mountain_range",
         "place": null
@@ -1939,7 +1939,7 @@
         "osm_type": "node",
         "name": "Metaliferi Mountains",
         "name_de": "Siebenbürgisches Erzgebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q635800",
         "natural": "mountain_range",
         "place": null
@@ -2257,6 +2257,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7549338665,
+        "osm_type": "node",
+        "name": "Pasul Doamnei Mici (Mitoc)",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1130
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.103948,
+          47.1207199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7475849534,
         "osm_type": "node",
         "name": "Pieniny",
@@ -2377,6 +2398,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12486011656,
+        "osm_type": "node",
+        "name": "Preluca la Groapa lui Niță",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8371349,
+          47.1774427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12486011654,
+        "osm_type": "node",
+        "name": "Preluca lui Ion a lui GG",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8402624,
+          47.1830546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2174838671,
         "osm_type": "node",
         "name": "Prießnitzdurchbruch",
@@ -2437,6 +2498,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12663096040,
+        "osm_type": "node",
+        "name": "Rapa lu' Costache",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8124506,
+          47.1105042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 9130016606,
         "osm_type": "node",
         "name": "Ratzengrund",
@@ -2481,7 +2562,7 @@
         "osm_type": "node",
         "name": "Rodna Mountains",
         "name_de": "Rodnaer Gebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q903484",
         "natural": "mountain_range",
         "place": null
@@ -2551,6 +2632,26 @@
         "coordinates": [
           26.8192704,
           46.540297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13033590881,
+        "osm_type": "node",
+        "name": "Râpa Nămălvii",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.746323,
+          47.9617383
         ]
       }
     },
@@ -2985,7 +3086,7 @@
         "osm_type": "node",
         "name": "Tatry",
         "name_de": "Tatra",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q194263",
         "natural": "mountain_range",
         "place": null
@@ -3076,6 +3177,27 @@
         "coordinates": [
           14.5265222,
           46.3004116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12486011553,
+        "osm_type": "node",
+        "name": "Trecătoarea Sasului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null,
+        "ele": 1015
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8953913,
+          47.2273147
         ]
       }
     },
@@ -3526,7 +3648,7 @@
         "osm_type": "node",
         "name": "Val d'Err",
         "name_de": "Val d’Err",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q24538340",
         "natural": "valley",
         "place": null
@@ -5408,7 +5530,7 @@
         "osm_type": "node",
         "name": "Јадовник",
         "name_de": "Jadovnik",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q938433",
         "natural": "mountain_range",
         "place": null
@@ -5448,7 +5570,7 @@
         "osm_type": "node",
         "name": "Јастребац",
         "name_de": "Jastrebac",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1684066",
         "natural": "mountain_range",
         "place": null
@@ -6024,6 +6146,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4146192413,
+        "osm_type": "node",
+        "name": "Вітовта або Вітькова долина",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2519176,
+          49.4244431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7556596361,
         "osm_type": "node",
         "name": "Гајева планина",
@@ -6208,7 +6350,7 @@
         "osm_type": "node",
         "name": "Гучево",
         "name_de": "Gučevo",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1502845",
         "natural": "mountain_range",
         "place": null
@@ -6268,7 +6410,7 @@
         "osm_type": "node",
         "name": "Дели Јован",
         "name_de": "Deli Jovan",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1561378",
         "natural": "mountain_range",
         "place": null
@@ -6278,6 +6420,26 @@
         "coordinates": [
           22.216839,
           44.2208719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6603724711,
+        "osm_type": "node",
+        "name": "Долина Предків",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.6091855,
+          50.586103
         ]
       }
     },
@@ -6388,7 +6550,7 @@
         "osm_type": "node",
         "name": "Златибор",
         "name_de": "Zlatibor",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q207143",
         "natural": "mountain_range",
         "place": null
@@ -6468,7 +6630,7 @@
         "osm_type": "node",
         "name": "Копаоник",
         "name_de": "Kopaonik",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1266471",
         "natural": "mountain_range",
         "place": null
@@ -6818,6 +6980,26 @@
         "coordinates": [
           24.612182,
           43.3950611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12628114764,
+        "osm_type": "node",
+        "name": "Нагорянський каньйон",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "valley",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0905163,
+          50.5075188
         ]
       }
     },
@@ -7268,7 +7450,7 @@
         "osm_type": "node",
         "name": "Стара планина",
         "name_de": "Balkangebirge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q170427",
         "natural": "mountain_range",
         "place": null
@@ -7368,7 +7550,7 @@
         "osm_type": "node",
         "name": "Сува планина",
         "name_de": "Suva Planina",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1981857",
         "natural": "mountain_range",
         "place": null
@@ -7508,7 +7690,7 @@
         "osm_type": "node",
         "name": "Фрушка гора",
         "name_de": "Fruška Gora",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q116285",
         "natural": "mountain_range",
         "place": null

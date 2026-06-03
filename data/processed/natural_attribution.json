@@ -1,0 +1,24 @@
+{
+  "generated": "2026-06-03",
+  "source": "OpenStreetMap via Overpass API",
+  "url": "https://overpass-api.de/api/interpreter",
+  "license": "ODbL 1.0 — © OpenStreetMap contributors",
+  "attribution_url": "https://www.openstreetmap.org/copyright",
+  "name_de_source": {
+    "source": "Wikidata (wbgetentities labels, languages=de)",
+    "license": "CC0",
+    "cache": "data/raw/wikidata_de_labels.json",
+    "note": "Where OSM has no name:de tag but the feature carries a wikidata QID, the German label is used as name_de (name_de_src='wikidata'); otherwise name_de_src='osm'."
+  },
+  "roi_bbox": {
+    "south": 42.929272,
+    "west": 9.464611,
+    "north": 51.077385,
+    "east": 30.432847,
+    "description": "Austria-Hungary + Romania extent ~1880 (derived from data/reference/historical/kuk_clip.geojson)"
+  },
+  "tile_strategy": "18 tiles of 4.0° × 4.0° with 0.1° overlap; 2 Overpass calls per tile (ways + nodes separately) to avoid combined timeouts in the dense Alpine area; per-call server timeout 75s.",
+  "methodology": "Named ridge ways → natural_ridges.geojson (LineString, for QGIS Curved label placement). Named peak nodes → mountain_peaks.geojson (Point, ele ≥ default 1500 m). Named mountain_range + valley nodes → landscape_labels.geojson (Point, straight labels). Relations excluded — mountain-range names are duplicated on OSM nodes. For large arcing names without OSM line geometry (Karpaten, Südkarpaten, Siebenbürgen), add hand-drawn lines per docs/08_curved_labels.md.",
+  "way_query_template": "[out:json][timeout:75];\nway[\"natural\"=\"ridge\"][\"name\"](42.929272,9.464611,46.929272,13.464611);\nout geom;\n",
+  "node_query_template": "[out:json][timeout:75];\n(\n  node[\"natural\"=\"peak\"][\"name\"](42.929272,9.464611,46.929272,13.464611);\n  node[\"natural\"=\"mountain_range\"][\"name\"](42.929272,9.464611,46.929272,13.464611);\n  node[\"natural\"=\"valley\"][\"name\"](42.929272,9.464611,46.929272,13.464611);\n);\nout geom;\n"
+}

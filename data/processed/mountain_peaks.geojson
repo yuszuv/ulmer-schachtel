@@ -57,7 +57,7 @@
         "osm_type": "node",
         "name": "Pizzo Zupò",
         "name_de": "Piz Zupò",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q16674",
         "natural": "peak",
         "place": null,
@@ -141,7 +141,7 @@
         "osm_type": "node",
         "name": "Pizzo Roseg",
         "name_de": "Piz Roseg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q668287",
         "natural": "peak",
         "place": null,
@@ -225,7 +225,7 @@
         "osm_type": "node",
         "name": "Pizzo Palù Centrale",
         "name_de": "Piz Palü",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q665042",
         "natural": "peak",
         "place": null,
@@ -330,7 +330,7 @@
         "osm_type": "node",
         "name": "Crast' Agüzza",
         "name_de": "Crast’ Agüzza",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q668570",
         "natural": "peak",
         "place": null,
@@ -624,7 +624,7 @@
         "osm_type": "node",
         "name": "Palon de la Mare",
         "name_de": "Palòn de la Mare",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q833451",
         "natural": "peak",
         "place": null,
@@ -1233,7 +1233,7 @@
         "osm_type": "node",
         "name": "Großer Ramolkogel",
         "name_de": "Ramolkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q663547",
         "natural": "peak",
         "place": null,
@@ -1359,7 +1359,7 @@
         "osm_type": "node",
         "name": "Monte Adamello",
         "name_de": "Adamello",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q351582",
         "natural": "peak",
         "place": null,
@@ -1632,7 +1632,7 @@
         "osm_type": "node",
         "name": "Mittlerer Ramolkogel",
         "name_de": "Ramolkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q663547",
         "natural": "peak",
         "place": null,
@@ -2535,7 +2535,7 @@
         "osm_type": "node",
         "name": "Pizzo di Varuna",
         "name_de": "Piz Varuna",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q16630",
         "natural": "peak",
         "place": null,
@@ -2787,7 +2787,7 @@
         "osm_type": "node",
         "name": "Cima de' Piazzi",
         "name_de": "Cima de’ Piazzi",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1092025",
         "natural": "peak",
         "place": null,
@@ -3060,7 +3060,7 @@
         "osm_type": "node",
         "name": "Hochofenwand - Croda del Forno",
         "name_de": "Hochofenwand",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q26703532",
         "natural": "peak",
         "place": null,
@@ -3144,7 +3144,7 @@
         "osm_type": "node",
         "name": "Nördlicher Ramolkogel",
         "name_de": "Ramolkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q663547",
         "natural": "peak",
         "place": null,
@@ -3186,7 +3186,7 @@
         "osm_type": "node",
         "name": "Hinterer Spiegelkogel",
         "name_de": "Spiegelkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q664235",
         "natural": "peak",
         "place": null,
@@ -3270,7 +3270,7 @@
         "osm_type": "node",
         "name": "Südliche Sexegertenspitze",
         "name_de": "Sexegertenspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2275502",
         "natural": "peak",
         "place": null,
@@ -4593,7 +4593,7 @@
         "osm_type": "node",
         "name": "Piz Güglia - Piz Julier",
         "name_de": "Piz Güglia",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q674379",
         "natural": "peak",
         "place": null,
@@ -4719,7 +4719,7 @@
         "osm_type": "node",
         "name": "Piz D'Err",
         "name_de": "Piz d’Err",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q674732",
         "natural": "peak",
         "place": null,
@@ -4992,7 +4992,7 @@
         "osm_type": "node",
         "name": "Innere Schwarze Schneide",
         "name_de": "Innere Schwarze Schneid",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q592455",
         "natural": "peak",
         "place": null,
@@ -5223,7 +5223,7 @@
         "osm_type": "node",
         "name": "Falschungsspitze",
         "name_de": "Falschunggspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21874046",
         "natural": "peak",
         "place": null,
@@ -5769,7 +5769,7 @@
         "osm_type": "node",
         "name": "Kleiner Ramolkogel",
         "name_de": "Ramolkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q663547",
         "natural": "peak",
         "place": null,
@@ -9360,7 +9360,7 @@
         "osm_type": "node",
         "name": "Äußere Schwarze Schneide",
         "name_de": "Äußere Schwarze Schneid",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q258275",
         "natural": "peak",
         "place": null,
@@ -9465,7 +9465,7 @@
         "osm_type": "node",
         "name": "III. Hornspitze (Berliner Spitze)",
         "name_de": "III. Hornspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1653886",
         "natural": "peak",
         "place": null,
@@ -10305,7 +10305,7 @@
         "osm_type": "node",
         "name": "Tofana di Dentro",
         "name_de": "Tofane",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q944214",
         "natural": "peak",
         "place": null,
@@ -10767,7 +10767,7 @@
         "osm_type": "node",
         "name": "Nördliche Augstenspitze",
         "name_de": "Augstenberg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3780291",
         "natural": "peak",
         "place": null,
@@ -10788,7 +10788,7 @@
         "osm_type": "node",
         "name": "Wurmtalerkopf",
         "name_de": "Wurmtaler Kopf",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q338785",
         "natural": "peak",
         "place": null,
@@ -11628,7 +11628,7 @@
         "osm_type": "node",
         "name": "Schussgrubenkogel",
         "name_de": "Schußgrubenkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2252467",
         "natural": "peak",
         "place": null,
@@ -12027,7 +12027,7 @@
         "osm_type": "node",
         "name": "Piz d'Agnel",
         "name_de": "Piz d’Agnel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3695758",
         "natural": "peak",
         "place": null,
@@ -12678,7 +12678,7 @@
         "osm_type": "node",
         "name": "Cima della Vezzana",
         "name_de": "Cima di Vezzana",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1092027",
         "natural": "peak",
         "place": null,
@@ -13833,7 +13833,7 @@
         "osm_type": "node",
         "name": "Keeseck",
         "name_de": "Keesegg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1737764",
         "natural": "peak",
         "place": null,
@@ -14757,7 +14757,7 @@
         "osm_type": "node",
         "name": "Muklarspitz",
         "name_de": "Muklaspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21880571",
         "natural": "peak",
         "place": null,
@@ -15996,7 +15996,7 @@
         "osm_type": "node",
         "name": "Hintere Guslarspitze",
         "name_de": "Guslarspitzen",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q596658",
         "natural": "peak",
         "place": null,
@@ -17613,7 +17613,7 @@
         "osm_type": "node",
         "name": "Mittlere Guslarspitze",
         "name_de": "Guslarspitzen",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q596658",
         "natural": "peak",
         "place": null,
@@ -18474,7 +18474,7 @@
         "osm_type": "node",
         "name": "Vordere Guslarspitze",
         "name_de": "Guslarspitzen",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q596658",
         "natural": "peak",
         "place": null,
@@ -19293,7 +19293,7 @@
         "osm_type": "node",
         "name": "Monte Galleggione",
         "name_de": "Pizz Gallagiun",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3883624",
         "natural": "peak",
         "place": null,
@@ -19755,7 +19755,7 @@
         "osm_type": "node",
         "name": "Cima d'Ambiez",
         "name_de": "Cima d’Ambiéz",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1092019",
         "natural": "peak",
         "place": null,
@@ -20511,7 +20511,7 @@
         "osm_type": "node",
         "name": "Gößnitzkopf",
         "name_de": "Gössnitzkopf",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1560008",
         "natural": "peak",
         "place": null,
@@ -20532,7 +20532,7 @@
         "osm_type": "node",
         "name": "Rotspitzen",
         "name_de": "Leibnitzer Rotspitzen",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q33105593",
         "natural": "peak",
         "place": null,
@@ -20973,7 +20973,7 @@
         "osm_type": "node",
         "name": "Parstleswand Westgipfel",
         "name_de": "Parstleswand",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q568127",
         "natural": "peak",
         "place": null,
@@ -21708,7 +21708,7 @@
         "osm_type": "node",
         "name": "Hinterer Wurmkogel",
         "name_de": "Wurmkogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21879061",
         "natural": "peak",
         "place": null,
@@ -22065,7 +22065,7 @@
         "osm_type": "node",
         "name": "Piz Surpare",
         "name_de": "Piz Surparé",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q7199903",
         "natural": "peak",
         "place": null,
@@ -23262,7 +23262,7 @@
         "osm_type": "node",
         "name": "Mittlerer Seekarkopf",
         "name_de": "Seekarköpfe",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q662843",
         "natural": "peak",
         "place": null,
@@ -23724,7 +23724,7 @@
         "osm_type": "node",
         "name": "Südlicher Seekarkopf",
         "name_de": "Seekarköpfe",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q662843",
         "natural": "peak",
         "place": null,
@@ -24123,7 +24123,7 @@
         "osm_type": "node",
         "name": "Debantgrat Nordgipfel",
         "name_de": "Debantgrat",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1181375",
         "natural": "peak",
         "place": null,
@@ -24186,7 +24186,7 @@
         "osm_type": "node",
         "name": "Piz de Lavarela - La Varella",
         "name_de": "Piz Lavarela",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1808840",
         "natural": "peak",
         "place": null,
@@ -24480,7 +24480,7 @@
         "osm_type": "node",
         "name": "Debantgrat Südgipfel",
         "name_de": "Debantgrat",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1181375",
         "natural": "peak",
         "place": null,
@@ -24647,8 +24647,8 @@
         "osm_id": 2363268533,
         "osm_type": "node",
         "name": "Niederer Prijakt",
-        "name_de": "Prijakt",
-        "name_de_src": "wikidata",
+        "name_de": "Hoher Prijakt",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2109676",
         "natural": "peak",
         "place": null,
@@ -24837,7 +24837,7 @@
         "osm_type": "node",
         "name": "Pizzo Coca",
         "name_de": "Pizzo di Coca",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2009944",
         "natural": "peak",
         "place": null,
@@ -25257,7 +25257,7 @@
         "osm_type": "node",
         "name": "Cima della Blese",
         "name_de": "Piz Bles",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q7199817",
         "natural": "peak",
         "place": null,
@@ -26349,7 +26349,7 @@
         "osm_type": "node",
         "name": "Nördlicher Polleskogel",
         "name_de": "Polleskogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q91099672",
         "natural": "peak",
         "place": null,
@@ -28953,7 +28953,7 @@
         "osm_type": "node",
         "name": "Cristallino d'Ampezzo",
         "name_de": "Cristallino d’Ampezzo",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q25387072",
         "natural": "peak",
         "place": null,
@@ -29541,7 +29541,7 @@
         "osm_type": "node",
         "name": "Nördlicher Seekarkopf",
         "name_de": "Seekarköpfe",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q662843",
         "natural": "peak",
         "place": null,
@@ -32103,7 +32103,7 @@
         "osm_type": "node",
         "name": "Piz Cacciabella Nord",
         "name_de": "Piz Cacciabella",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3905985",
         "natural": "peak",
         "place": null,
@@ -33405,7 +33405,7 @@
         "osm_type": "node",
         "name": "Piz Cacciabella Sud",
         "name_de": "Piz Cacciabella",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3905985",
         "natural": "peak",
         "place": null,
@@ -35106,7 +35106,7 @@
         "osm_type": "node",
         "name": "Las Trais Fluors",
         "name_de": "Trais Fluors",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2448330",
         "natural": "peak",
         "place": null,
@@ -35715,7 +35715,7 @@
         "osm_type": "node",
         "name": "Sas de Pordoi",
         "name_de": "Sass Pordoi",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2225709",
         "natural": "peak",
         "place": null,
@@ -36467,27 +36467,6 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 7992887273,
-        "osm_type": "node",
-        "name": "Mutspitze - Monte Muta",
-        "name_de": null,
-        "name_de_src": null,
-        "wikidata": null,
-        "natural": "peak",
-        "place": null,
-        "ele": 2943
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.6534666,
-          46.4793569
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": 13050416756,
         "osm_type": "node",
         "name": "VI: De Agostini",
@@ -36650,6 +36629,27 @@
         "coordinates": [
           10.6099197,
           46.1194301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7992887273,
+        "osm_type": "node",
+        "name": "Mutspitze",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q140001354",
+        "natural": "peak",
+        "place": null,
+        "ele": 2941
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.6534666,
+          46.4793569
         ]
       }
     },
@@ -38088,7 +38088,7 @@
         "osm_type": "node",
         "name": "Piz d'Emmat Dadaint",
         "name_de": "Piz d’Emmat Dadaint",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q22384327",
         "natural": "peak",
         "place": null,
@@ -39159,7 +39159,7 @@
         "osm_type": "node",
         "name": "Torre Fanis",
         "name_de": "Fanesturm",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31628718",
         "natural": "peak",
         "place": null,
@@ -40692,7 +40692,7 @@
         "osm_type": "node",
         "name": "Monte Ciaval",
         "name_de": "Monte Cavallo",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q14912886",
         "natural": "peak",
         "place": null,
@@ -41532,7 +41532,7 @@
         "osm_type": "node",
         "name": "Lenzerhorn",
         "name_de": "Lenzer Horn",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q691768",
         "natural": "peak",
         "place": null,
@@ -42288,7 +42288,7 @@
         "osm_type": "node",
         "name": "Cima Grostè",
         "name_de": "Cima del Grostè",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1092016",
         "natural": "peak",
         "place": null,
@@ -43191,7 +43191,7 @@
         "osm_type": "node",
         "name": "Mont Ciase - Monte Casale",
         "name_de": "Monte Casale",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q14530767",
         "natural": "peak",
         "place": null,
@@ -45711,7 +45711,7 @@
         "osm_type": "node",
         "name": "Moiazza Sud",
         "name_de": "Moiazza",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3860159",
         "natural": "peak",
         "place": null,
@@ -46152,7 +46152,7 @@
         "osm_type": "node",
         "name": "Piza Scotoni - Cima Scotoni",
         "name_de": "Cima Scotoni",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1092001",
         "natural": "peak",
         "place": null,
@@ -46257,7 +46257,7 @@
         "osm_type": "node",
         "name": "Hintere Lobspitze",
         "name_de": "Lobspitzen",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1867128",
         "natural": "peak",
         "place": null,
@@ -46425,7 +46425,7 @@
         "osm_type": "node",
         "name": "Monte Agner",
         "name_de": "Monte Agnèr",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q16354723",
         "natural": "peak",
         "place": null,
@@ -49238,8 +49238,8 @@
         "osm_id": 3337464964,
         "osm_type": "node",
         "name": "Piz d'Emmat Dadora",
-        "name_de": null,
-        "name_de_src": null,
+        "name_de": "Piz d’Emmat Dadora",
+        "name_de_src": "wikipedia",
         "wikidata": "Q22384344",
         "natural": "peak",
         "place": null,
@@ -49932,7 +49932,7 @@
         "osm_type": "node",
         "name": "Cima d'Asta",
         "name_de": "Cima d’Asta",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q501840",
         "natural": "peak",
         "place": null,
@@ -51864,7 +51864,7 @@
         "osm_type": "node",
         "name": "Großer Turm",
         "name_de": "Drei Türme",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1257176",
         "natural": "peak",
         "place": null,
@@ -52641,7 +52641,7 @@
         "osm_type": "node",
         "name": "Piz Campagnun",
         "name_de": "Piz Campagnung",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q19056259",
         "natural": "peak",
         "place": null,
@@ -53460,7 +53460,7 @@
         "osm_type": "node",
         "name": "Defregger Pfannhorn",
         "name_de": "Deferegger Pfannhorn",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q115491761",
         "natural": "peak",
         "place": null,
@@ -54026,8 +54026,8 @@
         "osm_id": 2025349330,
         "osm_type": "node",
         "name": "Mont Ciastel - Monte Castello",
-        "name_de": "Monte Castello (Fanesgruppe)",
-        "name_de_src": "wikidata",
+        "name_de": "Monte Castello",
+        "name_de_src": "wikipedia",
         "wikidata": "Q14530769",
         "natural": "peak",
         "place": null,
@@ -54951,7 +54951,7 @@
         "osm_type": "node",
         "name": "Sass Maòr",
         "name_de": "Sass Maor",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1591759",
         "natural": "peak",
         "place": null,
@@ -55917,7 +55917,7 @@
         "osm_type": "node",
         "name": "Haldensteiner Calanda",
         "name_de": "Calanda",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q16529",
         "natural": "peak",
         "place": null,
@@ -58752,7 +58752,7 @@
         "osm_type": "node",
         "name": "Muntejela de Sennes - Monte Sella di Sennes",
         "name_de": "Muntejela de Senes",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1945923",
         "natural": "peak",
         "place": null,
@@ -59214,7 +59214,7 @@
         "osm_type": "node",
         "name": "Polinik",
         "name_de": "Mölltaler Polinik",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q871838",
         "natural": "peak",
         "place": null,
@@ -59571,7 +59571,7 @@
         "osm_type": "node",
         "name": "Mittlerer Turm",
         "name_de": "Drei Türme",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1257176",
         "natural": "peak",
         "place": null,
@@ -59634,7 +59634,7 @@
         "osm_type": "node",
         "name": "Amselflue Westgipfel",
         "name_de": "Amselflue",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q328312",
         "natural": "peak",
         "place": null,
@@ -61524,7 +61524,7 @@
         "osm_type": "node",
         "name": "Gargeller Madrisa",
         "name_de": "Madrisa",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21878856",
         "natural": "peak",
         "place": null,
@@ -61860,7 +61860,7 @@
         "osm_type": "node",
         "name": "Amselflue Ostgipfel",
         "name_de": "Amselflue",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q328312",
         "natural": "peak",
         "place": null,
@@ -63876,7 +63876,7 @@
         "osm_type": "node",
         "name": "Kleiner Turm",
         "name_de": "Drei Türme",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1257176",
         "natural": "peak",
         "place": null,
@@ -64590,7 +64590,7 @@
         "osm_type": "node",
         "name": "Col dala Piëres",
         "name_de": "Col dala Pieres",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q98497720",
         "natural": "peak",
         "place": null,
@@ -66048,8 +66048,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7556078,
-          46.8702925
+          11.7556008,
+          46.8703022
         ]
       }
     },
@@ -67047,7 +67047,7 @@
         "osm_type": "node",
         "name": "Cima Pradidali",
         "name_de": "Campanile Pradidali",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1030232",
         "natural": "peak",
         "place": null,
@@ -67530,7 +67530,7 @@
         "osm_type": "node",
         "name": "Innerrodelkunke",
         "name_de": "Innerrodelgungge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31671367",
         "natural": "peak",
         "place": null,
@@ -68097,7 +68097,7 @@
         "osm_type": "node",
         "name": "Pitla Piza de Puez",
         "name_de": "Puezgruppe",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2117507",
         "natural": "peak",
         "place": null,
@@ -68412,7 +68412,7 @@
         "osm_type": "node",
         "name": "Griften (Zupalkogel)",
         "name_de": "Griften",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q114239626",
         "natural": "peak",
         "place": null,
@@ -72003,7 +72003,7 @@
         "osm_type": "node",
         "name": "XII Apostoli",
         "name_de": "Cima dei XII Apostoli",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q131048378",
         "natural": "peak",
         "place": null,
@@ -73347,7 +73347,7 @@
         "osm_type": "node",
         "name": "Ausserrodelkunke",
         "name_de": "Außerrodelgungge",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q116697910",
         "natural": "peak",
         "place": null,
@@ -76161,7 +76161,7 @@
         "osm_type": "node",
         "name": "Cima Fracinglo",
         "name_de": "Crozzon di Val d’Agola",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31357046",
         "natural": "peak",
         "place": null,
@@ -78009,7 +78009,7 @@
         "osm_type": "node",
         "name": "Plankfeldspitz",
         "name_de": "Plankfeld",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q116717203",
         "natural": "peak",
         "place": null,
@@ -78438,8 +78438,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5586057,
-          46.3610568
+          11.5581264,
+          46.3607117
         ]
       }
     },
@@ -80277,7 +80277,7 @@
         "osm_type": "node",
         "name": "Averau",
         "name_de": "Monte Averau",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2012568",
         "natural": "peak",
         "place": null,
@@ -82691,8 +82691,8 @@
         "osm_id": 2671047790,
         "osm_type": "node",
         "name": "Gritzer Hörndle",
-        "name_de": null,
-        "name_de_src": null,
+        "name_de": "Gritzer Hörndl",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1247674",
         "natural": "peak",
         "place": null,
@@ -82986,7 +82986,7 @@
         "osm_type": "node",
         "name": "Wiss Platte",
         "name_de": "Weißplatte",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1221634",
         "natural": "peak",
         "place": null,
@@ -83973,7 +83973,7 @@
         "osm_type": "node",
         "name": "Gran Pala di Valchiara",
         "name_de": "Helltaler Schlechten",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q8553235",
         "natural": "peak",
         "place": null,
@@ -86933,8 +86933,8 @@
         "osm_id": 2411069681,
         "osm_type": "node",
         "name": "Roßkopf",
-        "name_de": "Rosskopf (Karnische Alpen)",
-        "name_de_src": "wikidata",
+        "name_de": "Rosskopf",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3442848",
         "natural": "peak",
         "place": null,
@@ -89180,8 +89180,8 @@
         "osm_id": 1246604176,
         "osm_type": "node",
         "name": "Getrumspitze",
-        "name_de": "Getrumspitze (Getrumkamm)",
-        "name_de_src": "wikidata",
+        "name_de": "Plankenhorn",
+        "name_de_src": "wikipedia",
         "wikidata": "Q15124913",
         "natural": "peak",
         "place": null,
@@ -89454,7 +89454,7 @@
         "osm_type": "node",
         "name": "Kanin / Canin / La Mont Cjanìne",
         "name_de": "Großer Kanin",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1723772",
         "natural": "peak",
         "place": null,
@@ -90294,7 +90294,7 @@
         "osm_type": "node",
         "name": "Cridola (Cima est)",
         "name_de": "Monte Cridola",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2255784",
         "natural": "peak",
         "place": null,
@@ -91491,7 +91491,7 @@
         "osm_type": "node",
         "name": "Nuvolau",
         "name_de": "Monte Nuvolau",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1945868",
         "natural": "peak",
         "place": null,
@@ -92562,7 +92562,7 @@
         "osm_type": "node",
         "name": "Kleine Laserzwand",
         "name_de": "Laserzwand",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1422932",
         "natural": "peak",
         "place": null,
@@ -93402,7 +93402,7 @@
         "osm_type": "node",
         "name": "Cridola (Cima ovest)",
         "name_de": "Monte Cridola",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2255784",
         "natural": "peak",
         "place": null,
@@ -93843,7 +93843,7 @@
         "osm_type": "node",
         "name": "Schafkopf (Bramstaller)",
         "name_de": "Bramstaller",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q27949538",
         "natural": "peak",
         "place": null,
@@ -95376,7 +95376,7 @@
         "osm_type": "node",
         "name": "Pizzo Lizun",
         "name_de": "Piz Lizun",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q22386804",
         "natural": "peak",
         "place": null,
@@ -95649,7 +95649,7 @@
         "osm_type": "node",
         "name": "Prisank",
         "name_de": "Prisojnik",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q238644",
         "natural": "peak",
         "place": null,
@@ -100332,7 +100332,7 @@
         "osm_type": "node",
         "name": "Parângul Mare",
         "name_de": "Vârful Parângul Mare",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q897451",
         "natural": "peak",
         "place": null,
@@ -100962,7 +100962,7 @@
         "osm_type": "node",
         "name": "Wannagrat",
         "name_de": "Wannengrat",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q22546517",
         "natural": "peak",
         "place": null,
@@ -102243,7 +102243,7 @@
         "osm_type": "node",
         "name": "Vânătarea lui Buteanu",
         "name_de": "Vânătoarea lui Buteanu",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q716193",
         "natural": "peak",
         "place": null,
@@ -104259,7 +104259,7 @@
         "osm_type": "node",
         "name": "Cho d'Valletta",
         "name_de": "Cho d’Valletta",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q22496474",
         "natural": "peak",
         "place": null,
@@ -106191,7 +106191,7 @@
         "osm_type": "node",
         "name": "Große Gamswiesenspitze",
         "name_de": "Gamswiesenspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1493300",
         "natural": "peak",
         "place": null,
@@ -106464,7 +106464,7 @@
         "osm_type": "node",
         "name": "Col Rodela",
         "name_de": "Col Rodella",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3682472",
         "natural": "peak",
         "place": null,
@@ -111945,7 +111945,7 @@
         "osm_type": "node",
         "name": "Kleine Gamswiesenspitze",
         "name_de": "Gamswiesenspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1493300",
         "natural": "peak",
         "place": null,
@@ -123075,7 +123075,7 @@
         "osm_type": "node",
         "name": "Lopa / Monte Leupa",
         "name_de": "Monte Leupa",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q12795124",
         "natural": "peak",
         "place": null,
@@ -127191,7 +127191,7 @@
         "osm_type": "node",
         "name": "Caraiman",
         "name_de": "Caraiman-Spitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q858358",
         "natural": "peak",
         "place": null,
@@ -131811,7 +131811,7 @@
         "osm_type": "node",
         "name": "Torre Grande",
         "name_de": "Cinque Torri",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q933666",
         "natural": "peak",
         "place": null,
@@ -132315,7 +132315,7 @@
         "osm_type": "node",
         "name": "Saxner - Sassonero",
         "name_de": "Saxner",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q76857171",
         "natural": "peak",
         "place": null,
@@ -133974,7 +133974,7 @@
         "osm_type": "node",
         "name": "Monte Termine / V Koncu špica",
         "name_de": "Monte Termine",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21057955",
         "natural": "peak",
         "place": null,
@@ -135884,8 +135884,8 @@
         "osm_id": 2413005374,
         "osm_type": "node",
         "name": "Croz dell'Altissimo",
-        "name_de": null,
-        "name_de_src": null,
+        "name_de": "Croz dell’Altissimo",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3698738",
         "natural": "peak",
         "place": null,
@@ -136032,7 +136032,7 @@
         "osm_type": "node",
         "name": "Cima Dodici (Ferozzo)",
         "name_de": "Cima Dodici",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q937014",
         "natural": "peak",
         "place": null,
@@ -136536,7 +136536,7 @@
         "osm_type": "node",
         "name": "Żabia Turnia Mięguszowiecka / Žabia veža",
         "name_de": "Żabia Turnia Mięguszowiecka",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9397111",
         "natural": "peak",
         "place": null,
@@ -136977,7 +136977,7 @@
         "osm_type": "node",
         "name": "Monte Pavione",
         "name_de": "Pavion",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3861814",
         "natural": "peak",
         "place": null,
@@ -137397,7 +137397,7 @@
         "osm_type": "node",
         "name": "Polinik",
         "name_de": "Gailtaler Polinik",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1491277",
         "natural": "peak",
         "place": null,
@@ -137712,7 +137712,7 @@
         "osm_type": "node",
         "name": "Șerbotă",
         "name_de": "Șerbota",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q396955",
         "natural": "peak",
         "place": null,
@@ -141534,7 +141534,7 @@
         "osm_type": "node",
         "name": "Rödresnock (Moschelitzen)",
         "name_de": "Rodresnock",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q19971419",
         "natural": "peak",
         "place": null,
@@ -142983,7 +142983,7 @@
         "osm_type": "node",
         "name": "Pietrosul Rodnei",
         "name_de": "Pietros",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q153170",
         "natural": "peak",
         "place": null,
@@ -147246,7 +147246,7 @@
         "osm_type": "node",
         "name": "Gotschnagrat",
         "name_de": "Gotschna",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q5587946",
         "natural": "peak",
         "place": null,
@@ -151824,7 +151824,7 @@
         "osm_type": "node",
         "name": "Orenknott",
         "name_de": "Ohrnknott",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q27882394",
         "natural": "peak",
         "place": null,
@@ -152559,7 +152559,7 @@
         "osm_type": "node",
         "name": "Pfannock",
         "name_de": "Pfannnock",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21864801",
         "natural": "peak",
         "place": null,
@@ -153000,7 +153000,7 @@
         "osm_type": "node",
         "name": "Cimon del Cavallo",
         "name_de": "Monte Cavallo",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3861426",
         "natural": "peak",
         "place": null,
@@ -155625,7 +155625,7 @@
         "osm_type": "node",
         "name": "La Om",
         "name_de": "Vârful La Om",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q12284548",
         "natural": "peak",
         "place": null,
@@ -157431,7 +157431,7 @@
         "osm_type": "node",
         "name": "Paion del Cermis",
         "name_de": "Alpe Cermis",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2576260",
         "natural": "peak",
         "place": null,
@@ -159216,7 +159216,7 @@
         "osm_type": "node",
         "name": "Dente Italiano",
         "name_de": "Italienische Platte",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3705524",
         "natural": "peak",
         "place": null,
@@ -159552,7 +159552,7 @@
         "osm_type": "node",
         "name": "Cima Valdritta (Monte Baldo)",
         "name_de": "Monte Baldo",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1945737",
         "natural": "peak",
         "place": null,
@@ -161861,8 +161861,8 @@
         "osm_id": 457518120,
         "osm_type": "node",
         "name": "Dente Austriaco",
-        "name_de": "österreichische Platte",
-        "name_de_src": "wikidata",
+        "name_de": "Österreichische Platte",
+        "name_de_src": "wikipedia",
         "wikidata": "Q66685063",
         "natural": "peak",
         "place": null,
@@ -166986,7 +166986,7 @@
         "osm_type": "node",
         "name": "Monte Cornetto",
         "name_de": "Monte Bondone",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1478747",
         "natural": "peak",
         "place": null,
@@ -167322,7 +167322,7 @@
         "osm_type": "node",
         "name": "Klin / Starorobociański Wierch",
         "name_de": "Starorobociański Wierch",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3544114",
         "natural": "peak",
         "place": null,
@@ -168960,7 +168960,7 @@
         "osm_type": "node",
         "name": "Миджур / Миџор",
         "name_de": "Midschur",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q962856",
         "natural": "peak",
         "place": null,
@@ -170850,7 +170850,7 @@
         "osm_type": "node",
         "name": "Blyšť / Błyszcz",
         "name_de": "Błyszcz",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9183560",
         "natural": "peak",
         "place": null,
@@ -174693,7 +174693,7 @@
         "osm_type": "node",
         "name": "Jarząbczy Wierch / Hrubý vrch",
         "name_de": "Jarząbczy Wierch",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11134872",
         "natural": "peak",
         "place": null,
@@ -176814,7 +176814,7 @@
         "osm_type": "node",
         "name": "Veľká Kamenistá / Kamienista",
         "name_de": "Kamienista",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2855198",
         "natural": "peak",
         "place": null,
@@ -177591,7 +177591,7 @@
         "osm_type": "node",
         "name": "Kresanica / Krzesanica",
         "name_de": "Krzesanica",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2582708",
         "natural": "peak",
         "place": null,
@@ -179376,7 +179376,7 @@
         "osm_type": "node",
         "name": "Monte Bove Nord",
         "name_de": "Monte Bove",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1091732",
         "natural": "peak",
         "place": null,
@@ -182505,7 +182505,7 @@
         "osm_type": "node",
         "name": "Ciemniak / Temniak",
         "name_de": "Ciemniak",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11690580",
         "natural": "peak",
         "place": null,
@@ -182589,7 +182589,7 @@
         "osm_type": "node",
         "name": "Malolučniak / Małołączniak",
         "name_de": "Małołączniak",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11772508",
         "natural": "peak",
         "place": null,
@@ -187797,7 +187797,7 @@
         "osm_type": "node",
         "name": "Smreczyński Wierch / Smrečiny",
         "name_de": "Smreczyński Wierch",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9338770",
         "natural": "peak",
         "place": null,
@@ -188385,7 +188385,7 @@
         "osm_type": "node",
         "name": "Volovec / Wołowiec",
         "name_de": "Wołowiec",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2783579",
         "natural": "peak",
         "place": null,
@@ -195105,7 +195105,7 @@
         "osm_type": "node",
         "name": "Дупљак | Оба",
         "name_de": "Dupljak",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1266559",
         "natural": "peak",
         "place": null,
@@ -197877,7 +197877,7 @@
         "osm_type": "node",
         "name": "Петрос",
         "name_de": "Petros",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1419635",
         "natural": "peak",
         "place": null,
@@ -198465,7 +198465,7 @@
         "osm_type": "node",
         "name": "Панчићев врх",
         "name_de": "Pančićev vrh",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2050272",
         "natural": "peak",
         "place": null,
@@ -198612,7 +198612,7 @@
         "osm_type": "node",
         "name": "Гутин Томнатик",
         "name_de": "Hutyn Tomnatyk",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4152998",
         "natural": "peak",
         "place": null,
@@ -199305,7 +199305,7 @@
         "osm_type": "node",
         "name": "Beskid / Beskyd",
         "name_de": "Beskid",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9169549",
         "natural": "peak",
         "place": null,
@@ -200712,7 +200712,7 @@
         "osm_type": "node",
         "name": "Kondratova kopa / Kopa Kondracka",
         "name_de": "Kopa Kondracka",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11743304",
         "natural": "peak",
         "place": null,
@@ -201195,7 +201195,7 @@
         "osm_type": "node",
         "name": "Končistá / Kończysty Wierch",
         "name_de": "Kończysty Wierch",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11744818",
         "natural": "peak",
         "place": null,
@@ -201447,7 +201447,7 @@
         "osm_type": "node",
         "name": "Ребра",
         "name_de": "Rebra",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q683191",
         "natural": "peak",
         "place": null,
@@ -201888,7 +201888,7 @@
         "osm_type": "node",
         "name": "Nový vrch",
         "name_de": "Nový",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11793948",
         "natural": "peak",
         "place": null,
@@ -202287,7 +202287,7 @@
         "osm_type": "node",
         "name": "Менчул",
         "name_de": "Mentschul",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4307574",
         "natural": "peak",
         "place": null,
@@ -203021,8 +203021,8 @@
         "osm_id": 450174246,
         "osm_type": "node",
         "name": "Cima Parì",
-        "name_de": null,
-        "name_de_src": null,
+        "name_de": "Cima Pari",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31635272",
         "natural": "peak",
         "place": null,
@@ -205290,7 +205290,7 @@
         "osm_type": "node",
         "name": "Poľská Tomanová / Tomanowy Wierch Polski",
         "name_de": "Tomanowy Wierch Polski",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9359134",
         "natural": "peak",
         "place": null,
@@ -207558,7 +207558,7 @@
         "osm_type": "node",
         "name": "Sivá veža / Siwy Zwornik",
         "name_de": "Siwy Zwornik",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9337357",
         "natural": "peak",
         "place": null,
@@ -209133,7 +209133,7 @@
         "osm_type": "node",
         "name": "Deravá / Łopata",
         "name_de": "Łopata",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9394322",
         "natural": "peak",
         "place": null,
@@ -209994,7 +209994,7 @@
         "osm_type": "node",
         "name": "Ciucaș",
         "name_de": "Krähenstein",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q5124125",
         "natural": "peak",
         "place": null,
@@ -211170,7 +211170,7 @@
         "osm_type": "node",
         "name": "Kleinobir / Mali Obir",
         "name_de": "Kleinobir",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q21868495",
         "natural": "peak",
         "place": null,
@@ -213060,7 +213060,7 @@
         "osm_type": "node",
         "name": "Pop Ivan / Піп Іван Мармароський",
         "name_de": "Pip Iwan Maramureș",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4372154",
         "natural": "peak",
         "place": null,
@@ -213113,6 +213113,27 @@
         "coordinates": [
           12.0304399,
           47.0023305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13904617858,
+        "osm_type": "node",
+        "name": "Torre Berger",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1938
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8241724,
+          46.521107
         ]
       }
     },
@@ -213354,7 +213375,7 @@
         "osm_type": "node",
         "name": "Три чуке",
         "name_de": "Tri Čuke",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2452229",
         "natural": "peak",
         "place": null,
@@ -213900,7 +213921,7 @@
         "osm_type": "node",
         "name": "Туркул",
         "name_de": "Turkul",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4466192",
         "natural": "peak",
         "place": null,
@@ -217470,7 +217491,7 @@
         "osm_type": "node",
         "name": "Goričkova kopa / Goryczkowa Czuba",
         "name_de": "Goryczkowa Czuba",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9274624",
         "natural": "peak",
         "place": null,
@@ -218016,7 +218037,7 @@
         "osm_type": "node",
         "name": "Брескул",
         "name_de": "Breskul",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4096324",
         "natural": "peak",
         "place": null,
@@ -219297,7 +219318,7 @@
         "osm_type": "node",
         "name": "Malá Brestová",
         "name_de": "Brestová",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9179220",
         "natural": "peak",
         "place": null,
@@ -221397,7 +221418,7 @@
         "osm_type": "node",
         "name": "Suchy Wierch Kondracki / Suchá kopa",
         "name_de": "Suchy Wierch Kondracki",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9347852",
         "natural": "peak",
         "place": null,
@@ -223770,7 +223791,7 @@
         "osm_type": "node",
         "name": "Близниця Велика",
         "name_de": "Blysnyzja",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4088161",
         "natural": "peak",
         "place": null,
@@ -224274,7 +224295,7 @@
         "osm_type": "node",
         "name": "Rakoń / Rákoň",
         "name_de": "Rakoń",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9303722",
         "natural": "peak",
         "place": null,
@@ -225177,7 +225198,7 @@
         "osm_type": "node",
         "name": "Pośredni Goryczkowy Wierch / Prostredný Goričkový vrch",
         "name_de": "Pośredni Gorczykowy Wierch",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11826357",
         "natural": "peak",
         "place": null,
@@ -226395,7 +226416,7 @@
         "osm_type": "node",
         "name": "Suchy Wierch Tomanowy / Suchý vrch",
         "name_de": "Suchy Wierch Tomanowy",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9347857",
         "natural": "peak",
         "place": null,
@@ -228422,6 +228443,27 @@
         "coordinates": [
           19.6410039,
           48.9425022
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 26862642,
+        "osm_type": "node",
+        "name": "Budacu",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1859
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6739939,
+          47.1222013
         ]
       }
     },
@@ -232674,7 +232716,7 @@
         "osm_type": "node",
         "name": "Kotłowa Czubka",
         "name_de": "Kotłowa Czuba",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11744439",
         "natural": "peak",
         "place": null,
@@ -233745,7 +233787,7 @@
         "osm_type": "node",
         "name": "Сивуля Велика",
         "name_de": "Sywulja Welyka",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q4418523",
         "natural": "peak",
         "place": null,
@@ -234875,6 +234917,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9789535438,
+        "osm_type": "node",
+        "name": "Muntele între Borci",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1830
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6918953,
+          47.1063545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3020265781,
         "osm_type": "node",
         "name": "Pic Majot",
@@ -235646,6 +235709,27 @@
         "coordinates": [
           12.5818321,
           46.2853005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9857070611,
+        "osm_type": "node",
+        "name": "Piatra Borcuței",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1825
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6819063,
+          47.1116167
         ]
       }
     },
@@ -238554,7 +238638,7 @@
         "osm_type": "node",
         "name": "Трем",
         "name_de": "Trem",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q2451288",
         "natural": "peak",
         "place": null,
@@ -240234,7 +240318,7 @@
         "osm_type": "node",
         "name": "Висока",
         "name_de": "Wysoka",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q159829",
         "natural": "peak",
         "place": null,
@@ -240276,7 +240360,7 @@
         "osm_type": "node",
         "name": "Cima d'Oro",
         "name_de": "Cima d’Oro",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31635844",
         "natural": "peak",
         "place": null,
@@ -240444,7 +240528,7 @@
         "osm_type": "node",
         "name": "Ostra peč / Mallestiger Mittagskogel",
         "name_de": "Mallestiger Mittagskogel",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1887525",
         "natural": "peak",
         "place": null,
@@ -249743,6 +249827,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9425771217,
+        "osm_type": "node",
+        "name": "Grințieșul Mare",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1758
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7490679,
+          47.0848081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2914618223,
         "osm_type": "node",
         "name": "Griva",
@@ -249915,7 +250020,7 @@
         "osm_type": "node",
         "name": "Vaganski vrh",
         "name_de": "Vaganski Vrh",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1524307",
         "natural": "peak",
         "place": null,
@@ -249999,7 +250104,7 @@
         "osm_type": "node",
         "name": "Бабин зуб",
         "name_de": "Babin zub",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q797698",
         "natural": "peak",
         "place": null,
@@ -252099,7 +252204,7 @@
         "osm_type": "node",
         "name": "Monte Zoncolan / Il  Çoncolàn",
         "name_de": "Monte Zoncolan",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1468844",
         "natural": "peak",
         "place": null,
@@ -253632,7 +253737,7 @@
         "osm_type": "node",
         "name": "Ferlacher Spitze / Kamnica",
         "name_de": "Ferlacher Spitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q15809539",
         "natural": "peak",
         "place": null,
@@ -255617,6 +255722,27 @@
         "coordinates": [
           10.3926686,
           45.7978028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12698079872,
+        "osm_type": "node",
+        "name": "Muntele Grințieș",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1733
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6414575,
+          47.2211282
         ]
       }
     },
@@ -259487,6 +259613,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9789499606,
+        "osm_type": "node",
+        "name": "Teleșanu",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1715
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6830819,
+          47.1258511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4331454519,
         "osm_type": "node",
         "name": "Tolsti vrh",
@@ -260583,7 +260730,7 @@
         "osm_type": "node",
         "name": "Cjampon",
         "name_de": "Monte Chiampon",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q3861442",
         "natural": "peak",
         "place": null,
@@ -263313,7 +263460,7 @@
         "osm_type": "node",
         "name": "Uršlja gora",
         "name_de": "Ursulaberg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1400190",
         "natural": "peak",
         "place": null,
@@ -265325,6 +265472,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10798744767,
+        "osm_type": "node",
+        "name": "Muncelului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1689
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6270754,
+          47.0945094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7637938207,
         "osm_type": "node",
         "name": "Nastinje",
@@ -266585,6 +266753,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 5944063763,
+        "osm_type": "node",
+        "name": "Șlopătu",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1684
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6916449,
+          47.1533775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6466835380,
         "osm_type": "node",
         "name": "Găineasa",
@@ -267282,7 +267471,7 @@
         "osm_type": "node",
         "name": "Стій",
         "name_de": "Stij",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1986372",
         "natural": "peak",
         "place": null,
@@ -270869,6 +271058,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9790901636,
+        "osm_type": "node",
+        "name": "Bâtca Cristișor",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1667
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6660043,
+          47.1082228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 870273895,
         "osm_type": "node",
         "name": "Cima d'Arza",
@@ -271440,7 +271650,7 @@
         "osm_type": "node",
         "name": "Bobrowiec / Bobrovec",
         "name_de": "Bobrowiec",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9174818",
         "natural": "peak",
         "place": null,
@@ -271493,6 +271703,27 @@
         "coordinates": [
           13.2654575,
           46.4929288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4451547087,
+        "osm_type": "node",
+        "name": "Țibleșul Mare",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1665
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6519781,
+          47.0867584
         ]
       }
     },
@@ -272423,6 +272654,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13904670090,
+        "osm_type": "node",
+        "name": "Il Grattanuvole",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1661
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.219892,
+          45.7797598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7047358350,
         "osm_type": "node",
         "name": "Mali Troglav",
@@ -272564,6 +272816,27 @@
         "coordinates": [
           25.0820145,
           47.6380006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4451547086,
+        "osm_type": "node",
+        "name": "Țibleșul Mic",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1661
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6614786,
+          47.0914736
         ]
       }
     },
@@ -273215,6 +273488,27 @@
         "coordinates": [
           16.686799,
           44.1138907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13042468920,
+        "osm_type": "node",
+        "name": "Căboaia Broșteni",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1658
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6264077,
+          47.2471355
         ]
       }
     },
@@ -274611,7 +274905,7 @@
         "osm_type": "node",
         "name": "Grześ / Lúčna",
         "name_de": "Grześ",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11702821",
         "natural": "peak",
         "place": null,
@@ -275210,6 +275504,27 @@
         "coordinates": [
           19.5495913,
           43.0351436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 633226546,
+        "osm_type": "node",
+        "name": "Rarău",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1651
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5739996,
+          47.453582
         ]
       }
     },
@@ -280970,6 +281285,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 1859866818,
+        "osm_type": "node",
+        "name": "Popii Rarăului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1628
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.591163,
+          47.4495869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2652121150,
         "osm_type": "node",
         "name": "Segenbühl - Col Seghen",
@@ -282749,6 +283085,27 @@
         "coordinates": [
           13.2447971,
           46.4233761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10798744833,
+        "osm_type": "node",
+        "name": "Steja",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1621
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7168496,
+          47.0764647
         ]
       }
     },
@@ -285254,6 +285611,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10798744830,
+        "osm_type": "node",
+        "name": "Bâtca Verde",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1611
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6768739,
+          47.0898195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6340099835,
         "osm_type": "node",
         "name": "Cima del Bassimante",
@@ -285899,6 +286277,27 @@
         "coordinates": [
           24.002545,
           48.5392874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9425771216,
+        "osm_type": "node",
+        "name": "Bușmeiul Mare",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1609
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7608252,
+          47.107536
         ]
       }
     },
@@ -287705,6 +288104,27 @@
         "coordinates": [
           15.4018062,
           44.41316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13904064310,
+        "osm_type": "node",
+        "name": "Bâtca Caprei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1600
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6219919,
+          47.2705089
         ]
       }
     },
@@ -290546,6 +290966,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10798744832,
+        "osm_type": "node",
+        "name": "Albiei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1590
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.702194,
+          47.0808485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3493841347,
         "osm_type": "node",
         "name": "Cima Visì",
@@ -291527,6 +291968,27 @@
         "coordinates": [
           22.73602,
           46.69251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5267729887,
+        "osm_type": "node",
+        "name": "Harlagii",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1587
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5705485,
+          47.0849582
         ]
       }
     },
@@ -293835,8 +294297,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.4252404,
-          43.5823694
+          20.4253224,
+          43.5824852
         ]
       }
     },
@@ -294309,7 +294771,7 @@
         "osm_type": "node",
         "name": "Mała Królowa Kopa",
         "name_de": "Mała Kopa Królowa",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11772062",
         "natural": "peak",
         "place": null,
@@ -294939,7 +295401,7 @@
         "osm_type": "node",
         "name": "Cima Valdes",
         "name_de": "Cima Valdès",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31635648",
         "natural": "peak",
         "place": null,
@@ -295286,6 +295748,27 @@
         "coordinates": [
           18.9129575,
           43.0881415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12698079877,
+        "osm_type": "node",
+        "name": "Pinului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1574
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6353878,
+          47.2057055
         ]
       }
     },
@@ -301361,6 +301844,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10798744679,
+        "osm_type": "node",
+        "name": "Muntele Ortoaia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1554
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6575978,
+          47.1429268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4634799825,
         "osm_type": "node",
         "name": "Ravna gora",
@@ -302006,6 +302510,27 @@
         "coordinates": [
           13.7340145,
           46.5182445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9790901637,
+        "osm_type": "node",
+        "name": "Piatra Borcuța",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1552
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6930304,
+          47.1154839
         ]
       }
     },
@@ -306044,6 +306569,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12898732098,
+        "osm_type": "node",
+        "name": "Pietrăriei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1539
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7720278,
+          47.1069864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 1295278153,
         "osm_type": "node",
         "name": "Suchy Wierch",
@@ -308421,7 +308967,7 @@
         "osm_type": "node",
         "name": "Wielka Królowa Kopa",
         "name_de": "Wielka Kopa Królowa",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9372803",
         "natural": "peak",
         "place": null,
@@ -308453,6 +308999,27 @@
         "coordinates": [
           24.1574226,
           48.306289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8356066340,
+        "osm_type": "node",
+        "name": "Bivolul",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q12736036",
+        "natural": "peak",
+        "place": null,
+        "ele": 1530
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9340894,
+          47.2522589
         ]
       }
     },
@@ -312327,7 +312894,7 @@
         "osm_type": "node",
         "name": "Rocchetta Giochello",
         "name_de": "Cima Giochello",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1945901",
         "natural": "peak",
         "place": null,
@@ -312957,7 +313524,7 @@
         "osm_type": "node",
         "name": "Mała Babia Góra / Malá Babia hora",
         "name_de": "Mała Babia Góra",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q11772027",
         "natural": "peak",
         "place": null,
@@ -313562,6 +314129,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 11303889244,
+        "osm_type": "node",
+        "name": "Vârful lui Țifui",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1516
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9446993,
+          47.2362448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4562089402,
         "osm_type": "node",
         "name": "Долни връх",
@@ -313850,6 +314438,27 @@
         "coordinates": [
           22.79733,
           46.64927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11331646687,
+        "osm_type": "node",
+        "name": "Czoło",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q9199572",
+        "natural": "peak",
+        "place": null,
+        "ele": 1514
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7734387,
+          49.2390688
         ]
       }
     },
@@ -314339,6 +314948,27 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10587163509,
+        "osm_type": "node",
+        "name": "Bâtca Comorii",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1512
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8128228,
+          47.2598243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 26863713,
         "osm_type": "node",
         "name": "Cima Campo",
@@ -314396,6 +315026,27 @@
         "coordinates": [
           11.645393,
           45.9577922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12698079878,
+        "osm_type": "node",
+        "name": "Căprăria Mare",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null,
+        "ele": 1512
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6482195,
+          47.2022942
         ]
       }
     },
@@ -316905,7 +317556,7 @@
         "osm_type": "node",
         "name": "Monte San Simeone / Mont San Simeon",
         "name_de": "Monte San Simeone",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q31632548",
         "natural": "peak",
         "place": null,
@@ -319495,6 +320146,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13900945801,
+        "osm_type": "node",
+        "name": "1214",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9387356,
+          43.3716615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 9033480689,
         "osm_type": "node",
         "name": "1323",
@@ -319970,6 +320641,26 @@
         "coordinates": [
           18.3130141,
           49.8416237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6343479347,
+        "osm_type": "node",
+        "name": "316,45",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.3423876,
+          47.0787248
         ]
       }
     },
@@ -321916,6 +322607,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12715199712,
+        "osm_type": "node",
+        "name": "Arșiței",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.969698,
+          47.1971778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2260819404,
         "osm_type": "node",
         "name": "Aschelochturm",
@@ -323710,6 +324421,26 @@
         "coordinates": [
           18.3006263,
           46.2117137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9536722689,
+        "osm_type": "node",
+        "name": "Barnea",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0326091,
+          47.1244492
         ]
       }
     },
@@ -328797,6 +329528,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 5262739892,
+        "osm_type": "node",
+        "name": "Breazu Belleview",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5290934,
+          47.2123337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7555541736,
         "osm_type": "node",
         "name": "Breitloh",
@@ -331737,6 +332488,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9792003720,
+        "osm_type": "node",
+        "name": "Bâtca Hârtopului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0658137,
+          47.1478255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9877001666,
+        "osm_type": "node",
+        "name": "Bâtca Naltă",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5921033,
+          47.4277504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 439203388,
         "osm_type": "node",
         "name": "Bâtca Plopilor",
@@ -331751,6 +332542,26 @@
         "coordinates": [
           25.8769314,
           46.9889691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9877001667,
+        "osm_type": "node",
+        "name": "Bâtca Runculețului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5685343,
+          47.4427706
         ]
       }
     },
@@ -332311,6 +333122,26 @@
         "coordinates": [
           23.3344947,
           46.8213668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9301987065,
+        "osm_type": "node",
+        "name": "Bătca Leșii",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6251922,
+          47.4552136
         ]
       }
     },
@@ -333151,6 +333982,26 @@
         "coordinates": [
           25.9547644,
           46.9652792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8196380846,
+        "osm_type": "node",
+        "name": "Cetățuia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.5396733,
+          47.9909087
         ]
       }
     },
@@ -335178,6 +336029,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 410855908,
+        "osm_type": "node",
+        "name": "Coasta Codruțului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.7594129,
+          47.3891593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8039278517,
         "osm_type": "node",
         "name": "Coasta Mare",
@@ -335918,6 +336789,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 8077494092,
+        "osm_type": "node",
+        "name": "Colţul Morarului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.1591829,
+          48.085014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2440633852,
         "osm_type": "node",
         "name": "Colții Bratocei",
@@ -336598,6 +337489,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4756063626,
+        "osm_type": "node",
+        "name": "Coroiaș",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0068837,
+          47.1449259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 1730919908,
         "osm_type": "node",
         "name": "Costa Alpicella",
@@ -336861,8 +337772,8 @@
         "osm_id": 5459613696,
         "osm_type": "node",
         "name": "Crest' Ota",
-        "name_de": "Crest'Ota",
-        "name_de_src": "wikidata",
+        "name_de": "Crest’Ota",
+        "name_de_src": "wikipedia",
         "wikidata": "Q22425242",
         "natural": "peak",
         "place": null
@@ -338138,6 +339049,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 6457639373,
+        "osm_type": "node",
+        "name": "Culmea Pleșului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3420095,
+          47.2139181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10549014559,
+        "osm_type": "node",
+        "name": "Culmea Pleșului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1961196,
+          47.3012724
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6284329817,
         "osm_type": "node",
         "name": "Culmea Plocșor",
@@ -338192,6 +339143,26 @@
         "coordinates": [
           25.884508,
           46.9876575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11935086173,
+        "osm_type": "node",
+        "name": "Culmea Sarzan",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.6636534,
+          47.0860859
         ]
       }
     },
@@ -339239,26 +340210,6 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 11331646687,
-        "osm_type": "node",
-        "name": "Czoło",
-        "name_de": null,
-        "name_de_src": null,
-        "wikidata": "Q9199572",
-        "natural": "peak",
-        "place": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.7734387,
-          49.2390688
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": 5244161303,
         "osm_type": "node",
         "name": "Czoło",
@@ -339439,6 +340390,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10549014532,
+        "osm_type": "node",
+        "name": "Cârlanului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1894817,
+          47.3038117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6398200365,
         "osm_type": "node",
         "name": "Cârpod",
@@ -339519,6 +340490,66 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 844410231,
+        "osm_type": "node",
+        "name": "D Aramei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3641959,
+          47.0668839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 528375762,
+        "osm_type": "node",
+        "name": "D Babei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8449364,
+          47.6578247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 844420359,
+        "osm_type": "node",
+        "name": "D Baltagului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.296424,
+          47.0368189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 835583093,
         "osm_type": "node",
         "name": "D Berindei",
@@ -339533,6 +340564,126 @@
         "coordinates": [
           26.883943,
           47.0135397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2278657133,
+        "osm_type": "node",
+        "name": "D Bisericii",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.4121737,
+          47.3710862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836793295,
+        "osm_type": "node",
+        "name": "D Bostanului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0748322,
+          47.1999522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836781480,
+        "osm_type": "node",
+        "name": "D Boul Bătrîn",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9494335,
+          47.1039341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836772783,
+        "osm_type": "node",
+        "name": "D Butea",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9306366,
+          47.0845928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836785989,
+        "osm_type": "node",
+        "name": "D Buznei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9865553,
+          47.1856043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 253915023,
+        "osm_type": "node",
+        "name": "D Bălan",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.6351694,
+          47.131436
         ]
       }
     },
@@ -339559,6 +340710,86 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 410241332,
+        "osm_type": "node",
+        "name": "D Cetățuia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.7928868,
+          47.420761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1433077733,
+        "osm_type": "node",
+        "name": "D Cetățuie",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9220777,
+          47.2891993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1952413987,
+        "osm_type": "node",
+        "name": "D Coman",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.653523,
+          47.2318222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1736011621,
+        "osm_type": "node",
+        "name": "D Corbului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5933559,
+          47.273656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 1839609320,
         "osm_type": "node",
         "name": "D Călina",
@@ -339573,6 +340804,26 @@
         "coordinates": [
           27.6327146,
           46.983095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 364115553,
+        "osm_type": "node",
+        "name": "D Căprița",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.6218063,
+          47.1361537
         ]
       }
     },
@@ -339599,6 +340850,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 844410901,
+        "osm_type": "node",
+        "name": "D Deleanului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3381034,
+          47.070765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 844417047,
+        "osm_type": "node",
+        "name": "D Domniței",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3384467,
+          47.0393108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 598555256,
         "osm_type": "node",
         "name": "D Drăgan",
@@ -339613,6 +340904,106 @@
         "coordinates": [
           27.9950099,
           46.7140235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 516663059,
+        "osm_type": "node",
+        "name": "D Fundoaia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9033649,
+          47.3643293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836776144,
+        "osm_type": "node",
+        "name": "D Godolea",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9085781,
+          47.119881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 844408185,
+        "osm_type": "node",
+        "name": "D Horlești",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3635007,
+          47.0838582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2339169373,
+        "osm_type": "node",
+        "name": "D Lungani",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3913692,
+          47.0819622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836790154,
+        "osm_type": "node",
+        "name": "D Lupului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9905035,
+          47.1711067
         ]
       }
     },
@@ -339653,6 +341044,26 @@
         "coordinates": [
           27.8415425,
           46.8879662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 410854282,
+        "osm_type": "node",
+        "name": "D Morilor",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.735509,
+          47.3707066
         ]
       }
     },
@@ -339733,6 +341144,106 @@
         "coordinates": [
           27.9977564,
           46.7587302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 844424839,
+        "osm_type": "node",
+        "name": "D Podișului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.30299,
+          47.0481366
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 371026414,
+        "osm_type": "node",
+        "name": "D Podul de Lut",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.7828447,
+          47.3978168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836791904,
+        "osm_type": "node",
+        "name": "D Prigoreni",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0652191,
+          47.1922247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836791383,
+        "osm_type": "node",
+        "name": "D Prigorenii Mici",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0572798,
+          47.2040051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836795982,
+        "osm_type": "node",
+        "name": "D Raței",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.2152512,
+          47.2061043
         ]
       }
     },
@@ -339839,6 +341350,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 844413867,
+        "osm_type": "node",
+        "name": "D Secului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3368502,
+          47.053049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 598462920,
         "osm_type": "node",
         "name": "D Socilor",
@@ -339853,6 +341384,46 @@
         "coordinates": [
           27.9248861,
           46.9406441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 844408135,
+        "osm_type": "node",
+        "name": "D Stînei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3923827,
+          47.0454317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836783849,
+        "osm_type": "node",
+        "name": "D Teiușului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.923341,
+          47.1307432
         ]
       }
     },
@@ -339893,6 +341464,126 @@
         "coordinates": [
           27.8224043,
           46.9130356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836768179,
+        "osm_type": "node",
+        "name": "D Viei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.863517,
+          47.0795079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836792856,
+        "osm_type": "node",
+        "name": "D Vulturului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0864622,
+          47.2048798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836789632,
+        "osm_type": "node",
+        "name": "D lui Ilie",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0193426,
+          47.1692103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836792255,
+        "osm_type": "node",
+        "name": "D lui Pascal",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0807974,
+          47.1921955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 836775350,
+        "osm_type": "node",
+        "name": "D Șcheia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8962614,
+          47.1072056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 516664294,
+        "osm_type": "node",
+        "name": "D Țiglei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9391207,
+          47.3592743
         ]
       }
     },
@@ -340619,6 +342310,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 516648636,
+        "osm_type": "node",
+        "name": "Dealu lui Vitea",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9122913,
+          47.285764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8039626337,
         "osm_type": "node",
         "name": "Dealul Alângului",
@@ -340739,6 +342450,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7944826297,
+        "osm_type": "node",
+        "name": "Dealul Bobeica",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.6214865,
+          47.0518258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11233133157,
         "osm_type": "node",
         "name": "Dealul Bobului",
@@ -340839,6 +342570,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 343487616,
+        "osm_type": "node",
+        "name": "Dealul Boului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3841439,
+          47.2409738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11298484650,
         "osm_type": "node",
         "name": "Dealul Bozului",
@@ -340873,6 +342624,26 @@
         "coordinates": [
           25.1623666,
           45.4090287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13042468919,
+        "osm_type": "node",
+        "name": "Dealul Broștenilor",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7267893,
+          47.2522972
         ]
       }
     },
@@ -341019,6 +342790,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9528999169,
+        "osm_type": "node",
+        "name": "Dealul Cerdacului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2134207,
+          47.167189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 12329507241,
         "osm_type": "node",
         "name": "Dealul Cergheș",
@@ -341059,6 +342850,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 361160961,
+        "osm_type": "node",
+        "name": "Dealul Cetățuia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5836462,
+          47.1313516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8163905573,
         "osm_type": "node",
         "name": "Dealul Cetățuii",
@@ -341093,6 +342904,26 @@
         "coordinates": [
           24.2618034,
           45.0486778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9765972809,
+        "osm_type": "node",
+        "name": "Dealul Chirilaș",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.4901955,
+          47.0579505
         ]
       }
     },
@@ -341253,6 +343084,26 @@
         "coordinates": [
           24.2295426,
           45.1153139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8985647733,
+        "osm_type": "node",
+        "name": "Dealul Corhanei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.7839279,
+          47.3227026
         ]
       }
     },
@@ -341473,6 +343324,26 @@
         "coordinates": [
           26.4026169,
           45.2776158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12278006325,
+        "osm_type": "node",
+        "name": "Dealul Căprăria",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1684542,
+          47.1269364
         ]
       }
     },
@@ -341713,6 +343584,26 @@
         "coordinates": [
           24.142604,
           45.3607503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9115235793,
+        "osm_type": "node",
+        "name": "Dealul Golgota",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.6032373,
+          47.795967
         ]
       }
     },
@@ -341999,6 +343890,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 6431419240,
+        "osm_type": "node",
+        "name": "Dealul Leahului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7492348,
+          47.8951773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6468089039,
         "osm_type": "node",
         "name": "Dealul Lumineștilor",
@@ -342113,6 +344024,26 @@
         "coordinates": [
           24.1805599,
           45.125218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 843434679,
+        "osm_type": "node",
+        "name": "Dealul Miroslava",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5346224,
+          47.13213
         ]
       }
     },
@@ -342419,6 +344350,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9689167064,
+        "osm_type": "node",
+        "name": "Dealul Pietrișului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2505562,
+          47.0929686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 12560867290,
         "osm_type": "node",
         "name": "Dealul Prieteniei",
@@ -342433,6 +344384,26 @@
         "coordinates": [
           28.9956768,
           46.3220606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10564451399,
+        "osm_type": "node",
+        "name": "Dealul Puiului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1560407,
+          47.0795413
         ]
       }
     },
@@ -342559,6 +344530,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 1736011624,
+        "osm_type": "node",
+        "name": "Dealul Rusului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.548813,
+          47.2895077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8661159477,
         "osm_type": "node",
         "name": "Dealul Râpei",
@@ -342679,6 +344670,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9765972807,
+        "osm_type": "node",
+        "name": "Dealul Secăturilor",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.4830195,
+          47.0675305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11401891830,
         "osm_type": "node",
         "name": "Dealul Sfântu Gheorghe",
@@ -342733,6 +344744,26 @@
         "coordinates": [
           24.1901472,
           45.165215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 979257128,
+        "osm_type": "node",
+        "name": "Dealul Siliștii",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.4093846,
+          47.2349494
         ]
       }
     },
@@ -342833,6 +344864,26 @@
         "coordinates": [
           21.8183393,
           44.8349079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 428408111,
+        "osm_type": "node",
+        "name": "Dealul Surda",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5082725,
+          47.0843399
         ]
       }
     },
@@ -343059,6 +345110,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 264218456,
+        "osm_type": "node",
+        "name": "Dealul Viișoara",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3999568,
+          47.2370145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8607025620,
         "osm_type": "node",
         "name": "Dealul Vişoiu",
@@ -343073,6 +345144,26 @@
         "coordinates": [
           25.0730304,
           45.2775725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 364114274,
+        "osm_type": "node",
+        "name": "Dealul Vișanilor",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.6023424,
+          47.1321612
         ]
       }
     },
@@ -343253,6 +345344,26 @@
         "coordinates": [
           23.3099425,
           46.4632731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 366657672,
+        "osm_type": "node",
+        "name": "Dealul Șorogari",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5695223,
+          47.2191756
         ]
       }
     },
@@ -344013,6 +346124,26 @@
         "coordinates": [
           22.2780033,
           49.6164816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12704414420,
+        "osm_type": "node",
+        "name": "Diacu",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6739112,
+          47.4360548
         ]
       }
     },
@@ -345753,6 +347884,26 @@
         "coordinates": [
           10.9916708,
           46.070774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13905936099,
+        "osm_type": "node",
+        "name": "Dos Padergnon",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9892695,
+          46.0638854
         ]
       }
     },
@@ -348719,6 +350870,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13906064449,
+        "osm_type": "node",
+        "name": "Dòs dal brèn",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9933731,
+          46.0055467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2616213585,
         "osm_type": "node",
         "name": "Dòs de la Furca",
@@ -349703,7 +351874,7 @@
         "osm_type": "node",
         "name": "Eierberg",
         "name_de": "Lichtenberg",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q93257",
         "natural": "peak",
         "place": null
@@ -377184,7 +379355,7 @@
         "osm_type": "node",
         "name": "Kleine Gamswiesenspitze",
         "name_de": "Gamswiesenspitze",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q1493300",
         "natural": "peak",
         "place": null
@@ -381444,7 +383615,7 @@
         "osm_type": "node",
         "name": "Kozjak",
         "name_de": "674",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q30302",
         "natural": "peak",
         "place": null
@@ -385844,7 +388015,7 @@
         "osm_type": "node",
         "name": "Königstein",
         "name_de": "Landgrafenschlucht",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q29857020",
         "natural": "peak",
         "place": null
@@ -397280,26 +399451,6 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": 5657470808,
-        "osm_type": "node",
-        "name": "Monte San Pietro",
-        "name_de": null,
-        "name_de_src": null,
-        "wikidata": "Q31222058",
-        "natural": "peak",
-        "place": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4521515,
-          43.4908035
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": 5759049810,
         "osm_type": "node",
         "name": "Monte Sasso",
@@ -398180,6 +400331,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 979246387,
+        "osm_type": "node",
+        "name": "Mov Groșa",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3525944,
+          47.3617661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 11812223886,
         "osm_type": "node",
         "name": "Movila Ciutacu",
@@ -398374,6 +400545,26 @@
         "coordinates": [
           27.8048593,
           46.8472027
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 979247895,
+        "osm_type": "node",
+        "name": "Movila lui Țugui",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.3478955,
+          47.3667276
         ]
       }
     },
@@ -398914,6 +401105,46 @@
         "coordinates": [
           24.0661454,
           45.4539102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11428215215,
+        "osm_type": "node",
+        "name": "Muntele Hângu",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0303687,
+          47.1314236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12698079699,
+        "osm_type": "node",
+        "name": "Muntele Lung",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7394026,
+          47.3089692
         ]
       }
     },
@@ -399794,6 +402025,26 @@
         "coordinates": [
           23.6117866,
           47.6832695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9526536869,
+        "osm_type": "node",
+        "name": "Măgura Domesnic",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1153793,
+          47.2101373
         ]
       }
     },
@@ -401704,7 +403955,7 @@
         "osm_type": "node",
         "name": "Niedźwiedź",
         "name_de": "Tomanowy Niedźwiedź",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9359128",
         "natural": "peak",
         "place": null
@@ -401843,8 +404094,8 @@
         "osm_id": 4946362536,
         "osm_type": "node",
         "name": "Niżnia Okrąglica",
-        "name_de": "Drei Kronen",
-        "name_de_src": "wikidata",
+        "name_de": "Trzy Korony",
+        "name_de_src": "wikipedia",
         "wikidata": "Q7849064",
         "natural": "peak",
         "place": null
@@ -402580,6 +404831,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10587163503,
+        "osm_type": "node",
+        "name": "Obcina Goia",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7706045,
+          47.3141375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 10069852782,
         "osm_type": "node",
         "name": "Obcina Hăușului",
@@ -403163,8 +405434,8 @@
         "osm_id": 4568058109,
         "osm_type": "node",
         "name": "Oelsen-Berg",
-        "name_de": "Oelsenberg",
-        "name_de_src": "wikidata",
+        "name_de": "Oelsaberg",
+        "name_de_src": "wikipedia",
         "wikidata": "Q111796193",
         "natural": "peak",
         "place": null
@@ -406980,6 +409251,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12704414421,
+        "osm_type": "node",
+        "name": "Paparoșteni",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.689232,
+          47.4436742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3445367456,
         "osm_type": "node",
         "name": "Papok-hegye",
@@ -409480,6 +411771,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 2272908996,
+        "osm_type": "node",
+        "name": "Piatra Pinului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8807628,
+          47.5408685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 657926231,
         "osm_type": "node",
         "name": "Piatra Porcului",
@@ -409494,6 +411805,26 @@
         "coordinates": [
           25.8413244,
           46.9080064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1684032946,
+        "osm_type": "node",
+        "name": "Piatra Teiului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9611932,
+          47.0910676
         ]
       }
     },
@@ -409654,6 +411985,46 @@
         "coordinates": [
           26.3962213,
           46.8381233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 686812952,
+        "osm_type": "node",
+        "name": "Piatra Șoimului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8435428,
+          47.630703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2273434289,
+        "osm_type": "node",
+        "name": "Piatra Șoimului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8880532,
+          47.540276
         ]
       }
     },
@@ -410434,6 +412805,26 @@
         "coordinates": [
           18.8866157,
           47.7635712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 410402442,
+        "osm_type": "node",
+        "name": "Pisc Bobeica",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8271678,
+          47.5005715
         ]
       }
     },
@@ -418520,6 +420911,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7844502569,
+        "osm_type": "node",
+        "name": "Reciful Holmu",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.2646855,
+          47.9446263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 1987835732,
         "osm_type": "node",
         "name": "Reh",
@@ -420194,6 +422605,26 @@
         "coordinates": [
           26.0772427,
           46.9200003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9531671771,
+        "osm_type": "node",
+        "name": "Runcul lui Bilbor",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1935755,
+          47.0754772
         ]
       }
     },
@@ -423435,6 +425866,26 @@
         "coordinates": [
           23.3825152,
           45.2730835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7846624875,
+        "osm_type": "node",
+        "name": "Sfinxul din Horodiste",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.267075,
+          47.9661327
         ]
       }
     },
@@ -431081,6 +433532,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9152456757,
+        "osm_type": "node",
+        "name": "Stânca Mâgla",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8887066,
+          47.3752074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 2440778588,
         "osm_type": "node",
         "name": "Stânca Mâna Dracului",
@@ -431175,6 +433646,26 @@
         "coordinates": [
           25.9543047,
           46.9849615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7844524225,
+        "osm_type": "node",
+        "name": "Stânca Ţiglău",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0351379,
+          48.2281112
         ]
       }
     },
@@ -431775,6 +434266,26 @@
         "coordinates": [
           14.0763143,
           50.9648006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9525116408,
+        "osm_type": "node",
+        "name": "Sulița Mare",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.265776,
+          47.1219027
         ]
       }
     },
@@ -435435,6 +437946,26 @@
         "coordinates": [
           21.9865292,
           47.8920737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 516646891,
+        "osm_type": "node",
+        "name": "Tomar",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.9491985,
+          47.2817464
         ]
       }
     },
@@ -444022,6 +446553,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13440170374,
+        "osm_type": "node",
+        "name": "Vârfu Fâștiului",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9166429,
+          47.6571379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 10074788798,
         "osm_type": "node",
         "name": "Vârful Ascuns",
@@ -444156,6 +446707,26 @@
         "coordinates": [
           24.9107787,
           45.6117697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9536722691,
+        "osm_type": "node",
+        "name": "Vârful Mare",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0326237,
+          47.1405619
         ]
       }
     },
@@ -450816,6 +453387,26 @@
         "coordinates": [
           22.142455,
           49.8868784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9536722678,
+        "osm_type": "node",
+        "name": "Zapodiei",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0352445,
+          47.0903038
         ]
       }
     },
@@ -459926,7 +462517,7 @@
         "osm_type": "node",
         "name": "Żar",
         "name_de": "Smreczyński Żar",
-        "name_de_src": "wikidata",
+        "name_de_src": "wikipedia",
         "wikidata": "Q9338771",
         "natural": "peak",
         "place": null
@@ -461502,6 +464093,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 3811126032,
+        "osm_type": "node",
+        "name": "Єврейська гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0096298,
+          48.8201093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6670033246,
         "osm_type": "node",
         "name": "Ігнатівська",
@@ -461816,6 +464427,26 @@
         "coordinates": [
           25.2595359,
           48.1538764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10126582898,
+        "osm_type": "node",
+        "name": "Баба",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3702061,
+          49.1014759
         ]
       }
     },
@@ -462256,6 +464887,26 @@
         "coordinates": [
           23.4836921,
           49.1450574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12076668549,
+        "osm_type": "node",
+        "name": "Божа гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8632732,
+          50.3376107
         ]
       }
     },
@@ -462762,6 +465413,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9399695408,
+        "osm_type": "node",
+        "name": "Вапнярка Постолівська",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2446605,
+          49.3721057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9399695409,
+        "osm_type": "node",
+        "name": "Вапнярка Тарнорудська",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2335025,
+          49.3872491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8731192280,
         "osm_type": "node",
         "name": "Василькова",
@@ -462796,6 +465487,26 @@
         "coordinates": [
           25.0928722,
           47.7734446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8341171839,
+        "osm_type": "node",
+        "name": "Ведмежка",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0383562,
+          49.4390963
         ]
       }
     },
@@ -463222,6 +465933,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9391453153,
+        "osm_type": "node",
+        "name": "Виноградна гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4613132,
+          50.6273162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 1632793508,
         "osm_type": "node",
         "name": "Вис",
@@ -463302,6 +466033,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 13741214972,
+        "osm_type": "node",
+        "name": "Висока гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0221977,
+          48.5760378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10126582899,
+        "osm_type": "node",
+        "name": "Високі Камені",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3718615,
+          49.1057539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 10703842933,
         "osm_type": "node",
         "name": "Височина",
@@ -463336,6 +466107,26 @@
         "coordinates": [
           19.4769124,
           44.4954812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5785039007,
+        "osm_type": "node",
+        "name": "Вишнева",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2034133,
+          50.68766
         ]
       }
     },
@@ -463576,6 +466367,26 @@
         "coordinates": [
           24.297949,
           48.5400038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 1229731310,
+        "osm_type": "node",
+        "name": "Вітова гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.141669,
+          50.1758378
         ]
       }
     },
@@ -463962,6 +466773,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9364613170,
+        "osm_type": "node",
+        "name": "Гора Василиха",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8163482,
+          49.5868677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 6259945249,
         "osm_type": "node",
         "name": "Гора Кузяріна",
@@ -463976,6 +466807,66 @@
         "coordinates": [
           24.9995291,
           49.7678363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9399695405,
+        "osm_type": "node",
+        "name": "Гора Курган",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.202447,
+          49.4395043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7849314873,
+        "osm_type": "node",
+        "name": "Гора Страхова",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6837389,
+          50.087075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8706920360,
+        "osm_type": "node",
+        "name": "Гора Юрчинських",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": "Q106729438",
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.8047702,
+          49.0116997
         ]
       }
     },
@@ -464016,6 +466907,26 @@
         "coordinates": [
           19.6647425,
           43.6683596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10599162001,
+        "osm_type": "node",
+        "name": "Гостра",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0757428,
+          49.35671
         ]
       }
     },
@@ -464156,6 +467067,26 @@
         "coordinates": [
           23.4900275,
           49.144317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12464840001,
+        "osm_type": "node",
+        "name": "Гранітний виступ",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8352446,
+          48.9742105
         ]
       }
     },
@@ -464442,6 +467373,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9399695407,
+        "osm_type": "node",
+        "name": "Давидкова",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2448322,
+          49.3659018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3443739569,
         "osm_type": "node",
         "name": "Данилова",
@@ -464576,6 +467527,26 @@
         "coordinates": [
           25.1009664,
           47.8134631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6858709054,
+        "osm_type": "node",
+        "name": "Дзвінецька",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.0545666,
+          50.8222651
         ]
       }
     },
@@ -464942,6 +467913,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4971064103,
+        "osm_type": "node",
+        "name": "Дівоча гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7326912,
+          49.3650851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4902781842,
         "osm_type": "node",
         "name": "Дідонівка",
@@ -465102,6 +468093,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 6661234044,
+        "osm_type": "node",
+        "name": "Замкова",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1257806,
+          50.3237795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 7382803035,
+        "osm_type": "node",
+        "name": "Замкова",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.1149525,
+          50.8169189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4275254829,
         "osm_type": "node",
         "name": "Замкова гора",
@@ -465116,6 +468147,66 @@
         "coordinates": [
           23.301595,
           48.1679661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12522773303,
+        "osm_type": "node",
+        "name": "Замкова гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.4720761,
+          49.2267525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8546235848,
+        "osm_type": "node",
+        "name": "Замковище",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.1872863,
+          50.1729572
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5027104283,
+        "osm_type": "node",
+        "name": "Замчисько",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.938539,
+          50.2778231
         ]
       }
     },
@@ -465402,6 +468493,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4618091866,
+        "osm_type": "node",
+        "name": "Казьонщина",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9501371,
+          50.5511465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4902248024,
         "osm_type": "node",
         "name": "Какалек",
@@ -465662,6 +468773,46 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7865271485,
+        "osm_type": "node",
+        "name": "Кам’яна",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7683484,
+          50.1132545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4997731902,
+        "osm_type": "node",
+        "name": "Канарська гірка",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8688322,
+          50.2754186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3267791985,
         "osm_type": "node",
         "name": "Каньковатий",
@@ -465856,6 +469007,26 @@
         "coordinates": [
           22.68804,
           43.61806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9399695402,
+        "osm_type": "node",
+        "name": "Кирничанська",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2409616,
+          49.4197697
         ]
       }
     },
@@ -466342,6 +469513,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4489301764,
+        "osm_type": "node",
+        "name": "Княжа(Княжиха)",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.445137,
+          50.5198966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8255481987,
         "osm_type": "node",
         "name": "Коболув верх",
@@ -466436,6 +469627,26 @@
         "coordinates": [
           23.8787919,
           48.1180944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9399695404,
+        "osm_type": "node",
+        "name": "Колісний горб на Сплащизні",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2173843,
+          49.4193484
         ]
       }
     },
@@ -466582,6 +469793,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 8111553295,
+        "osm_type": "node",
+        "name": "Кочуб",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9990637,
+          48.4568167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 3739562428,
         "osm_type": "node",
         "name": "Кошарище",
@@ -466676,6 +469907,26 @@
         "coordinates": [
           24.3879165,
           49.5506637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 5023101940,
+        "osm_type": "node",
+        "name": "Кривий Яр",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.885873,
+          50.2846988
         ]
       }
     },
@@ -466802,6 +470053,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12662979886,
+        "osm_type": "node",
+        "name": "Кряж",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3103068,
+          50.3875868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 12770765238,
         "osm_type": "node",
         "name": "Крісло",
@@ -466896,6 +470167,26 @@
         "coordinates": [
           23.0631211,
           43.1575202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9366973994,
+        "osm_type": "node",
+        "name": "Курган",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.1538165,
+          48.82516
         ]
       }
     },
@@ -467042,6 +470333,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4051142100,
+        "osm_type": "node",
+        "name": "Липки",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0482967,
+          50.5496061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7721492709,
         "osm_type": "node",
         "name": "Липова",
@@ -467056,6 +470367,26 @@
         "coordinates": [
           22.6754914,
           48.5878451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 4051134832,
+        "osm_type": "node",
+        "name": "Лиса",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0497743,
+          50.5412973
         ]
       }
     },
@@ -467962,6 +471293,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10126582900,
+        "osm_type": "node",
+        "name": "Німожна",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3531515,
+          49.1049988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 10702306037,
         "osm_type": "node",
         "name": "Обочі",
@@ -467982,6 +471333,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12458810773,
+        "osm_type": "node",
+        "name": "Оглядова точка",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3362407,
+          50.5412391
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8255481983,
         "osm_type": "node",
         "name": "Омеланя",
@@ -467996,6 +471367,26 @@
         "coordinates": [
           22.7024291,
           48.6456804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 8594593081,
+        "osm_type": "node",
+        "name": "Омелькова гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.2083399,
+          50.1706019
         ]
       }
     },
@@ -468276,6 +471667,26 @@
         "coordinates": [
           19.5269546,
           43.7446857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11824065375,
+        "osm_type": "node",
+        "name": "Пекарницька гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4688476,
+          50.6214355
         ]
       }
     },
@@ -468642,6 +472053,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 7810011657,
+        "osm_type": "node",
+        "name": "Покаянна гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.6106242,
+          49.9488332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 5060084522,
         "osm_type": "node",
         "name": "Поляница",
@@ -468742,6 +472173,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 11824065374,
+        "osm_type": "node",
+        "name": "Преображенська гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4656068,
+          50.6215375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8948416883,
         "osm_type": "node",
         "name": "Прилученка",
@@ -468836,6 +472287,26 @@
         "coordinates": [
           22.6009652,
           48.6799173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 9399695403,
+        "osm_type": "node",
+        "name": "Піскурівська",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.242672,
+          49.4113542
         ]
       }
     },
@@ -469122,6 +472593,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 10126582902,
+        "osm_type": "node",
+        "name": "Рубліха",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3474896,
+          49.0965543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 5022617904,
         "osm_type": "node",
         "name": "Руг",
@@ -469342,6 +472833,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9399695406,
+        "osm_type": "node",
+        "name": "Сатанівська",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2458002,
+          49.3944371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8255481984,
         "osm_type": "node",
         "name": "Сбирик",
@@ -469402,6 +472913,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9399695411,
+        "osm_type": "node",
+        "name": "Святого Рудольфа",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.211258,
+          49.348935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4895219534,
         "osm_type": "node",
         "name": "Святоюрська гора",
@@ -469456,6 +472987,26 @@
         "coordinates": [
           23.0284118,
           48.5361642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10126582901,
+        "osm_type": "node",
+        "name": "Середня",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.3489902,
+          49.0993259
         ]
       }
     },
@@ -469582,6 +473133,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4146159489,
+        "osm_type": "node",
+        "name": "Скеля Фелінського",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0741174,
+          50.314032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8678724896,
         "osm_type": "node",
         "name": "Скелі",
@@ -469602,6 +473173,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 12881613201,
+        "osm_type": "node",
+        "name": "Скелі ім. Каспіча",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.464045,
+          49.2189464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 4934997287,
         "osm_type": "node",
         "name": "Скнилів",
@@ -469616,6 +473207,26 @@
         "coordinates": [
           23.9356928,
           49.8269678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6476535214,
+        "osm_type": "node",
+        "name": "Скіфський курган",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8181638,
+          48.4919516
         ]
       }
     },
@@ -469656,6 +473267,26 @@
         "coordinates": [
           19.4441197,
           44.5284774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 2895086148,
+        "osm_type": "node",
+        "name": "Соколиха",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.376453,
+          49.1017004
         ]
       }
     },
@@ -470282,6 +473913,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 9399695410,
+        "osm_type": "node",
+        "name": "Товтра",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2434323,
+          49.3434525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 7721746757,
         "osm_type": "node",
         "name": "Токарня",
@@ -470316,6 +473967,26 @@
         "coordinates": [
           19.5290999,
           43.7099431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 3813732619,
+        "osm_type": "node",
+        "name": "Топір",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.954119,
+          50.5369202
         ]
       }
     },
@@ -470402,6 +474073,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 5562792279,
+        "osm_type": "node",
+        "name": "Турчин",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.9276378,
+          50.2534684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 8255481979,
         "osm_type": "node",
         "name": "Тін",
@@ -470416,6 +474107,46 @@
         "coordinates": [
           22.6280418,
           48.6671128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 6985354259,
+        "osm_type": "node",
+        "name": "Урочище Кунне",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9346513,
+          50.2751331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 11824065373,
+        "osm_type": "node",
+        "name": "Урочище Хутір гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4629859,
+          50.6228161
         ]
       }
     },
@@ -470456,6 +474187,26 @@
         "coordinates": [
           24.5969526,
           49.7613307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12770359538,
+        "osm_type": "node",
+        "name": "Химина гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0168679,
+          50.5641854
         ]
       }
     },
@@ -470742,6 +474493,26 @@
     {
       "type": "Feature",
       "properties": {
+        "osm_id": 4105133916,
+        "osm_type": "node",
+        "name": "Червонка",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8438885,
+          47.9472132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "osm_id": 5290207858,
         "osm_type": "node",
         "name": "Черенина",
@@ -470816,6 +474587,26 @@
         "coordinates": [
           22.4063953,
           43.7597181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 10868092268,
+        "osm_type": "node",
+        "name": "Черняховська",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.911684,
+          49.5808627
         ]
       }
     },
@@ -470916,6 +474707,26 @@
         "coordinates": [
           23.0304609,
           49.0427888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 13167880783,
+        "osm_type": "node",
+        "name": "Шамова гора",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.2300421,
+          50.3599848
         ]
       }
     },
@@ -471216,6 +475027,26 @@
         "coordinates": [
           22.5681133,
           48.5804613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": 12563298494,
+        "osm_type": "node",
+        "name": "гора Білий Камінь",
+        "name_de": null,
+        "name_de_src": null,
+        "wikidata": null,
+        "natural": "peak",
+        "place": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0197019,
+          49.4284702
         ]
       }
     },

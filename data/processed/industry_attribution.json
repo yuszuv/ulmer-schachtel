@@ -1,0 +1,15 @@
+{
+  "generated": "2026-06-03",
+  "source": "OpenStreetMap via Overpass API",
+  "url": "https://overpass-api.de/api/interpreter",
+  "license": "ODbL 1.0 — © OpenStreetMap contributors",
+  "attribution_url": "https://www.openstreetmap.org/copyright",
+  "roi_bbox": {
+    "south": 42.929272,
+    "west": 9.464611,
+    "north": 51.077385,
+    "east": 30.432847,
+    "description": "Austria-Hungary + Romania extent ~1880"
+  },
+  "methodology": "Named industrial installations → industry_sites.geojson (Point). Covers power plants (power=plant), factories (man_made=works), and industrial zones (landuse=industrial, way centroid). branch field classifies the installation type for QGIS piktogram styling. German names enriched via Wikidata (CC0) where available."
+}
