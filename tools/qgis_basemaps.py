@@ -17,7 +17,7 @@ switches the three banded maps (CARTO / Arcanum / ESRI) on and gives them their
 scale ranges. The rest stay available as a manual fallback.
 
 Replaces the manual "Browser → XYZ Tiles → Load Connections… → double-click each"
-dance described in docs/01_qgis_setup.md.
+dance described in docs/getting-started/qgis-setup.md.
 
 Referer note
 ------------

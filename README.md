@@ -86,7 +86,7 @@ A lightly historical-flavoured map application for planning a rail holiday in Ro
    (scale-dependent rendering + automatic base-map switching), `qgis_bookmarks.py`
    (spatial bookmarks). They reproduce steps 2–7 from code. Then save again.
 
-Details: see [docs/01_qgis_setup.md](docs/01_qgis_setup.md).
+Details: see [docs/getting-started/qgis-setup.md](docs/getting-started/qgis-setup.md).
 
 ## Quick start (CLI, via uv)
 
@@ -124,7 +124,7 @@ The site is built and published automatically by GitHub Actions
 data or the build script. **One-time setup:** *Settings → Pages → Source = "GitHub
 Actions"*. Fresh rail data can be fetched on demand — run the
 *"Bahndaten aktualisieren (Overpass)"* workflow under *Actions*; it opens a PR
-with the data diff. Details: [docs/04_web_pages.md](docs/04_web_pages.md).
+with the data diff. Details: [docs/getting-started/web-map.md](docs/getting-started/web-map.md).
 
 ## Data sources & licence
 
@@ -152,18 +152,20 @@ Output: `natural_ridges.geojson` (LineString, for QGIS *Curved* label placement)
 `mountain_peaks.geojson` (Point, spot-height style), `landscape_labels.geojson`
 (Point, spaced labels). The iconic range names (Karpaten, Alpen, Siebenbürgen)
 are stored as OSM relations and need hand-drawn label lines in QGIS — see
-[docs/09_natural_features.md](docs/09_natural_features.md).
+[docs/data-and-layers/natural-features.md](docs/data-and-layers/natural-features.md).
 
-German names are sparse in OSM, so where a feature has a `wikidata` QID its
-German label is pulled from **Wikidata** (`wbgetentities`, CC0) and used as the
-`name_de` fallback (provenance kept in `name_de_src` + `wikidata`). Resolved
-labels are cached in `data/raw/wikidata_de_labels.json` (committed) for
-reproducible offline rebuilds.
+German names are sparse in OSM. Where a feature has a `wikidata` QID, the German
+name is resolved via the priority chain **OSM `name:de` > de.wikipedia article
+title > Wikidata `de` label** (all via a single `wbgetentities` call, CC0).
+Provenance is kept in `name_de_src` + `wikidata`. Resolved names are cached in
+two committed, additive maps — `data/raw/wikidata_de_labels.json` (Wikidata labels)
+and `data/raw/wikidata_de_wikipedia.json` (de.wikipedia titles, `null` = "checked,
+no article") — for reproducible offline rebuilds.
 
 > Map data © **OpenStreetMap contributors**, licensed under the
 > [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
 > This attribution must be included when redistributing derived data.
-> German names enriched via **Wikidata** (CC0).
+> German names enriched via **Wikidata** + **Wikipedia** (CC0).
 
 CFR does not publish an open timetable feed. `route_stops.csv` therefore contains
 only the **stop sequence** per magistrală (order + role), no times. Real connections
@@ -175,15 +177,21 @@ Authoritative times: <https://mersultrenurilor.infofer.ro>.
 CLI overview: `uv run reiseplan-cli timetable`.
 
 How the Overpass query works and how to customise it:
-[docs/05_overpass_101.md](docs/05_overpass_101.md).
+[docs/data-and-layers/overpass-101.md](docs/data-and-layers/overpass-101.md).
 
 ## Further reading
 
-- QGIS setup: [docs/01_qgis_setup.md](docs/01_qgis_setup.md)
-- QField export: [docs/02_qfield_export.md](docs/02_qfield_export.md)
-- CLI reference: [docs/03_cli_reference.md](docs/03_cli_reference.md)
-- Online map / GitHub Pages: [docs/04_web_pages.md](docs/04_web_pages.md)
-- Overpass 101 (rail data from OSM): [docs/05_overpass_101.md](docs/05_overpass_101.md)
-- CFR fetch process and data flow: [docs/06_cfr_data_fetch.md](docs/06_cfr_data_fetch.md)
-- Natural features (Gebirge & Landschaftszüge): [docs/09_natural_features.md](docs/09_natural_features.md)
-- Fancy style TODO: [docs/STYLE_TODO_FANCY.md](docs/STYLE_TODO_FANCY.md)
+See **[docs/README.md](docs/README.md)** for the full documentation index.
+Quick links:
+
+- [QGIS setup](docs/getting-started/qgis-setup.md)
+- [QField export](docs/getting-started/qfield-export.md)
+- [CLI reference](docs/getting-started/cli-reference.md)
+- [Online map / GitHub Pages](docs/getting-started/web-map.md)
+- [Overpass 101](docs/data-and-layers/overpass-101.md)
+- [CFR rail data](docs/data-and-layers/cfr-rail-data.md)
+- [Natural features](docs/data-and-layers/natural-features.md)
+- [Thematic layers](docs/data-and-layers/thematic-layers.md)
+- [Terrain & land cover](docs/data-and-layers/terrain-landcover.md)
+- [Code architecture](docs/architecture/code-architecture.md)
+- [Fancy style TODO](docs/roadmap/fancy-style.md)

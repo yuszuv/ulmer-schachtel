@@ -1,13 +1,13 @@
 # Bookmarks & Source References
 
 Curated external references for the project. Cartographic style sources for the
-Fancy stage are also tracked in `docs/STYLE_TODO_FANCY.md`; this file collects
+Fancy stage are also tracked in `docs/roadmap/fancy-style.md`; this file collects
 links and background research.
 
 ## Universal Weltatlas / Hansa Weltatlas — Pfahl-Verlag, 7th ed., 1952
 
 The primary general-atlas style reference for the Fancy stage (reference #1 in
-`docs/STYLE_TODO_FANCY.md`). Informally referred to in this project as the
+`docs/roadmap/fancy-style.md`). Informally referred to in this project as the
 "Zimmermann atlas" — the name is justified: the colophon credits **Alfred
 Zimmermann, Kartograph, Stuttgart** for the cartographic design and the redesign
 of the historical maps.
@@ -21,13 +21,15 @@ of the historical maps.
 - **Text editors:** Prof. Dr. Oswald Muris (general section), Dr. Hans Kleinert
   (historical atlas).
 - **Cartographic design / historical maps:** Alfred Zimmermann, Kartograph,
-  Stuttgart S.
+  Stuttgart S. (co-cartographer on several editions: **Rudi Hubert**).
 - **Copyright:** Hermann Pfahl-Verlag, Laupheim 1950.
 - **Series:** Stuttgarter Hausbücherei (a book-club series founded 1948 by Georg
   von Holtzbrinck; Pfahl was the actual publisher).
-- **Edition / year:** 7th edition, 1952.
-- **Extent:** 103 multi-colour main and inset maps; historical atlas with
+- **Editions known:** 1949, 1951 (6th), 1952 (7th), 1954 (8th), 1955 (9th), 1960.
+- **Edition / year of this copy:** 7th edition, 1952.
+- **Extent:** 288 pp.; 103 multi-colour main and inset maps; historical atlas with
   commentary; ~30,000-entry alphabetical place-name index.
+- **Physical description:** brown linen binding, gold-embossed spine and cover title.
 
 Listing: [Universal Weltatlas — AbeBooks](https://www.abebooks.com/Universal-Weltatlas-103-mehrfarbige-Haupt--Nebenkarten/31538853360/bd)
 
@@ -70,7 +72,7 @@ geoscientific data — historical travel routes, ethnography, animal/plant
 geography, and explicitly *geomorphological* elements (sand dunes, dried-up river
 courses). This early geomorphological cartography is a good reference for relief
 that carries meaning rather than decoration (cf. the von Reilly 1791 hachure note
-in `docs/STYLE_TODO_FANCY.md`).
+in `docs/roadmap/fancy-style.md`).
 
 Source: [Ulrich Päßler, "Steppenlandschaft in Bewegung" — Visionscarto](https://www.visionscarto.net/steppenlandschaft-in-bewegung)
 

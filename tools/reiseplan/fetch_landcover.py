@@ -23,7 +23,7 @@ This script accepts either format.
 
 Alternatively, use ESA WorldCover 2021 (10 m, no login required, AWS COG):
    uv run reiseplan-cli fetch-landcover --source worldcover
-See docs/11_terrain_landcover.md for the WorldCover workflow.
+See docs/data-and-layers/terrain-landcover.md for the WorldCover workflow.
 
 Attribution
 -----------
@@ -222,7 +222,7 @@ def _print_download_hint() -> None:
         "  Alternatively, use ESA WorldCover (no login):\n"
         "    uv run reiseplan-cli fetch-landcover --source worldcover\n"
         "\n"
-        "  See docs/11_terrain_landcover.md for full instructions.\n",
+        "  See docs/data-and-layers/terrain-landcover.md for full instructions.\n",
         file=sys.stderr,
     )
 
@@ -251,16 +251,16 @@ def run(source: str = "corine") -> None:
                 tmp.unlink()
 
     elif source == "worldcover":
-        # WorldCover workflow — documented in docs/11_terrain_landcover.md.
+        # WorldCover workflow — documented in docs/data-and-layers/terrain-landcover.md.
         # Requires separate download steps; placeholder raises informative error.
         print(
-            "[info]    WorldCover-Workflow noch nicht implementiert.\n"
-            "          Siehe docs/11_terrain_landcover.md.",
+            "[info]    WorldCover workflow not yet implemented.\n"
+            "          See docs/data-and-layers/terrain-landcover.md.",
             file=sys.stderr,
         )
         sys.exit(1)
     else:
-        print(f"[error]   Unbekannte Quelle: {source!r}", file=sys.stderr)
+        print(f"[error]   Unknown source: {source!r}", file=sys.stderr)
         sys.exit(1)
 
     _write_attribution(source)

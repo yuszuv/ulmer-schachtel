@@ -10,7 +10,7 @@ A lightly historical-flavoured map application for planning a **rail trip throug
 
 Maturity: **Basic v1**. Full vintage styling (historical raster base map, cartouche,
 typography, day-by-day itinerary planning) is intentionally deferred to a later "Fancy"
-stage — documented in `docs/STYLE_TODO_FANCY.md`.
+stage — documented in `docs/roadmap/fancy-style.md`.
 
 ## Data flow (important)
 
@@ -104,7 +104,7 @@ Entrypoints (defined in `pyproject.toml`, run via **uv**):
   Same as `reiseplan-cli fetch-terrain`; accepts `--offline`, `--interval`, etc.
 - `uv run reiseplan-landcover`        — CORINE land cover clip + reclassify.
   Same as `reiseplan-cli fetch-landcover`; requires manual CORINE download first
-  (see `docs/11_terrain_landcover.md`).
+  (see `docs/data-and-layers/terrain-landcover.md`).
 - `uv run reiseplan-wikivoyage`       — standalone WikiVoyage fetch (same as
   `reiseplan-cli fetch-wikivoyage`); accepts `--offline`.
 - `uv run reiseplan-site --out site`  — build GitHub Pages site
@@ -113,7 +113,7 @@ Entrypoints (defined in `pyproject.toml`, run via **uv**):
 OSM themes (natural/mining/industry) share: `tiles.py` (ROI tiling + Overpass fetch),
 `geo.py` (element → GeoJSON geometry), `enrich.py` (Wikidata German names).
 Raster pipeline: `raster.py` (thin GDAL subprocess wrappers).
-See `docs/10_thematic_layers.md` and `docs/11_terrain_landcover.md`.
+See `docs/data-and-layers/thematic-layers.md` and `docs/data-and-layers/terrain-landcover.md`.
 
 The external-data fetchers share one HTTP base: `reiseplan/http.py`
 (`USER_AGENT`, `get_json`, `chunked`), `reiseplan/overpass.py` (`post_overpass`
@@ -121,7 +121,7 @@ The external-data fetchers share one HTTP base: `reiseplan/http.py`
 (`_wbgetentities` → `WikidataLabelGateway` / `WikidataGateway`).
 
 Data directory is located by `find_repo_root()` in `tools/reiseplan/paths.py`.
-Architecture documented in `docs/07_architecture.md`.
+Architecture documented in `docs/architecture/code-architecture.md`.
 
 CLI commands: `list-routes`, `list-categories`, `list-destinations [--category]`,
 `show-route <id>`, `overview`, `timetable`,
@@ -161,8 +161,8 @@ python qgis/styles/build_marker_styles.py
 ```
 
 QGIS steps (load styles, fix layer names, save project) are done manually in the
-QGIS UI. Procedure in `docs/01_qgis_setup.md` (setup) and
-`docs/02_qfield_export.md` (export).
+QGIS UI. Procedure in `docs/getting-started/qgis-setup.md` (setup) and
+`docs/getting-started/qfield-export.md` (export).
 
 ## Directory layout
 

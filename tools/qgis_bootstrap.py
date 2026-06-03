@@ -7,7 +7,7 @@ project at ``qgis/reiseplan.qgz`` first, so paths can be resolved relative to it
 
 What it does (idempotent — safe to re-run)
 -------------------------------------------
-Reproduces the manual setup from docs/01_qgis_setup.md so ``reiseplan.qgz`` is
+Reproduces the manual setup from docs/getting-started/qgis-setup.md so ``reiseplan.qgz`` is
 buildable from code:
 
 1. **Project CRS** → ``EPSG:3844 (Stereo70)`` (avoids the EPSG:4326 trap: the data
@@ -185,9 +185,14 @@ def bootstrap():
     print("  Canvas-Hintergrund #f3ecd5 · Pfade relativ")
 
     print("\nGrundgerüst steht. Jetzt der Reihe nach ausführen:")
-    print("  1) tools/qgis_basemaps.py      (Hintergrundkarten laden)")
-    print("  2) tools/qgis_setup_scales.py  (Maßstabsbänder + -sichtbarkeit)")
-    print("  3) tools/qgis_bookmarks.py     (räumliche Lesezeichen)")
+    print("  1) tools/qgis_basemaps.py         (Hintergrundkarten laden)")
+    print("  2) tools/qgis_natural_features.py (Gebirge, Gipfel, Landschaftsnamen)")
+    print("  3) tools/qgis_mining.py           (Bodenschätze)")
+    print("  4) tools/qgis_industry.py         (Industriestandorte)")
+    print("  5) tools/qgis_terrain.py          (Hillshade + Höhenlinien)")
+    print("  6) tools/qgis_landcover.py        (Landbedeckung)")
+    print("  7) tools/qgis_setup_scales.py     (Maßstabsbänder + -sichtbarkeit)")
+    print("  8) tools/qgis_bookmarks.py        (räumliche Lesezeichen)")
     print("  → danach Projekt speichern (Strg+S).")
 
 

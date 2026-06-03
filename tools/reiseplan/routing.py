@@ -4,7 +4,7 @@
 graph and routes a magistrală's station sequence along the actual tracks, so the
 map lines follow the valleys instead of cutting straight across the Carpathians.
 
-Pattern fit (see docs/07_architecture.md): there is no graph pattern in the
+Pattern fit (see docs/architecture/code-architecture.md): there is no graph pattern in the
 project, so this module deliberately mirrors the two it does have —
 
   * **Layering:** like `domain.py`, this is the *inner* layer: no IO, imports only
