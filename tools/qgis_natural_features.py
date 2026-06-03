@@ -139,11 +139,19 @@ def _style_ridges(layer: QgsVectorLayer) -> None:
 
     # --- labels ---
     pal = QgsPalLayerSettings()
-    pal.fieldName  = 'coalesce("name_de", "name")'
+    pal.fieldName = (
+        "CASE "
+        "  WHEN \"importance\" = 1 OR "
+        "       (@map_scale <= 1500000 AND \"importance\" = 2) OR "
+        "       (@map_scale <= 750000 AND \"importance\" = 3) "
+        "  THEN coalesce(\"name_de\", \"name\") "
+        "  ELSE NULL "
+        "END"
+    )
     pal.isExpression = True
 
     # placement=3 → Curved (line layers only)
-    pal.placement            = 3
+    pal.placement            = Qgis.LabelPlacement.Curved
     pal.maxCurvedCharAngleIn  = 25.0
     pal.maxCurvedCharAngleOut = -25.0
     # repeat the label every 40 points along long ridges
@@ -158,28 +166,50 @@ def _style_ridges(layer: QgsVectorLayer) -> None:
 
 
 def _style_peaks(layer: QgsVectorLayer) -> None:
-    """Small brown ▲ marker + name + elevation label."""
-    # --- symbology: brown filled triangle ---
-    sym = QgsMarkerSymbol.createSimple({
+    """Small brown ▲ marker using rule-based rendering based on importance and scale, plus scale-dependent labels."""
+    # --- symbology: rule-based renderer ---
+    from qgis.core import QgsRuleBasedRenderer
+    
+    base_sym = QgsMarkerSymbol.createSimple({
         "name":          "triangle",
         "color":         "107,79,42,180",
         "outline_style": "no",
         "size":          "1.6",
         "size_unit":     "MM",
     })
-    layer.renderer().setSymbol(sym)
+    
+    root_rule = QgsRuleBasedRenderer.Rule(None)
+    rules_cfg = [
+        ("Major Peaks (Imp 1)", '"importance" = 1', 3_000_000, 0),
+        ("Significant Peaks (Imp 2)", '"importance" = 2', 1_500_000, 0),
+        ("Minor Peaks (Imp 3)", '"importance" = 3', 750_000, 0),
+        ("Local Peaks (Imp 4)", '"importance" = 4', 300_000, 0),
+    ]
+    
+    for label, expr, min_s, max_s in rules_cfg:
+        rule = QgsRuleBasedRenderer.Rule(base_sym.clone(), int(min_s), int(max_s), expr, label)
+        root_rule.appendChild(rule)
+        
+    renderer = QgsRuleBasedRenderer(root_rule)
+    layer.setRenderer(renderer)
 
-    # --- labels: name + elevation below ---
+    # --- labels: name + elevation below, scale-dependent ---
     pal = QgsPalLayerSettings()
     pal.fieldName = (
-        'coalesce("name_de", "name")'
-        " || '\\n' || "
-        'CASE WHEN "ele" IS NOT NULL THEN to_string("ele") || \' m\' ELSE \'\' END'
+        "CASE "
+        "  WHEN \"importance\" = 1 OR "
+        "       (@map_scale <= 1500000 AND \"importance\" = 2) OR "
+        "       (@map_scale <= 750000 AND \"importance\" = 3) OR "
+        "       (@map_scale <= 300000 AND \"importance\" = 4) "
+        "  THEN coalesce(\"name_de\", \"name\") || "
+        "       CASE WHEN \"ele\" IS NOT NULL THEN '\\n' || to_string(\"ele\") || ' m' ELSE '' END "
+        "  ELSE NULL "
+        "END"
     )
     pal.isExpression = True
 
     # placement=0 → OverPoint
-    pal.placement = 0
+    pal.placement = Qgis.LabelPlacement.AroundPoint
 
     fmt = _with_buffer(_text_fmt(_FONT_PEAK, 5.5))
     pal.setFormat(fmt)
@@ -205,13 +235,20 @@ def _style_landscape(layer: QgsVectorLayer) -> None:
     })
     layer.renderer().setSymbol(sym)
 
-    # --- labels: upper-cased, strongly spaced ---
+    # --- labels: upper-cased, strongly spaced, scale-dependent ---
     pal = QgsPalLayerSettings()
-    pal.fieldName  = 'upper(coalesce("name_de", "name"))'
+    pal.fieldName = (
+        "CASE "
+        "  WHEN \"importance\" = 1 OR "
+        "       (@map_scale <= 3000000 AND \"importance\" = 2) "
+        "  THEN upper(coalesce(\"name_de\", \"name\")) "
+        "  ELSE NULL "
+        "END"
+    )
     pal.isExpression = True
 
     # placement=2 → Free (best for diffuse area labels)
-    pal.placement = 2
+    pal.placement = Qgis.LabelPlacement.Free
 
     fmt = _with_buffer(
         _text_fmt(_FONT_LANDSCAPE, 9.0, italic=True, letter_spacing=2.5),

@@ -98,28 +98,53 @@ def _make_symbol(shape: str, colour_hex: str, size_mm: float) -> QgsMarkerSymbol
 
 
 def _style_industry(layer: QgsVectorLayer) -> None:
+    """Nested rule-based renderer: Top-level rules for importance scale gating, child rules for branch symbols."""
+    # 1. Create root rule
     root = QgsRuleBasedRenderer.Rule(None)
 
-    for branch, (shape, colour, size) in _BRANCH_SYMBOLS.items():
-        rule = QgsRuleBasedRenderer.Rule(_make_symbol(shape, colour, size))
-        rule.setLabel(branch)
-        rule.setFilterExpression(f'"branch" = \'{branch}\'')
-        root.appendChild(rule)
+    # 2. Define top-level importance rules
+    # (importance_level, label, filter_expr, min_scale, max_scale)
+    imp_rules_cfg = [
+        (1, "Major Industry (Imp 1)", '"importance" = 1', 6_000_000, 0),
+        (2, "Significant Industry (Imp 2)", '"importance" = 2', 2_000_000, 0),
+        (3, "Minor Industry (Imp 3)", '"importance" = 3', 750_000, 0),
+    ]
 
-    default_shape, default_colour, default_size = _DEFAULT_SYMBOL
-    default_rule = QgsRuleBasedRenderer.Rule(
-        _make_symbol(default_shape, default_colour, default_size)
-    )
-    default_rule.setLabel("other")
-    default_rule.setIsElse(True)
-    root.appendChild(default_rule)
+    for imp_val, label, expr, min_s, max_s in imp_rules_cfg:
+        # Parent rule has no symbol itself, just filter and scale gate
+        parent_rule = QgsRuleBasedRenderer.Rule(None, int(min_s), int(max_s), expr, label)
+        
+        # Add child rules for each branch matching this importance
+        for branch, (shape, colour, size) in _BRANCH_SYMBOLS.items():
+            child_rule = QgsRuleBasedRenderer.Rule(_make_symbol(shape, colour, size))
+            child_rule.setLabel(branch)
+            child_rule.setFilterExpression(f'"branch" = \'{branch}\'')
+            parent_rule.appendChild(child_rule)
+            
+        # Catch-all child rule for "other"
+        default_shape, default_colour, default_size = _DEFAULT_SYMBOL
+        default_rule = QgsRuleBasedRenderer.Rule(_make_symbol(default_shape, default_colour, default_size))
+        default_rule.setLabel("other")
+        default_rule.setIsElse(True)
+        parent_rule.appendChild(default_rule)
+        
+        root.appendChild(parent_rule)
 
     layer.setRenderer(QgsRuleBasedRenderer(root))
 
+    # Labels: name when available, scale-dependent
     pal = QgsPalLayerSettings()
-    pal.fieldName = 'coalesce("name_de", "name")'
+    pal.fieldName = (
+        "CASE "
+        "  WHEN \"importance\" = 1 OR "
+        "       (@map_scale <= 2000000 AND \"importance\" = 2) OR "
+        "       (@map_scale <= 750000 AND \"importance\" = 3) "
+        "  THEN coalesce(\"name_de\", \"name\") "
+        "  ELSE NULL "
+        "END"
+    )
     pal.isExpression = True
-    pal.placement = 0
+    pal.placement = Qgis.LabelPlacement.AroundPoint
     pal.setFormat(_with_buffer(_text_fmt("Sans Serif", 5.0, italic=True)))
     layer.setLabeling(QgsVectorLayerSimpleLabeling(pal))
     layer.setLabelsEnabled(True)
