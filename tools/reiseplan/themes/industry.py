@@ -95,11 +95,48 @@ def _branch(tags: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def _industry_extra_props(el: dict, tags: dict, opts: dict) -> dict | None:
+    name = tags.get("name")
+    has_wd = "wikidata" in tags
+    has_wp = "wikipedia" in tags
+    has_rel = has_wd or has_wp
+    
+    # Filter: Skip if no name and no wikidata/wikipedia
+    if not name and not has_rel:
+        return None
+        
+    branch = _branch(tags)
+    
+    # Filter: Skip generic industrial zones unless they are major (have wikidata or operator info)
+    if branch == "industrial" and not has_rel and not tags.get("operator"):
+        return None
+        
+    # Determine importance (1-3)
+    # 1: Has Wikidata/Wikipedia, or nuclear power plants
+    # 2: Power plants (hydro, thermal, wind, solar) or heavy industries (steel, chemical, cement, paper)
+    # 3: Other works/factories (food, wood, textile, works_other) or named/documented industrial zones
+    if has_rel or branch == "power_nuclear":
+        imp = 1
+    elif branch.startswith("power_") or branch in ("steel", "chemical", "cement", "paper"):
+        imp = 2
+    else:
+        imp = 3
+
     return {
-        "branch":    _branch(tags),
-        "operator":  tags.get("operator"),
+        "branch":     branch,
+        "operator":   tags.get("operator"),
         "start_date": tags.get("start_date"),
+        "importance": imp,
     }
+
+
+# ---------------------------------------------------------------------------
+# Sort keys
+# ---------------------------------------------------------------------------
+
+def _industry_sort_key(f: dict) -> tuple[int, str]:
+    """Sort industry features by ascending importance (priority), then name."""
+    importance = f["properties"].get("importance", 3)
+    return (importance, f["properties"].get("name") or "")
 
 
 # ---------------------------------------------------------------------------
@@ -122,8 +159,10 @@ def _attribution() -> dict:
             "Named industrial installations → industry_sites.geojson (Point). "
             "Covers power plants (power=plant), factories (man_made=works), "
             "and industrial zones (landuse=industrial, way centroid). "
+            "Filters out unnamed/generic features without Wikidata/Wikipedia links to reduce noise. "
             "branch field classifies the installation type for QGIS "
             "piktogram styling. "
+            "importance field represents feature priority (1 = Major, 2 = Significant, 3 = Minor). "
             "German names enriched via Wikidata (CC0) where available."
         ),
     }
@@ -138,6 +177,7 @@ INDUSTRY_LAYER = OutputLayer(
     filename="industry_sites.geojson",
     geom="Point",
     accepts=lambda el: True,
+    sort_key=_industry_sort_key,
 )
 
 SPEC = _register(ThemeSpec(
@@ -153,7 +193,7 @@ SPEC = _register(ThemeSpec(
         "man_made=works",
         "landuse=industrial",
     ),
-    require_name=False,
+    require_name=False,   # keep False to allow unnamed features with wikidata (they are filtered in extra_props if they lack both)
     layers=(INDUSTRY_LAYER,),
     extra_props=_industry_extra_props,
     filter_el=None,

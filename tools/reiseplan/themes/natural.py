@@ -33,7 +33,7 @@ from . import KUK_ROI, OutputLayer, ThemeSpec, _register
 _TILE_STEP       = 4.0
 _QUERY_TIMEOUT   = 75
 _WIKIDATA_CACHE  = ROOT / "data" / "raw"       / "wikidata_de_labels.json"
-_ATTRIBUTION_SRC = ROOT / "data" / "processed" / "natural_features_attribution.json"
+_ATTRIBUTION_SRC = ROOT / "data" / "processed" / "natural_attribution.json"
 
 
 def _example_way_query() -> str:
@@ -109,7 +109,7 @@ def _attribution() -> dict:
             "nodes. "
             "For large arcing names without OSM line geometry (Karpaten, "
             "Südkarpaten, Siebenbürgen), add hand-drawn lines per "
-            "docs/08_curved_labels.md."
+            "docs/data-and-layers/curved-labels.md."
         ),
         "way_query_template":  _example_way_query(),
         "node_query_template": _example_node_query(),
@@ -127,9 +127,10 @@ def _iter_tile_count():
 # ---------------------------------------------------------------------------
 
 def _natural_extra_props(el: dict, tags: dict, opts: dict) -> dict | None:
-    """Add natural/place/ele props; return None to skip peaks below min_ele."""
+    """Add natural/place/ele/importance props; return None to skip filtered elements."""
+    natural = tags.get("natural")
     props: dict = {
-        "natural": tags.get("natural"),
+        "natural": natural,
         "place":   tags.get("place"),
     }
 
@@ -139,36 +140,124 @@ def _natural_extra_props(el: dict, tags: dict, opts: dict) -> dict | None:
         if ele_val is not None:
             props["ele"] = ele_val
 
-    # Apply the min_ele filter for peaks.
-    if tags.get("natural") == "peak" and el.get("type") == "node":
+    # 1. PEAKS
+    if natural == "peak" and el.get("type") == "node":
         min_ele = opts.get("min_ele", 1500)
+        has_wd = "wikidata" in tags
+        has_wp = "wikipedia" in tags
+        has_rel = has_wd or has_wp
+        
+        # Calculate scaled thresholds relative to min_ele
+        wd_threshold = max(0, min_ele - 500)
+        no_wd_threshold = min_ele + 500
+        
         ele_val = props.get("ele")
+        ele_num = None
         if ele_val is not None:
             try:
-                if int(float(str(ele_val))) < min_ele:
-                    return None
+                ele_num = float(str(ele_val))
             except (ValueError, TypeError):
-                pass  # unparseable ele → include anyway
+                pass
+
+        # Filter: Skip if no elevation and no wikidata/wikipedia
+        if ele_num is None and not has_rel:
+            return None
+
+        # Filter: Skip based on elevation thresholds
+        if ele_num is not None:
+            if has_rel:
+                if ele_num < wd_threshold:
+                    return None
+            else:
+                if ele_num < no_wd_threshold:
+                    return None
+        
+        # Determine importance (1-4)
+        if has_rel and ele_num is not None and ele_num >= min_ele + 500:
+            imp = 1  # Major Peak
+        elif (has_rel and ele_num is not None and ele_num >= min_ele) or (not has_rel and ele_num is not None and ele_num >= min_ele + 1000):
+            imp = 2  # Significant Peak
+        elif (has_rel and ele_num is not None and ele_num >= wd_threshold) or (not has_rel and ele_num is not None and ele_num >= no_wd_threshold):
+            imp = 3  # Minor Peak
+        else:
+            imp = 4  # Unknown elevation/low priority but has wikidata/wikipedia
+        
+        props["importance"] = imp
+
+    # 2. RIDGES
+    elif natural == "ridge" and el.get("type") == "way":
+        has_wd = "wikidata" in tags
+        has_wp = "wikipedia" in tags
+        has_rel = has_wd or has_wp
+        
+        # Calculate approximate length of way geometry in degrees
+        geom = el.get("geometry", [])
+        length = 0.0
+        import math
+        for i in range(len(geom) - 1):
+            p1 = geom[i]
+            p2 = geom[i+1]
+            if "lon" in p1 and "lat" in p1 and "lon" in p2 and "lat" in p2:
+                length += math.sqrt((p2["lon"] - p1["lon"])**2 + (p2["lat"] - p1["lat"])**2)
+                
+        props["length_deg"] = round(length, 4)
+        
+        # Filter: Skip short ridges with no wikidata/wikipedia as local noise
+        if length < 0.005 and not has_rel:
+            return None
+            
+        # Determine importance (1-3)
+        if has_rel and length >= 0.02:
+            imp = 1  # Major Ridge
+        elif (has_rel and length < 0.02) or (not has_rel and length >= 0.04):
+            imp = 2  # Significant Ridge
+        else:
+            imp = 3  # Minor Ridge
+            
+        props["importance"] = imp
+
+    # 3. LANDSCAPE LABELS (mountain ranges, valleys)
+    elif natural in ("mountain_range", "valley") and el.get("type") == "node":
+        has_wd = "wikidata" in tags
+        has_wp = "wikipedia" in tags
+        
+        # Determine importance (1-2)
+        if has_wd or has_wp:
+            imp = 1  # Major range/valley
+        else:
+            imp = 2  # Minor/local range/valley
+            
+        props["importance"] = imp
 
     return props
 
 
 # ---------------------------------------------------------------------------
-# Sort keys (must match original fetch_natural.py for byte-identical output)
+# Sort keys
 # ---------------------------------------------------------------------------
 
-def _peak_sort_key(f: dict) -> tuple[int, str]:
-    """Sort peaks by descending elevation, then name (stable, reproducible)."""
+def _peak_sort_key(f: dict) -> tuple[int, int, str]:
+    """Sort peaks by ascending importance (priority), then descending elevation, then name."""
+    importance = f["properties"].get("importance", 4)
     ele = f["properties"].get("ele")
     try:
         ele_int = int(float(str(ele))) if ele is not None else 0
     except (ValueError, TypeError):
         ele_int = 0
-    return (-ele_int, f["properties"].get("name") or "")
+    return (importance, -ele_int, f["properties"].get("name") or "")
 
 
-def _name_sort_key(f: dict) -> str:
-    return f["properties"].get("name") or ""
+def _ridge_sort_key(f: dict) -> tuple[int, float, str]:
+    """Sort ridges by ascending importance (priority), then descending length, then name."""
+    importance = f["properties"].get("importance", 3)
+    length = f["properties"].get("length_deg", 0.0)
+    return (importance, -length, f["properties"].get("name") or "")
+
+
+def _landscape_sort_key(f: dict) -> tuple[int, str]:
+    """Sort landscape labels by ascending importance (priority), then name."""
+    importance = f["properties"].get("importance", 2)
+    return (importance, f["properties"].get("name") or "")
 
 
 # ---------------------------------------------------------------------------
@@ -180,7 +269,7 @@ RIDGES_LAYER = OutputLayer(
     filename="natural_ridges.geojson",
     geom="LineString",
     accepts=lambda el: el.get("type") == "way",
-    sort_key=_name_sort_key,
+    sort_key=_ridge_sort_key,
 )
 
 PEAKS_LAYER = OutputLayer(
@@ -202,7 +291,7 @@ LANDSCAPE_LAYER = OutputLayer(
         el.get("type") == "node"
         and el.get("tags", {}).get("natural") in ("mountain_range", "valley")
     ),
-    sort_key=_name_sort_key,
+    sort_key=_landscape_sort_key,
 )
 
 # ---------------------------------------------------------------------------

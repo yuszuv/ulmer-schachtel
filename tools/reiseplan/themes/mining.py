@@ -102,12 +102,45 @@ def _mining_type(tags: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def _mining_extra_props(el: dict, tags: dict, opts: dict) -> dict | None:
+    name = tags.get("name")
+    has_wd = "wikidata" in tags
+    has_wp = "wikipedia" in tags
+    has_rel = has_wd or has_wp
+    
+    # Filter: Skip if no name and no wikidata/wikipedia
+    if not name and not has_rel:
+        return None
+        
+    commodity = _commodity(tags)
+    
+    # Determine importance (1-3)
+    # 1: Has Wikidata/Wikipedia, or produces high-value historic commodities (gold, silver, uranium, salt)
+    # 2: Produces major industrial commodities (coal, iron ore, copper, oil, gas)
+    # 3: Other commodities (stone, gravel, clay) or unnamed/generic named mines
+    if has_rel or commodity in ("gold", "silver", "uranium", "salt"):
+        imp = 1
+    elif commodity in ("coal", "iron_ore", "oil", "gas", "copper"):
+        imp = 2
+    else:
+        imp = 3
+
     return {
         "mining_type": _mining_type(tags),
-        "commodity":   _commodity(tags),
+        "commodity":   commodity,
         "operator":    tags.get("operator"),
         "start_date":  tags.get("start_date"),
+        "importance":  imp,
     }
+
+
+# ---------------------------------------------------------------------------
+# Sort keys
+# ---------------------------------------------------------------------------
+
+def _mining_sort_key(f: dict) -> tuple[int, str]:
+    """Sort mining features by ascending importance (priority), then name."""
+    importance = f["properties"].get("importance", 3)
+    return (importance, f["properties"].get("name") or "")
 
 
 # ---------------------------------------------------------------------------
@@ -130,8 +163,10 @@ def _attribution() -> dict:
             "Named mine nodes (man_made=mineshaft|adit, man_made=petroleum_well, "
             "industrial=mine, historic=mine|mine_shaft) and quarry way centroids "
             "(landuse=quarry) → mineral_resources.geojson (Point). "
+            "Filters out unnamed features without Wikidata/Wikipedia links to reduce noise. "
             "commodity field maps OSM resource=* to a canonical class for "
             "QGIS piktogram styling. "
+            "importance field represents feature priority (1 = Major, 2 = Significant, 3 = Minor). "
             "German names enriched via Wikidata (CC0) where available."
         ),
     }
@@ -146,6 +181,7 @@ MINERAL_LAYER = OutputLayer(
     filename="mineral_resources.geojson",
     geom="Point",
     accepts=lambda el: True,  # everything this theme fetches is a mineral resource
+    sort_key=_mining_sort_key,
 )
 
 SPEC = _register(ThemeSpec(
@@ -164,7 +200,7 @@ SPEC = _register(ThemeSpec(
         "landuse=quarry",
         "industrial=mine",
     ),
-    require_name=False,   # show unnamed mines too; labels use name when available
+    require_name=False,   # keep False to allow unnamed features with wikidata (they are filtered in extra_props if they lack both)
     layers=(MINERAL_LAYER,),
     extra_props=_mining_extra_props,
     filter_el=None,

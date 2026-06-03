@@ -109,7 +109,7 @@ def test_natural_extra_props_landscape_no_ele():
 
 def test_mining_extra_props_coal_mine():
     from reiseplan.themes.mining import SPEC
-    el = {"type": "node", "id": 10, "tags": {"man_made": "mineshaft", "resource": "coal"}}
+    el = {"type": "node", "id": 10, "tags": {"name": "Test Coal Mine", "man_made": "mineshaft", "resource": "coal"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props is not None
@@ -119,7 +119,7 @@ def test_mining_extra_props_coal_mine():
 
 def test_mining_extra_props_quarry():
     from reiseplan.themes.mining import SPEC
-    el = {"type": "way", "id": 20, "tags": {"landuse": "quarry", "resource": "limestone"}}
+    el = {"type": "way", "id": 20, "tags": {"name": "Test Quarry", "landuse": "quarry", "resource": "limestone"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props is not None
@@ -129,7 +129,7 @@ def test_mining_extra_props_quarry():
 
 def test_mining_extra_props_unknown_resource():
     from reiseplan.themes.mining import SPEC
-    el = {"type": "node", "id": 30, "tags": {"man_made": "mineshaft"}}
+    el = {"type": "node", "id": 30, "tags": {"name": "Test Mine", "man_made": "mineshaft"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props is not None
@@ -143,7 +143,7 @@ def test_mining_extra_props_unknown_resource():
 def test_industry_extra_props_hydro_plant():
     from reiseplan.themes.industry import SPEC
     el = {"type": "node", "id": 40,
-          "tags": {"power": "plant", "plant:source": "hydro"}}
+          "tags": {"name": "Test Hydro Plant", "power": "plant", "plant:source": "hydro"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props is not None
@@ -153,7 +153,7 @@ def test_industry_extra_props_hydro_plant():
 def test_industry_extra_props_thermal_plant():
     from reiseplan.themes.industry import SPEC
     el = {"type": "node", "id": 41,
-          "tags": {"power": "plant", "plant:source": "coal"}}
+          "tags": {"name": "Test Thermal Plant", "power": "plant", "plant:source": "coal"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props["branch"] == "power_thermal"
@@ -162,7 +162,7 @@ def test_industry_extra_props_thermal_plant():
 def test_industry_extra_props_steel_works():
     from reiseplan.themes.industry import SPEC
     el = {"type": "node", "id": 50,
-          "tags": {"man_made": "works", "product": "steel"}}
+          "tags": {"name": "Test Steel Works", "man_made": "works", "product": "steel"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props["branch"] == "steel"
@@ -171,7 +171,7 @@ def test_industry_extra_props_steel_works():
 def test_industry_extra_props_generic_industrial():
     from reiseplan.themes.industry import SPEC
     el = {"type": "way", "id": 60,
-          "tags": {"landuse": "industrial"}}
+          "tags": {"name": "Test Industrial Zone", "landuse": "industrial", "operator": "Test Operator"}}
     tags = el["tags"]
     props = SPEC.extra_props(el, tags, {})
     assert props is not None
@@ -207,7 +207,7 @@ def test_build_features_mining_node(tmp_path):
     el = {
         "type": "node", "id": 200,
         "lat": 47.0, "lon": 15.0,
-        "tags": {"man_made": "mineshaft", "resource": "salt"},
+        "tags": {"name": "Test Mine", "man_made": "mineshaft", "resource": "salt"},
     }
     out = _build_features([el], SPEC, {}, {})
     points = out.get("mineral_resources", [])
@@ -231,14 +231,14 @@ def test_build_features_skips_unnamed_when_required():
 
 
 def test_build_features_includes_unnamed_when_not_required():
-    """require_name=False: elements without a name are included."""
+    """require_name=False: elements without a name but with wikidata are included."""
     from reiseplan.thematic import _build_features
     from reiseplan.themes.mining import SPEC
 
     el = {
         "type": "node", "id": 400,
         "lat": 48.0, "lon": 16.0,
-        "tags": {"man_made": "mineshaft"},  # no "name"
+        "tags": {"man_made": "mineshaft", "wikidata": "Q400"},  # no "name", but has wikidata
     }
     out = _build_features([el], SPEC, {}, {})
     assert len(out["mineral_resources"]) == 1
