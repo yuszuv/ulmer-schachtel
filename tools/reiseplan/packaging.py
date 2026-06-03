@@ -90,8 +90,11 @@ LAYERS: list[_Layer] = [
     _Layer("landscape_labels",
            "data/processed/landscape_labels.geojson", None,
            "../data/processed/landscape_labels.geojson"),
-    # data/processed/ — thematic atlas layers (fetch-mining / fetch-industry)
+    # data/processed/ — thematic atlas layers (fetch-cities / fetch-mining / fetch-industry)
     # These files are optional at bundle time — only included when present.
+    _Layer("cities",
+           "data/processed/cities.geojson", None,
+           "../data/processed/cities.geojson"),
     _Layer("mineral_resources",
            "data/processed/mineral_resources.geojson", None,
            "../data/processed/mineral_resources.geojson"),

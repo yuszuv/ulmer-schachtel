@@ -97,6 +97,7 @@ def _arg(*flags: str, **kwargs) -> _Arg:
 # ---------------------------------------------------------------------------
 
 from . import (  # noqa: E402  (after registry setup)
+    cities,
     fetch_landcover,
     fetch_natural,
     fetch_terrain,
@@ -302,6 +303,28 @@ def _fetch_landcover(args):
 )
 def _fetch_wikivoyage(args):
     wikivoyage.run(args.offline)
+
+
+@command(
+    "fetch-cities",
+    help="Fetch OSM settlements (two-tier: k.u.k. dense + Mitteleuropa context)",
+    description=(
+        "Fetches place=city|town|village from OpenStreetMap in two tiers: "
+        "all named settlements inside the historic k.u.k. empire polygon (kuk_clip), "
+        "and major cities/large towns (place=city or population ≥ 50 000) outside it "
+        "within a Mitteleuropa/Danube bounding box. "
+        "Writes data/processed/cities.geojson. "
+        "Source: © OpenStreetMap contributors, ODbL 1.0."
+    ),
+    args=[
+        _arg("--offline",   action="store_true",
+             help="Rebuild from cached data/raw/osm_cities_*.json (no network)."),
+        _arg("--no-enrich", action="store_true",
+             help="Skip Wikidata German-name enrichment."),
+    ],
+)
+def _fetch_cities(args):
+    cities.run(offline=args.offline, enrich=not args.no_enrich)
 
 
 @command("build-gpkg", help="GeoJSON zu einer reiseplan.gpkg bündeln")

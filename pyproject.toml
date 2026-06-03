@@ -9,6 +9,7 @@ dependencies = [
 
 [project.scripts]
 reiseplan-cli        = "reiseplan.cli:main"
+reiseplan-cities     = "reiseplan.cities:main"
 reiseplan-fetch      = "reiseplan.ingest:main"
 reiseplan-wikivoyage = "reiseplan.wikivoyage:main"
 reiseplan-natural    = "reiseplan.fetch_natural:main"
