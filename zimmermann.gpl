@@ -1,12 +1,48 @@
 GIMP Palette
-Name: Zimmermann - Historischer Atlas
+Name: Zimmermann-Karten
 Columns: 4
+# Historical German cartographic atlas (~1895)
+# Importable in QGIS via Einstellungen > Stilmanager
+# and in GIMP via the Palettes dialog.
 #
- 26  25  23	#1a1917	Druckschwarz (Text)
-236 223 197	#ecdfc5	Papiergrund (Mitte)
-247 238 217	#f7eed9	Papiergrund (Hell)
-216 198 165	#d8c6a5	Papiergrund (Schatten/Falz)
-174  63  50	#ae3f32	Grenze Rot
-210 162  71	#d2a247	Grenze Gelb/Ocker
-113 141 155	#718d9b	Grenze Blau/Grau
-116 142  76	#748e4c	Grenze Grün
+# ── Ink & Paper ──────────────────────────────
+ 26  25  23	Karten-Schwarz #1a1917
+245 239 224	Papier-Grundton #f5efe0
+232 223 200	Papier dunkel #e8dfc8
+# ── Borders / Grenzen ────────────────────────
+200  50  40	Staatsgrenze Rot #c83228
+212 104  32	Landesgrenze Orange #d46820
+120  80 160	Bezirksgrenze Violett #7850a0
+ 96  96  96	Gemeindegrenze Grau #606060
+# ── Roads / Straßen ──────────────────────────
+200 120  64	Heerstraße Rostbraun #c87840
+184 144  96	Landstraße #b89060
+154 120  80	Fahrweg #9a7850
+# ── Water / Gewässer ─────────────────────────
+123 188 204	Wasser Blaugrün (Hauptfluss) #7bbccc
+158 207 219	Wasser Nebenfluss #9ecfdb
+168 216 232	See #a8d8e8
+184 224 232	Meer #b8e0e8
+ 58 122 140	Flussname Text #3a7a8c
+ 90 128 144	Küstenrand #5a8090
+# ── Territories / Territorialflächen ─────────
+232 223 192	Böhmen Beige #e8dfc0
+232 184 168	Mähren Rosa #e8b8a8
+212 200 122	Schlesien Gelb #d4c87a
+200 212 160	Österreich Grüngelb #c8d4a0
+212 184 112	Ungarn Ocker #d4b870
+216 208 192	Neutral Graubeige #d8d0c0
+# ── Relief / Gelände ─────────────────────────
+232 216 168	Mittelgebirge #e8d8a8
+212 192 128	Hochgebirge #d4c080
+140 120  80	Schraffur #8c7850
+ 90  72  48	Bergpass #5a4830
+# ── Grid / Gradnetz ──────────────────────────
+154 144 128	Gitter Warmgrau #9a9080
+200  50  40	Suchgitter rot (A–I / 1–8) #c83228
+# ── Thematic overprint / Themakarten (§11) ───
+206  61  99	Überdruck-Karmin #ce3d63
+229 159 176	Karmin hell #e59fb0
+228 228 216	Themakarten-Grund #e4e4d8
+110 114 106	Wald-/Vegetationskontur #6e726a
+ 74  74  68	Grundriss-Linie grau #4a4a44
