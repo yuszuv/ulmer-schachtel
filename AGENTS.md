@@ -92,17 +92,50 @@ Entrypoints (defined in `pyproject.toml`, run via **uv**):
   `node[railway=station|…]`; line geometry is **routed along the real
   `railway=rail` tracks** (`reiseplan/routing.py` `RailNetwork`, shortest path
   between stops), not straight stop-to-stop. Caches: `data/raw/osm_ro_*.json`.
+  Same as `reiseplan-cli fetch-rail`.
+- `uv run reiseplan-natural`          — natural-feature fetch (ridges/peaks/
+  landscape labels), German names enriched via Wikidata. Same as
+  `reiseplan-cli fetch-natural`; accepts `--offline`, `--min-ele`, `--no-enrich`.
+- `uv run reiseplan-mining`           — mineral resources (mines/quarries/wells)
+  from OSM. Same as `reiseplan-cli fetch-mining`; accepts `--offline`, `--no-enrich`.
+- `uv run reiseplan-industry`         — industry sites (power plants, works)
+  from OSM. Same as `reiseplan-cli fetch-industry`; accepts `--offline`, `--no-enrich`.
+- `uv run reiseplan-terrain`          — Copernicus DEM GLO-30 → hillshade + contours.
+  Same as `reiseplan-cli fetch-terrain`; accepts `--offline`, `--interval`, etc.
+- `uv run reiseplan-landcover`        — CORINE land cover clip + reclassify.
+  Same as `reiseplan-cli fetch-landcover`; requires manual CORINE download first
+  (see `docs/11_terrain_landcover.md`).
 - `uv run reiseplan-wikivoyage`       — standalone WikiVoyage fetch (same as
   `reiseplan-cli fetch-wikivoyage`); accepts `--offline`.
 - `uv run reiseplan-site --out site`  — build GitHub Pages site
+
+**Thematic-layer pipeline (Pattern 4):** `reiseplan/themes/` + `reiseplan/thematic.py`.
+OSM themes (natural/mining/industry) share: `tiles.py` (ROI tiling + Overpass fetch),
+`geo.py` (element → GeoJSON geometry), `enrich.py` (Wikidata German names).
+Raster pipeline: `raster.py` (thin GDAL subprocess wrappers).
+See `docs/10_thematic_layers.md` and `docs/11_terrain_landcover.md`.
+
+The external-data fetchers share one HTTP base: `reiseplan/http.py`
+(`USER_AGENT`, `get_json`, `chunked`), `reiseplan/overpass.py` (`post_overpass`
+— the single Overpass POST entry point), and `reiseplan/wikidata.py`
+(`_wbgetentities` → `WikidataLabelGateway` / `WikidataGateway`).
 
 Data directory is located by `find_repo_root()` in `tools/reiseplan/paths.py`.
 Architecture documented in `docs/07_architecture.md`.
 
 CLI commands: `list-routes`, `list-categories`, `list-destinations [--category]`,
-`show-route <id>`, `overview`, `timetable`, `fetch-wikivoyage [--offline]`,
+`show-route <id>`, `overview`, `timetable`,
+`fetch-rail [--offline]`,
+`fetch-natural [--offline] [--min-ele M] [--no-enrich]`,
+`fetch-mining [--offline] [--no-enrich]`,
+`fetch-industry [--offline] [--no-enrich]`,
+`fetch-terrain [--offline] [--interval M] [--no-hillshade] [--no-contours]`,
+`fetch-landcover [--source corine|worldcover]`,
+`fetch-wikivoyage [--offline]`,
 `build-gpkg`, `build-qfield [--out]`.
-All data commands accept `--json` for machine-readable output.
+All data-inspection commands accept `--json`; fetch/build commands do not.
+New optional layers (mineral_resources, industry_sites, contours, landcover) are
+skipped gracefully in `build-gpkg` when their source files are absent.
 
 - `build-gpkg` requires **GDAL/ogr2ogr** in PATH (Arch: `pacman -S gdal`).
 - `build-qfield` opens `qgis/reiseplan.qgz` (ZIP), rewrites GeoJSON datasource
@@ -116,7 +149,7 @@ uv run reiseplan-cli overview          # magistrale + stop sequences
 uv run reiseplan-cli timetable         # connections (dep/arr/via) per magistrală
 uv run reiseplan-cli list-routes       # M200–M900
 uv run python -c "import json,glob; [json.load(open(f,encoding='utf-8')) for f in glob.glob('data/processed/*.geojson')]"
-uv run --group dev pytest              # unit tests (44 tests, all layers)
+uv run --group dev pytest              # unit tests (111+ tests, all layers)
 
 # Build pipeline:
 uv run reiseplan-cli build-gpkg        # GeoJSON → reiseplan.gpkg (GPKG needed for QField)

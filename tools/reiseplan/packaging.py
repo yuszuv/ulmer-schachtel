@@ -90,6 +90,22 @@ LAYERS: list[_Layer] = [
     _Layer("landscape_labels",
            "data/processed/landscape_labels.geojson", None,
            "../data/processed/landscape_labels.geojson"),
+    # data/processed/ — thematic atlas layers (fetch-mining / fetch-industry)
+    # These files are optional at bundle time — only included when present.
+    _Layer("mineral_resources",
+           "data/processed/mineral_resources.geojson", None,
+           "../data/processed/mineral_resources.geojson"),
+    _Layer("industry_sites",
+           "data/processed/industry_sites.geojson", None,
+           "../data/processed/industry_sites.geojson"),
+    # data/processed/ — terrain contours (fetch-terrain; optional)
+    _Layer("contours",
+           "data/processed/contours.geojson", None,
+           "../data/processed/contours.geojson"),
+    # data/processed/ — land cover (fetch-landcover; optional)
+    _Layer("landcover",
+           "data/processed/landcover.geojson", None,
+           "../data/processed/landcover.geojson"),
     # root GPKG — merged empire polygons (label-only; distinct from the geojson entry above)
     _Layer("historische_reiche_merged",
            "historische_reiche.gpkg", "historische_reiche",
@@ -162,13 +178,26 @@ class GpkgBuilder:
         # Delete first → idempotent, clean rebuild every time.
         GPKG_PATH.unlink(missing_ok=True)
 
-        for idx, layer in enumerate(LAYERS):
+        # Track whether the GPKG file has been created yet (first ogr2ogr call
+        # creates it; subsequent calls use -update to add further layers).
+        gpkg_created = False
+
+        for layer in LAYERS:
             source_path = ROOT / layer.source
             if not source_path.is_file():
+                # Layers marked with a comment "optional" are skipped when missing;
+                # core layers (rail, historical, natural) abort loudly.
+                _optional = layer.gpkg_name in {
+                    "mineral_resources", "industry_sites", "contours", "landcover"
+                }
+                if _optional:
+                    print(f"  ~ {layer.gpkg_name} übersprungen (Datei fehlt: {source_path.name})")
+                    continue
                 raise SystemExit(f"Quelle fehlt: {source_path}")
 
             # First call creates the GPKG; subsequent calls add layers via -update.
-            update_flags = [] if idx == 0 else ["-update"]
+            update_flags = [] if not gpkg_created else ["-update"]
+            gpkg_created = True
 
             # For GPKG sources we must name the source layer explicitly;
             # for single-layer files (GeoJSON, etc.) this is not needed.

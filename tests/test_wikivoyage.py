@@ -92,6 +92,18 @@ def test_parse_places_keeps_zero_population_absent_not_zero():
     assert place["population"] is None   # non-numeric ignored, not crashed
 
 
+def test_parse_places_handles_thousands_separators_and_annotations():
+    by_region = {"Moldau": {"elements": [
+        {"tags": {"name": "Dot", "population": "50.000"}, "lat": 1.0, "lon": 2.0},
+        {"tags": {"name": "Approx", "population": "~50000"}, "lat": 1.0, "lon": 2.0},
+        {"tags": {"name": "Year", "population": "50000 (2011)"}, "lat": 1.0, "lon": 2.0},
+    ]}}
+    by_name = {p["name"]: p for p in wikivoyage.parse_places(by_region)}
+    assert by_name["Dot"]["population"] == 50_000
+    assert by_name["Approx"]["population"] == 50_000
+    assert by_name["Year"]["population"] == 50_000
+
+
 # ---------------------------------------------------------------------------
 # _trim_summary
 # ---------------------------------------------------------------------------
@@ -120,6 +132,25 @@ def test_requested_title_map_chains_normalisation_and_redirect():
     # final article title maps back to what we originally asked for
     assert mapping["Hermannstadt"] == "sibiu"
     assert mapping["Cluj"] == "Cluj"
+
+
+def test_requested_title_map_follows_multi_hop_redirect_chain():
+    query = {"redirects": [
+        {"from": "A", "to": "B"},
+        {"from": "B", "to": "C"},
+    ]}
+    mapping = wikivoyage._requested_title_map(query, ["A"])
+    assert mapping["C"] == "A"   # chained A → B → C back to the request
+
+
+def test_requested_title_map_breaks_cyclic_redirect():
+    query = {"redirects": [
+        {"from": "A", "to": "B"},
+        {"from": "B", "to": "A"},
+    ]}
+    # Must terminate (cycle guard) rather than loop forever.
+    mapping = wikivoyage._requested_title_map(query, ["A"])
+    assert mapping  # produced some mapping without hanging
 
 
 # ---------------------------------------------------------------------------

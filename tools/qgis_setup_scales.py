@@ -67,6 +67,10 @@ LAYER_SCALE = {
     "Historische Regionen": (3_000_000,  200_000),  # sichtbar 1:200k … 1:3 Mio
     # Historische Städte: Punkte, analog zu Bahnhöfen.
     "Historische Städte":   (1_500_000,  0),         # ab 1:1,5 Mio nach innen
+    # Relief / Landschaft: nur bei mittlerem bis detailliertem Zoom sinnvoll.
+    "Gebirgs-Kämme":          (6_000_000,  0),        # sichtbar ab 1:6 Mio hinein
+    "Berggipfel":             (3_000_000,  0),        # erst ab 1:3 Mio
+    "Gebirgsbezeichnungen":   (10_000_000, 800_000),  # sichtbar 1:800k … 1:10 Mio
     # Zugeschnittene Arcanum-Karte: nur im Detail-Band 1:100k … 1:4 Mio sichtbar.
     # Nicht bei Weitzooms: die Arcanum-Tiles enden an der Habsburg-Grenze; Dobruja
     # und das rumänische Regat waren Ottoman/autonom → keine Survey-Daten → schwarze

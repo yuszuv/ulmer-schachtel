@@ -22,14 +22,17 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from pathlib import Path
 
 from .domain import Coordinate, Stop
+from .http import USER_AGENT, read_url
 from .paths import ROOT
 from .result import Err, Maybe, Nothing, Ok, Result, Some
 
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
-USER_AGENT = "reisefuehrer-dataintegration/0.1 (jan@sternprodukt.de)"
+
+# Local urllib socket timeout — long enough to receive the full response for a
+# dense query (hundreds of ways × thousands of geometry points).
+_HTTP_SOCKET_TIMEOUT = 180
 
 # Fetch all named rail stops in Romania in one request; local filtering happens
 # in StationIndex.  One network call → offline rebuild via --offline flag.
@@ -66,18 +69,68 @@ def rail_ways_query(bbox: tuple[float, float, float, float]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Gateway
+# POST + Gateway
 # ---------------------------------------------------------------------------
 
+def post_overpass(
+    query: str,
+    *,
+    url: str = OVERPASS_URL,
+    socket_timeout: int = _HTTP_SOCKET_TIMEOUT,
+) -> Result[dict]:
+    """POST one Overpass query and return Ok(parsed_json) or Err(message).
+
+    The single HTTP entry point to Overpass for the whole package.  It does
+    *not* assert that the response is non-empty — an empty tile is legitimate
+    for the tiled natural-feature fetch, while the station/city fetches treat
+    emptiness as an error one layer up (see ``OverpassGateway``).
+
+    A server-side ``remark`` containing "timed out" is surfaced as an Err: the
+    HTTP status is 200 in that case, so without this check a timed-out query
+    would masquerade as an empty result.
+    """
+    request = urllib.request.Request(
+        url,
+        data=urllib.parse.urlencode({"data": query}).encode("utf-8"),
+        headers={
+            "User-Agent": USER_AGENT,
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        method="POST",
+    )
+    try:
+        payload = read_url(request, timeout=socket_timeout)
+    except urllib.error.HTTPError as exc:
+        return Err(f"Overpass HTTP-Fehler {exc.code}: {exc.reason}")
+    except urllib.error.URLError as exc:
+        return Err(f"Overpass nicht erreichbar: {exc.reason}")
+    except TimeoutError as exc:
+        return Err(f"Overpass Socket-Timeout nach {socket_timeout}s: {exc}")
+
+    try:
+        data = json.loads(payload)
+    except json.JSONDecodeError as exc:
+        return Err(f"Overpass lieferte kein gültiges JSON: {exc}")
+
+    remark = data.get("remark", "")
+    if remark and "timed out" in remark.lower():
+        return Err(f"Overpass-Query timed out: {remark}")
+    return Ok(data)
+
+
 class OverpassGateway:
-    """HTTP gateway to the Overpass API.
+    """HTTP gateway to the Overpass API for fetches that require results.
 
     The Overpass query is injectable (default = the station query above) so the
-    same gateway serves other use-cases — e.g. the WikiVoyage city fetch passes
-    a per-county place query (see tools/reiseplan/wikivoyage.py).
+    same gateway serves several use-cases — the WikiVoyage city fetch passes a
+    per-county place query (see tools/reiseplan/wikivoyage.py), the rail fetch a
+    per-corridor way query.
 
-    Returns Result[dict] so callers can handle failures at their own boundary
-    instead of catching exceptions from deep inside urllib.
+    Wraps ``post_overpass`` and adds the contract that an empty ``elements``
+    list is an error: these callers cannot build a meaningful dataset from
+    nothing, so an empty response aborts loudly rather than writing an empty
+    GeoJSON.  Fetchers that tolerate empty responses (tiled natural features)
+    call ``post_overpass`` directly.
     """
 
     def __init__(self, url: str = OVERPASS_URL, query: str = OVERPASS_QUERY) -> None:
@@ -86,31 +139,12 @@ class OverpassGateway:
 
     def fetch(self) -> Result[dict]:
         """Query Overpass and return Ok(parsed_json) or Err(message)."""
-        request = urllib.request.Request(
-            self.url,
-            data=urllib.parse.urlencode({"data": self.query}).encode("utf-8"),
-            headers={
-                "User-Agent": USER_AGENT,
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            method="POST",
-        )
-        try:
-            with urllib.request.urlopen(request, timeout=180) as resp:
-                payload = resp.read()
-        except urllib.error.HTTPError as exc:
-            return Err(f"Overpass HTTP-Fehler {exc.code}: {exc.reason}")
-        except urllib.error.URLError as exc:
-            return Err(f"Overpass nicht erreichbar: {exc.reason}")
-
-        try:
-            data = json.loads(payload)
-        except json.JSONDecodeError as exc:
-            return Err(f"Overpass lieferte kein gültiges JSON: {exc}")
-
-        if not data.get("elements"):
+        result = post_overpass(self.query, url=self.url)
+        if isinstance(result, Err):
+            return result
+        if not result.value.get("elements"):
             return Err("Overpass-Antwort enthält keine Elemente – Abbruch.")
-        return Ok(data)
+        return result
 
 
 def load_or_fetch(offline: bool) -> Result[dict]:

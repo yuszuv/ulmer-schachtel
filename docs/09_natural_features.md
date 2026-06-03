@@ -1,5 +1,12 @@
 # Natural Features Layer — Gebirge & Landschaftszüge
 
+> **Architecture note (2026-06):** The natural-feature pipeline now runs on
+> the generic thematic-layer infrastructure (Pattern 4).  `fetch_natural.py`
+> is a thin wrapper around `thematic.run(themes.natural.SPEC, …)`.  The fetch
+> logic, tile grid, Wikidata cache, and GeoJSON outputs are unchanged —
+> `--offline` rebuilds remain byte-identical to prior runs.  See
+> `docs/10_thematic_layers.md` for the full pipeline design.
+
 Historical-atlas style mountain ridges, peaks, and landscape labels
 overlaid on the map canvas. The visual goal is the *zimmermann.jpg*
 "Donau-Staaten" atlas (1:5 Mio, ca. 1940): letter-spaced, brown names
@@ -11,7 +18,7 @@ that follow ridge lines.
 **© OpenStreetMap contributors, ODbL 1.0.**
 <https://www.openstreetmap.org/copyright>
 
-**German names:** Wikidata `wbgetentities` labels. **CC0.**
+**German names:** de.wikipedia titles + Wikidata `wbgetentities` labels. **CC0.**
 <https://www.wikidata.org>
 
 ## Fetch
@@ -48,31 +55,37 @@ the script deduplicates across runs via OSM id + type.
 Properties per feature: `name`, `name_de`, `name_de_src`, `wikidata`,
 `natural`, `place`, `ele` (peaks), `osm_id`, `osm_type`.
 
-## German name enrichment (Wikidata)
+## German name enrichment (Wikipedia / Wikidata)
 
 The QGIS labels use `coalesce("name_de", "name")` — the **German** name wins
 when present. OSM, however, carries very few `name:de` tags. Where a feature
-has a `wikidata` QID, the fetch resolves its German label via the Wikidata
-`wbgetentities` API (`props=labels&languages=de`, **CC0**) and uses it as the
-`name_de` fallback. This fills in atlas exonyms such as *Karpaten* /
-*Siebenbürgen* that OSM stores only under the local name.
+has a `wikidata` QID, the fetch resolves its German name via a single Wikidata
+`wbgetentities` call (`props=labels|sitelinks`, `languages=de`,
+`sitefilter=dewiki|dewikivoyage`, **CC0**) that returns both the de.**wikipedia**
+article title and the German label at once. This fills in atlas exonyms such as
+*Karpaten* / *Siebenbürgen* that OSM stores only under the local name.
 
 Priority and provenance (per feature):
 
 | field | meaning |
 |---|---|
 | `name_de` | German name — **only set when it differs from `name`** (an identical value adds nothing to `coalesce`) |
-| `name_de_src` | `osm` (from `name:de`) · `wikidata` (from the QID label) · `null` |
+| `name_de_src` | `osm` (from `name:de`) · `wikipedia` (de.wikipedia title) · `wikidata` (QID label) · `null` |
 | `wikidata` | the OSM `wikidata` QID, kept for verifiability (`null` if absent) |
 
-Priority: OSM `name:de` > Wikidata `de` label. No machine translation or
-transliteration is done — only verifiable sources.
+Priority: **OSM `name:de` > de.wikipedia title > Wikidata `de` label.** The
+de.wikipedia article title is the authoritative German exonym (e.g.
+*Hermannstadt*); a trailing disambiguator like *(Stadt)* is stripped. No machine
+translation or transliteration is done — only verifiable sources.
 
-Resolved labels are cached in `data/raw/wikidata_de_labels.json` (a committed
-`{QID: label}` map; it does **not** match the gitignored `osm_*.json` pattern).
-The cache is additive across runs, so `--offline` reproduces the German names
-without network access. Skip the lookup entirely with `--no-enrich`
-(`name_de` then comes from OSM `name:de` only).
+Resolved names are cached in two committed, additive maps beside each other:
+`data/raw/wikidata_de_labels.json` (`{QID: label}`) and
+`data/raw/wikidata_de_wikipedia.json` (`{QID: dewiki-title | null}`, where `null`
+means "checked, no German article"). Neither matches the gitignored `osm_*.json`
+pattern. `--offline` reproduces the German names without network access (it
+degrades to the cached label if the Wikipedia cache is not yet populated). Skip
+the lookup entirely with `--no-enrich` (`name_de` then comes from OSM `name:de`
+only).
 
 ## OSM coverage note
 

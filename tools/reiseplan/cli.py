@@ -96,7 +96,17 @@ def _arg(*flags: str, **kwargs) -> _Arg:
 # (imports happen here so tables/packaging don't depend on cli.py)
 # ---------------------------------------------------------------------------
 
-from . import packaging, tables, wikivoyage  # noqa: E402  (after registry setup)
+from . import (  # noqa: E402  (after registry setup)
+    fetch_landcover,
+    fetch_natural,
+    fetch_terrain,
+    ingest,
+    packaging,
+    tables,
+    thematic,
+    wikivoyage,
+)
+from .themes import REGISTRY as _THEME_REGISTRY
 
 
 @command("list-routes", help="Alle Magistralen anzeigen", json=True)
@@ -141,6 +151,140 @@ def _timetable(args):
 )
 def _show_route(args):
     tables.show_route(args)
+
+
+@command(
+    "fetch-rail",
+    help="CFR-Bahndaten von OpenStreetMap holen und Geo-Daten bauen",
+    description=(
+        "Fragt Bahnhöfe und Gleisgeometrie der CFR-Magistralen über die "
+        "Overpass-API ab und baut rail_stations/rail_lines GeoJSON + "
+        "route_stops.csv. Quelle: OSM © ODbL 1.0."
+    ),
+    args=[_arg("--offline", action="store_true",
+               help="Nur aus data/raw/osm_ro_stations.json neu bauen (kein Netz).")],
+)
+def _fetch_rail(args):
+    ingest.run(args.offline)
+
+
+@command(
+    "fetch-natural",
+    help="Naturräumliche Beschriftungen (Gebirge, Gipfel, Täler) von OSM holen",
+    description=(
+        "Holt benannte Naturobjekte (Bergkämme, Gipfel, Landschaften) im "
+        "k.u.k./Rumänien-Raum über Overpass und schreibt drei GeoJSON-Ebenen "
+        "für die QGIS-Beschriftung. Deutsche Namen werden via Wikidata ergänzt. "
+        "Quelle: OSM © ODbL 1.0 · Wikidata CC0."
+    ),
+    args=[
+        _arg("--offline", action="store_true",
+             help="Nur aus data/raw/osm_natural_features.json neu bauen (kein Netz)."),
+        _arg("--min-ele", type=int, default=1500, metavar="M",
+             help="Mindesthöhe der Gipfel in Metern (Standard: 1500)."),
+        _arg("--no-enrich", action="store_true",
+             help="Wikidata-Anreicherung überspringen (name_de nur aus OSM)."),
+    ],
+)
+def _fetch_natural(args):
+    fetch_natural.run(offline=args.offline, min_ele=args.min_ele,
+                      enrich=not args.no_enrich)
+
+
+@command(
+    "fetch-mining",
+    help="Bodenschätze (Bergwerke, Steinbrüche, Öl-/Gasfelder) von OSM holen",
+    description=(
+        "Holt Bergwerke, Steinbrüche, Öl-/Gasfelder und sonstige Abbauanlagen "
+        "im k.u.k./Rumänien-Raum über Overpass und schreibt "
+        "data/processed/mineral_resources.geojson (Piktogramm-Punkt-Layer). "
+        "commodity-Feld für QGIS-Regelstile. Quelle: OSM © ODbL 1.0."
+    ),
+    args=[
+        _arg("--offline", action="store_true",
+             help="Nur aus data/raw/osm_mining_features.json neu bauen (kein Netz)."),
+        _arg("--no-enrich", action="store_true",
+             help="Wikidata-Anreicherung überspringen."),
+    ],
+)
+def _fetch_mining(args):
+    thematic.run(
+        _THEME_REGISTRY["mining"],
+        offline=args.offline,
+        enrich=not args.no_enrich,
+    )
+
+
+@command(
+    "fetch-industry",
+    help="Industriestandorte (Kraftwerke, Werke) von OSM holen",
+    description=(
+        "Holt Kraftwerke, Fabriken und Industriegebiete im k.u.k./Rumänien-Raum "
+        "über Overpass und schreibt data/processed/industry_sites.geojson "
+        "(Piktogramm-Punkt-Layer). "
+        "branch-Feld für QGIS-Regelstile. Quelle: OSM © ODbL 1.0."
+    ),
+    args=[
+        _arg("--offline", action="store_true",
+             help="Nur aus data/raw/osm_industry_features.json neu bauen (kein Netz)."),
+        _arg("--no-enrich", action="store_true",
+             help="Wikidata-Anreicherung überspringen."),
+    ],
+)
+def _fetch_industry(args):
+    thematic.run(
+        _THEME_REGISTRY["industry"],
+        offline=args.offline,
+        enrich=not args.no_enrich,
+    )
+
+
+@command(
+    "fetch-terrain",
+    help="Copernicus DEM → Hillshade + Höhenlinien",
+    description=(
+        "Lädt Copernicus GLO-30 DEM-Kacheln (öffentlich, kein Login) und "
+        "erzeugt data/raster/terrain_dem.tif, terrain_hillshade.tif und "
+        "data/processed/contours.geojson. "
+        "Quelle: Copernicus DEM © ESA/Copernicus."
+    ),
+    args=[
+        _arg("--offline", action="store_true",
+             help="DEM-Download überspringen — nur gecachte Kacheln nutzen."),
+        _arg("--interval", type=int, default=100, metavar="M",
+             help="Höhenlinienschritt in Metern (Standard: 100)."),
+        _arg("--no-hillshade", action="store_true",
+             help="Hillshade-Erzeugung überspringen."),
+        _arg("--no-contours", action="store_true",
+             help="Höhenlinienerzeugung überspringen."),
+    ],
+)
+def _fetch_terrain(args):
+    fetch_terrain.run(
+        offline=args.offline,
+        interval=args.interval,
+        hillshade=not args.no_hillshade,
+        make_contours=not args.no_contours,
+    )
+
+
+@command(
+    "fetch-landcover",
+    help="CORINE Landbedeckung 2018 klippen und reklassifizieren",
+    description=(
+        "Klippt CORINE Land Cover 2018 (manueller Vorab-Download nötig, "
+        "kostenloser Copernicus-Account) auf die ROI und reklassifiziert die "
+        "44 CLC-Klassen auf 8 Atlas-Kategorien → data/processed/landcover.geojson. "
+        "Alternativ --source worldcover. "
+        "Quelle: EEA/Copernicus, Copernicus Data Policy."
+    ),
+    args=[
+        _arg("--source", choices=["corine", "worldcover"], default="corine",
+             help="Datenquelle: corine (Standard) oder worldcover."),
+    ],
+)
+def _fetch_landcover(args):
+    fetch_landcover.run(source=args.source)
 
 
 @command(

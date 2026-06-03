@@ -208,6 +208,60 @@ Weitere Umbenennungen mit dem gleichen Motiv:
 
 ---
 
+---
+
+## Pattern 4 – Thematic-Layer Pipeline (Strategy + Registry)
+
+**Problem:** Three new atlas themes (mining, industry, natural features)
+share identical machinery: ROI tiling, Overpass fetch + cache, German-name
+enrichment (Wikipedia/Wikidata), GeoJSON construction, attribution sidecar.  Copy-pasting
+`fetch_natural.py` (628 lines) three times would create an untestable mess.
+
+**Solution in `themes/` + `thematic.py`:**
+
+```python
+# Declare what to fetch and how to classify it:
+SPEC = ThemeSpec(
+    name="mining",
+    roi=KUK_ROI,
+    node_filters=("man_made=mineshaft", "man_made=petroleum_well", ...),
+    area_filters=("landuse=quarry",),
+    layers=(MINERAL_LAYER,),
+    extra_props=lambda el, tags, opts: {"commodity": _commodity(tags)},
+)
+
+# Generic runner does the rest:
+thematic.run(SPEC, offline=False)
+```
+
+The runner (`thematic.py`) wires together:
+- `tiles.fetch_tiled` — tiled Overpass fetch + dedup + JSON cache
+- `enrich.german_names` — de.wikipedia titles + Wikidata labels (shared additive caches)
+- `_build_features` — element classification via `OutputLayer.accepts`
+- `repository.write_json` — GeoJSON + attribution sidecar
+
+**Pattern:** Strategy (each ThemeSpec declares its own query selectors,
+classification logic, and property extraction) + Registry (a dict from name
+→ ThemeSpec, populated at import time).  The runner is the Template Method:
+fixed sequence of steps, with variable plugs.
+
+**New shared infrastructure:**
+
+| Module | Extracted from | Content |
+|--------|---------------|---------|
+| `geo.py` | `fetch_natural.py` | `way_to_linestring`, `node_to_point`, `centroid_of`, `parse_ele`, `parse_population` |
+| `enrich.py` | `fetch_natural.py` | `resolve_name_de`, `german_names` |
+| `tiles.py` | `fetch_natural.py` | `BBox`, `tile_grid`, `fetch_tiled` |
+
+**Also added (v0.3, June 2026):**
+- `raster.py` — thin GDAL subprocess wrappers (`hillshade`, `contours`, `warp_clip`, …)
+- `fetch_terrain.py` — Copernicus GLO-30 DEM → hillshade + contours
+- `fetch_landcover.py` — CORINE Land Cover → reclassified GeoJSON
+
+See `docs/10_thematic_layers.md` and `docs/11_terrain_landcover.md`.
+
+---
+
 ## Template-Extraktion (`build_site.py` → `web.py` + `template.html`)
 
 Der HTML/CSS/JS-Template-String (330 Zeilen) war in `build_site.py` eingebettet

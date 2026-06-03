@@ -12,6 +12,10 @@ reiseplan-cli        = "reiseplan.cli:main"
 reiseplan-fetch      = "reiseplan.ingest:main"
 reiseplan-wikivoyage = "reiseplan.wikivoyage:main"
 reiseplan-natural    = "reiseplan.fetch_natural:main"
+reiseplan-mining     = "reiseplan.thematic:_main_mining"
+reiseplan-industry   = "reiseplan.thematic:_main_industry"
+reiseplan-terrain    = "reiseplan.fetch_terrain:main"
+reiseplan-landcover  = "reiseplan.fetch_landcover:main"
 reiseplan-site       = "reiseplan.web:main"
 
 [dependency-groups]

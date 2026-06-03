@@ -52,8 +52,9 @@ from .repository import (
 
 # Avoid circular import — LINES_OUT is defined here because it is an output
 # of this use-case (other modules read it via repository.ROUTES_PATH).
-LINES_OUT = ROOT / "data" / "processed" / "rail_lines.geojson"
-GAPS_OUT  = ROOT / "data" / "processed" / "rail_gaps.geojson"
+LINES_OUT     = ROOT / "data" / "processed" / "rail_lines.geojson"
+GAPS_OUT      = ROOT / "data" / "processed" / "rail_gaps.geojson"
+STATIONS_OUT  = ROOT / "data" / "processed" / "rail_stations.geojson"
 
 # Padding (degrees) around a magistrală's stations → the Overpass corridor bbox
 # from which its rail-track geometry is fetched.
@@ -196,8 +197,7 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
             },
         })
 
-    write_json(STATIONS_OUT := ROOT / "data" / "processed" / "rail_stations.geojson",
-               feature_collection("rail_stations", station_features))
+    write_json(STATIONS_OUT, feature_collection("rail_stations", station_features))
     write_json(LINES_OUT,
                feature_collection("rail_lines", route_features))
     write_json(GAPS_OUT,
@@ -227,6 +227,29 @@ def _build_outputs(index: StationIndex, rail_data: dict[str, dict]) -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 
+def run(offline: bool = False) -> None:
+    """End-to-end: Overpass fetch → StationIndex → routed GeoJSON / CSV outputs.
+
+    Shared by the ``reiseplan-fetch`` console script and the
+    ``reiseplan-cli fetch-rail`` subcommand.
+    """
+    # unwrap_or_exit() translates Err → SystemExit at the application boundary.
+    data = load_or_fetch(offline).unwrap_or_exit()
+    index = StationIndex.from_overpass(data)
+    print(f"[index]   {len(index)} eindeutige Halte-Namen indiziert.")
+
+    # scaffold() is a no-op when timetable.csv already exists.
+    TimetableRepository().scaffold(MAIN_LINES)
+
+    # Fetch real track geometry per corridor (bbox from the resolved stations),
+    # then build the routed line geometry. --offline rebuilds from the cache.
+    corridors = _corridors(index, MAIN_LINES)
+    rail_data = load_or_fetch_rail(offline, corridors).unwrap_or_exit()
+
+    _build_outputs(index, rail_data)
+    print("[fertig]  GPKG erneuern? → uv run reiseplan-cli build-gpkg")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -237,23 +260,7 @@ def main() -> None:
         action="store_true",
         help="Nur aus data/raw/osm_ro_stations.json neu bauen (kein Netz).",
     )
-    args = parser.parse_args()
-
-    # unwrap_or_exit() translates Err → SystemExit at the application boundary.
-    data = load_or_fetch(args.offline).unwrap_or_exit()
-    index = StationIndex.from_overpass(data)
-    print(f"[index]   {len(index)} eindeutige Halte-Namen indiziert.")
-
-    # scaffold() is a no-op when timetable.csv already exists.
-    TimetableRepository().scaffold(MAIN_LINES)
-
-    # Fetch real track geometry per corridor (bbox from the resolved stations),
-    # then build the routed line geometry. --offline rebuilds from the cache.
-    corridors = _corridors(index, MAIN_LINES)
-    rail_data = load_or_fetch_rail(args.offline, corridors).unwrap_or_exit()
-
-    _build_outputs(index, rail_data)
-    print("[fertig]  GPKG erneuern? → uv run reiseplan-cli build-gpkg")
+    run(parser.parse_args().offline)
 
 
 if __name__ == "__main__":
