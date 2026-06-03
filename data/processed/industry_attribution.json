@@ -11,5 +11,5 @@
     "east": 30.432847,
     "description": "Austria-Hungary + Romania extent ~1880"
   },
-  "methodology": "Named industrial installations → industry_sites.geojson (Point). Covers power plants (power=plant), factories (man_made=works), and industrial zones (landuse=industrial, way centroid). branch field classifies the installation type for QGIS piktogram styling. German names enriched via Wikidata (CC0) where available."
+  "methodology": "Named industrial installations → industry_sites.geojson (Point). Covers power plants (power=plant), factories (man_made=works), and industrial zones (landuse=industrial, way centroid). Filters out unnamed/generic features without Wikidata/Wikipedia links to reduce noise. branch field classifies the installation type for QGIS piktogram styling. importance field represents feature priority (1 = Major, 2 = Significant, 3 = Minor). German names enriched via Wikidata (CC0) where available."
 }

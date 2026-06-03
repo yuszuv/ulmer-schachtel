@@ -11,5 +11,5 @@
     "east": 30.432847,
     "description": "Austria-Hungary + Romania extent ~1880"
   },
-  "methodology": "Named mine nodes (man_made=mineshaft|adit, man_made=petroleum_well, industrial=mine, historic=mine|mine_shaft) and quarry way centroids (landuse=quarry) → mineral_resources.geojson (Point). commodity field maps OSM resource=* to a canonical class for QGIS piktogram styling. German names enriched via Wikidata (CC0) where available."
+  "methodology": "Named mine nodes (man_made=mineshaft|adit, man_made=petroleum_well, industrial=mine, historic=mine|mine_shaft) and quarry way centroids (landuse=quarry) → mineral_resources.geojson (Point). Filters out unnamed features without Wikidata/Wikipedia links to reduce noise. commodity field maps OSM resource=* to a canonical class for QGIS piktogram styling. importance field represents feature priority (1 = Major, 2 = Significant, 3 = Minor). German names enriched via Wikidata (CC0) where available."
 }
