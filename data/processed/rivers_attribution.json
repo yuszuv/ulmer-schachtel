@@ -1,0 +1,64 @@
+{
+  "generated": "2026-06-07",
+  "sources": [
+    {
+      "name": "Natural Earth Rivers + Lake Centerlines",
+      "resolutions_fetched": [
+        "10m",
+        "50m",
+        "110m"
+      ],
+      "layers": [
+        {
+          "resolution": "10m",
+          "url": "https://naciscdn.org/naturalearth/10m/physical/ne_10m_rivers_lake_centerlines.zip",
+          "output": "rivers_major_10m.geojson",
+          "license": "Public Domain — https://www.naturalearthdata.com/about/terms-of-use/",
+          "roi_bbox": {
+            "south": 42.929272,
+            "west": 9.464611,
+            "north": 51.077385,
+            "east": 30.432847
+          }
+        },
+        {
+          "resolution": "50m",
+          "url": "https://naciscdn.org/naturalearth/50m/physical/ne_50m_rivers_lake_centerlines.zip",
+          "output": "rivers_major_50m.geojson",
+          "license": "Public Domain — https://www.naturalearthdata.com/about/terms-of-use/",
+          "roi_bbox": {
+            "south": 42.929272,
+            "west": 9.464611,
+            "north": 51.077385,
+            "east": 30.432847
+          }
+        },
+        {
+          "resolution": "110m",
+          "url": "https://naciscdn.org/naturalearth/110m/physical/ne_110m_rivers_lake_centerlines.zip",
+          "output": "rivers_major_110m.geojson",
+          "license": "Public Domain — https://www.naturalearthdata.com/about/terms-of-use/",
+          "roi_bbox": {
+            "south": 42.929272,
+            "west": 9.464611,
+            "north": 51.077385,
+            "east": 30.432847
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenStreetMap contributors",
+      "url": "https://www.openstreetmap.org",
+      "license": "© OpenStreetMap contributors, ODbL 1.0 — https://opendatacommons.org/licenses/odbl/",
+      "output": "rivers_delta.geojson",
+      "delta_bbox": {
+        "south": 44.7,
+        "west": 28.5,
+        "north": 45.7,
+        "east": 30.4
+      }
+    }
+  ],
+  "methodology": "rivers_major_{10m|50m|110m}: Natural Earth river centerlines at selected resolutions (10m, 50m, 110m), clipped to the KUK/Romania atlas extent via ogr2ogr (featurecla='River', RFC7946). rivers_delta: OSM waterway=river|canal|stream ways in the Danube Delta fetched via Overpass API, converted to GeoJSON LineStrings."
+}
