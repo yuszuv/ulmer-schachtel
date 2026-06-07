@@ -137,7 +137,17 @@ def _set_checked(root, layer, checked):
 
 def setup_scales():
     project = QgsProject.instance()
-    styles_dir = Path(project.fileName()).parent / "styles"
+
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
+
+    import qgis_helpers
+
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
     root = project.layerTreeRoot()
 
     # 1) Styles (alle Kategorien) neu laden

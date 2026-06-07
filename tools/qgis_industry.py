@@ -152,21 +152,21 @@ def _style_industry(layer: QgsVectorLayer) -> None:
 
 def add_industry_layer() -> None:
     project = QgsProject.instance()
-    if not project.fileName():
-        print("  ⚠ Projekt nicht gespeichert — erst speichern, dann erneut ausführen.")
-        return
 
-    qgis_dir = Path(project.fileName()).parent
-    data_dir  = qgis_dir.parent / "data" / "processed"
-    root      = project.layerTreeRoot()
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
 
-    anchor    = root.findGroup(INSERT_AFTER)
-    insert_idx = (root.children().index(anchor) + 1) if anchor else 0
+    import qgis_helpers
 
-    old = root.findGroup(GROUP_NAME)
-    if old:
-        root.removeChildNode(old)
-    group = root.insertGroup(insert_idx, GROUP_NAME)
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
+
+    group = qgis_helpers.get_or_create_group(
+        project, GROUP_NAME, insert_after=INSERT_AFTER
+    )
 
     fname = "industry_sites.geojson"
     path  = data_dir / fname
@@ -175,8 +175,7 @@ def add_industry_layer() -> None:
         print("    Erst ausführen: uv run reiseplan-cli fetch-industry")
         return
 
-    for dup in project.mapLayersByName(LAYER_NAME):
-        project.removeMapLayer(dup.id())
+    qgis_helpers.remove_layers_by_name(project, LAYER_NAME)
 
     layer = QgsVectorLayer(str(path), LAYER_NAME, "ogr")
     if not layer.isValid():

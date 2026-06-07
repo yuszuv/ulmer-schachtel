@@ -96,15 +96,18 @@ GROUP_ORDER = ["Guide", "Bahn", "Historisch"]  # oben→unten
 
 def bootstrap():
     project = QgsProject.instance()
-    if not project.fileName():
-        print("  ⚠ Projekt ist nicht gespeichert. Bitte erst unter "
-              "qgis/reiseplan.qgz speichern, dann erneut ausführen.")
-        return
 
-    qgis_dir = Path(project.fileName()).parent
-    repo_dir = qgis_dir.parent
-    data_dir = repo_dir / "data" / "processed"
-    styles_dir = qgis_dir / "styles"
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
+
+    import qgis_helpers
+
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
+    qgis_dir = repo_dir / "qgis"
     root = project.layerTreeRoot()
 
     # 1) Projekt-CRS
@@ -121,8 +124,7 @@ def bootstrap():
 
     # 2) + 3) Vektorlayer laden, stylen, einsortieren
     for fname, name, gname in VECTOR_LAYERS:
-        for dup in project.mapLayersByName(name):
-            project.removeMapLayer(dup.id())
+        qgis_helpers.remove_layers_by_name(project, name)
 
         base_dir = data_dir
         if name in BASE_DIR_FOR:

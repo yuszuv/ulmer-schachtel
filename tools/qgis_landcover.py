@@ -86,22 +86,21 @@ def _style_landcover(layer: QgsVectorLayer) -> None:
 
 def add_landcover_layer() -> None:
     project = QgsProject.instance()
-    if not project.fileName():
-        print("  ⚠ Projekt nicht gespeichert — erst speichern, dann erneut ausführen.")
-        return
 
-    qgis_dir = Path(project.fileName()).parent
-    data_dir  = qgis_dir.parent / "data" / "processed"
-    root      = project.layerTreeRoot()
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
 
-    # Insert above INSERT_BEFORE group (Terrain)
-    anchor    = root.findGroup(INSERT_BEFORE)
-    insert_idx = root.children().index(anchor) if anchor else len(root.children())
+    import qgis_helpers
 
-    old = root.findGroup(GROUP_NAME)
-    if old:
-        root.removeChildNode(old)
-    group = root.insertGroup(insert_idx, GROUP_NAME)
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
+
+    group = qgis_helpers.get_or_create_group(
+        project, GROUP_NAME, insert_before=INSERT_BEFORE
+    )
 
     fname = "landcover.geojson"
     path  = data_dir / fname
@@ -110,8 +109,7 @@ def add_landcover_layer() -> None:
         print("    Erst ausführen: uv run reiseplan-cli fetch-landcover")
         return
 
-    for dup in project.mapLayersByName(LAYER_NAME):
-        project.removeMapLayer(dup.id())
+    qgis_helpers.remove_layers_by_name(project, LAYER_NAME)
 
     layer = QgsVectorLayer(str(path), LAYER_NAME, "ogr")
     if not layer.isValid():

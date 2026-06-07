@@ -267,27 +267,21 @@ def _style_landscape(layer: QgsVectorLayer) -> None:
 
 def add_natural_features() -> None:
     project = QgsProject.instance()
-    if not project.fileName():
-        print("  ⚠ Projekt nicht gespeichert.")
-        print("    Erst unter qgis/reiseplan.qgs speichern, dann erneut ausführen.")
-        return
 
-    qgis_dir = Path(project.fileName()).parent
-    repo_dir  = qgis_dir.parent
-    data_dir  = repo_dir / "data" / "processed"
-    root      = project.layerTreeRoot()
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
 
-    # Determine insert position: directly below INSERT_AFTER group
-    anchor = root.findGroup(INSERT_AFTER)
-    insert_idx = 0
-    if anchor:
-        insert_idx = root.children().index(anchor) + 1
+    import qgis_helpers
 
-    # Remove old group if re-run (idempotent)
-    old = root.findGroup(GROUP_NAME)
-    if old:
-        root.removeChildNode(old)
-    group = root.insertGroup(insert_idx, GROUP_NAME)
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
+
+    group = qgis_helpers.get_or_create_group(
+        project, GROUP_NAME, insert_after=INSERT_AFTER
+    )
 
     # Layers in draw order: ridges bottom, peaks middle, landscape names on top.
     # In QGIS legend the topmost entry draws last (= on top).
@@ -300,8 +294,7 @@ def add_natural_features() -> None:
 
     loaded = []
     for fname, name, style_fn, (s_min, s_max) in layers_cfg:
-        for dup in project.mapLayersByName(name):
-            project.removeMapLayer(dup.id())
+        qgis_helpers.remove_layers_by_name(project, name)
 
         path = data_dir / fname
         if not path.exists():

@@ -11,6 +11,9 @@ __pycache__/
 # Claude Code agent memory (local, not repo content)
 .claude/
 
+# Syncthing
+.stfolder
+
 # QField export packages
 qfield/
 

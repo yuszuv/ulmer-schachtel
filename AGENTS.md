@@ -96,6 +96,10 @@ Entrypoints (defined in `pyproject.toml`, run via **uv**):
 - `uv run reiseplan-natural`          — natural-feature fetch (ridges/peaks/
   landscape labels), German names enriched via Wikidata. Same as
   `reiseplan-cli fetch-natural`; accepts `--offline`, `--min-ele`, `--no-enrich`.
+- `uv run reiseplan-rivers`           — river-data fetch: Natural Earth overview
+  rivers (rivers_major.geojson, clipped to KUK_ROI) + OSM Danube Delta waterways
+  (rivers_delta.geojson). Same as `reiseplan-cli fetch-rivers`; accepts `--offline`.
+  Raw caches: `data/raw/natural_earth/ne_rivers.zip`, `data/raw/osm_delta_waterways.json`.
 - `uv run reiseplan-mining`           — mineral resources (mines/quarries/wells)
   from OSM. Same as `reiseplan-cli fetch-mining`; accepts `--offline`, `--no-enrich`.
 - `uv run reiseplan-industry`         — industry sites (power plants, works)
@@ -127,6 +131,7 @@ CLI commands: `list-routes`, `list-categories`, `list-destinations [--category]`
 `show-route <id>`, `overview`, `timetable`,
 `fetch-rail [--offline]`,
 `fetch-natural [--offline] [--min-ele M] [--no-enrich]`,
+`fetch-rivers [--offline]`,
 `fetch-mining [--offline] [--no-enrich]`,
 `fetch-industry [--offline] [--no-enrich]`,
 `fetch-terrain [--offline] [--interval M] [--no-hillshade] [--no-contours]`,

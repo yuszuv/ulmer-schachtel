@@ -94,29 +94,27 @@ def _style_contours(layer: QgsVectorLayer) -> None:
 
 def add_terrain_layers() -> None:
     project = QgsProject.instance()
-    if not project.fileName():
-        print("  ⚠ Projekt nicht gespeichert — erst speichern, dann erneut ausführen.")
-        return
 
-    qgis_dir  = Path(project.fileName()).parent
-    repo_dir  = qgis_dir.parent
-    proc_dir  = repo_dir / "data" / "processed"
-    raster_dir = repo_dir / "data" / "raster"
-    root      = project.layerTreeRoot()
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
 
-    old = root.findGroup(GROUP_NAME)
-    if old:
-        root.removeChildNode(old)
-    # Insert at the bottom so rasters render below all vector groups.
-    group = root.insertGroup(len(root.children()), GROUP_NAME)
+    import qgis_helpers
+
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
+    proc_dir = data_dir
+
+    group = qgis_helpers.get_or_create_group(project, GROUP_NAME)
 
     loaded = []
 
     # --- Höhenlinien (vector contours) ---
     contours_path = proc_dir / "contours.geojson"
     if contours_path.exists():
-        for dup in project.mapLayersByName("Höhenlinien"):
-            project.removeMapLayer(dup.id())
+        qgis_helpers.remove_layers_by_name(project, "Höhenlinien")
         clayer = QgsVectorLayer(str(contours_path), "Höhenlinien", "ogr")
         if clayer.isValid():
             _style_contours(clayer)
@@ -132,12 +130,11 @@ def add_terrain_layers() -> None:
     # --- Hillshade (raster) ---
     hs_path = raster_dir / "terrain_hillshade.tif"
     if hs_path.exists():
-        for dup in project.mapLayersByName("Hillshade"):
-            project.removeMapLayer(dup.id())
+        qgis_helpers.remove_layers_by_name(project, "Hillshade")
         rl = QgsRasterLayer(str(hs_path), "Hillshade")
         if rl.isValid():
             # Multiply blend so it darkens underlying colours.
-            rl.setBlendMode(13)  # 13 = Multiply in Qt blend mode enum
+            qgis_helpers.set_multiply_blend_mode(rl)
             rl.setOpacity(0.7)
             project.addMapLayer(rl, False)
             node = group.addLayer(rl)
@@ -151,8 +148,7 @@ def add_terrain_layers() -> None:
     # --- DEM (raster, hidden by default) ---
     dem_path = raster_dir / "terrain_dem.tif"
     if dem_path.exists():
-        for dup in project.mapLayersByName("DEM"):
-            project.removeMapLayer(dup.id())
+        qgis_helpers.remove_layers_by_name(project, "DEM")
         dem = QgsRasterLayer(str(dem_path), "DEM")
         if dem.isValid():
             project.addMapLayer(dem, False)

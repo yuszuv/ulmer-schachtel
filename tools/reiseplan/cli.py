@@ -100,6 +100,7 @@ from . import (  # noqa: E402  (after registry setup)
     cities,
     fetch_landcover,
     fetch_natural,
+    fetch_rivers,
     fetch_terrain,
     ingest,
     packaging,
@@ -190,6 +191,37 @@ def _fetch_rail(args):
 def _fetch_natural(args):
     fetch_natural.run(offline=args.offline, min_ele=args.min_ele,
                       enrich=not args.no_enrich)
+
+
+@command(
+    "fetch-rivers",
+    help="Flussdaten holen: Natural-Earth-Übersicht + OSM-Donaudelta",
+    description=(
+        "Holt zwei Flusslayer: (1) Natural Earth 10m-Übersichtsflüsse "
+        "(rivers_major.geojson), geclippt auf die Karten-ROI — "
+        "Quelle: Natural Earth, Public Domain. "
+        "(2) OSM-Gewässer im Donaudelta (rivers_delta.geojson), "
+        "fetched via Overpass API — "
+        "Quelle: © OpenStreetMap contributors, ODbL 1.0. "
+        "Schreibt rivers_attribution.json als Quellennachweis."
+    ),
+    args=[
+        _arg("--scale",
+             choices=["10m", "50m", "110m", "all"],
+             default="all",
+             help="NE-Auflösung: 10m | 50m | 110m | all (Standard: all)."),
+        _arg("--offline", action="store_true",
+             help=(
+                 "Nur aus data/raw/ neu bauen (kein Netz). "
+                 "Erfordert data/raw/natural_earth/ne_rivers_*.zip "
+                 "und data/raw/osm_delta_waterways.json."
+             )),
+    ],
+)
+def _fetch_rivers(args):
+    from .fetch_rivers import ALL_SCALES
+    scales = ALL_SCALES if args.scale == "all" else [args.scale]
+    fetch_rivers.run(offline=args.offline, scales=scales)
 
 
 @command(

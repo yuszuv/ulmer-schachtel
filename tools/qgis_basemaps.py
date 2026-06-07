@@ -56,11 +56,19 @@ def _xyz_uri(url, zmin, zmax, referer, tile_pixel_ratio):
 
 def load_basemaps():
     project = QgsProject.instance()
-    if not project.fileName():
-        print("  ⚠ Projekt ist nicht gespeichert — bitte erst speichern, dann erneut.")
-        return
 
-    xml_path = Path(project.fileName()).parent / "xyz_connections.xml"
+    # Bootstrap sys.path to import qgis_helpers
+    import sys
+    _pf = Path(project.fileName()) if project.fileName() else None
+    _rd = next((p for p in [_pf.parent] + list(_pf.parents) if (p / "data" / "processed").is_dir()), None) if _pf else None
+    if _rd and str(_rd / "tools") not in sys.path:
+        sys.path.append(str(_rd / "tools"))
+
+    import qgis_helpers
+
+    repo_dir, data_dir, raster_dir, styles_dir = qgis_helpers.get_repo_paths(project)
+
+    xml_path = repo_dir / "qgis" / "xyz_connections.xml"
     if not xml_path.exists():
         print(f"  ⚠ Nicht gefunden: {xml_path}")
         return
@@ -69,16 +77,12 @@ def load_basemaps():
     root = project.layerTreeRoot()
 
     # idempotent: vorhandene Gruppe + gleichnamige Layer entfernen
-    old = root.findGroup(GROUP_NAME)
-    if old is not None:
-        root.removeChildNode(old)
-    group = root.addGroup(GROUP_NAME)  # ans Ende = unter die Vektordaten
+    group = qgis_helpers.get_or_create_group(project, GROUP_NAME)
 
     added = 0
     for e in entries:
         name = e.get("name")
-        for dup in project.mapLayersByName(name):
-            project.removeMapLayer(dup.id())
+        qgis_helpers.remove_layers_by_name(project, name)
 
         uri = _xyz_uri(
             e.get("url"), e.get("zmin", "0"), e.get("zmax", "19"),

@@ -137,6 +137,22 @@ uv run reiseplan-fetch            # query OSM, cache, build GeoJSON
 uv run reiseplan-fetch --offline  # rebuild from data/raw cache only
 ```
 
+**River layers** (overview rivers from Natural Earth, Danube Delta detail from OSM):
+
+```bash
+uv run reiseplan-rivers               # download NE zip + Overpass fetch → data/processed/
+uv run reiseplan-rivers --offline     # rebuild from data/raw caches (no network)
+```
+
+Output: `rivers_major.geojson` (LineString, Natural Earth 10m, clipped to atlas ROI —
+styled in QGIS with scale-ranked line widths and curved italic labels), and
+`rivers_delta.geojson` (LineString, OSM waterways in the Danube Delta bounding box —
+fine detail, visible only at close zoom). Attribution: `rivers_attribution.json`.
+QGIS layer script: `tools/qgis_rivers.py`.
+
+> Natural Earth data: **public domain** — <https://www.naturalearthdata.com/about/terms-of-use/>
+> Danube Delta OSM data: © **OpenStreetMap contributors**, ODbL 1.0.
+
 **Natural features** (mountain ridges for curved atlas-style labels, peaks with
 elevation, landscape label anchors) are fetched separately via a tiled Overpass
 strategy:
