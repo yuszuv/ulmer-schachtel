@@ -111,7 +111,12 @@ def test_props_carries_provenance_fields():
 
 
 def test_props_without_wikidata_has_none_fields():
-    el = {"type": "way", "id": 3, "tags": {"name": "Some Ridge", "natural": "ridge"}}
+    el = {
+        "type": "way",
+        "id": 3,
+        "tags": {"name": "Some Ridge", "natural": "ridge"},
+        "geometry": [{"lon": 25.0, "lat": 45.0}, {"lon": 25.01, "lat": 45.0}],
+    }
     props = _build_natural_props(el, {})
     assert props is not None
     assert props["name_de"] is None
