@@ -8,133 +8,328 @@
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin="">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
-  :root {{ --bg: {bg}; --route: {route_color}; --station: {station_color}; }}
-  * {{ box-sizing: border-box; }}
-  body {{
-    margin: 0; background: var(--bg); color: #2b2113;
-    font: 16px/1.5 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  }}
-  header {{ padding: 1rem 1.25rem; border-bottom: 2px solid var(--route); }}
-  header h1 {{ margin: 0; font-size: 1.4rem; }}
-  header p {{ margin: .25rem 0 0; color: #5b4a30; }}
-  #map {{ height: 65vh; min-height: 380px; width: 100%; }}
-  .legend {{
-    display: flex; flex-wrap: wrap; gap: .75rem 1.25rem;
-    padding: .75rem 1.25rem; background: #fffdf5;
-    border-bottom: 1px solid #d8caa0; font-size: .9rem;
-  }}
-  .lg-row {{ display: flex; align-items: center; gap: .4rem; }}
-  .lg-line {{ width: 22px; height: 0; border-top: 3px dashed var(--route); }}
-  .lg-dot {{ width: 12px; height: 12px; border-radius: 50%; }}
-  .lg-circle {{ width: 13px; height: 13px; border-radius: 50%; background: var(--c); }}
-  .lg-square {{ width: 12px; height: 12px; background: var(--c); }}
-  .lg-triangle {{
-    width: 0; height: 0; border-left: 7px solid transparent;
-    border-right: 7px solid transparent; border-bottom: 13px solid var(--c);
-  }}
-  .lg-info {{
-    width: 16px; height: 16px; border-radius: 50%; background: #2b6cb0;
-    color: #fff; font-size: 11px; line-height: 16px; text-align: center;
-  }}
-  main {{ max-width: 880px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }}
-  h2 {{ border-bottom: 1px solid #d8caa0; padding-bottom: .25rem; margin-top: 2rem; }}
-  .route {{
-    background: #fffdf5; border: 1px solid #e3d6ac; border-radius: 6px;
-    padding: .75rem 1rem; margin: 1rem 0;
-  }}
-  .route h3 {{ margin: 0 0 .25rem; }}
-  .meta {{ margin: 0; color: #5b4a30; }}
-  .conn {{ margin: .4rem 0 0; color: #5b4a30; font-weight: 600; }}
-  .tags {{ margin: .4rem 0 0; }}
-  .tag {{
-    display: inline-block; background: #ece0bd; color: #5b4a30;
-    border-radius: 10px; padding: .05rem .55rem; margin: 0 .25rem .25rem 0;
-    font-size: .8rem;
-  }}
-  ol.stops {{ margin: .5rem 0 0; padding-left: 1.4rem; }}
-  ol.stops li {{ margin: .15rem 0; }}
-  .hint {{ color: #7a6645; font-size: .9rem; }}
-  .empty, .note {{ color: #7a6645; font-style: italic; }}
-  ul.dests {{ margin: .25rem 0 0; padding-left: 1.2rem; }}
-  .swatch {{
-    display: inline-block; width: 12px; height: 12px; border-radius: 2px;
-    margin-right: .4rem; vertical-align: middle;
-  }}
-  .poi-marker {{ display: block; }}
-  .poi-marker.circle {{ width: 14px; height: 14px; border-radius: 50%;
-    border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.4); }}
-  .poi-marker.square {{ width: 13px; height: 13px; border: 2px solid #fff;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.4); }}
-  .poi-marker.triangle {{ width: 0; height: 0; border-left: 8px solid transparent;
-    border-right: 8px solid transparent; filter: drop-shadow(0 0 1px #000); }}
-  a {{ color: #6b4f2a; }}
+/* ============================================================
+   MURIS — Atlas Design System
+   Hansa-Weltatlas (Pfahl-Verlag, A. Zimmermann, 7th ed. 1952)
+   ============================================================ */
 
-  /* ---------- Vintage / Eye-Candy ---------- */
-  body {{
-    background-image:
-      radial-gradient(circle at 18% 8%, rgba(255,255,255,.55), transparent 42%),
-      radial-gradient(circle at 82% 0%, rgba(176,140,80,.16), transparent 48%),
-      repeating-linear-gradient(0deg, rgba(120,90,40,.028) 0 2px, transparent 2px 5px);
-  }}
-  h1, h2, h3, .ulm-panel-title {{
-    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
-    font-weight: 600; letter-spacing: .01em;
-  }}
-  header {{ text-align: center; background: linear-gradient(#fffdf5, #f6efd8); }}
-  header h1 {{ font-size: 1.95rem; letter-spacing: .04em; }}
-  header h1::after {{
-    content: "\2726  \2767  \2726"; display: block; color: var(--route);
-    font-size: .8rem; letter-spacing: .4em; margin-top: .3rem; opacity: .65;
-  }}
-  header p {{ font-style: italic; }}
-  #map {{
-    border: 6px solid #efe6c8; outline: 2px solid var(--route);
-    outline-offset: -8px; box-shadow: inset 0 0 40px rgba(80,55,20,.25);
-  }}
-  /* Sepia-Look nur auf den modernen Basiskacheln */
-  .leaflet-container.sepia .leaflet-tile-pane {{
-    filter: sepia(.7) saturate(.85) contrast(.95) brightness(1.03);
-  }}
-  /* animierte Routenkorridore ("marching ants") */
-  .route-ants {{ animation: ants 1.4s linear infinite; }}
-  @keyframes ants {{ to {{ stroke-dashoffset: -22; }} }}
-  /* Popups im Pergament-Stil */
-  .leaflet-popup-content-wrapper {{
-    background: #fffdf5; color: #2b2113; border: 1px solid #d8caa0;
-    border-radius: 5px; box-shadow: 0 2px 10px rgba(60,40,10,.35);
-    font-family: "EB Garamond", Georgia, serif; font-size: 1.02rem;
-  }}
-  .leaflet-popup-tip {{ background: #fffdf5; }}
-  /* POI-Marker: sanfter Hover */
-  .poi-marker {{ transition: transform .12s ease; }}
-  .leaflet-marker-icon:hover .poi-marker {{ transform: scale(1.25); }}
-  /* Eigene Bedienfelder (Historische Karte + Sepia) */
-  .ulm-panel {{
-    background: #fffdf5; border: 1px solid #d8caa0; border-radius: 5px;
-    padding: .5rem .6rem; font-size: .85rem; max-width: 220px;
-    box-shadow: 0 1px 6px rgba(60,40,10,.25);
-  }}
-  .ulm-panel-title {{ font-weight: 700; margin-bottom: .35rem; color: var(--route); }}
-  .ulm-sel {{ width: 100%; margin-bottom: .45rem; }}
-  .ulm-op {{ display: block; font-size: .8rem; color: #5b4a30; }}
-  .ulm-range {{ width: 100%; margin-top: .2rem; }}
-  .ulm-btn {{
-    font: inherit; background: #fffdf5; color: var(--route); cursor: pointer;
-    border: 1px solid #d8caa0; border-radius: 5px; padding: .25rem .55rem;
-    box-shadow: 0 1px 6px rgba(60,40,10,.25);
-  }}
-  .ulm-btn:hover {{ background: #f3ead0; }}
+@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Roma.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }}
+@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Ital.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }}
+@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }}
+@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-BoldItal.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }}
+@font-face {{ font-family:'BetecknaGS'; src:url('fonts/BetecknaGS.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }}
+@font-face {{ font-family:'BetecknaGS'; src:url('fonts/BetecknaGS-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }}
+@font-face {{ font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Regular.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }}
+@font-face {{ font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Medium.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }}
+
+:root {{
+  /* --- driven by web.py -------------------------------------------------- */
+  --bg:      {bg};
+  --route:   {route_color};
+  --station: {station_color};
+
+  /* --- Muris palette (all sampled from Hansa-Weltatlas scans) ------------ */
+  --paper:        #f4e7d1;
+  --paper-lit:    #faf1df;
+  --paper-deep:   #ece0c8;
+  --sea:          #d8e0d6;
+  --ink:          #3a2a26;
+  --ink-soft:     #5c4a42;
+  --ink-faint:    #8a786d;
+  --hansa-rot:    #e2566f;
+  --hansa-rot-hi: #c93a57;
+  --index-red:    #c0392f;
+  --line:         #cdbfa4;
+
+  /* --- political area tints ----------------------------------------------- */
+  --tint-rose:    #f1a8a4;
+  --tint-straw:   #e7d27c;
+  --tint-green:   #c4e2ba;
+  --tint-apricot: #f7d3b6;
+
+  /* --- typefaces ---------------------------------------------------------- */
+  --font-display: 'BetecknaGS', ui-sans-serif, system-ui, sans-serif;
+  --font-serif:   'Century Schoolbook L', 'Century Schoolbook', Georgia, serif;
+  --font-ui:      'Libre Franklin', ui-sans-serif, system-ui, 'Segoe UI', Arial, sans-serif;
+
+  /* --- stroke ladder ------------------------------------------------------ */
+  --stroke-hair:  0.5px;
+  --stroke-fine:  0.75px;
+  --stroke-base:  1px;
+  --stroke-bold:  1.6px;
+  --stroke-frame: 2px;
+  --stroke-heavy: 3px;
+
+  /* --- radii: the atlas is square-cornered -------------------------------- */
+  --r-none: 0px;
+  --r-sm:   2px;
+}}
+
+* {{ box-sizing: border-box; margin: 0; padding: 0; }}
+
+body {{
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 18% 8%,  rgba(255,251,239,.55), transparent 42%),
+    radial-gradient(circle at 82% 0%,  rgba(58,42,38,.06),    transparent 48%),
+    repeating-linear-gradient(0deg, rgba(58,42,38,.018) 0 2px, transparent 2px 5px);
+  color: var(--ink);
+  font: 16px/1.55 var(--font-serif);
+}}
+
+/* ============================================================
+   HEADER — atlas sheet-title register
+   ============================================================ */
+header {{
+  text-align: center;
+  padding: 1.4rem 1.25rem 1.1rem;
+  border-bottom: var(--stroke-heavy) solid var(--ink);
+  background: linear-gradient(var(--paper-lit), var(--paper));
+}}
+header h1 {{
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.95rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.12;
+}}
+header p {{
+  margin-top: .4rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: .95rem;
+}}
+/* Hansa-Rot hairline rule below title — substitutes for the atlas neat-line separator */
+header h1::after {{
+  content: '';
+  display: block;
+  width: 4rem;
+  height: var(--stroke-bold);
+  background: var(--hansa-rot);
+  margin: .55rem auto 0;
+}}
+
+/* ============================================================
+   MAP FRAME — double neat-line
+   ============================================================ */
+#map {{
+  height: 65vh;
+  min-height: 380px;
+  width: 100%;
+  border: var(--stroke-heavy) solid var(--ink);
+  outline: var(--stroke-frame) solid var(--ink);
+  outline-offset: -7px;
+  box-shadow: inset 0 0 40px rgba(58,42,38,.18);
+}}
+
+/* ============================================================
+   LEGEND BAR
+   ============================================================ */
+.legend {{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.2rem;
+  padding: .65rem 1.25rem;
+  background: var(--paper-lit);
+  border-bottom: var(--stroke-base) solid var(--line);
+  font-family: var(--font-serif);
+  font-size: .87rem;
+  color: var(--ink);
+}}
+.lg-row {{ display: flex; align-items: center; gap: .4rem; }}
+.lg-line {{ width: 22px; height: 0; border-top: 2px dashed var(--route); }}
+.lg-dot  {{ width: 11px; height: 11px; border-radius: 50%; background: var(--station); }}
+.lg-circle  {{ width: 12px; height: 12px; border-radius: 50%; background: var(--c); }}
+.lg-square  {{ width: 11px; height: 11px; background: var(--c); }}
+.lg-triangle {{
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid var(--c);
+}}
+/* Info marker: sepia circle, index-red glyph */
+.lg-info {{
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper-lit);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 700;
+}}
+
+/* ============================================================
+   MAIN CONTENT COLUMN
+   ============================================================ */
+main {{
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 4rem;
+}}
+
+h2 {{
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: .02em;
+  color: var(--ink);
+  border-bottom: var(--stroke-base) solid var(--line);
+  padding-bottom: .25rem;
+  margin-top: 2rem;
+}}
+
+h3 {{
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+}}
+
+/* ============================================================
+   ROUTE CARDS
+   ============================================================ */
+.route {{
+  background: var(--paper-lit);
+  border: var(--stroke-base) solid var(--line);
+  border-radius: var(--r-none);
+  padding: .75rem 1rem;
+  margin: 1rem 0;
+}}
+.route h3 {{ margin: 0 0 .25rem; }}
+.meta  {{ color: var(--ink-soft); }}
+.conn  {{ margin: .4rem 0 0; color: var(--ink-soft); font-weight: 600; }}
+.tags  {{ margin: .4rem 0 0; }}
+.tag {{
+  display: inline-block;
+  background: rgba(231,210,124,.25);   /* tint-straw wash */
+  color: var(--ink-soft);
+  border: var(--stroke-hair) solid var(--line);
+  border-radius: var(--r-none);
+  padding: .05rem .55rem;
+  margin: 0 .25rem .25rem 0;
+  font-family: var(--font-ui);
+  font-size: .78rem;
+}}
+
+/* ============================================================
+   STOP LISTS & MISC
+   ============================================================ */
+ol.stops {{ margin: .5rem 0 0; padding-left: 1.4rem; }}
+ol.stops li {{ margin: .15rem 0; }}
+.hint  {{ color: var(--ink-faint); font-size: .9rem; }}
+.empty, .note {{ color: var(--ink-faint); font-style: italic; }}
+ul.dests {{ margin: .25rem 0 0; padding-left: 1.2rem; }}
+.swatch {{
+  display: inline-block;
+  width: 11px; height: 11px;
+  border-radius: var(--r-none);
+  margin-right: .4rem;
+  vertical-align: middle;
+}}
+a {{ color: var(--hansa-rot); text-decoration-thickness: var(--stroke-hair); }}
+a:hover {{ color: var(--hansa-rot-hi); }}
+
+/* ============================================================
+   POI MARKERS (used in JS divIcon)
+   ============================================================ */
+.poi-marker {{ display: block; }}
+.poi-marker.circle {{
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 1.5px solid var(--paper);
+  box-shadow: 0 0 0 1px rgba(58,42,38,.45);
+}}
+.poi-marker.square {{
+  width: 13px; height: 13px;
+  border: 1.5px solid var(--paper);
+  box-shadow: 0 0 0 1px rgba(58,42,38,.45);
+}}
+.poi-marker.triangle {{
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  filter: drop-shadow(0 0 1px rgba(58,42,38,.5));
+}}
+/* dry micro-animation — 150ms opacity fade, no bounce */
+.poi-marker {{ transition: transform 150ms ease-out; }}
+.leaflet-marker-icon:hover .poi-marker {{ transform: scale(1.2); }}
+
+/* ============================================================
+   LEAFLET OVERRIDES — popups & chrome
+   ============================================================ */
+.leaflet-popup-content-wrapper {{
+  background: var(--paper-lit);
+  color: var(--ink);
+  border: var(--stroke-base) solid var(--line);
+  border-radius: var(--r-sm);
+  box-shadow: 0 2px 8px rgba(58,42,38,.28);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}}
+.leaflet-popup-tip {{ background: var(--paper-lit); }}
+.leaflet-popup-close-button {{ color: var(--ink-faint) !important; }}
+
+/* ============================================================
+   CUSTOM PANELS (historical survey overlay + sepia toggle)
+   App chrome only — Libre Franklin.
+   ============================================================ */
+.ulm-panel {{
+  background: var(--paper-lit);
+  border: var(--stroke-base) solid var(--line);
+  border-radius: var(--r-sm);
+  padding: .5rem .65rem;
+  font-family: var(--font-ui);
+  font-size: .83rem;
+  max-width: 220px;
+  box-shadow: 0 1px 4px rgba(58,42,38,.18);
+  color: var(--ink);
+}}
+.ulm-panel-title {{
+  font-family: var(--font-ui);
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: var(--hansa-rot);
+  font-size: .83rem;
+}}
+.ulm-sel   {{ width: 100%; margin-bottom: .45rem; font-family: var(--font-ui); }}
+.ulm-op    {{ display: block; font-size: .78rem; color: var(--ink-soft); }}
+.ulm-range {{ width: 100%; margin-top: .2rem; }}
+.ulm-btn {{
+  font-family: var(--font-ui);
+  font-size: .83rem;
+  background: var(--paper-lit);
+  color: var(--hansa-rot);
+  cursor: pointer;
+  border: var(--stroke-base) solid var(--line);
+  border-radius: var(--r-sm);
+  padding: .25rem .55rem;
+  box-shadow: 0 1px 4px rgba(58,42,38,.15);
+}}
+.ulm-btn:hover {{ background: var(--paper-deep); }}
+
+/* ============================================================
+   SEPIA TILE FILTER (modern base tiles only)
+   ============================================================ */
+.leaflet-container.sepia .leaflet-tile-pane {{
+  filter: sepia(.7) saturate(.85) contrast(.95) brightness(1.03);
+}}
+
+/* ============================================================
+   ANIMATED ROUTE CORRIDORS ("marching ants")
+   ============================================================ */
+.route-ants {{ animation: ants 1.4s linear infinite; }}
+@keyframes ants {{ to {{ stroke-dashoffset: -22; }} }}
 </style>
 </head>
 <body>
 <header>
-  <h1>Ulmer Schachtel – Rumänien-Reiseplaner</h1>
-  <p>Bahnreise-Planung: Dracula-Städte, Temeschburg, Bukarest und Donaudelta.</p>
+  <h1>Ulmer Schachtel</h1>
+  <p>Rumänien-Reiseplaner · Bahnverbindungen, Reiseziele, Habsburger Militärkarten</p>
 </header>
 <div id="map"></div>
 <div class="legend">{legend}</div>
@@ -156,7 +351,7 @@
 
   var map = L.map('map');
 
-  // Basiskarten (umschaltbar): OSM bringt eigene Labels mit, CARTO-"nolabels" ist bewusst beschriftungsfrei.
+  // Basiskarten (umschaltbar)
   var osm = L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
     maxZoom: 19, attribution: '&copy; OpenStreetMap-Mitwirkende'
   }}).addTo(map);
@@ -164,8 +359,7 @@
     maxZoom: 20, attribution: '&copy; OpenStreetMap-Mitwirkende, &copy; CARTO'
   }});
 
-  // Optionales Label-Overlay (moderne Orts-/Straßennamen, im Tileset zoom-abhängig:
-  // Orte weit draußen, Straßen beim Reinzoomen). Eigene Pane über der Basis, unter den Daten.
+  // Label-Overlay (eigene Pane über Basis, unter Daten)
   map.createPane('labelPane');
   map.getPane('labelPane').style.zIndex = 350;
   map.getPane('labelPane').style.pointerEvents = 'none';
@@ -186,7 +380,7 @@
       layer.bindPopup(
         '<b>' + esc(p.route_name) + '</b><br>' +
         esc(p.from_city) + ' → ' + esc(p.to_city) +
-        '<br>ca. ' + esc(p.length_km) + ' km' +
+        '<br>ca. ' + esc(p.length_km) + ' km' +
         '<br><small>' + esc(p.tags) + '</small>'
       );
     }}
@@ -196,22 +390,22 @@
   var stations = L.geoJSON(DATA.stations, {{
     pointToLayer: function (f, latlng) {{
       return L.circleMarker(latlng, {{
-        radius: 4, color: '#fff', weight: 1,
+        radius: 4, color: '#f4e7d1', weight: 1,
         fillColor: DATA.stationColor, fillOpacity: 1
       }});
     }},
     onEachFeature: function (f, layer) {{
       var p = f.properties;
-      layer.bindPopup('<b>' + esc(p.name) + '</b><br>Station ' + esc(p.station_id));
+      layer.bindPopup('<b>' + esc(p.name) + '</b><br>Station ' + esc(p.station_id));
     }}
   }}).addTo(map);
 
   // Reiseziele (POIs) – Form/Farbe je Kategorie
   var pois = L.geoJSON(DATA.pois, {{
     pointToLayer: function (f, latlng) {{
-      var meta = DATA.categoryMeta[f.properties.category] || {{}};
+      var meta  = DATA.categoryMeta[f.properties.category] || {{}};
       var shape = meta.shape || 'circle';
-      var color = meta.color || '#333';
+      var color = meta.color || '#3a2a26';
       var style = shape === 'triangle'
         ? 'border-bottom-color:' + color
         : 'background:' + color;
@@ -224,19 +418,16 @@
     }},
     onEachFeature: function (f, layer) {{
       var p = f.properties;
-      layer.bindPopup(
-        '<b>' + esc(p.name) + '</b><br>' + esc(p.notes || '')
-      );
+      layer.bindPopup('<b>' + esc(p.name) + '</b><br>' + esc(p.notes || ''));
     }}
   }}).addTo(map);
 
-  // Info-Marker ("Über diese Karte") – body enthält bewusst HTML.
+  // Info-Marker — body enthält HTML
   var info = L.geoJSON(DATA.info, {{
     pointToLayer: function (f, latlng) {{
       var icon = L.divIcon({{
         className: '',
-        html: '<span class="lg-info" style="width:22px;height:22px;' +
-              'line-height:22px;font-size:14px">i</span>',
+        html: '<span class="lg-info" style="width:22px;height:22px;line-height:22px;font-size:13px">i</span>',
         iconSize: [22, 22], iconAnchor: [11, 11]
       }});
       return L.marker(latlng, {{ icon: icon }});
@@ -257,10 +448,10 @@
       'Info': info
     }}, {{ collapsed: false }}).addTo(map);
 
-  // --- Historische Karten (Arcanum): Overlay in eigener Pane + Transparenz-Regler ---
+  // --- Historische Karten (Arcanum) ---
   var HIST = {hist_surveys};
   map.createPane('histPane');
-  map.getPane('histPane').style.zIndex = 300;   // über Basis (200), unter Labels (350)
+  map.getPane('histPane').style.zIndex = 300;
   var histLayer = null;
   function setHist(key, opacity) {{
     if (histLayer) {{ map.removeLayer(histLayer); histLayer = null; }}
@@ -297,7 +488,7 @@
   }});
   map.addControl(new HistControl());
 
-  // --- Sepia-Umschalter (nur moderne Basiskacheln) ---
+  // --- Sepia-Umschalter ---
   var SepiaControl = L.Control.extend({{
     options: {{ position: 'topright' }},
     onAdd: function () {{
@@ -315,7 +506,7 @@
 
   L.control.scale({{ metric: true, imperial: false }}).addTo(map);
 
-  // Ausschnitt über alle Features.
+  // Ausschnitt über alle Features
   var group = L.featureGroup([routes, stations, pois, info]);
   var bounds = group.getBounds();
   if (bounds.isValid()) {{

@@ -31,7 +31,7 @@ from .repository import (
     load_geojson,
     stops_for,
 )
-from .paths import PROCESSED
+from .paths import PROCESSED, ROOT
 
 HERE = Path(__file__).resolve().parent
 
@@ -46,19 +46,36 @@ GEOJSON_SOURCES = [
 ]
 
 # POI categories → (German display label, colour, CSS shape class).
-# Must match QGIS styles (AGENTS.md colour palette) and the JavaScript
-# ``categoryMeta`` object embedded in the page.
+# Colours follow the Muris atlas palette (Hansa-Weltatlas 1952, sampled from scans).
+# One accent only — Hansa-Rot for the headline category; sepia ink tones for the rest.
+# QGIS alignment is a separate pass; web map uses these values directly.
 CATEGORY_META: dict[str, tuple[str, str, str]] = {
-    "dracula_city": ("Dracula-Städte", "#8b1a1a", "circle"),
-    "city":         ("Städte",         "#9c7a3c", "square"),
-    "danube_delta": ("Donaudelta",     "#1f6f6f", "triangle"),
+    "dracula_city": ("Dracula-Städte", "#c93a57", "circle"),   # --hansa-rot-hi
+    "city":         ("Städte",         "#3a2a26", "square"),   # --ink
+    "danube_delta": ("Donaudelta",     "#5c4a42", "triangle"), # --ink-soft
 }
 
-ROUTE_COLOR   = "#6b4f2a"
-STATION_COLOR = "#4c4c4c"
-BG_COLOR      = "#f3ecd5"
+ROUTE_COLOR   = "#e2566f"  # --hansa-rot
+STATION_COLOR = "#3a2a26"  # --ink
+BG_COLOR      = "#f4e7d1"  # --paper
 
 INFOFER = "https://mersultrenurilor.infofer.ro"
+
+# Muris Atlas typefaces copied from fonts/ into site/fonts/ at build time.
+# Century Schoolbook L = period German Antiqua (labels, body, italic hydrography).
+# BetecknaGS = geometric grotesque (sheet titles, thematic legends).
+# Libre Franklin = modern UI chrome (panels, controls).
+FONTS_SRC   = ROOT / "fonts"
+FONT_FACES  = [
+    "CenturySchL-Roma.ttf",
+    "CenturySchL-Ital.ttf",
+    "CenturySchL-Bold.ttf",
+    "CenturySchL-BoldItal.ttf",
+    "BetecknaGS.ttf",
+    "BetecknaGS-Bold.ttf",
+    "LibreFranklin-Regular.otf",
+    "LibreFranklin-Medium.otf",
+]
 
 # Habsburg military surveys (Arcanum) — (key, label, XYZ URL).
 # Source: qgis/xyz_connections.xml.  © Arcanum Maps (mapire.eu).
@@ -129,7 +146,7 @@ def _render_connection(conn: Connection | None) -> str:
              if conn.train else "")
     notes = (f'<br><span class="hint">{html.escape(conn.notes)}</span>'
              if conn.notes else "")
-    return f'<p class="conn">🚆 {line}{train}{notes}</p>'
+    return f'<p class="conn">{line}{train}{notes}</p>'
 
 
 def _render_overview(overview: list[dict], pois: dict) -> str:
@@ -277,7 +294,7 @@ def render(data: dict) -> str:
 
 
 def build(out_dir: Path) -> None:
-    """Build the site into ``out_dir``: write index.html and copy raw data."""
+    """Build the site into ``out_dir``: write index.html and copy raw data and fonts."""
     data = collect()
     out_dir.mkdir(parents=True, exist_ok=True)
     index = out_dir / "index.html"
@@ -289,6 +306,17 @@ def build(out_dir: Path) -> None:
         src = PROCESSED / name
         if src.is_file():
             shutil.copyfile(src, data_out / name)
+
+    # Copy Muris atlas typefaces so GitHub Pages can serve them via @font-face.
+    fonts_out = out_dir / "fonts"
+    fonts_out.mkdir(exist_ok=True)
+    copied = 0
+    for face in FONT_FACES:
+        src = FONTS_SRC / face
+        if src.is_file():
+            shutil.copyfile(src, fonts_out / face)
+            copied += 1
+    print(f"Schriften kopiert nach: {fonts_out} ({copied}/{len(FONT_FACES)} Dateien)")
 
     print(f"Seite gebaut: {index}")
     print(f"Rohdaten kopiert nach: {data_out}")
