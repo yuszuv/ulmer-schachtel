@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 import shutil
 from pathlib import Path
 
@@ -35,6 +36,43 @@ from .paths import PROCESSED, ROOT
 
 HERE = Path(__file__).resolve().parent
 
+# Vendored design system (populated by `reiseplan-vendor-design`).
+VENDOR_DIR  = ROOT / "vendor" / "muris-atlas"
+TOKENS_CSS  = VENDOR_DIR / "colors_and_type.css"
+VENDOR_FONTS = VENDOR_DIR / "fonts"
+
+
+def load_tokens() -> dict[str, str]:
+    """Parse CSS custom properties from the vendored design token file.
+
+    Reads ``vendor/muris-atlas/colors_and_type.css`` and returns a mapping of
+    ``{property-name: value}`` where property-name omits the leading ``--``.
+    One level of ``var(--x)`` aliases is resolved so callers receive concrete
+    values without needing to chase references.
+
+    Raises ``SystemExit`` with a human-readable message when the vendor
+    directory is missing (i.e. ``reiseplan-vendor-design`` has never been run).
+    """
+    if not TOKENS_CSS.is_file():
+        raise SystemExit(
+            "vendor/muris-atlas/colors_and_type.css fehlt.\n"
+            "Bitte zuerst ausführen: uv run reiseplan-vendor-design"
+        )
+    text = TOKENS_CSS.read_text(encoding="utf-8")
+    # Extract all  --name: value;  declarations (value may contain spaces).
+    raw: dict[str, str] = {}
+    for m in re.finditer(r"--([a-zA-Z0-9-]+)\s*:\s*([^;]+?)\s*;", text):
+        raw[m.group(1)] = m.group(2).strip()
+
+    # Resolve one level of var(--x) aliases.
+    tokens: dict[str, str] = {}
+    _var = re.compile(r"^var\(--([a-zA-Z0-9-]+)\)$")
+    for name, value in raw.items():
+        m = _var.match(value)
+        tokens[name] = raw.get(m.group(1), value) if m else value
+    return tokens
+
+
 # Raw data files also copied to site/data/ for public download.
 GEOJSON_SOURCES = [
     "poi_destinations.geojson",
@@ -45,36 +83,42 @@ GEOJSON_SOURCES = [
     "timetable.csv",
 ]
 
-# POI categories → (German display label, colour, CSS shape class).
-# Colours follow the Muris atlas palette (Hansa-Weltatlas 1952, sampled from scans).
-# One accent only — Hansa-Rot for the headline category; sepia ink tones for the rest.
-# QGIS alignment is a separate pass; web map uses these values directly.
-CATEGORY_META: dict[str, tuple[str, str, str]] = {
-    "dracula_city": ("Dracula-Städte", "#c93a57", "circle"),   # --hansa-rot-hi
-    "city":         ("Städte",         "#3a2a26", "square"),   # --ink
-    "danube_delta": ("Donaudelta",     "#5c4a42", "triangle"), # --ink-soft
+# POI categories → (German display label, CSS shape class).
+# Colours are resolved at render time from the vendored design tokens so they
+# always match the upstream design system (no hex literals duplicated here).
+# Token name → CSS custom-property: dracula_city=--hansa-rot-hi, city=--ink,
+# danube_delta=--ink-soft.  QGIS alignment is a separate pass.
+CATEGORY_META: dict[str, tuple[str, str]] = {
+    "dracula_city": ("Dracula-Städte", "circle"),
+    "city":         ("Städte",         "square"),
+    "danube_delta": ("Donaudelta",     "triangle"),
 }
-
-ROUTE_COLOR   = "#e2566f"  # --hansa-rot
-STATION_COLOR = "#3a2a26"  # --ink
-BG_COLOR      = "#f4e7d1"  # --paper
+CATEGORY_TOKEN: dict[str, str] = {
+    "dracula_city": "hansa-rot-hi",
+    "city":         "ink",
+    "danube_delta": "ink-soft",
+}
 
 INFOFER = "https://mersultrenurilor.infofer.ro"
 
-# Muris Atlas typefaces copied from fonts/ into site/fonts/ at build time.
+# Muris Atlas typefaces — copied from the vendored design system into site/fonts/
+# at build time so GitHub Pages can serve them via the inlined @font-face rules.
 # Century Schoolbook L = period German Antiqua (labels, body, italic hydrography).
-# BetecknaGS = geometric grotesque (sheet titles, thematic legends).
+# BetecknaGS / BetecknaGS Condensed = geometric grotesque (sheet titles, legends).
 # Libre Franklin = modern UI chrome (panels, controls).
-FONTS_SRC   = ROOT / "fonts"
-FONT_FACES  = [
+# Keep in sync with the @font-face declarations in vendor/muris-atlas/colors_and_type.css.
+FONT_FACES = [
     "CenturySchL-Roma.ttf",
     "CenturySchL-Ital.ttf",
     "CenturySchL-Bold.ttf",
     "CenturySchL-BoldItal.ttf",
     "BetecknaGS.ttf",
     "BetecknaGS-Bold.ttf",
+    "BetecknaGS-Italic.ttf",
+    "BetecknaGSCondensed-Bold.ttf",
     "LibreFranklin-Regular.otf",
     "LibreFranklin-Medium.otf",
+    "LibreFranklin-Bold.otf",
 ]
 
 # Habsburg military surveys (Arcanum) — (key, label, XYZ URL).
@@ -149,8 +193,13 @@ def _render_connection(conn: Connection | None) -> str:
     return f'<p class="conn">{line}{train}{notes}</p>'
 
 
-def _render_overview(overview: list[dict], pois: dict) -> str:
-    """Server-side HTML route and destination overview (no JS required)."""
+def _render_overview(overview: list[dict], pois: dict, palette: dict[str, str]) -> str:
+    """Server-side HTML route and destination overview (no JS required).
+
+    ``palette`` is the resolved token dict from ``load_tokens()``; category
+    colours are looked up via ``CATEGORY_TOKEN`` so no hex literals are
+    embedded in the rendered HTML.
+    """
     parts: list[str] = ["<h2>Routen im Überblick</h2>"]
 
     for entry in overview:
@@ -198,10 +247,11 @@ def _render_overview(overview: list[dict], pois: dict) -> str:
         by_cat.setdefault(feature["properties"]["category"], []).append(
             feature["properties"]
         )
-    for cat, (label, color, _shape) in CATEGORY_META.items():
+    for cat, (label, _shape) in CATEGORY_META.items():
         items = by_cat.get(cat, [])
         if not items:
             continue
+        color = palette.get(CATEGORY_TOKEN[cat], "#3a2a26")
         parts.append(
             f'<h3><span class="swatch" style="background:{color}"></span>'
             f"{html.escape(label)}</h3>"
@@ -219,13 +269,20 @@ def _render_overview(overview: list[dict], pois: dict) -> str:
     return "\n".join(parts)
 
 
-def _render_legend() -> str:
+def _render_legend(palette: dict[str, str]) -> str:
+    """Render the map legend bar.
+
+    ``palette`` is the resolved token dict from ``load_tokens()``; colours
+    are read from tokens so no hex literals are duplicated here.
+    """
+    station_color = palette.get("ink", "#3a2a26")
     rows = [
         ('<span class="lg-line"></span>', "Routenkorridor"),
-        (f'<span class="lg-dot" style="background:{STATION_COLOR}"></span>',
+        (f'<span class="lg-dot" style="background:{station_color}"></span>',
          "Bahnstation"),
     ]
-    for _cat, (label, color, shape) in CATEGORY_META.items():
+    for cat, (label, shape) in CATEGORY_META.items():
+        color = palette.get(CATEGORY_TOKEN[cat], "#3a2a26")
         rows.append((f'<span class="lg-{shape}" style="--c:{color}"></span>', label))
     rows.append(('<span class="lg-info">ℹ</span>', "Info zur Karte"))
     return "".join(
@@ -264,26 +321,41 @@ def _render_history() -> str:
 # ---------------------------------------------------------------------------
 
 def render(data: dict) -> str:
-    """Assemble the full HTML string from collected data."""
+    """Assemble the full HTML string from collected data.
+
+    Loads design tokens from ``vendor/muris-atlas/colors_and_type.css`` and
+    inlines that file verbatim into the ``<style>`` block so the built page
+    is self-contained and always reflects the vendored token values exactly.
+    """
+    palette = load_tokens()
+    route_color   = palette.get("hansa-rot", "#e2566f")
+    station_color = palette.get("ink",       "#3a2a26")
+
+    paper_color = palette.get("paper", "#f4e7d1")
+
     payload = {
         "routes":       data["routes"],
         "pois":         data["pois"],
         "stations":     data["stations"],
         "info":         data["info"],
         "categoryMeta": {
-            k: {"label": v[0], "color": v[1], "shape": v[2]}
-            for k, v in CATEGORY_META.items()
+            k: {
+                "label": label,
+                "color": palette.get(CATEGORY_TOKEN[k], "#3a2a26"),
+                "shape": shape,
+            }
+            for k, (label, shape) in CATEGORY_META.items()
         },
-        "routeColor":   ROUTE_COLOR,
-        "stationColor": STATION_COLOR,
+        "routeColor":   route_color,
+        "stationColor": station_color,
+        "paperColor":   paper_color,   # station-dot border; matches --paper token
     }
+    tokens_css = TOKENS_CSS.read_text(encoding="utf-8")
     template = (HERE / "template.html").read_text(encoding="utf-8")
     return template.format(
-        bg=BG_COLOR,
-        route_color=ROUTE_COLOR,
-        station_color=STATION_COLOR,
-        legend=_render_legend(),
-        overview=_render_overview(data["overview"], data["pois"]),
+        tokens_css=tokens_css,
+        legend=_render_legend(palette),
+        overview=_render_overview(data["overview"], data["pois"], palette),
         hist_blurb=_render_history(),
         hist_surveys=json.dumps(
             [{"key": k, "label": l, "url": u} for k, l, u in ARCANUM_SURVEYS],
@@ -307,12 +379,13 @@ def build(out_dir: Path) -> None:
         if src.is_file():
             shutil.copyfile(src, data_out / name)
 
-    # Copy Muris atlas typefaces so GitHub Pages can serve them via @font-face.
+    # Copy Muris atlas typefaces from the vendored design system so GitHub Pages
+    # can serve them via the @font-face rules inlined from colors_and_type.css.
     fonts_out = out_dir / "fonts"
     fonts_out.mkdir(exist_ok=True)
     copied = 0
     for face in FONT_FACES:
-        src = FONTS_SRC / face
+        src = VENDOR_FONTS / face
         if src.is_file():
             shutil.copyfile(src, fonts_out / face)
             copied += 1

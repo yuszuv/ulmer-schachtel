@@ -18,7 +18,8 @@ reiseplan-mining     = "reiseplan.thematic:_main_mining"
 reiseplan-industry   = "reiseplan.thematic:_main_industry"
 reiseplan-terrain    = "reiseplan.fetch_terrain:main"
 reiseplan-landcover  = "reiseplan.fetch_landcover:main"
-reiseplan-site       = "reiseplan.web:main"
+reiseplan-site          = "reiseplan.web:main"
+reiseplan-vendor-design = "reiseplan.vendor_design:main"
 
 [dependency-groups]
 dev = ["pytest>=8"]

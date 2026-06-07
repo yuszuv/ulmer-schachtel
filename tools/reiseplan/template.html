@@ -10,61 +10,15 @@
       crossorigin="">
 <style>
 /* ============================================================
-   MURIS — Atlas Design System
-   Hansa-Weltatlas (Pfahl-Verlag, A. Zimmermann, 7th ed. 1952)
+   MURIS — Atlas Design System tokens (inlined from vendor)
+   Source: vendor/muris-atlas/colors_and_type.css
+   Do not edit this block — update via: uv run reiseplan-vendor-design
    ============================================================ */
-
-@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Roma.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }}
-@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Ital.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }}
-@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }}
-@font-face {{ font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-BoldItal.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }}
-@font-face {{ font-family:'BetecknaGS'; src:url('fonts/BetecknaGS.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }}
-@font-face {{ font-family:'BetecknaGS'; src:url('fonts/BetecknaGS-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }}
-@font-face {{ font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Regular.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }}
-@font-face {{ font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Medium.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }}
-
-:root {{
-  /* --- driven by web.py -------------------------------------------------- */
-  --bg:      {bg};
-  --route:   {route_color};
-  --station: {station_color};
-
-  /* --- Muris palette (all sampled from Hansa-Weltatlas scans) ------------ */
-  --paper:        #f4e7d1;
-  --paper-lit:    #faf1df;
-  --paper-deep:   #ece0c8;
-  --sea:          #d8e0d6;
-  --ink:          #3a2a26;
-  --ink-soft:     #5c4a42;
-  --ink-faint:    #8a786d;
-  --hansa-rot:    #e2566f;
-  --hansa-rot-hi: #c93a57;
-  --index-red:    #c0392f;
-  --line:         #cdbfa4;
-
-  /* --- political area tints ----------------------------------------------- */
-  --tint-rose:    #f1a8a4;
-  --tint-straw:   #e7d27c;
-  --tint-green:   #c4e2ba;
-  --tint-apricot: #f7d3b6;
-
-  /* --- typefaces ---------------------------------------------------------- */
-  --font-display: 'BetecknaGS', ui-sans-serif, system-ui, sans-serif;
-  --font-serif:   'Century Schoolbook L', 'Century Schoolbook', Georgia, serif;
-  --font-ui:      'Libre Franklin', ui-sans-serif, system-ui, 'Segoe UI', Arial, sans-serif;
-
-  /* --- stroke ladder ------------------------------------------------------ */
-  --stroke-hair:  0.5px;
-  --stroke-fine:  0.75px;
-  --stroke-base:  1px;
-  --stroke-bold:  1.6px;
-  --stroke-frame: 2px;
-  --stroke-heavy: 3px;
-
-  /* --- radii: the atlas is square-cornered -------------------------------- */
-  --r-none: 0px;
-  --r-sm:   2px;
-}}
+{tokens_css}
+/* ============================================================
+   STRUCTURAL + COMPONENT STYLES
+   All colours/fonts reference var(--…) from the token block above.
+   ============================================================ */
 
 * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
@@ -141,8 +95,8 @@ header h1::after {{
   color: var(--ink);
 }}
 .lg-row {{ display: flex; align-items: center; gap: .4rem; }}
-.lg-line {{ width: 22px; height: 0; border-top: 2px dashed var(--route); }}
-.lg-dot  {{ width: 11px; height: 11px; border-radius: 50%; background: var(--station); }}
+.lg-line {{ width: 22px; height: 0; border-top: 2px dashed var(--hansa-rot); }}
+.lg-dot  {{ width: 11px; height: 11px; border-radius: 50%; background: var(--ink); }}
 .lg-circle  {{ width: 12px; height: 12px; border-radius: 50%; background: var(--c); }}
 .lg-square  {{ width: 11px; height: 11px; background: var(--c); }}
 .lg-triangle {{
@@ -390,7 +344,7 @@ a:hover {{ color: var(--hansa-rot-hi); }}
   var stations = L.geoJSON(DATA.stations, {{
     pointToLayer: function (f, latlng) {{
       return L.circleMarker(latlng, {{
-        radius: 4, color: '#f4e7d1', weight: 1,
+        radius: 4, color: DATA.paperColor, weight: 1,
         fillColor: DATA.stationColor, fillOpacity: 1
       }});
     }},
@@ -405,7 +359,7 @@ a:hover {{ color: var(--hansa-rot-hi); }}
     pointToLayer: function (f, latlng) {{
       var meta  = DATA.categoryMeta[f.properties.category] || {{}};
       var shape = meta.shape || 'circle';
-      var color = meta.color || '#3a2a26';
+      var color = meta.color || DATA.stationColor;
       var style = shape === 'triangle'
         ? 'border-bottom-color:' + color
         : 'background:' + color;

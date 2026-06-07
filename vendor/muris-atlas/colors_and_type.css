@@ -1,0 +1,222 @@
+/* ============================================================================
+   MURIS — Atlas Design System
+   Foundations extracted from the Universal / Hansa Weltatlas
+   (Pfahl-Verlag, Alfred Zimmermann Kartograph, 7th ed. 1952)
+   All values sampled directly from the provided scans.
+   ========================================================================= */
+
+/* ----------------------------------------------------------------------------
+   FONTS — the real faces shipped with the project (uploads/landkarte-fonts).
+   Century Schoolbook L = the period German atlas Antiqua (labels, titles, body,
+   italic hydrography). Libre Franklin = modern app chrome only.
+   --------------------------------------------------------------------------- */
+@font-face { font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Roma.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Ital.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Century Schoolbook L'; src:url('fonts/CenturySchL-BoldItal.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }
+/* BetecknaGS = the atlas' geometric grotesque — ALL sheet titles, the red marginal
+   index, and the thematic (Bodenschätze/Industrie) legends. */
+@font-face { font-family:'BetecknaGS'; src:url('fonts/BetecknaGS.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'BetecknaGS'; src:url('fonts/BetecknaGS-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'BetecknaGS'; src:url('fonts/BetecknaGS-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'BetecknaGS Condensed'; src:url('fonts/BetecknaGSCondensed-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Regular.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Medium.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Libre Franklin'; src:url('fonts/LibreFranklin-Bold.otf') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
+
+:root {
+  /* ---------------------------------------------------------------------
+     CORE PALETTE — the printed inks & papers of the atlas
+     --------------------------------------------------------------------- */
+
+  /* Paper — ONE letterpress sheet tone. Land is unprinted, so land == paper.
+     -lit / -deep / -edge are not separate inks: they are render-only shades of
+     the same sheet (highlight, shadow, worn edge) used for screen depth. */
+  --paper:        #f4e7d1;   /* THE paper tone */
+  --land:         var(--paper);  /* unprinted land = paper (alias) */
+  --paper-lit:    #faf1df;   /* render shade · highlight */
+  --paper-deep:   #ece0c8;   /* render shade · shadow */
+  --paper-edge:   #e7d9bd;   /* render shade · worn margin */
+
+  /* Water */
+  --sea:          #d8e0d6;   /* pale celadon ocean tint */
+  --sea-deep:     #c6d2c8;   /* deeper sea / inset water */
+  --sea-pale:     #e6ece4;   /* shallow / lake */
+
+  /* Political area tints (Flächentöne) — only the boundary bands are tinted;
+     interiors stay unprinted paper. Three chalky overprint hues + one buff. */
+  --tint-rose:    #f1a8a4;   /* rose — e.g. France */
+  --tint-straw:   #e7d27c;   /* straw yellow */
+  --tint-green:   #c4e2ba;   /* pale chlorophyll green */
+  --tint-apricot: #f7d3b6;   /* buff / apricot (British Isles) */
+
+  /* HANSA-ROT — the signature carmine-rose. Thematic hatch, shipping arcs,
+     railways, hot-zone fills, "rote Eintragungen". The brand colour. */
+  --hansa-rot:    #e2566f;
+  --hansa-rot-lo: #ee8a97;   /* lighter wash / fine hatch */
+  --hansa-rot-hi: #c93a57;   /* heavy line / dense symbol */
+
+  /* Inks */
+  --ink:          #3a2a26;   /* warm sepia-black — coastlines, labels, frame */
+  --ink-soft:     #5c4a42;   /* secondary engraving / minor rivers */
+  --ink-faint:    #8a786d;   /* finest detail, contour shading */
+  --index-red:    #c0392f;   /* the red A–T / 1–8 marginal index & graticule ticks */
+
+  /* ---------------------------------------------------------------------
+     SEMANTIC SURFACES — for app chrome & cards built on the atlas
+     --------------------------------------------------------------------- */
+  --bg:           var(--paper);
+  --bg-panel:     var(--paper-lit);
+  --bg-sunk:      var(--paper-deep);
+  --fg:           var(--ink);
+  --fg-muted:     var(--ink-soft);
+  --fg-faint:     var(--ink-faint);
+  --accent:       var(--hansa-rot);
+  --line:         #cdbfa4;   /* hairline rule on paper */
+  --line-strong:  var(--ink);
+
+  /* ---------------------------------------------------------------------
+     TYPE
+     --------------------------------------------------------------------- */
+  --font-display: 'BetecknaGS', 'BetecknaGS Condensed', ui-sans-serif, system-ui, sans-serif;  /* sheet titles, index, thematic legends */
+  --font-serif:  'Century Schoolbook L', 'Century Schoolbook', Georgia, serif;                 /* political labels & Erläuterungen */
+  --font-ui:     'Libre Franklin', ui-sans-serif, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Type scale (cartographic — set on a 1.25 minor-third with display jumps) */
+  --t-frame:   13px;   /* marginal index letters, neat-line ticks */
+  --t-micro:   11px;   /* finest place labels, legend fine print */
+  --t-caption: 13px;   /* legend captions, scale bar */
+  --t-label:   15px;   /* ordinary place names */
+  --t-body:    16px;   /* running text, commentary */
+  --t-sub:     22px;   /* sub-headings */
+  --t-h3:      28px;
+  --t-h2:      38px;
+  --t-h1:      52px;   /* map sheet titles ("Europa") */
+  --t-display: 72px;
+
+  /* Tracking — atlas labels are widely letter-spaced, esp. caps */
+  --track-caps:  0.22em;   /* country / ocean names */
+  --track-wide:  0.40em;   /* spread region names across territory */
+  --track-tight: 0.01em;
+
+  --leading-tight: 1.12;
+  --leading-text:  1.55;
+
+  /* ---------------------------------------------------------------------
+     LINE WEIGHTS — the engraving system (px @ screen ~96dpi)
+     --------------------------------------------------------------------- */
+  --stroke-hair:    0.5px;   /* graticule, finest rivers */
+  --stroke-fine:    0.75px;  /* minor roads, contours */
+  --stroke-base:    1px;     /* coastline, ordinary detail */
+  --stroke-bold:    1.6px;   /* national border core, railway */
+  --stroke-frame:   2px;     /* neat-line inner rule */
+  --stroke-heavy:   3px;     /* neat-line outer rule, title underscore */
+
+  /* ---------------------------------------------------------------------
+     SPACING — 4px base grid
+     --------------------------------------------------------------------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+  /* Radii — the atlas is square-cornered; only legend boxes round faintly */
+  --r-none: 0px;
+  --r-sm:   2px;
+  --r-md:   3px;
+
+  /* Elevation — paper has almost none; legend boxes cast a faint warm shadow */
+  --shadow-card:  0 1px 0 #fff8, 0 2px 6px rgba(58,42,38,0.14);
+  --shadow-float: 0 2px 4px rgba(58,42,38,0.10), 0 8px 24px rgba(58,42,38,0.18);
+  --shadow-inset: inset 0 0 0 1px var(--line);
+}
+
+/* ============================================================================
+   SEMANTIC TEXT STYLES
+   ========================================================================= */
+
+.atlas-title {            /* thematic / regional sheet header — "Landschaftsgürtel", "Karpaten- u. Balkanländer" */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-h1);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: var(--leading-tight);
+}
+
+.atlas-title--wide {      /* big political main title — "Europa", "Weltkarte" (regular, widely spaced) */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--t-h1);
+  letter-spacing: 0.34em;
+  color: var(--ink);
+  line-height: var(--leading-tight);
+}
+
+.atlas-h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--t-h2); letter-spacing: 0.02em; color: var(--ink); }
+.atlas-h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--t-h3); color: var(--ink); }
+
+.atlas-country {          /* territory name across the map */
+  font-family: var(--font-serif);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--ink);
+}
+
+.atlas-region {           /* spread wide across a large territory */
+  font-family: var(--font-serif);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  color: var(--ink-soft);
+}
+
+.atlas-place {            /* ordinary settlement label */
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--t-label);
+  letter-spacing: var(--track-tight);
+  color: var(--ink);
+}
+
+.atlas-hydro {            /* rivers, seas, bays — always italic */
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.atlas-caption {          /* legend captions, scale text */
+  font-family: var(--font-serif);
+  font-size: var(--t-caption);
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.atlas-body {
+  font-family: var(--font-serif);
+  font-size: var(--t-body);
+  line-height: var(--leading-text);
+  color: var(--ink);
+}
+
+.atlas-index {            /* the red marginal A–T / 1–8 frame index — SANS */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--t-frame);
+  letter-spacing: 0.08em;
+  color: var(--index-red);
+}
+
+.atlas-thematic-head {    /* thematic legend header — "Bodenschätze", "Industrien" (bold sans) */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-caption);
+  color: var(--ink);
+}
+
+.atlas-thematic-key {     /* thematic legend body — "Steinkohlen", "Petroleum" (regular sans) */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--t-micro);
+  color: var(--ink);
+}
